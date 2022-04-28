@@ -1,4 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.RgbaSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
@@ -108,25 +109,25 @@ getPointOrFallback(name: string, fallback: PointSignal): PointSignal
 
 /**
 ```
-getPulse(name: string): Promise<PulseSignal>
+getPulse(name: string): Promise<EventSource<any>>
 ```
 
-Returns a promise that is resolved with a PulseSignal from the Block output
- with the given `name`. Fails the promise if no output with that `name` is present
- in the Block or if the output with that `name` is not of type PulseSignal
+Returns a promise that is resolved with an EventSource from the Block output
+with the given `name`. Fails the promise if no output with that `name` is present
+in the Block or if the output with that `name` is not of type EventSource
 */
-getPulse(name: string): Promise<PulseSignal>
+getPulse(name: string): Promise<EventSource<any>>
 
 /**
 ```
-getPulseOrFallback(name: string, fallback: PulseSignal): PulseSignal
+getPulseOrFallback(name: string, fallback: EventSource<any>): EventSource<any>
 ```
 
-Returns a PulseSignal from the Block output with the given `name`. Returns the
+Returns an EventSource from the Block output with the given `name`. Returns the
 `fallback` if any error happens, such as if no output with that `name` is present in the Block,
-or if the output with that `name` is not of type PulseSignal
+or if the output with that `name` is not of type EventSource.
 */
-getPulseOrFallback(name: string, fallback: PulseSignal): PulseSignal
+getPulseOrFallback(name: string, fallback: EventSource<any>): EventSource<any>
 
 /**
 ```

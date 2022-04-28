@@ -1,7 +1,9 @@
-/// <reference path="../Reactive.PointSignal/index.d.ts" />
-/// <reference path="../Reactive.TransformSignal/index.d.ts" />
-/// <reference path="../Reactive.VectorSignal/index.d.ts" />
-/// <reference path="../Scene.SceneObjectBase/index.d.ts" />
+/// <reference path="../ObjectCapture.CapturedObjectInfo/index.d.ts" />
+/// <reference path="../ObjectCapture.CapturedObjectPrefab/index.d.ts" />
+/// <reference path="../ObjectCapture.CapturedObjectType/index.d.ts" />
+/// <reference path="../ObjectCapture.ObjectCaptureLivePreviewPrefab/index.d.ts" />
+/// <reference path="../Reactive.EventSource/index.d.ts" />
+/// <reference path="../Reactive.StringSignal/index.d.ts" />
 
 
 /**
@@ -9,54 +11,78 @@
 */
 
 
-/**
-The `ObjectCapture` class encapsulates a mesh created by ObjectCaptureAlgorithm.
-*/
-declare interface ObjectCapture extends SceneObjectBase {
+declare interface ObjectCapture extends Module {
 
 /**
 ```
-(get) firstCameraTransform: TransformSignal
+(get) livePreviewPrefab: Promise<ObjectCaptureLivePreviewPrefab>
 (set) (Not Available)
 ```
-
-Specifies the transform of first camera when tracking started
 */
-firstCameraTransform: TransformSignal
+livePreviewPrefab: Promise<ObjectCaptureLivePreviewPrefab>
 
 /**
 ```
-(get) wireframe: boolean
-(set) wireframe: boolean
+(get) status: StringSignal
+(set) (Not Available)
 ```
-
-Specifies the wireframe mode
 */
-wireframe: boolean
+status: StringSignal
 
 /**
 ```
-crop(pointOnPlane: PointSignal, planeNormal: VectorSignal): boolean
+endCapture(): Promise<CapturedObjectInfo>
 ```
 
-Crops the mesh by the plane defined by pointOnPlane and planeNormal given in worldSpace coordinates
 */
-crop(pointOnPlane: PointSignal, planeNormal: VectorSignal): boolean
+endCapture(): Promise<CapturedObjectInfo>
 
 /**
 ```
-reset(): void
+onNewCapturedObject(): EventSource<CapturedObjectInfo>
 ```
 
 */
-reset(): void
+onNewCapturedObject(): EventSource<CapturedObjectInfo>
 
 /**
 ```
-undoLastEdit(): void
+restart(): void
 ```
 
 */
-undoLastEdit(): void
+restart(): void
+
+/**
+```
+saveModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture}): Promise<void>
+```
+
+*/
+saveModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture}): Promise<void>
+
+/**
+```
+setObjectType(type: CapturedObjectType): void
+```
+
+*/
+setObjectType(type: CapturedObjectType): void
+
+/**
+```
+shareModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture}): Promise<void>
+```
+
+*/
+shareModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture}): Promise<void>
+
+/**
+```
+startCapture(): void
+```
+
+*/
+startCapture(): void
 
 }

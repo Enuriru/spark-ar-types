@@ -1,9 +1,21 @@
+/// <reference path="../ObjectCapture.CapturedObjectTexture/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
 /**
 The `TexturesModule` class enables images, animation sequences, videos, colors, and other visual artifacts to be combined to form materials.
 */
 declare interface Textures extends Module {
+
+/**
+```
+destroy(texture: CapturedObjectTexture): Promise<void>
+```
+
+Destroy a texture asynchronously.
+When destroying the textures, keep the following in mind:
+- All bound properties will be automatically unbound on destruction.
+*/
+destroy(texture: CapturedObjectTexture): Promise<void>
 
 /**
 ```

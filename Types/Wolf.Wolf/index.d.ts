@@ -1,4 +1,3 @@
-/// <reference path="../Wolf.ObjectCaptureScript/index.d.ts" />
 /// <reference path="../Wolf.SampleWolfScript/index.d.ts" />
 /// <reference path="../Wolf.TrackableManagerScript/index.d.ts" />
 
@@ -15,16 +14,6 @@ and prototype Javascript APIs and Scene visualization to Skylight
 for the algorithms hooked into WOLF.
 */
 declare interface Wolf extends Module {
-
-/**
-```
-(get) objectCapture: ObjectCaptureScript
-(set) (Not Available)
-```
-
-`objectCapture` encapsulates functions and props controlling Ojbect Capture
-*/
-objectCapture: ObjectCaptureScript
 
 /**
 ```

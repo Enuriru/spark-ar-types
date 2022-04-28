@@ -1,4 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.RgbaSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
@@ -64,14 +65,14 @@ setPoint2D(name: string, signal: Vec2Signal): Promise<void>
 
 /**
 ```
-setPulse(name: string, signal: PulseSignal): Promise<void>
+setPulse(name: string, signal: EventSource<any>): Promise<void>
 ```
 
-Sends a PulseSignal to the Block's input with the given `name`. Returns a promise that
- is fulfilled if the operation succeeds and is rejected if the operation fails, such
- as if no input exists with the given name, or if the input's type is not a PulseSignal
+Sends an EventsSource to the Block's input with the given `name`. Returns a promise that
+is fulfilled if the operation succeeds and is rejected if the operation fails, such
+as if no input exists with the given name, or if the input's type is not an EventSource.
 */
-setPulse(name: string, signal: PulseSignal): Promise<void>
+setPulse(name: string, signal: EventSource<any>): Promise<void>
 
 /**
 ```
