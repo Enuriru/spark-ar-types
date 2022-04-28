@@ -10,7 +10,7 @@
 
 
 /**
-The `ARPointTrackable` class describes a reference point, also referred to as an anchor, at a fixed location and orientation in the real world.
+The `ARPointTrackable` class describes a point trackable, also referred to as an anchor, at a fixed location and orientation in the real world.
 */
 declare interface ARPointTrackable {
 
@@ -20,7 +20,7 @@ declare interface ARPointTrackable {
 (set) (Not Available)
 ```
 
-Returns the surface plane that the reference point is currently snapped to, if the optional `snapToPlane` argument was passed
+Returns the surface plane that the point trackable is currently snapped to, if the optional `snapToPlane` argument was passed
 when the `move()` method was called.
 */
 plane: ARTrackable
@@ -41,7 +41,7 @@ move(config: {fallbackToEstimatedPlanes?: false | true, planeType?: HitTestType,
 ```
 
 Moves the ARPointTrackable, optionally snapping to the nearest detected plane when panning if the optional `snapToPlane`
-argument is set to `true`. Additionally, the type of surface plane that the reference point should snap to can be set via the optional
+argument is set to `true`. Additionally, the type of surface plane that the point trackable should snap to can be set via the optional
 `planeType` argument. As the transforms of the `ARPointTrackable` are continuously tracked and updated, the `move()` method can be used
 alongside touch gestures to continuously update a tracked AR object's transforms.
 The optional 'fallbackToEstimatedPlanes' argument, when `snapToPlane` is also set to `true`, can be used to set whether to fall back to
@@ -50,7 +50,7 @@ continuously analyzes the scene to detect planes in the view.
 
 ```
 TouchGestures.onPan().subscribe(function(gesture) {
-  referencePoint.move({screenLocation: gesture.location, state: gesture.state);
+  pointTrackable.move({screenLocation: gesture.location, state: gesture.state);
 });
 */
 move(config: {fallbackToEstimatedPlanes?: false | true, planeType?: HitTestType, screenLocation: Vec2Signal, snapToPlane?: false | true, state: StringSignal}): void

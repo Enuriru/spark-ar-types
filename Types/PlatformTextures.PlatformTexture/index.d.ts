@@ -9,7 +9,8 @@ onMediaDataUpdate(): EventSource<number>
 ```
 
 Returns an EventSource that will fire when the Platform Texture
-media has been updated holding the current revision.
+media has been updated holding the current revision, which increases every
+time product announces a new version.
 */
 onMediaDataUpdate(): EventSource<number>
 

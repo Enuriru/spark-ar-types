@@ -49,6 +49,7 @@ const SV = require('SparkVision');
  const [detector, detector1] = await SV.createDetectors([model, model1]);
  log(detector.capabilitiesSupported[0]);
  const detectorObject = detector.getObject(0);
+ const isTracked = detectorObject.isTracked;
  const objectId = detectorObject.objectId;
  const box2D = detectorObject.boundingBox.box2D;
  const kpPosition = detectorObject.keyPoints.getKeyPointByName('leftEar').position;

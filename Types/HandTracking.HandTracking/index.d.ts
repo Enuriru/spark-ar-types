@@ -1,5 +1,6 @@
 /// <reference path="../HandTracking.Hand/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../SpatialHandTracking.Hand/index.d.ts" />
 
 /**
 Enables the tracking of hands. Up to two hands can be tracked in the camera view.

@@ -134,7 +134,7 @@ addReferencePoint(config: {trackable?: ARTrackable, worldPosition: Point3D}): Pr
 deletePointTrackable(referencePoint: ARPointTrackable): void
 ```
 
-Deletes a reference point that was added using the `addReferencePoint()` method.
+Deletes a point trackable that was added using the `addPointTrackable()` method.
 */
 deletePointTrackable(referencePoint: ARPointTrackable): void
 
@@ -213,7 +213,7 @@ const Scene = require('Scene');
 const WorldTracker = require('WorldTracker');
 const TouchGestures = require('TouchGestures');
 
-// Create a global placeholder for the tracked reference point
+// Create a global placeholder for the point trackable
 let refPoint;
 
 // Enable async/await in JS [part 1]
@@ -237,26 +237,26 @@ let refPoint;
         WorldTracker.hitTest({screenLocation: point2d, hitTestType: "ANY_PLANE"})
         .then(hitTestResults => {
 
-            // Remove the last reference point, if one already exists
-            if(refPoint){
-                WorldTracker.deletePointTrackable(refPoint);
-                refPoint = null;
+            // Remove the last point trackable, if one already exists
+            if(pointTrackable){
+                WorldTracker.deletePointTrackable(pointTrackable);
+                pointTrackable = null;
             }
 
             // The hitTestResults array stores detected surface planes, sorted by their z-distance from the camera
             // The first element in the array always corresponds to the nearest detected surface plane
             if(hitTestResults){
 
-                // Add an Anchor (reference point) at the hitTest location for the first element in the array, the nearest detected surface plane
+                // Add an Anchor (point trackable) at the hitTest location for the first element in the array, the nearest detected surface plane
                 WorldTracker.addPointTrackable({worldPosition: hitTestResults[0].intersectionPoint}).then(
-                    function onFulfilled(rp) {
-                        refPoint = rp;
+                    function onFulfilled(pT) {
+                        pointTrackable = pT;
 
-                        // Bind the transform of the plane object to the transform of the reference point
-                        plane.transform = refPoint.transform;
+                        // Bind the transform of the plane object to the transform of the point trackable
+                        plane.transform = pointTrackable.transform;
 
                         // Rotate the plane 90 degrees on the X-axis so that it lays flat
-                        plane.transform.rotationX = refPoint.transform.rotationX.add(Math.PI/2);
+                        plane.transform.rotationX = pointTrackable.transform.rotationX.add(Math.PI/2);
 
                         // Show the plane
                         plane.hidden = false;
@@ -270,9 +270,9 @@ let refPoint;
     // Use a Pan gesture to move the plane object
     //==============================================================================
     TouchGestures.onPan().subscribe(function (e) {
-        // If a reference point already exists, move it to the new location
-        if(refPoint)
-            refPoint.move({screenLocation: e.location, state: e.state, snapToPlane: true});
+        // If a point trackable already exists, move it to the new location
+        if(pointTrackable)
+            pointTrackable.move({screenLocation: e.location, state: e.state, snapToPlane: true});
     });
 
   // Enable async/await in JS [part 2]

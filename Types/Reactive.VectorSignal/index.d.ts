@@ -40,13 +40,13 @@ z: ScalarSignal
 
 /**
 ```
-abs(): ScalarSignal
+abs(): VectorSignal
 ```
 
 Returns a signal with the value that is the absolute value of the given signal.
 **See Also**: `ReactiveModule.abs`
 */
-abs(): ScalarSignal
+abs(): VectorSignal
 
 /**
 ```
@@ -74,13 +74,13 @@ atan2(other: ScalarSignal): ScalarSignal
 
 /**
 ```
-ceil(): ScalarSignal
+ceil(): VectorSignal
 ```
 
 Returns a signal with the value that is the smallest integer that is greater than or equal to the value of the given signal.
 **See Also**: `ScalarSignal.ceil`
 */
-ceil(): ScalarSignal
+ceil(): VectorSignal
 
 /**
 ```
@@ -152,13 +152,13 @@ expSmooth(dampFactor: number): VectorSignal
 
 /**
 ```
-floor(): ScalarSignal
+floor(): VectorSignal
 ```
 
 Returns a signal with the value that is the largest integer that is less than or equal to the value of the given signal.
 **See Also**: `ScalarSignal.floor`
 */
-floor(): ScalarSignal
+floor(): VectorSignal
 
 /**
 ```
@@ -254,13 +254,13 @@ mul(other: ScalarSignal): VectorSignal
 
 /**
 ```
-neg(): ScalarSignal
+neg(): VectorSignal
 ```
 
 Returns a signal with the negated value of the given signal.
 **See Also**: `ScalarSignal.neg`, `VectorSignal.neg`
 */
-neg(): ScalarSignal
+neg(): VectorSignal
 
 /**
 ```
@@ -313,7 +313,7 @@ rotate(rotation: QuaternionSignal): VectorSignal
 
 /**
 ```
-round(): ScalarSignal
+round(): VectorSignal
 ```
 
 Returns a signal with the value that is the rounded value of the given signal.
@@ -321,11 +321,11 @@ Returns a signal with the value that is the rounded value of the given signal.
 
 **See Also**: `ScalarSignal.round`
 */
-round(): ScalarSignal
+round(): VectorSignal
 
 /**
 ```
-sign(): ScalarSignal
+sign(): VectorSignal
 ```
 
 Returns a signal with the value that is the sign of the given signal. Possible sign values: NaN, -0.0, 0.0, -1.0, 1.0.
@@ -333,7 +333,7 @@ Returns a signal with the value that is the sign of the given signal. Possible s
 
 **See Also**: `ScalarSignal.sign`
 */
-sign(): ScalarSignal
+sign(): VectorSignal
 
 /**
 ```
@@ -347,13 +347,13 @@ smoothStep(edge0: ScalarSignal, edge1: ScalarSignal): ScalarSignal
 
 /**
 ```
-sqrt(): ScalarSignal
+sqrt(): VectorSignal
 ```
 
 Returns a signal with the value that is the square root of the value of the given signal.
 **See Also**: `ScalarSignal.sqrt`
 */
-sqrt(): ScalarSignal
+sqrt(): VectorSignal
 
 /**
 ```

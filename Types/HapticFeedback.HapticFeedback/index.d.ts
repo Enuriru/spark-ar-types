@@ -9,6 +9,14 @@ declare interface HapticFeedback extends Module {
 
 /**
 ```
+cancel(): void
+```
+
+*/
+cancel(): void
+
+/**
+```
 vibrate(): void
 ```
 

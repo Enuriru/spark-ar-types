@@ -1,6 +1,15 @@
+/// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
 declare interface WorldMap extends SceneObjectBase {
+
+/**
+```
+(get) (Not Available)
+(set) isVolumetric: BoolSignal
+```
+*/
+isVolumetric: BoolSignal
 
 /**
 ```

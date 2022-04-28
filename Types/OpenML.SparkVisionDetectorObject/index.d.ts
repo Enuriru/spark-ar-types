@@ -1,5 +1,6 @@
 /// <reference path="../OpenML.SparkVisionBoundingBox/index.d.ts" />
 /// <reference path="../OpenML.SparkVisionKeyPointsContainer/index.d.ts" />
+/// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 
@@ -37,6 +38,16 @@ Throws an error if Categories are not supported
 If model doesn't give a category in a certain frame, returns the most recent category
 */
 category: StringSignal
+
+/**
+```
+(get) isTracked: BoolSignal
+(set) (Not Available)
+```
+
+Returns whether this object is being tracked as a BoolSignal
+*/
+isTracked: BoolSignal
 
 /**
 ```

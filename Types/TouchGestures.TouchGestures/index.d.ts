@@ -6,6 +6,7 @@
 /// <reference path="../TouchGestures.RawTouchGesture/index.d.ts" />
 /// <reference path="../TouchGestures.RotateGesture/index.d.ts" />
 /// <reference path="../TouchGestures.TapGesture/index.d.ts" />
+/// <reference path="../TouchGestures.TouchEvent/index.d.ts" />
 
 /**
 Enables detection of touch gestures and exposes classes that describe various types of touch interaction.
@@ -53,6 +54,15 @@ When passing a JSON formatted object as an argument, the following fields are va
 * `normalizeCoordinates` - whether to normalize the coordinates of the registered touch gesture's location. Normalized coordinates return a value between `0` and `1` in each axis.
 */
 onPinch(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<PinchGesture>
+
+/**
+```
+onRawEvents(): EventSource<Array<TouchEvent>>
+```
+
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits an array of `TouchEvent` object each frame, if there're any.
+*/
+onRawEvents(): EventSource<Array<TouchEvent>>
 
 /**
 ```
