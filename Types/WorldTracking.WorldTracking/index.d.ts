@@ -2,7 +2,7 @@
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../WorldTracking.ARGeoTrackableElevationType/index.d.ts" />
-/// <reference path="../WorldTracking.ARReferencePoint/index.d.ts" />
+/// <reference path="../WorldTracking.ARPointTrackable/index.d.ts" />
 /// <reference path="../WorldTracking.ARTrackable/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestResult/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestType/index.d.ts" />
@@ -81,22 +81,36 @@ addGeoTrackable(latitude: number, longitude: number, elevationType?: ARGeoTracka
 
 /**
 ```
-addReferencePoint(config: {trackable?: ARTrackable, worldPosition: Point3D}): Promise<ARReferencePoint>
+addPointTrackable(config: {trackable?: ARTrackable, worldPosition: Point3D}): Promise<ARPointTrackable>
 ```
 
-Adds a reference point, also referred to as an anchor, at the world position provided. Optionally, the reference point can
-be attached to a trackable when specified with the optional `trackable` argument.
 */
-addReferencePoint(config: {trackable?: ARTrackable, worldPosition: Point3D}): Promise<ARReferencePoint>
+addPointTrackable(config: {trackable?: ARTrackable, worldPosition: Point3D}): Promise<ARPointTrackable>
 
 /**
 ```
-deleteReferencePoint(referencePoint: ARReferencePoint): void
+addReferencePoint(config: {trackable?: ARTrackable, worldPosition: Point3D}): Promise<ARPointTrackable>
+```
+
+*/
+addReferencePoint(config: {trackable?: ARTrackable, worldPosition: Point3D}): Promise<ARPointTrackable>
+
+/**
+```
+deletePointTrackable(referencePoint: ARPointTrackable): void
 ```
 
 Deletes a reference point that was added using the `addReferencePoint()` method.
 */
-deleteReferencePoint(referencePoint: ARReferencePoint): void
+deletePointTrackable(referencePoint: ARPointTrackable): void
+
+/**
+```
+deleteReferencePoint(referencePoint: ARPointTrackable): void
+```
+
+*/
+deleteReferencePoint(referencePoint: ARPointTrackable): void
 
 /**
 ```
@@ -182,7 +196,7 @@ let refPoint;
 
             // Remove the last reference point, if one already exists
             if(refPoint){
-                WorldTracker.deleteReferencePoint(refPoint);
+                WorldTracker.deletePointTrackable(refPoint);
                 refPoint = null;
             }
 
@@ -191,7 +205,7 @@ let refPoint;
             if(hitTestResults){
 
                 // Add an Anchor (reference point) at the hitTest location for the first element in the array, the nearest detected surface plane
-                WorldTracker.addReferencePoint({worldPosition: hitTestResults[0].intersectionPoint}).then(
+                WorldTracker.addPointTrackable({worldPosition: hitTestResults[0].intersectionPoint}).then(
                     function onFulfilled(rp) {
                         refPoint = rp;
 

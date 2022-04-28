@@ -8,7 +8,10 @@
 /// <reference path="../TouchGestures.TapGesture/index.d.ts" />
 
 /**
-The `TouchGesturesModule` class enables touch gesture detection.
+Enables detection of touch gestures and exposes classes that describe various types of touch interaction.
+By default touch gestures will be registered on the entire screen unless an object is specified in the gesture method call, for example: `TouchGestures.onTap(plane)`.
+
+Importing this module automatically enables the *Touch Gestures* capability within the project's *Properties*. Gesture types must be individually enabled within the capability to enable detection.
 */
 declare interface TouchGestures extends Module {
 
@@ -17,10 +20,11 @@ declare interface TouchGestures extends Module {
 onLongPress(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<LongPressGesture>
 ```
 
-Returns an [`EventSource`](/classes/reactivemodule.eventsource), to which you may subscribe,
-that emits a [`LongPressGesture`](/classes/touchgesturesmodule.longpressgesture) object for each long-press interaction.
-When `options` is specified, only events for the specified object are emitted.
-Otherwise - events for entire preview screen are emitted.
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new [`LongPressGesture`](/classes/touchgesturesmodule.longpressgesture) object for each long press interaction.
+* `options` - an optional configuration for the long press gesture event. You can either pass in a scene object, or a JSON formatted configuration with additional parameters.
+When passing a JSON formatted object as an argument, the following fields are valid:
+* `object` - the object to register long press gestures for. When specified, this event will ignore long press gestures that occur on objects other than `object`.
+* `normalizeCoordinates` - whether to normalize the coordinates of the registered touch gesture's location. Normalized coordinates return a value between `0` and `1` in each axis.
 */
 onLongPress(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<LongPressGesture>
 
@@ -29,10 +33,11 @@ onLongPress(options?: SceneObjectBase | {normalizeCoordinates?: false | true, ob
 onPan(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<PanGesture>
 ```
 
-Returns an [`EventSource`](/classes/reactivemodule.eventsource), to which you may subscribe,
-that emits a [`PanGesture`](/classes/touchgesturesmodule.pangesture) object for each pan interaction.
-When `options` is specified, only events for the specified object are emitted.
-Otherwise - events for entire preview screen are emitted.
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new [`PanGesture`](/classes/touchgesturesmodule.pangesture) object for each pan interaction.
+* `options` - an optional configuration for the pan gesture event. You can either pass in a scene object, or a JSON formatted configuration with additional parameters.
+When passing a JSON formatted object as an argument, the following fields are valid:
+* `object` - the object to register pan gestures for. When specified, this event will ignore pan gestures that occur on objects other than `object`.
+* `normalizeCoordinates` - whether to normalize the coordinates of the registered touch gesture's location. Normalized coordinates return a value between `0` and `1` in each axis.
 */
 onPan(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<PanGesture>
 
@@ -41,10 +46,11 @@ onPan(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?:
 onPinch(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<PinchGesture>
 ```
 
-Returns an [`EventSource`](/classes/reactivemodule.eventsource), to which you may subscribe,
-that emits a [`PinchGesture`](/classes/touchgesturesmodule.pinchgesture) object for each pinch interaction.
-When `options` is specified, only events for the specified object are emitted.
-Otherwise - events for entire preview screen are emitted.
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new [`PinchGesture`](/classes/touchgesturesmodule.pinchgesture) object for each pinch interaction.
+* `options` - an optional configuration for the pinch gesture event. You can either pass in a scene object, or a JSON formatted configuration with additional parameters.
+When passing a JSON formatted object as an argument, the following fields are valid:
+* `object` - the object to register pinch gestures for. When specified, this event will ignore pinch gestures that occur on objects other than `object`.
+* `normalizeCoordinates` - whether to normalize the coordinates of the registered touch gesture's location. Normalized coordinates return a value between `0` and `1` in each axis.
 */
 onPinch(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<PinchGesture>
 
@@ -53,10 +59,11 @@ onPinch(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object
 onRawTouch(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<RawTouchGesture>
 ```
 
-Returns an [`EventSource`](/classes/reactivemodule.eventsource),
-to which you may subscribe, that emits a `RawTouch` object for each touch interaction.
-When `options` is specified, only events for the specified object are emitted.
-Otherwise - events for entire preview screen are emitted.
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new `RawTouchGesture` object for each touch interaction.
+* `options` - an optional configuration for the touch gesture event. You can either pass in a scene object, or a JSON formatted configuration with additional parameters.
+When passing a JSON formatted object as an argument, the following fields are valid:
+* `object` - the object to register touch gestures for. When specified, this event will ignore touch gestures that occur on objects other than `object`.
+* `normalizeCoordinates` - whether to normalize the coordinates of the registered touch gesture's location. Normalized coordinates return a value between `0` and `1` in each axis.
 */
 onRawTouch(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<RawTouchGesture>
 
@@ -65,10 +72,11 @@ onRawTouch(options?: SceneObjectBase | {normalizeCoordinates?: false | true, obj
 onRotate(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<RotateGesture>
 ```
 
-Returns an [`EventSource`](/classes/reactivemodule.eventsource), to which you may subscribe,
-that emits a [`RotateGesture`](/classes/touchgesturesmodule.rotategesture) object for each rotate interaction.
-When `options` is specified, only events for the specified object are emitted.
-Otherwise - events for entire preview screen are emitted.
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new [`RotateGesture`](/classes/touchgesturesmodule.rotategesture) object for each rotation interaction.
+* `options` - an optional configuration for the rotation gesture event. You can either pass in a scene object, or a JSON formatted configuration with additional parameters.
+When passing a JSON formatted object as an argument, the following fields are valid:
+* `object` - the object to register rotation gestures for. When specified, this event will ignore rotation gestures that occur on objects other than `object`.
+* `normalizeCoordinates` - whether to normalize the coordinates of the registered touch gesture's location. Normalized coordinates return a value between `0` and `1` in each axis.
 */
 onRotate(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<RotateGesture>
 
@@ -77,10 +85,11 @@ onRotate(options?: SceneObjectBase | {normalizeCoordinates?: false | true, objec
 onTap(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<TapGesture>
 ```
 
-Returns an [`EventSource`](/classes/reactivemodule.eventsource), to which you may subscribe,
-that emits a [`TapGesture`](/classes/touchgesturesmodule.tapgesture) object for each tap interaction.
-When `options` is specified, only events for the specified object are emitted.
-Otherwise - events for entire preview screen are emitted.
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new [`TapGesture`](/classes/touchgesturesmodule.tapgesture) object for each tap interaction.
+* `options` - an optional configuration for the tap gesture event. You can either pass in a scene object, or a JSON formatted configuration with additional parameters.
+When passing a JSON formatted object as an argument, the following fields are valid:
+* `object` - the object to register tap gestures for. When specified, this event will ignore tap gestures that occur on objects other than `object`.
+* `normalizeCoordinates` - whether to normalize the coordinates of the registered touch gesture's location. Normalized coordinates return a value between `0` and `1` in each axis.
 */
 onTap(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?: SceneObjectBase}): EventSource<TapGesture>
 
@@ -90,127 +99,108 @@ onTap(options?: SceneObjectBase | {normalizeCoordinates?: false | true, object?:
 
 /**
 
-//==============================================================================
+//============================================================================
 // The following example demonstrates how to subscribe to all touch events to
 // control the rotation, scale, position, material and opacity of a plane.
 //
 // Project setup:
-// - Insert a plane
-// - Increase the x and y-axis scale values of the plane to 2
-// - Create two materials with different colors
-// - Assign one of the materials to the plane
-// - Enable all Touch Gestures under the Touch Gesture capability
-//==============================================================================
+// - One plane: plane0
+//
+// Required project capabilities:
+// - Touch Gestures >  Pinch Gesture
+// - Touch Gestures >  Rotate Gesture
+// - Touch Gestures >  Tap Gesture
+// - Touch Gestures >  Long Press Gesture
+//
+//============================================================================
 
 // Load in the required modules
-const Materials = require('Materials');
 const Scene = require('Scene');
 const TouchGestures = require('TouchGestures');
+const Diagnostics = require('Diagnostics');
 
-// Enable async/await in JS [part 1]
-(async function() {
-  // Locate the plane in the Scene
-  // and the materials in the Assets
-  const [plane, material, material2] = await Promise.all([
-    Scene.root.findFirst('plane0'),
-    Materials.findFirst('defaultMaterial0'),
-    Materials.findFirst('defaultMaterial1')
-  ]);
+(async function() { // Enable async/await in JS [part 1]
 
-  //==============================================================================
-  // Change the material applied to the plane when the plane is tapped
-  //==============================================================================
 
-  var isFirstMaterialSelected = true;
+  //==========================================================================
+  // Detect pinch gestures that occur on the screen
+  //==========================================================================
 
-  // Subscribe to tap gestures on the plane
-  TouchGestures.onTap(plane).subscribe((gesture) => {
-    // Switch materials depending on which one is currently applied to the plane
-    if (isFirstMaterialSelected) {
-      plane.material = material2;
-      isFirstMaterialSelected = false;
-    } else {
-      plane.material = material;
-      isFirstMaterialSelected = true;
-    }
+  // Subscribe to pinch gestures
+  TouchGestures.onPinch().subscribe(() => {
+
+    // Code here will run when the pinch gesture is detected anywhere on
+    // the screen
   });
 
-  //==============================================================================
-  // Make the plane's material transparent when the plane is long pressed
-  //==============================================================================
 
-  // Subscribe to long press gestures on the plane
-  TouchGestures.onLongPress(plane).subscribe((gesture) => {
+  //==========================================================================
+  // Detect rotation gestures that occur on a specific object
+  //==========================================================================
 
-    // Set the opacity to 50%
-    plane.material.opacity = 0.5;
+  // Locate the plane in the scene
+  const plane = await Scene.root.findFirst('plane0');
 
-    // Subscribe to the state of the gesture
+  // Subscribe to rotation gestures that occur on the plane
+  TouchGestures.onRotate(plane).subscribe(() => {
+
+    // Code here will run when a rotation gesture is detected on the plane
+  });
+
+
+  //==========================================================================
+  // Access properties of a detected gesture
+  //==========================================================================
+
+  // Subscribe to tap gestures
+  TouchGestures.onTap().subscribe((gesture) => {
+
+    // Access the location property of the TapGesture object via 'gesture'
+    const location = gesture.location;
+
+    // Coordinates of the gesture are returned in screen space,
+    // for example: [1250, 400]
+    Diagnostics.log(location);
+  });
+
+
+  //==========================================================================
+  // Configure the options for a detected gesture
+  //==========================================================================
+
+  // Subscribe to tap gestures that occur on the plane object, and normalize
+  // the coordinates of the gesture location
+  TouchGestures.onTap({object: plane, normalizeCoordinates: true})
+    .subscribe((gesture) => {
+
+      // Coordinates of the gesture are returned in normalized screen space,
+      // for example: [0.95, 0.30]
+      Diagnostics.log(gesture.location);
+  });
+
+
+  //==========================================================================
+  // Detect when a gesture has ended
+  //==========================================================================
+
+  // Subscribe to long press gestures
+  TouchGestures.onLongPress().subscribe((gesture) => {
+
+    // Log a message to the console when the gesture begins
+    Diagnostics.log("Long press gesture has begun");
+
+    // Subscribe to changes in the value of the gesture state
     gesture.state.monitor().subscribe((state) => {
 
-      // Return the opacity to 100% when the gesture ends
-      if (state.newValue !== 'BEGAN' && state.newValue !== 'CHANGED') {
-        plane.material.opacity = 1;
+      // Log a message to the console when the gesture ends
+      if (state.newValue == 'ENDED') {
+        Diagnostics.log("Long press gesture has ended");
+
+        // Code here will run when the gesture ends
       }
-
     });
-
   });
 
-  //==============================================================================
-  // Move the plane across the screen when dragging it with a finger
-  //==============================================================================
-
-  // Store a reference to the transform of the plane
-  const planeTransform = plane.transform;
-
-  // Subscribe to pan gestures on the plane
-  TouchGestures.onPan(plane).subscribe((gesture) => {
-
-    // Translate the position of the finger on the screen to the plane's
-    // co-ordinate system
-    const gestureTransform = Scene.unprojectToFocalPlane(gesture.location);
-
-    // Update the position of the plane
-    planeTransform.x = gestureTransform.x;
-    planeTransform.y = gestureTransform.y;
-
-  });
-
-  //==============================================================================
-  // Scale the plane when pinching it with two fingers
-  //==============================================================================
-
-  // Subscribe to pinch gestures on the plane
-  TouchGestures.onPinch(plane).subscribe((gesture) => {
-
-    // Store the last known x and y-axis scale values of the plane
-    const lastScaleX = planeTransform.scale.x.pinLastValue();
-    const lastScaleY = planeTransform.scale.y.pinLastValue();
-
-    // Update the scale of the plane by multiplying the last known scale with the
-    // scale returned by the gesture
-    planeTransform.scaleX = gesture.scale.mul(lastScaleX);
-    planeTransform.scaleY = gesture.scale.mul(lastScaleY);
-
-  });
-
-  //==============================================================================
-  // Rotate the plane when rotating it with two fingers
-  //==============================================================================
-
-  // Subscribe to rotation gestures on the plane
-  TouchGestures.onRotate(plane).subscribe((gesture) => {
-
-    // Store the last known z-axis rotation value of the plane
-    const lastRotationZ = planeTransform.rotationZ.pinLastValue();
-
-    // Update the z-axis rotation of the plane by adding the gesture rotation and
-    // multiply it by -1 to have it rotate in the correct direction
-    planeTransform.rotationZ = gesture.rotation.mul(-1).add(lastRotationZ);
-
-  });
-// Enable async/await in JS [part 2]
-})();
+})(); // Enable async/await in JS [part 2]
 
 */

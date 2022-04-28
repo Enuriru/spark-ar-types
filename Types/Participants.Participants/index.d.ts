@@ -12,49 +12,49 @@ declare interface Participants extends Module {
 
 /**
 ```
-(get) me: Promise<Participant>
+(get) otherParticipantCount: ScalarSignal
+(set) (Not Available)
+```
+
+Specifies a `ScalarSignal` indicating the number of other participant excluding participant in self view.
+*/
+otherParticipantCount: ScalarSignal
+
+/**
+```
+(get) self: Promise<Participant>
 (set) (Not Available)
 ```
 
 Returns the current user's participant information.
 */
-me: Promise<Participant>
+self: Promise<Participant>
 
 /**
 ```
-(get) peersCount: ScalarSignal
-(set) (Not Available)
+getAllOtherParticipants(): Promise<Array<Participant>>
 ```
 
-Specifies a `ScalarSignal` indicating the number of peer participants.
+Return all other `Participant`s in the current session.
 */
-peersCount: ScalarSignal
+getAllOtherParticipants(): Promise<Array<Participant>>
 
 /**
 ```
-getAllPeers(): Promise<Array<Participant>>
-```
-
-Return all peer `Participant`s in the current session.
-*/
-getAllPeers(): Promise<Array<Participant>>
-
-/**
-```
-getPeerById(id: string): Promise<Participant>
+getParticipantById(id: string): Promise<Participant>
 ```
 
 Returns the `Participant` indicated by its unique identifier
 */
-getPeerById(id: string): Promise<Participant>
+getParticipantById(id: string): Promise<Participant>
 
 /**
 ```
-onPeerAdded(): EventSource<Participant>
+onOtherParticipantAdded(): EventSource<Participant>
 ```
 
 Return an event source that receives a new event when a new participant is added.
 */
-onPeerAdded(): EventSource<Participant>
+onOtherParticipantAdded(): EventSource<Participant>
 
 }
