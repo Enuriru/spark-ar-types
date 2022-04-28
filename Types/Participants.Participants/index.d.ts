@@ -75,8 +75,8 @@ onOtherParticipantAdded(): EventSource<Participant>
 
 Returns an [`EventSource`](/classes/ReactiveModule.EventSource) object that emits a new [`Participant`](/classes/ParticipantsModule.Participant) object each time a new participant joins the video call. For example:
 ```
-Participants.onOtherParticipantAdded().subscribe((participant) =>{
-  // const newParticipantId = participant.id;
+Participants.onOtherParticipantAdded().subscribe((participant) => {
+    // const newParticipantId = participant.id;
 });
 ```
 */
@@ -105,56 +105,55 @@ const Diagnostics = require('Diagnostics');
 
 (async function() { // Enable async/await in JS [part 1]
 
-  //==========================================================================
-  // Retrieve the current user
-  //==========================================================================
+ //==========================================================================
+ // Retrieve the current user
+ //==========================================================================
 
-  // Create a reference to the current participant and log their unique ID
-  // to the console
-  const self = await Participants.self;
-  Diagnostics.log(self.id);
-
-
-  //==========================================================================
-  // Retrieve all other participants on the call
-  //==========================================================================
-
-  const participants = await Participants.getAllOtherParticipants();
-
-  // Log whether each participant is currently active on the call
-  for(i = 0; i < participants.length; i++){
-
-    if(participants[i].isActiveInCall){
-      Diagnostics.log(`Participant ${participants[i].id} is on the call`);
-
-    } else {
-      Diagnostics.log(`Participant ${participants[i].id} is not on the call`);
-    }
-  }
-
-  // Log the number of other participants on the call to the console
-  // This value does not include the current user, 'self'
-  Diagnostics.log(Participants.otherParticipantCount.pinLastValue());
+ // Create a reference to the current participant and log their unique ID
+ // to the console
+ const self = await Participants.self;
+ Diagnostics.log(self.id);
 
 
-  //==========================================================================
-  // Create an array with the IDs of each participant on the call
-  //==========================================================================
+ //==========================================================================
+ // Retrieve other participants on the call
+ //==========================================================================
 
-  var participantIds = [];
+ const participants = await Participants.getAllOtherParticipants();
 
-  // Every time a new participant joins the call, add their ID to the array
-  Participants.onOtherParticipantAdded().subscribe((newParticipant) => {
-    var i = participantIds.length;
-    participantIds[i] = newParticipant.id;
+ // Log the array of participants on the call
+ //Diagnostics.log(participants);
 
-    // Logs the array of IDs to the console
-    Diagnostics.log(otherParticipantIds);
-  });
 
-  // Retrieve a specific participant via their unique ID
-  const specificParticipant = await Participants.
-                                getParticipantById(participantIds[1]);
+ //==========================================================================
+ // Retrieve other participants on the call
+ //==========================================================================
+
+ // Log the ID of the first participant in the array
+ const firstParticipant = participants[0];
+
+	// Monitor when the first participant joins or leaves the call
+ firstParticipant.isActiveInCall.monitor({fireOnInitialValue: true}).subscribe((event) => {
+   Diagnostics.log(`First participant is active in call: ${event.newValue}`);
+ });
+
+	// Monitor when the first participant joins or leaves the effect
+ firstParticipant.isActiveInSameEffect.monitor({fireOnInitialValue: true}).subscribe((event) => {
+   Diagnostics.log(`First participant is active in effect: ${event.newValue}`);
+ });
+
+
+ //==========================================================================
+ // Retrieve the number of other participants on the call
+ //==========================================================================
+
+ // Log the number of other participants on the call to the console
+ // This value does not include the current user, 'self'
+ const participantCount = Participants.otherParticipantCount;
+
+ participantCount.monitor({fireOnInitialValue: true}).subscribe((event) => {
+   Diagnostics.log(`Other participant count: ${event.newValue}`);
+ });
 
 
 })(); // Enable async/await in JS [part 2]

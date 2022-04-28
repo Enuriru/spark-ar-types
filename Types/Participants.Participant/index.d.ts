@@ -79,11 +79,19 @@ const Diagnostics = require('Diagnostics');
   // effect and/or call and monitor these values in the console.
   //==========================================================================
 
-  const isActiveInEffect = self.isActiveInSameEffect;
-  Diagnostics.watch("Current participant is in the effect:", isActiveInEffect);
-
   const isActiveInCall = self.isActiveInCall;
-  Diagnostics.watch("Current participant is in the call:", isActiveInCall);
+
+	 // Monitor when the participant joins or leaves the call
+  isActiveInCall.monitor({fireOnInitialValue: true}).subscribe((event) => {
+    Diagnostics.log(`Participant is active in call: ${event.newValue}`);
+  });
+
+  const isActiveInEffect = self.isActiveInSameEffect;
+
+	 // Monitor when the participant joins or leaves the effect
+  isActiveInEffect.monitor({fireOnInitialValue: true}).subscribe((event) => {
+    Diagnostics.log(`Participant is active in effect: ${event.newValue}`);
+  });
 
 })(); // Enable async/await in JS [part 2]
 

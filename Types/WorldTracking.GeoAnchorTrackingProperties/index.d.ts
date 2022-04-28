@@ -10,26 +10,6 @@ declare interface GeoAnchorTrackingProperties {
 
 /**
 ```
-(get) deviceLatitude: ScalarSignal
-(set) (Not Available)
-```
-
-Returns the device latitude.
-*/
-deviceLatitude: ScalarSignal
-
-/**
-```
-(get) deviceLongitude: ScalarSignal
-(set) (Not Available)
-```
-
-Returns the device longitude.
-*/
-deviceLongitude: ScalarSignal
-
-/**
-```
 (get) headingAccuracyDegrees: ScalarSignal
 (set) (Not Available)
 ```

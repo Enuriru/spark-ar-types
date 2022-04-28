@@ -1,4 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.BoolSignalSource/index.d.ts" />
 /// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Reactive.Box3DSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
@@ -8,7 +9,9 @@
 /// <reference path="../Reactive.RgbaSignal/index.d.ts" />
 /// <reference path="../Reactive.Rotation/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignalSource/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
+/// <reference path="../Reactive.StringSignalSource/index.d.ts" />
 /// <reference path="../Reactive.TransformSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 /// <reference path="../Reactive.Vec4Signal/index.d.ts" />
@@ -129,6 +132,15 @@ Returns a signal with the value that is the angle in radians between the x-axis 
 **See Also**: `ScalarSignal.atan2`
 */
 atan2(x: ScalarSignal, y: ScalarSignal): ScalarSignal
+
+/**
+```
+boolSignalSource(sourceId: string): BoolSignalSource
+```
+
+Create a BoolSignalSource when could be used to update the signal value
+*/
+boolSignalSource(sourceId: string): BoolSignalSource
 
 /**
 ```
@@ -731,6 +743,15 @@ round(x: ScalarSignal): ScalarSignal
 
 /**
 ```
+scalarSignalSource(sourceId: string): ScalarSignalSource
+```
+
+Create a ScalarSignalSource when could be used to update the signal value
+*/
+scalarSignalSource(sourceId: string): ScalarSignalSource
+
+/**
+```
 scale(x: ScalarSignal | number, y: ScalarSignal | number, z: ScalarSignal | number): PointSignal
 ```
 
@@ -809,6 +830,15 @@ step(x: ScalarSignal, edge: ScalarSignal): ScalarSignal
 Returns 0.0 if x is less than edge, and 1.0 is returned otherwise.
 */
 step(x: ScalarSignal, edge: ScalarSignal): ScalarSignal
+
+/**
+```
+stringSignalSource(sourceId: string): StringSignalSource
+```
+
+Create a StringSignalSource when could be used to update the signal value
+*/
+stringSignalSource(sourceId: string): StringSignalSource
 
 /**
 ```

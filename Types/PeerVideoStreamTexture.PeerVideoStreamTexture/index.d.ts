@@ -25,11 +25,25 @@ isActive: BoolSignal
 
 /**
 ```
+(get) participant: StringSignal
+(set) participant: StringSignal
+```
+
+Sets a participant id (from Participant API) for the given Participant Texture.
+Returns a participant id (from Participant API) for the given Participant Texture.
+It expects a `StringSignal`.
+
+It returns a `StringSignal`.
+*/
+participant: StringSignal
+
+/**
+```
 (get) peerId: StringSignal
 (set) (Not Available)
 ```
 
-Specifies a `StringSignal` representing the identifier of peer (used by Peer Video Stream Texture Factory to map stream with texture model).
+Specifies a `StringSignal` representing the identifier of the participant video stream texture.
 */
 peerId: StringSignal
 

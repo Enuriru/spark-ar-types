@@ -50,6 +50,33 @@ chinRaiser(face: Face): ScalarSignal
 
 /**
 ```
+chinRaiserTop(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `ChinRaiserTop`.
+*/
+chinRaiserTop(face: Face): ScalarSignal
+
+/**
+```
+dimplerLeft(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `DimplerLeft`.
+*/
+dimplerLeft(face: Face): ScalarSignal
+
+/**
+```
+dimplerRight(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `DimplerRight`.
+*/
+dimplerRight(face: Face): ScalarSignal
+
+/**
+```
 expressionModelNumber(face: Face): ScalarSignal
 ```
 
@@ -92,6 +119,24 @@ jawDrop(face: Face): ScalarSignal
 Returns a `ScalarSignal` containing the weight associated with the facial action named `JawDrop`.
 */
 jawDrop(face: Face): ScalarSignal
+
+/**
+```
+jawSidewaysLeft(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `JawSidewaysLeft`.
+*/
+jawSidewaysLeft(face: Face): ScalarSignal
+
+/**
+```
+jawSidewaysRight(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `JawSidewaysRight`.
+*/
+jawSidewaysRight(face: Face): ScalarSignal
 
 /**
 ```
@@ -164,6 +209,42 @@ lipDepressorRight(face: Face): ScalarSignal
 Returns a `ScalarSignal` containing the weight associated with the facial action named `LipDepressorRight`.
 */
 lipDepressorRight(face: Face): ScalarSignal
+
+/**
+```
+lipFunnelerBottom(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `LipFunnelerBottom`.
+*/
+lipFunnelerBottom(face: Face): ScalarSignal
+
+/**
+```
+lipFunnelerTop(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `LipFunnelerTop`.
+*/
+lipFunnelerTop(face: Face): ScalarSignal
+
+/**
+```
+lipPressorLeft(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `LipPressorLeft`.
+*/
+lipPressorLeft(face: Face): ScalarSignal
+
+/**
+```
+lipPressorRight(face: Face): ScalarSignal
+```
+
+Returns a `ScalarSignal` containing the weight associated with the facial action named `LipPressorRight`.
+*/
+lipPressorRight(face: Face): ScalarSignal
 
 /**
 ```

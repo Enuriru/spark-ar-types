@@ -156,11 +156,11 @@ Path query format:
 
 Examples:
 `findByPath("*")` will match all the direct children of the caller.
-`findByPath("* /A")` will match all grandchildren of the caller named A.
-`findByPath("** /A")` will match all descendants of the caller named A.
+`findByPath("*/A")` will match all grandchildren of the caller named A.
+`findByPath("**/A")` will match all descendants of the caller named A.
 `findByPath("A*")` will match all children of the caller which name is prefixed with 'A', like 'ABC'.
-`findByPath("** /*A*")` will match all descendants of the caller which name contains 'A', like 'AX' and 'XA'.
-`findByPath("** /A", {limit: 10})` will match at most first 10 descendants of the caller named A.
+`findByPath("**/*A*")` will match all descendants of the caller which name contains 'A', like 'AX' and 'XA'.
+`findByPath("**/A", {limit: 10})` will match at most first 10 descendants of the caller named A.
 `findByPath("\\*")` will match all children of the caller named *.
 `findByPath("\\\\")` will match all children of the caller named \.
 
