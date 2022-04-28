@@ -22,6 +22,22 @@ declare interface WorldTracking extends Module {
 
 /**
 ```
+(get) geoTrackingHighQualityThreshold: number
+(set) (Not Available)
+```
+*/
+geoTrackingHighQualityThreshold: number
+
+/**
+```
+(get) geoTrackingLowQualityThreshold: number
+(set) (Not Available)
+```
+*/
+geoTrackingLowQualityThreshold: number
+
+/**
+```
 (get) geoTrackingQuality: ScalarSignal
 (set) (Not Available)
 ```

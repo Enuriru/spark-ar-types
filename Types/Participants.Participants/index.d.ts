@@ -32,6 +32,16 @@ otherParticipantCount: ScalarSignal
 
 /**
 ```
+(get) otherParticipantsInSameEffectCount: ScalarSignal
+(set) (Not Available)
+```
+
+The total number of participants in the effect, not including the current participant (`self`), as a [`ScalarSignal`](/classes/ReactiveModule.ScalarSignal).
+*/
+otherParticipantsInSameEffectCount: ScalarSignal
+
+/**
+```
 (get) self: Promise<Participant>
 (set) (Not Available)
 ```
@@ -171,6 +181,16 @@ const Diagnostics = require('Diagnostics');
    Diagnostics.log(`Other participant count: ${event.newValue}`);
  });
 
+  // ========================================================================
+  // Retrieve the number of other participants in the effect
+  // ========================================================================
+
+  // Log the number of other participants in the effect to the console.
+  // This value does not include the current user, 'self'
+  const otherParticipantsInSameEffect = Participants.otherParticipantsInSameEffectCount();
+  otherParticipantsInSameEffect.monitor({fireOnInitialValue: true}).subscribe((event) => {
+   Diagnostics.log(`Other participant in same effect count: ${event.newValue}`);
+ });
 
 })(); // Enable async/await in JS [part 2]
 

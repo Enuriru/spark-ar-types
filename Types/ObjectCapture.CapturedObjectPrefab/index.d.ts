@@ -26,12 +26,12 @@ wireframe: BoolSignal
 
 /**
 ```
-crop(pointOnPlane: PointSignal, planeNormal: VectorSignal): Promise<void>
+crop(pointOnPlane: PointSignal, planeNormal: VectorSignal, cropBelow?: false | true): Promise<void>
 ```
 
 Crops the mesh by the plane defined by pointOnPlane and planeNormal given in localSpace coordinates
 */
-crop(pointOnPlane: PointSignal, planeNormal: VectorSignal): Promise<void>
+crop(pointOnPlane: PointSignal, planeNormal: VectorSignal, cropBelow?: false | true): Promise<void>
 
 /**
 ```
