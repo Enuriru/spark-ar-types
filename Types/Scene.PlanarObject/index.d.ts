@@ -25,7 +25,12 @@ bounds: Box2DSignal
 ```
 
 Specifies the height of the object.
-**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+**Note**: the specific measurement unit used depends on the context.
+If the object is a descendant of a Screen Plane object (2D Canvas),
+then these units will be in density-independent pixels if the object is set to use "Fixed" positioning,
+or a percentage if set to "Relative".
+Objects that are not a descendant of a Screen Plane will be in meters.
+Dynamically-instantiated planar objects will always act as if set to "Fixed" positioning.
 
 **Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
 
@@ -114,7 +119,12 @@ verticalAlignment: SceneModule.VerticalAlignment
 ```
 
 Specifies the width of the object.
-**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+**Note**: the specific measurement unit used depends on the context.
+If the object is a descendant of a Screen Plane object (2D Canvas),
+then these units will be in density-independent pixels if the object is set to use "Fixed" positioning,
+or a percentage if set to "Relative".
+Objects that are not a descendant of a Screen Plane will be in meters.
+Dynamically-instantiated planar objects will always act as if set to "Fixed" positioning.
 
 **Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
 

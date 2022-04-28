@@ -8,7 +8,7 @@
 
 
 /**
-The `InstructionModule` class enables effects to provide instructions to the user.
+Allows instructions to be displayed to the user within an effect.
 */
 declare interface Instruction extends Module {
 
@@ -43,24 +43,51 @@ bind(enabled: BoolSignal, token: StringSignal): void
 /**
 
 //==============================================================================
-// The following example demonstrates how to hide an instruction when more than
-// one face is detected and show it if not.
+// Display different instructions depending on whether the front or back
+// camera is in use.
+//
+// When the front camera is in use and the user's mouth is open, the
+// instructions are hidden.
 //
 // Project setup:
-// - Set the 'Max Faces' of the 'Face Tracking' capability to 2 or more
-// - Add the 'Instructions' capability
-// - Select 'Custom Instructions'
-// - Add the 'Try it with friends' instruction
+// - Add the Instructions capability in the project's Properties and select the
+//   Custom Instructions checkbox
+// - Add the 'Open mouth to start' and 'Flip the camera' instructions
+//
 //==============================================================================
 
 // Load in the required modules
 const Instruction = require('Instruction');
+const CameraInfo = require('CameraInfo');
 const FaceTracking = require('FaceTracking');
+const FaceGestures = require('FaceGestures');
+const Reactive = require('Reactive');
 
-// Define a boolean that will be true until 2 faces are detected
-var show = FaceTracking.count.lt(2);
+// Create a reference to a detected face
+const face = FaceTracking.face(0);
 
-// Bind the visibility of the instruction to the boolean
-Instruction.bind(show, 'try_with_friends');
+// Create a signal to track when the mouth is open and return the opposite boolean value
+// If the mouth is open, 'displayInstructions' will be false and vice versa
+const displayInstructions = Reactive.not(FaceGestures.hasMouthOpen(face));
+
+// Get the camera in use
+const captureDevicePosition = CameraInfo.captureDevicePosition;
+
+// Monitor when the camera in use changes
+captureDevicePosition.monitor({fireOnInitialValue: true}).subscribe((event) => {
+
+  // If the user has the front camera in use, show the 'Open mouth to start'
+  // instructions
+  if (event.newValue == 'FRONT') {
+    // The instructions' visibility is bound to the 'displayInstructions' bool
+    Instruction.bind(displayInstructions, 'open_mouth_start');
+
+  // If the user has the front camera in use, show the 'Flip the camera'
+  // instructions
+  } else if (event.newValue == 'BACK') {
+    Instruction.bind(true, 'flip_the_camera');
+  }
+
+});
 
 */

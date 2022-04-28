@@ -148,6 +148,15 @@ deleteReferencePoint(referencePoint: ARPointTrackable): void
 
 /**
 ```
+deleteTrackable(trackable: ARTrackable): Promise<void>
+```
+
+Deletes the specified geo trackable.
+*/
+deleteTrackable(trackable: ARTrackable): Promise<void>
+
+/**
+```
 hitTest(config: {fallbackToEstimatedPlanes?: false | true, hitTestType?: HitTestType, screenLocation: Vec2Signal}): Promise<Array<HitTestResult>>
 ```
 

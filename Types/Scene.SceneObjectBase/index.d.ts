@@ -6,6 +6,9 @@
 /// <reference path="../Scene.Transform/index.d.ts" />
 /// <reference path="../Scene.WorldTransform/index.d.ts" />
 
+/**
+The base class for scene objects.
+*/
 declare interface SceneObjectBase {
 
 /**
@@ -216,9 +219,12 @@ getBoundingBoxVisible(options?: {includeChildren: boolean}): BoolSignal
 getParent(): Promise<SceneObjectBase | null>
 ```
 
-Returns a promise that is resolved with the parent of the scene object or `null` if it has no parent.
-To find all the direct children use `SceneObjectBase.findByPath("*").
-**See Also**: `SceneObjectBase.findAll`, `SceneObjectBase.findByPath`, `SceneModule.root`.
+Returns a promise that is resolved with scene object's parent, or `null` if it doesn't have one.
+```
+const childObject = await Scene.root.findFirst("myObject");
+const parentObject = await childObject.getParent();
+```
+To find a parent object's children instead use `SceneObjectBase.findByPath("*");`.
 */
 getParent(): Promise<SceneObjectBase | null>
 
@@ -253,3 +259,40 @@ Note: This API requires "Scripting Dynamic Instantiation" capability to be enabl
 removeFromParent(): Promise<void>
 
 }
+
+
+
+/**
+
+//============================================================================
+// Finds a scene object by name and then finds its parent object. Then, finds
+// the parent object's children.
+//
+// Project setup:
+// - Insert a Plane, a 3D Text object and a Null Object to the scene
+// - Drag the plane and 3D text objects into the null object
+//============================================================================
+
+const Scene = require('Scene');
+const Diagnostics = require('Diagnostics');
+
+(async function() { // Enable async/await in JS [part 1]
+
+  // Locate the plane in the scene and log its identifier to the console
+  const plane = await Scene.root.findFirst('plane0');
+  Diagnostics.log(`Plane object identifier: ${plane.identifier}`);
+
+  // Get the plane object's parent and log its identifier to the console
+  const parent = await plane.getParent();
+  Diagnostics.log(`Parent object identifier: ${parent.identifier}`);
+
+  // Get the parent object's children  and log their names to the console
+  const children = await parent.findByPath('*');
+
+  for(var i = 0; i < children.length; i++){
+    Diagnostics.log(`Child ${i} name: ${children[i].name}`);
+  }
+
+})(); // Enable async/await in JS [part 2]
+
+*/

@@ -22,6 +22,14 @@ depthTextureIdentifier: StringSignal
 
 /**
 ```
+(get) materialIdentifier: StringSignal
+(set) materialIdentifier: StringSignal
+```
+*/
+materialIdentifier: StringSignal
+
+/**
+```
 (get) rgbTextureIdentifier: StringSignal
 (set) rgbTextureIdentifier: StringSignal
 ```

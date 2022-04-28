@@ -64,12 +64,12 @@ monitorIntent(intentSpec: IntentSpec, slotSpecFilter: EntitySlotSpec): EventSour
 
 /**
 ```
-registerEntity(name: string, tag: string, synonyms: Array<string>): Promise<DynamicEntity>
+registerEntity(keyword: string, entity: string, synonyms: Array<string>): Promise<DynamicEntity>
 ```
 
 Adds a new entity that is a possible value for slots in this effect
 */
-registerEntity(name: string, tag: string, synonyms: Array<string>): Promise<DynamicEntity>
+registerEntity(keyword: string, entity: string, synonyms: Array<string>): Promise<DynamicEntity>
 
 /**
 ```

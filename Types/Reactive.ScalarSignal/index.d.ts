@@ -1,6 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
-/// <reference path="../Reactive.ISignal/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.SignalHistory/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
@@ -97,12 +96,12 @@ delay(): ScalarSignal
 
 /**
 ```
-delayBy(timeSpan: {milliseconds: number}): ISignal
+delayBy(timeSpan: {milliseconds: number}): ScalarSignal
 ```
 
 Delays a signal. The argument is an object with a "milliseconds" property specifying the delay duration in milliseconds.
 */
-delayBy(timeSpan: {milliseconds: number}): ISignal
+delayBy(timeSpan: {milliseconds: number}): ScalarSignal
 
 /**
 ```

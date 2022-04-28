@@ -63,12 +63,12 @@ getAllOtherParticipants(): Promise<Array<Participant>>
 
 /**
 ```
-getAllParticipantsInSameEffect(): Promise<Array<Participant>>
+getOtherParticipantsInSameEffect(): Promise<Array<Participant>>
 ```
 
-Returns an array of [`Participant`](/classes/ParticipantsModule.Participant) objects containing all of the participants active in the effect, including the current user (`self`).
+Returns an array of [`Participant`](/classes/ParticipantsModule.Participant) objects containing all of the participants active in the effect, not including the current user (`self`).
 */
-getAllParticipantsInSameEffect(): Promise<Array<Participant>>
+getOtherParticipantsInSameEffect(): Promise<Array<Participant>>
 
 /**
 ```
@@ -160,11 +160,11 @@ const Diagnostics = require('Diagnostics');
 
 
  //==========================================================================
- // Retrieve all of the participants active in the effect
+ // Retrieve other participants active in the effect
  //==========================================================================
 
- // Retrieve active participants in the effect including self.
- const participantsInEffect = await Participants.getAllParticipantsInSameEffect();
+ // Retrieve active participants in the effect not including self.
+ const participantsInEffect = await Participants.getOtherParticipantsInSameEffect();
  Diagnostics.log(participantsInEffect);
 
 

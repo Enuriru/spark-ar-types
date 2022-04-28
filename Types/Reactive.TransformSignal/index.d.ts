@@ -1,4 +1,3 @@
-/// <reference path="../Reactive.ISignal/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.QuaternionSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
@@ -171,12 +170,12 @@ applyToVector(signal: VectorSignal): VectorSignal
 
 /**
 ```
-delayBy(timeSpan: {milliseconds: number}): ISignal
+delayBy(timeSpan: {milliseconds: number}): TransformSignal
 ```
 
 Delays a signal. The argument is an object with a "milliseconds" property specifying the delay duration in milliseconds.
 */
-delayBy(timeSpan: {milliseconds: number}): ISignal
+delayBy(timeSpan: {milliseconds: number}): TransformSignal
 
 /**
 ```

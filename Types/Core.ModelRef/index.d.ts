@@ -218,6 +218,15 @@ setDimenProp(prop: string, v: ScalarSignal | number): void
 
 /**
 ```
+setDimenPropModernUnit(prop: string, v: ScalarSignal | number): void
+```
+
+Same as setting the dimensional prop, however uses only "meters".
+*/
+setDimenPropModernUnit(prop: string, v: ScalarSignal | number): void
+
+/**
+```
 setHsvaVecProp(prop: string, v: HsvaSignal): void
 ```
 
