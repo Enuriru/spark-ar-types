@@ -1,10 +1,8 @@
-/// <reference path="../ExternalTexture.ExternalTexture/index.d.ts" />
 /// <reference path="../PlaneTracking.TrackingMode/index.d.ts" />
 /// <reference path="../Reactive.Point2D/index.d.ts" />
 /// <reference path="../Reactive.Point3D/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
-/// <reference path="../Textures.ImageTexture/index.d.ts" />
 
 /**
 The `PlaneTracker` class provides functionality for locating a 3D plane based on 2D screen coordinates.
@@ -82,18 +80,5 @@ TouchGestures.onPan().subscribe(function(gesture) {
 ```
 */
 trackPoint(screenLocation: Point2D): void
-
-/**
-```
-trackTexture(texture: ImageTexture | ExternalTexture): void
-```
-
-This method updates PlaneTracker to track against a texture.
-The center of the texture is the origin of the PlaneTracker.
-For the ExternalTexture version of this function call, care should be taken to
-ensure that the texture is in an 'Available' state, else the pending or
-fallback textures may be used instead.
-*/
-trackTexture(texture: ImageTexture | ExternalTexture): void
 
 }
