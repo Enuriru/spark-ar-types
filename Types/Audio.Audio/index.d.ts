@@ -26,15 +26,6 @@ Returns the playback controller with the specified name from the Assets.
 */
 getAudioPlaybackController(name: string): Promise<PlaybackController>
 
-/**
-```
-getPlaybackController(name: string): PlaybackController
-```
-
-Deprecated. Use `getAudioPlaybackController()` instead to retrieve an audio playback controller.
-*/
-getPlaybackController(name: string): PlaybackController
-
 }
 
 

@@ -10,26 +10,6 @@ declare interface CustomMaterial extends MaterialBase {
 
 /**
 ```
-boolParameter(paramName: string): BoolValue
-```
-
-Returns the Boolean value indicated by the `paramName` argument. An exception is thrown when the identifier isn't found in the material.
-**See Also**: `CustomMaterial.setBoolParameter`.
-*/
-boolParameter(paramName: string): BoolValue
-
-/**
-```
-floatParameter(paramName: string): ScalarValue
-```
-
-Returns the `ScalarValue` value representing the shader parameter indicated by the `paramName` argument. An exception is thrown when the identifier isn't found in the material.
-**See Also**: `CustomMaterial.setFloatParameter`.
-*/
-floatParameter(paramName: string): ScalarValue
-
-/**
-```
 getAllParameters(): Promise<{[key: string]: BoolSignal | ScalarSignal}>
 ```
 

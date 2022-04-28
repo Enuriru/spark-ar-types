@@ -43,33 +43,12 @@ mode: StringSignal<TrackingMode>
 
 /**
 ```
-(get) trackingMode: TrackingMode
-(set) trackingMode: TrackingMode
-```
-
-Specifies if this tracker object should track horizontal plane or moving object.
-**See Also**: `PlaneTracker.mode` and `PlaneTracker.setMode`.
-*/
-trackingMode: TrackingMode
-
-/**
-```
 addPerturbance(jitter: number, reprojError: number, radiansPerPixel: number): void
 ```
 
 Adds perturbance in terms of jitter, bounding box error and radiansPerPixel parameter in 2D.
 */
 addPerturbance(jitter: number, reprojError: number, radiansPerPixel: number): void
-
-/**
-```
-hitTest(screenLocation: Point2D): Point3D
-```
-
-Returns a point on tracked plane in local coordinates of PlaneTracker (in 3D units).
-Returns null if tracked plane is not found at given screen point.
-*/
-hitTest(screenLocation: Point2D): Point3D
 
 /**
 ```

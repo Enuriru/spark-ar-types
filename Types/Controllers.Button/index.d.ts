@@ -4,7 +4,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":2506769597},{"kind":"capability","capability":"controllers","orCapability":""}]
+[{"kind":"capability","capability":"controllers","orCapability":""}]
 */
 
 

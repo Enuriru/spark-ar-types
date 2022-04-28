@@ -45,16 +45,6 @@ findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<S
 
 /**
 ```
-get(svgName: string): Svg
-```
-
-Returns a svg object identified by the `svgName` argument.
-Throws an exception if there is no such identifier in the project.
-*/
-get(svgName: string): Svg
-
-/**
-```
 getAll(): Promise<Array<Svg>>
 ```
 

@@ -33,16 +33,6 @@ depth: ScalarSignal
 /**
 ```
 (get) (Not Available)
-(set) faceMaterial: MaterialBase | null
-```
-
-Specifies the material of the caps or face of 3-d text.
-*/
-faceMaterial: MaterialBase | null
-
-/**
-```
-(get) (Not Available)
 (set) font: FontId | null
 ```
 

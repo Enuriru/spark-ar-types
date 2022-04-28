@@ -1,7 +1,6 @@
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Prefabs.Prefab/index.d.ts" />
 /// <reference path="../Scene.BlendShape/index.d.ts" />
-/// <reference path="../Scene.BlendShapesMesh/index.d.ts" />
 /// <reference path="../Scene.MeshSurface/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
@@ -12,43 +11,13 @@ declare interface Mesh extends SceneObjectBase {
 
 /**
 ```
-(get) blendShapes: BlendShapesMesh
-(set) (Not Available)
-```
-
-Returns the set of blendshapes that this mesh contains.
-*/
-blendShapes: BlendShapesMesh
-
-/**
-```
-(get) material: MaterialBase | null
+(get) (Not Available)
 (set) material: MaterialBase | null
 ```
 
 Specifies the material of the scene object.
 */
 material: MaterialBase | null
-
-/**
-```
-(get) materialIdentifier: string
-(set) (Not Available)
-```
-
-Specifies the unique id of material for Mesh.
-*/
-materialIdentifier: string
-
-/**
-```
-(get) prefabName: string
-(set) (Not Available)
-```
-
-Specifies the name of prefab for Mesh. This is the unique identifier of the prefab.
-*/
-prefabName: string
 
 /**
 ```

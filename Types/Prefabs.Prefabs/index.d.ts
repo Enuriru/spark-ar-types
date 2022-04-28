@@ -1,8 +1,8 @@
-/// <reference path="../Prefabs.Prefab/index.d.ts" />
+/// <reference path="../Prefabs.PrefabBase/index.d.ts" />
 
 
 /**
-[{"kind":"capability","capability":"externalMeshes","orCapability":""}]
+[{"kind":"capability","capability":"externalMeshes","orCapability":"objectCapture"}]
 */
 
 
@@ -13,17 +13,17 @@ declare interface Prefabs extends Module {
 
 /**
 ```
-findFirst(name: string): Promise<Prefab | null>
+findFirst(name: string): Promise<PrefabBase | null>
 ```
 
 Returns a promise that is resolved with the prefab of a requested name or null if none was found.
 **See Also**: `Prefabs.findUsingPattern`, `Prefabs.getAll`.
 */
-findFirst(name: string): Promise<Prefab | null>
+findFirst(name: string): Promise<PrefabBase | null>
 
 /**
 ```
-findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<Prefab>>
+findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<PrefabBase>>
 ```
 
 Returns a promise that is resolved with the all of the prefabs matching the name pattern or empty array if none was found.
@@ -41,28 +41,16 @@ Examples:
 
 **See Also**: `Prefabs.getAll`, `Prefabs.findFirst`.
 */
-findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<Prefab>>
+findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<PrefabBase>>
 
 /**
 ```
-get(prefabName: string): Prefab
-```
-
-Returns a prefab object, derived from `Prefab`, that is specified by `prefabName`. An exception is thrown when prefab isn't found. At the moment we have only one type:
-  * `Prefab`
-
-**See Also**: `Prefab.name`.
-*/
-get(prefabName: string): Prefab
-
-/**
-```
-getAll(): Promise<Array<Prefab>>
+getAll(): Promise<Array<PrefabBase>>
 ```
 
 Returns a promise that is resolved with all of the prefabs.
 **See Also**: `Prefabs.findUsingPattern`, `Prefabs.findFirst`.
 */
-getAll(): Promise<Array<Prefab>>
+getAll(): Promise<Array<PrefabBase>>
 
 }

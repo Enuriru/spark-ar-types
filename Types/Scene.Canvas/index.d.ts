@@ -48,18 +48,6 @@ mode: StringSignal<SceneModule.RenderMode>
 
 /**
 ```
-(get) renderMode: SceneModule.RenderMode
-(set) renderMode: SceneModule.RenderMode
-```
-
-Specifies how Canvas should be rendered.
-In SCREEN_SPACE mode, Canvas is automatically placed and sized to fit the screen, `width` and `height` properties are ignored. `transform` property is still used, it is applied on top of the focal plane transform.
-In WORLD_SPACE Canvas behaves as regular 3D object and is sized according to `width` and `height` properties.
-*/
-renderMode: SceneModule.RenderMode
-
-/**
-```
 (get) useSafeAreaMargins: BoolSignal
 (set) useSafeAreaMargins: BoolSignal
 ```

@@ -1,20 +1,10 @@
+/// <reference path="../Prefabs.PrefabBase/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 
 /**
 The `Prefab` class represents a downloadable prefab mesh.
 */
-declare interface Prefab {
-
-/**
-```
-(get) name: string
-(set) (Not Available)
-```
-
-Specifies the unique prefab name. The prefab name can be retrieved from within mesh.
-**See Also**: `PrefabsModule.get`.
-*/
-name: string
+declare interface Prefab extends PrefabBase {
 
 /**
 ```

@@ -39,16 +39,6 @@ findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<F
 
 /**
 ```
-get(fontName: string): FontId
-```
-
-Returns a font object identified by the `fontName` argument.
-Throws an exception if there is no such font in the project.
-*/
-get(fontName: string): FontId
-
-/**
-```
 getAll(): Promise<Array<FontId>>
 ```
 

@@ -1,5 +1,6 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
+/// <reference path="../Reactive.ISignal/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.RgbaSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
@@ -11,6 +12,15 @@
 The `PatchesInputs` class encapsulates methods for setting inputs to the Patch Editor.
 */
 declare interface PatchesInputs {
+
+/**
+```
+set(name: string, signal: ISignal | boolean | number | string): Promise<void>
+```
+
+Sends a generic ISignal to the Patch Editor under the specified 'name'
+*/
+set(name: string, signal: ISignal | boolean | number | string): Promise<void>
 
 /**
 ```

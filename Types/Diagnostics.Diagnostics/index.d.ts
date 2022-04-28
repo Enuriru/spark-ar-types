@@ -20,22 +20,13 @@ typeSystem: TypeSystemMetadata
 
 /**
 ```
-getModuleNames(): Array<string>
+error(content: Object): void
 ```
 
-Returns an array of names of all the scripting modules that can be loaded through a `require` call.
-Note: This set of modules is based on the list of enabled capabilities.
+Flattens content to a string and prints it to the debug console as an error.
+Note: this function can be reassigned to any var (i.e. `foo.warn = Diagnostics.error;`)
 */
-getModuleNames(): Array<string>
-
-/**
-```
-getTypeDescriptions(): Object
-```
-
-Finds the descriptions for each type in the effect.
-*/
-getTypeDescriptions(): Object
+error(content: Object): void
 
 /**
 ```
@@ -46,6 +37,16 @@ Flattens content to a string and prints it to the debug console.
 Note: this function can be reassigned to any var (i.e. `foo.log = Diagnostics.log;`)
 */
 log(content: Object): void
+
+/**
+```
+warn(content: Object): void
+```
+
+Flattens content to a string and prints it to the debug console as a warning.
+Note: this function can be reassigned to any var (i.e. `foo.warn = Diagnostics.warn;`)
+*/
+warn(content: Object): void
 
 /**
 ```

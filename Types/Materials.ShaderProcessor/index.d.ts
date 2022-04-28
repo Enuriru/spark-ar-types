@@ -14,26 +14,6 @@ declare interface ShaderProcessor {
 
 /**
 ```
-boolParameter(paramName: string): BoolValue
-```
-
-Returns the `BoolValue` value representing the shader parameter indicated by the `paramName` argument. An exception is thrown when the identifier isn't found in the shader processor.
-**See Also**: `ShaderProcessor.setBoolParameter`.
-*/
-boolParameter(paramName: string): BoolValue
-
-/**
-```
-floatParameter(paramName: string): ScalarValue
-```
-
-Returns the `ScalarValue` value representing the shader parameter indicated by the `paramName` argument. An exception is thrown when the identifier isn't found in the shader processor.
-**See Also**: `ShaderProcessor.setFloatParameter`.
-*/
-floatParameter(paramName: string): ScalarValue
-
-/**
-```
 getBoolParameter(paramName: string): Promise<BoolSignal>
 ```
 

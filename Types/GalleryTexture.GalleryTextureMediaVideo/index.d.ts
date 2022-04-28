@@ -86,11 +86,28 @@ Specifies a 'ScalarSignal' that is representing the current progress while
 playing back the GalleryTexture. Note that the progress normalized and
 is in [0.0, 1.0].
 Note that setting an out of bounds progress value (ie. < 0.0 or > 1.0) will
-be ignored and playback continues unchanged.
+be ignored and playback continues unchanged.  This is useful because binding
+this signal to values that are in range constantly will result in constant
+seek attempts in the underlying Video Player that might degrade performance.
+Also cf. seek() API.
 
 Note that setting the progress signal on a paused video won't implicitly
 start it.
 */
 progress: ScalarSignal
+
+/**
+```
+seek(value: number): Promise<void>
+```
+
+Seeks video playback position to 'value' for the current media.
+Note that the value normalized and is in [0.0, 1.0] and that this API
+is causing a seek operation in the underlying Video Player.
+
+Any signal bound to "progress" will take precedence over an explicit seek()
+call. An error will be returned from seek() in that case.
+*/
+seek(value: number): Promise<void>
 
 }

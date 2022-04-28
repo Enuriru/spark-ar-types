@@ -18,16 +18,6 @@ name: string
 
 /**
 ```
-(get) prefabName: string
-(set) (Not Available)
-```
-
-Specifies the name of prefab for Mesh. This is the unique identifier of the prefab.
-*/
-prefabName: string
-
-/**
-```
 (get) weight: ScalarSignal
 (set) weight: ScalarSignal
 ```

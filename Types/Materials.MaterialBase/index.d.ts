@@ -35,7 +35,7 @@ cullMode: StringSignal<MaterialsModule.CullMode>
 
 /**
 ```
-(get) diffuse: TextureBase | null
+(get) (Not Available)
 (set) diffuse: TextureBase | null
 ```
 

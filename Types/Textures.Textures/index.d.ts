@@ -39,23 +39,6 @@ findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<T
 
 /**
 ```
-get(textureName: string): TextureBase
-```
-
-Returns a texture object, derived from `TextureBase`, that is specified by `textureName`. An exception is thrown when the texture isn't found in the project. Possible types are:
-* `CanvasTexture`
-* `ColorTexture`
-* `DeepLinkTexture`
-* `ExternalTexture`
-* `ImageTexture`
-* `SequenceTexture`
-
-**See Also**: `TextureBase.name`.
-*/
-get(textureName: string): TextureBase
-
-/**
-```
 getAll(): Promise<Array<TextureBase>>
 ```
 

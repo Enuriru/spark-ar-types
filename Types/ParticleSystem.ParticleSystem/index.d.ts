@@ -3,7 +3,6 @@
 /// <reference path="../Animation.ScalarSampler/index.d.ts" />
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../ParticleSystem.ParticleTypeDescription/index.d.ts" />
-/// <reference path="../ParticleSystem.ParticleTypeDescriptions/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.HsvaSignal/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
@@ -45,14 +44,6 @@ angularVelocity: PointSignal
 Specifies the absolute delta value for the `angularVelocity` property. The angular velocity is randomized uniformly in the range `[angularVelocity - angularVelocityDelta; angularVelocity + angularVelocityDelta]` for each particle.
 */
 angularVelocityDelta: PointSignal
-
-/**
-```
-(get) billboarding: boolean
-(set) billboarding: boolean
-```
-*/
-billboarding: boolean
 
 /**
 ```
@@ -231,7 +222,7 @@ linearDampingPercentageDelta: ScalarSignal
 
 /**
 ```
-(get) material: MaterialBase | null
+(get) (Not Available)
 (set) material: MaterialBase | null
 ```
 
@@ -403,16 +394,6 @@ sprayAngle: PointSignal
 Specifies the absolute delta value for the `sprayAngle` property. The initial velocity angle is randomized uniformly in the range `[sprayAngle - sprayAngleDelta; sprayAngle + sprayAngleDelta]` for each particle.
 */
 sprayAngleDelta: PointSignal
-
-/**
-```
-(get) types: ParticleTypeDescriptions
-(set) (Not Available)
-```
-
-Retrieves the ParticleTypeDescriptions.
-*/
-types: ParticleTypeDescriptions
 
 /**
 ```

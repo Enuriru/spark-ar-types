@@ -24,16 +24,6 @@ automaticHintsEnabled: BoolSignal
 
 /**
 ```
-(get) automaticInstructionsEnabled: boolean
-(set) automaticInstructionsEnabled: boolean
-```
-
-Specifies whether or not automatic instructions are enabled.
-*/
-automaticInstructionsEnabled: boolean
-
-/**
-```
 bind(enabled: BoolSignal, token: StringSignal): void
 ```
 

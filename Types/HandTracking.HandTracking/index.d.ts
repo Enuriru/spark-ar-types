@@ -2,7 +2,10 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
 /**
-The `HandTrackingModule` class enables hand tracking.
+Enables the tracking of hands. Up to two hands can be tracked in the camera view.
+References to detected `Hand` objects are not persistent. The same `index` argument passed to `HandTrackingModule.hand()` may refer to different `Hand` objects if a hand that was previously tracked has lost tracking.
+
+Importing this module automatically enables the *Hand Tracking* capability within the project's *Properties*.
 */
 declare interface HandTracking extends Module {
 
@@ -12,7 +15,7 @@ declare interface HandTracking extends Module {
 (set) (Not Available)
 ```
 
-Specifies a `ScalarSignal` indicating the number of detected hands.
+The number of hands currently tracked in the scene, as a [`ScalarSignal`](/classes/ReactiveModule.ScalarSignal).
 */
 count: ScalarSignal
 
@@ -21,7 +24,8 @@ count: ScalarSignal
 hand(index: number): Hand
 ```
 
-Returns the `Hand` indicated by index.
+Returns a [`Hand`](/classes/handtrackingmodule.hand) object from the array of detected hands.
+* `index` - the index of the `Hand` object to retrieve from the array.
 */
 hand(index: number): Hand
 
@@ -31,41 +35,34 @@ hand(index: number): Hand
 
 /**
 
-//==============================================================================
-// The following example demonstrates how to bind the position of a plane to a
-// hand.
+//============================================================================
+// Hides a plane in the scene until a hand is detected.
 //
 // Project setup:
-// - Insert a plane
-//==============================================================================
+// - One plane: plane0
+//
+// Required project capabilities:
+// - Hand Tracking (auto added on HandTracking module import)
+//
+//============================================================================
 
 // Load in the required modules
 const HandTracking = require('HandTracking');
 const Scene = require('Scene');
 
-// Enable async/await in JS [part 1]
-(async function() {
-  const [plane, focalDistance] = await Promise.all([
-    Scene.root.findFirst('plane0'),
-    Scene.root.findFirst('Focal Distance')
-  ]);
+(async function() { // Enable async/await in JS [part 1]
 
-  // Store a reference to a detected hand
+  // Locate the plane in the scene
+  const plane = await Scene.root.findFirst('plane0');
+
+  // Create a reference to the detected hand
   const hand = HandTracking.hand(0);
 
-  // Store the z-axis position signal of the focal distance
-  const focalDistanceZPosition = focalDistance.transform.z;
+  // Create a reference to the number of tracked hands in the scene
+  const handCount = HandTracking.count;
 
-  // Bind the cameraTransform of the hand to the plane's transform
-  plane.transform = hand.cameraTransform;
-
-  // Additionally overwrite the z-axis values with distance taken into account
-  plane.transform.z = hand.cameraTransform.z.sub(focalDistanceZPosition);
-
-  // Bind the hidden property of the plane to a boolean signal that returns true
-  // when no hands have been detected
-  plane.hidden = HandTracking.count.eq(0);
-// Enable async/await in JS [part 2]
-})();
+  // Bind the plane's visibility to the calue of handCount
+  // If no hands are detected (count is equal to 0), hide the plane
+  plane.hidden = handCount.eq(0);
 
 */
