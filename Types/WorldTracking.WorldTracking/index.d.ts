@@ -5,6 +5,7 @@
 /// <reference path="../WorldTracking.ARGeoTrackableElevationType/index.d.ts" />
 /// <reference path="../WorldTracking.ARPointTrackable/index.d.ts" />
 /// <reference path="../WorldTracking.ARTrackable/index.d.ts" />
+/// <reference path="../WorldTracking.GeoTrackingStatus/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestResult/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestType/index.d.ts" />
 /// <reference path="../WorldTracking.TrackingState/index.d.ts" />
@@ -43,6 +44,14 @@ geoTrackingLowQualityThreshold: number
 ```
 */
 geoTrackingQuality: ScalarSignal
+
+/**
+```
+(get) geoTrackingStatus: GeoTrackingStatus
+(set) (Not Available)
+```
+*/
+geoTrackingStatus: GeoTrackingStatus
 
 /**
 ```

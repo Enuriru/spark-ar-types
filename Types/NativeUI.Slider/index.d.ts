@@ -19,6 +19,16 @@ declare interface Slider {
 
 /**
 ```
+(get) (Not Available)
+(set) hidden: BoolSignal | boolean
+```
+
+The visibility of the slider object, set via a boolean value.
+*/
+hidden: BoolSignal | boolean
+
+/**
+```
 (get) progressColor: RgbaSignal
 (set) (Not Available)
 ```
@@ -50,8 +60,6 @@ value: ScalarSignal
 (get) (Not Available)
 (set) visible: BoolSignal | boolean
 ```
-
-The visibility of the slider object, set via a boolean value.
 */
 visible: BoolSignal | boolean
 
@@ -99,7 +107,7 @@ const Materials = require('Materials');
 
   // Create a reference to the NativeUI's slider object and display it
   const slider = NativeUI.slider;
-  slider.visible = true;
+  slider.hidden = false;
 
   // Subscribe to changes to the slider's value property
   slider.value.monitor().subscribe(function(val) {

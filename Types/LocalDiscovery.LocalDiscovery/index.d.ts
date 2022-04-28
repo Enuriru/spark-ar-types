@@ -1,4 +1,5 @@
 /// <reference path="../LocalDiscovery.CatalogEntry/index.d.ts" />
+/// <reference path="../LocalDiscovery.CatalogType/index.d.ts" />
 
 
 /**

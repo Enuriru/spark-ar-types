@@ -2,7 +2,6 @@
 /// <reference path="../Fonts.State/index.d.ts" />
 /// <reference path="../GalleryTexture.GalleryTextureMediaBase/index.d.ts" />
 /// <reference path="../GalleryTexture.State/index.d.ts" />
-/// <reference path="../LineBasedPlaneTracking.State/index.d.ts" />
 /// <reference path="../LiveStreaming.State/index.d.ts" />
 /// <reference path="../PlaneTracking.State/index.d.ts" />
 /// <reference path="../PointTracker.State/index.d.ts" />

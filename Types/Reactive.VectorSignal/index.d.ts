@@ -310,7 +310,8 @@ reflect(normal: VectorSignal): VectorSignal
 rotate(rotation: QuaternionSignal): VectorSignal
 ```
 
-Creates a new [`VectorSignal`](/classes/ReactiveModule.VectorSignal) that is calculated by rotating this vector using a given [`quaternion`](/classes/ReactiveModule.QuaternionSignal).
+Rotates the vector using the specified [`quaternion`](/classes/ReactiveModule.QuaternionSignal) value and returns the new vector as a `VectorSignal`.
+See the main example at the top of this page or for the Patch Editor equivalent, see the [Rotate Vector Patch](https://sparkar.facebook.com/ar-studio/learn/patch-editor/utility-patches/rotate-vector-patch) article.
 */
 rotate(rotation: QuaternionSignal): VectorSignal
 
@@ -396,3 +397,32 @@ Maps x from [0.0, 1.0] range to [min, max] range.
 toRange(min: ScalarSignal, max: ScalarSignal): ScalarSignal
 
 }
+
+
+
+/**
+
+//============================================================================
+// Rotates a vector of (1, 1, 1) by 45 degrees along the X-axis.
+//
+//============================================================================
+
+// Load the required modules
+const Reactive = require('Reactive');
+
+(async function() { // Enable async/await in JS [part 1]
+
+  // Create a new vector and rotation
+  const vector = Reactive.vector(1, 1, 1);
+  const eulerRotation = Reactive.vector(45, 0, 0);
+
+  // Calculate the quaternion rotation
+  let eulerAngles = eulerRotation.mul(Math.PI / 180);
+  let quatRot = Reactive.quaternionFromEuler(eulerAngles.x, eulerAngles.y, eulerAngles.z);
+
+  // Rotate the original vector by the specified quaternion rotation
+  const rotatedVector = vector.rotate(quatRot);
+
+})(); // Enable async/await in JS [part 2]
+
+*/

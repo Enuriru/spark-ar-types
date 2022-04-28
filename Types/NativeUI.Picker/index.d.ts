@@ -16,6 +16,16 @@ declare interface Picker {
 
 /**
 ```
+(get) (Not Available)
+(set) hidden: BoolSignal | boolean
+```
+
+The visibility of the picker object, set via a boolean value.
+*/
+hidden: BoolSignal | boolean
+
+/**
+```
 (get) selectedIndex: ScalarSignal
 (set) selectedIndex: ScalarSignal
 ```
@@ -29,8 +39,6 @@ selectedIndex: ScalarSignal
 (get) (Not Available)
 (set) visible: BoolSignal | boolean
 ```
-
-The visibility of the picker object, set via a boolean value.
 */
 visible: BoolSignal | boolean
 
@@ -102,7 +110,7 @@ const Textures = require('Textures');
     picker.configure(configuration);
 
     //Display the picker
-    picker.visible = true;
+    picker.hidden = false;
 
     // Assign the first item from the configuration as the material's diffuse texture
     mat.diffuse = configuration.items[0].image_texture;

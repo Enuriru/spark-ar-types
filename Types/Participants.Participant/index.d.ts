@@ -18,9 +18,8 @@ declare interface Participant {
 (set) (Not Available)
 ```
 
-The unique identifier for the specified participant.
+The unique identifier for the participant.
 You can pass this ID into the `getParticipantById()` method exposed by the [`Participants`](/classes/ParticipantsModule) module to retrieve a specific participant.
-
 
 IDs are constant for the duration of the video call but are not persistent across separate calls. If a participant drops out and rejoins the same video call they will retain the same ID. However, if the video call ends and a new one is started, new unique identifiers are generated for each participant.
 */
@@ -32,8 +31,10 @@ id: string
 (set) (Not Available)
 ```
 
-Whether the specified participant is currently active in the video call, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+Whether the participant is currently active in the video call, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
 If a participant leaves the video call this property will return `false` but the participant will not be removed from the array returned by [`Participants.getAllOtherParticipants()`](/classes/ParticipantsModule#methods) or subtracted from the value returned by [`Participants.otherParticipantCount`](/classes/ParticipantsModule#properties).
+
+A participant being active in the call does not guarantee that they are also active in the effect. For this, use the Participant's `isActiveInSameEffect` property instead.
 */
 isActiveInCall: BoolSignal
 
@@ -43,7 +44,7 @@ isActiveInCall: BoolSignal
 (set) (Not Available)
 ```
 
-Whether the specified participant is currently active in the same effect, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+Whether the participant is currently active in the same effect, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
 This is distinct from `isActiveInCall` as a participant may be active in the video call but not necessarily be active in the running effect.
 */
 isActiveInSameEffect: BoolSignal
@@ -54,7 +55,7 @@ isActiveInSameEffect: BoolSignal
 (set) (Not Available)
 ```
 
-Whether the specified participant is muted, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+Whether the participant is muted, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
 */
 isMuted: BoolSignal
 
@@ -64,7 +65,7 @@ isMuted: BoolSignal
 (set) (Not Available)
 ```
 
-Whether the specified participant is currently speaking, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+Whether the participant is currently speaking, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
 */
 isSpeaking: BoolSignal
 
@@ -74,7 +75,7 @@ isSpeaking: BoolSignal
 (set) (Not Available)
 ```
 
-Returns the participant name as a [`StringSignal`](/classes/ReactiveModule.StringSignal).
+The participant name, as a [`StringSignal`](/classes/ReactiveModule.StringSignal).
 */
 name: StringSignal
 
@@ -84,11 +85,7 @@ name: StringSignal
 (set) (Not Available)
 ```
 
-Returns the participant video status [`StringSignal`](/classes/ReactiveModule.StringSignal).
-Possible values:
-- ACTIVE
-- DISABLED
-- INTERRUPTED
+The participant's video status, as a [`StringSignal`](/classes/ReactiveModule.StringSignal) containing a [`ParticipantVideoStatus`](/classes/ParticipantsModule.ParticipantVideoStatus) enum value (`ACTIVE`, `DISABLED` or `INTERRUPTED`).
 */
 videoStatus: StringSignal<ParticipantVideoStatus>
 

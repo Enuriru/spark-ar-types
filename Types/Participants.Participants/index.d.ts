@@ -27,6 +27,7 @@ declare interface Participants extends Module {
 ```
 
 The total number of participants in the video call, not including the current participant (`self`), as a [`ScalarSignal`](/classes/ReactiveModule.ScalarSignal).
+To retrieve the total number of other participants active in the effect, use `otherParticipantsInSameEffectCount` instead.
 */
 otherParticipantCount: ScalarSignal
 
@@ -36,7 +37,8 @@ otherParticipantCount: ScalarSignal
 (set) (Not Available)
 ```
 
-The total number of participants in the effect, not including the current participant (`self`), as a [`ScalarSignal`](/classes/ReactiveModule.ScalarSignal).
+The total number of participants active in the effect, not including the current participant (`self`), as a [`ScalarSignal`](/classes/ReactiveModule.ScalarSignal).
+To retrieve the total number of other participants in the video call whether they are active in the effect or not, use `otherParticipantCount` instead.
 */
 otherParticipantsInSameEffectCount: ScalarSignal
 
@@ -55,7 +57,7 @@ self: Promise<Participant>
 getAllOtherParticipants(): Promise<Array<Participant>>
 ```
 
-Returns an array of [`Participant`](/classes/ParticipantsModule.Participant) objects containing all of the other participants in the current video call, not including the current user (`self`).
+Returns an array of [`Participant`](/classes/ParticipantsModule.Participant) objects containing all of the other participants in the video call, not including the current user (`self`).
 */
 getAllOtherParticipants(): Promise<Array<Participant>>
 
@@ -64,7 +66,7 @@ getAllOtherParticipants(): Promise<Array<Participant>>
 getAllParticipantsInSameEffect(): Promise<Array<Participant>>
 ```
 
-Returns an array of [`Participant`](/classes/ParticipantsModule.Participant) object containing all participants in the effect, including the current user (`self`).
+Returns an array of [`Participant`](/classes/ParticipantsModule.Participant) objects containing all of the participants active in the effect, including the current user (`self`).
 */
 getAllParticipantsInSameEffect(): Promise<Array<Participant>>
 
@@ -143,19 +145,47 @@ const Diagnostics = require('Diagnostics');
  // Log the array of participants on the call
  //Diagnostics.log(participants);
 
+
  //==========================================================================
- // Retrieve all participants in the same effect
+ // Retrieve the number of other participants on the call
+ //==========================================================================
+
+ // Log the number of other participants on the call to the console
+ // This value does not include the current user, 'self'
+ const participantsCount = Participants.otherParticipantCount;
+
+ participantsCount.monitor({fireOnInitialValue: true}).subscribe((event) => {
+   Diagnostics.log(`Other participants count: ${event.newValue}`);
+ });
+
+
+ //==========================================================================
+ // Retrieve all of the participants active in the effect
  //==========================================================================
 
  // Retrieve active participants in the effect including self.
- const participantsInSameEffect = await Participants.getAllParticipantsInSameEffect();
- Diagnostics.log(participantsInSameEffect);
+ const participantsInEffect = await Participants.getAllParticipantsInSameEffect();
+ Diagnostics.log(participantsInEffect);
+
+
+ //========================================================================
+ // Retrieve the number of other participants active in the effect
+ //========================================================================
+
+ // Log the number of other participants in the effect to the console.
+ // This value does not include the current user, 'self'
+ const participantsInEffectCount = Participants.otherParticipantsInSameEffectCount;
+
+ participantsInEffectCount.monitor({fireOnInitialValue: true}).subscribe((event) => {
+   Diagnostics.log(`Other participants in effect: ${event.newValue}`);
+ });
+
 
  //==========================================================================
- // Retrieve other participants on the call
+ // Monitor when a participant joins/leaves the call or effect
  //==========================================================================
 
- // Log the ID of the first participant in the array
+ // Reference the ID of the first participant from the participants array
  const firstParticipant = participants[0];
 
 	// Monitor when the first participant joins or leaves the call
@@ -166,30 +196,6 @@ const Diagnostics = require('Diagnostics');
 	// Monitor when the first participant joins or leaves the effect
  firstParticipant.isActiveInSameEffect.monitor({fireOnInitialValue: true}).subscribe((event) => {
    Diagnostics.log(`First participant is active in effect: ${event.newValue}`);
- });
-
-
- //==========================================================================
- // Retrieve the number of other participants on the call
- //==========================================================================
-
- // Log the number of other participants on the call to the console
- // This value does not include the current user, 'self'
- const participantCount = Participants.otherParticipantCount;
-
- participantCount.monitor({fireOnInitialValue: true}).subscribe((event) => {
-   Diagnostics.log(`Other participant count: ${event.newValue}`);
- });
-
-  // ========================================================================
-  // Retrieve the number of other participants in the effect
-  // ========================================================================
-
-  // Log the number of other participants in the effect to the console.
-  // This value does not include the current user, 'self'
-  const otherParticipantsInSameEffect = Participants.otherParticipantsInSameEffectCount();
-  otherParticipantsInSameEffect.monitor({fireOnInitialValue: true}).subscribe((event) => {
-   Diagnostics.log(`Other participant in same effect count: ${event.newValue}`);
  });
 
 })(); // Enable async/await in JS [part 2]

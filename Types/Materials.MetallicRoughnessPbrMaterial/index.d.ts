@@ -75,6 +75,20 @@ emissive: TextureBase | null
 
 /**
 ```
+(get) emissiveColorFactor: ColorSignal
+(set) emissiveColorFactor: ColorSignal
+```
+
+Specifies a `ColorSignal` for the emissive color factor.
+This value defines linear multipliers for the sampled texels of the emissive texture.
+A `ColorSignal` may be created using the `RGBA()` and `HSVA()` methods of the `Reactive` module.
+Note that RgbaSignal is always returned.
+**See Also**: `ReactiveModule.RGBA` and `ReactiveModule.HSVA`.
+*/
+emissiveColorFactor: ColorSignal
+
+/**
+```
 (get) emissiveTextureTransform: TextureTransform
 (set) emissiveTextureTransform: TextureTransformSignal
 ```
@@ -112,6 +126,16 @@ metallicRoughness: TextureBase | null
 Specifies the coordinates transform of the MetallicRoughness texture of this material.
 */
 metallicRoughnessTextureTransform: TextureTransform
+
+/**
+```
+(get) normalTextureScale: ScalarSignal
+(set) normalTextureScale: ScalarSignal
+```
+
+The scalar parameter applied to each normal vector of the texture. This value scales the normal vector in X and Y directions.
+*/
+normalTextureScale: ScalarSignal
 
 /**
 ```
