@@ -201,3 +201,63 @@ Specifies the vertical offset of the object. Which offset to apply depends on ve
 yOffset: ScalarSignal
 
 }
+
+
+
+/**
+
+//==============================================================================
+// The following example demonstrates how to create a Planar Object
+// (for e.g Planar Image) and modify its properties.
+//
+// Project setup:
+// - Add the Scripting Dynamic Instantiation capability
+//==============================================================================
+
+// Load in the required modules
+const Scene = require('Scene');
+const Materials = require('Materials');
+const Reactive = require('Reactive');
+
+(async function () {  // Enables async/await in JS [part 1]
+
+  // Locate the Focal Distance Scene element
+  const focalDistance = await Scene.root.findFirst('Focal Distance');
+
+  // Create a Planar Object - Planar Image
+  const dynamicRectangle = await Scene.create("PlanarImage", {
+    "name": "Rectangle",
+    "hidden": false,
+  });
+
+  // Create a default material with red diffuse color
+  const defaultMaterial = await Materials.create("DefaultMaterial", {
+    "name": "Default Material",
+    "blendMode": "ALPHA",
+    "opacity": 1.0,
+    "diffuseColorFactor": Reactive.RGBA(1,0,0,1),
+  });
+
+  // Set the default material created above
+  dynamicRectangle.material = defaultMaterial;
+
+  // Add the Dynamic Rec as a child object of the Focal Distance object
+  // in the Scene panel so that it is rendered in the effect
+  focalDistance.addChild(dynamicRectangle);
+
+  // Set Planar Object (2D Rectange) sizing
+  dynamicRectangle.height = 700;
+  dynamicRectangle.width = 700;
+
+  // Set Planar Object (2D Rectange) margin
+  dynamicRectangle.marginStart = 100;
+  dynamicRectangle.marginEnd = 100;
+  dynamicRectangle.marginTop = 50;
+  dynamicRectangle.marginBottom = 50;
+
+  // Set other properties like Scaling type
+  dynamicRectangle.scalingOption = Scene.ScalingOption.FILL;
+
+})(); // Enable async/await in JS [part 2]
+
+*/

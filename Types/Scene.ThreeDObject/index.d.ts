@@ -1,12 +1,6 @@
 /// <reference path="../Animation.AnimationPlaybackController/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
-
-/**
-[{"kind":"introducedBy","version":2502178913}]
-*/
-
-
 /**
 The `ThreeDObject` class describes a scene 3d object.
 */

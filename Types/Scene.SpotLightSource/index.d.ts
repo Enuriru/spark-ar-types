@@ -48,3 +48,37 @@ Specifies the intensity of this light source, usually between 0.0 and 1.0.
 intensity: ScalarSignal
 
 }
+
+
+
+/**
+
+//==============================================================================
+// The following example demonstrates how to modify properties of a SpotLightSource
+//
+// Project setup:
+// - Add in a Spot Light with the name 'spotLight0' in your scene
+// - Add in a 3D object in your scene to visualize the results
+//==============================================================================
+
+// Load in the required modules
+const Scene = require('Scene');
+const Reactive = require('Reactive');
+
+(async function () {  // Enables async/await in JS [part 1]
+
+  // Locate the Spot Light from the Scene
+  const spotLight = await Scene.root.findFirst('spotLight0');
+
+  // Set the color of this light source
+  spotLight.color = Reactive.RGBA(0,0.5,0.5,0.5);
+  // Set the intensity of this light source, between 0.0 and 1.0.
+  spotLight.intensity = 0.5;
+  // Set the inner angle of the spotlight cone, in radians.
+  spotLight.angleInner = 1;
+  // Set the outer angle of the spotlight cone, in radians.
+  spotLight.angleOuter = 1.5;
+
+})(); // Enable async/await in JS [part 2]
+
+*/

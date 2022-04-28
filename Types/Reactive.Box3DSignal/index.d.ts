@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":4200001050},{"kind":"capability","capability":"boundingBoxScripting","orCapability":""}]
+[{"kind":"introducedBy","version":4200001050}]
 */
 
 

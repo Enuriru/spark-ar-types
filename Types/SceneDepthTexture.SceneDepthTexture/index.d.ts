@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
 
@@ -10,6 +11,14 @@
 The `SceneDepthTexture` class encapsulates an estimated depth texture of the current scene.
 */
 declare interface SceneDepthTexture extends TextureBase {
+
+/**
+```
+(get) trackingQuality: StringSignal<TrackingQuality>
+(set) (Not Available)
+```
+*/
+trackingQuality: StringSignal<TrackingQuality>
 
 }
 

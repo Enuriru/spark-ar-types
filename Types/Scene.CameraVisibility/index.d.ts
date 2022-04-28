@@ -36,3 +36,33 @@ Specifies whether the object is visible when the active camera couldn't be speci
 forUnspecifiedCamera: BoolSignal
 
 }
+
+
+
+/**
+
+//==============================================================================
+// The following example demonstrates how to set the camera visibility
+// properties on an object.
+//
+// Project setup:
+// - Import the Heart 3D asset from the AR library
+//==============================================================================
+
+// Load in the required modules
+import Scene from 'Scene';
+import Reactive from 'Reactive'
+
+(async function () {  // Enables async/await in JS [part 1]
+
+  // Locate the scene element that contains the 3D mesh
+  const [heart] = await Promise.all([
+    Scene.root.findFirst('Heart')
+  ]);
+
+  // turn off visibility when the back camera is active
+  heart.cameraVisibility.forBackCamera = Reactive.val(false);
+
+})(); // Enables async/await in JS [part 2]
+
+*/

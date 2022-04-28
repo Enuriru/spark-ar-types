@@ -83,3 +83,53 @@ In WORLD_SPACE Canvas behaves as regular 3D object and is sized according to `wi
 setMode(v: StringSignal<SceneModule.RenderMode>, config?: {fallback: SceneModule.RenderMode}): void
 
 }
+
+
+
+/**
+
+//==============================================================================
+// The following example demonstrates how to create a Canvas scene object,
+// attach a Planar Object (e.g. 2D Plane) and modify the Canvas properties.
+//
+// Project setup:
+// - Add the Scripting Dynamic Instantiation capability
+//==============================================================================
+
+// Load in the required modules
+const Scene = require('Scene');
+
+(async function () {  // Enables async/await in JS [part 1]
+
+  // Locate the Focal Distance Scene element
+  const focalDistance = await Scene.root.findFirst('Focal Distance');
+
+  // Create a Canvas and a Planar Object (2D Plane)
+  const [canvas, plane2d] = await Promise.all([
+    await Scene.create("Canvas", {
+      "name": "Canvas",
+      "hidden": false,
+    }),
+    await Scene.create("Plane", {
+      "name": "Plane",
+      "height": 0.1,
+      "width": 0.1,
+      "hidden": false,
+    }),
+  ]);
+
+  // Add the Canvas as a child object of the Focal Distance object
+  // and plane2d as a child object of the Canvas
+  focalDistance.addChild(canvas);
+  canvas.addChild(plane2d);
+
+  // Specify how Canvas should be rendered.
+  canvas.mode = Scene.RenderMode.WORLD_SPACE;
+  // In WORLD_SPACE Canvas behaves as regular 3D object
+  // and is sized according to `width` and `height` properties.
+  canvas.width = 700;
+  canvas.height = 500;
+
+})(); // Enable async/await in JS [part 2]
+
+*/

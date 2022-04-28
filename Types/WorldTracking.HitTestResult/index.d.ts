@@ -1,6 +1,12 @@
 /// <reference path="../Reactive.Point3D/index.d.ts" />
 /// <reference path="../WorldTracking.ARTrackable/index.d.ts" />
 
+
+/**
+[{"kind":"capability","capability":"multiplane","orCapability":""}]
+*/
+
+
 /**
 The `HitTestResult` class describes a single result of the hitTest() method.
 */

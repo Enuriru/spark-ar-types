@@ -109,3 +109,53 @@ Returns a promise that is resolved with the material associated with a given sce
 getMaterial(): Promise<MaterialBase | null>
 
 }
+
+
+
+/**
+
+//==============================================================================
+// The following example demonstrates how to modify various properties of
+// the 2D text (Planar Text)
+//
+// Project setup:
+// - Insert a 2D Text Scene Object inside a Canvas under Focal Distance
+//==============================================================================
+
+// Load in the required modules
+const Scene = require('Scene');
+const Materials = require('Materials');
+const Reactive = require('Reactive');
+
+(async function () {  // Enables async/await in JS [part 1]
+
+  // Locate the scene element that contains the 2D Text (planar text)
+  const text2D = await Scene.root.findFirst('2dText0');
+  // Edit text
+  text2D.text = "Hello World";
+  // Set the font size
+  text2D.fontSize = 36;
+  // Specifies if the text is scaled to fit the container
+  text2D.scaleToFit = false;
+  // Set the max lines,
+  text2D.maxLines = 2;
+  // Set text spacing - additional distance between letters
+  text2D.tracking = -1
+  // Set line spacing - between baselines in the text
+  text2D.leading = 0;
+  // Set the text alignment
+  text2D.alignment.horizontal = Scene.TextAlignment.LEFT;
+  text2D.alignment.vertical = Scene.VerticalTextAlignment.TOP;
+  // Create a default material with red diffuse color
+  const defaultMaterial = await Materials.create("DefaultMaterial", {
+    "name": "Default Material",
+    "blendMode": "ALPHA",
+    "opacity": 1.0,
+    "diffuseColorFactor": Reactive.RGBA(1,0,0,1),
+  });
+  // Set the above created material to the text
+  text2D.material = defaultMaterial;
+
+})(); // Enable async/await in JS [part 2]
+
+*/

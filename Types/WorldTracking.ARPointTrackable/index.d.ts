@@ -3,6 +3,12 @@
 /// <reference path="../WorldTracking.ARTrackable/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestType/index.d.ts" />
 
+
+/**
+[{"kind":"capability","capability":"multiplane","orCapability":""}]
+*/
+
+
 /**
 The `ARPointTrackable` class describes a reference point, also referred to as an anchor, at a fixed location and orientation in the real world.
 */

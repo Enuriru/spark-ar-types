@@ -28,3 +28,33 @@ Specifies the intensity of this light source, usually between 0.0 and 1.0.
 intensity: ScalarSignal
 
 }
+
+
+
+/**
+
+//==============================================================================
+// The following example demonstrates how to modify properties of a DirectionalLightSource
+//
+// Project setup:
+// - Make sure there is a Directional Light with the name 'directionalLight0' in your scene
+// - Add in a 3D object in your scene to visualize the results
+//==============================================================================
+
+// Load in the required modules
+const Scene = require('Scene');
+const Reactive = require('Reactive');
+
+(async function () {  // Enables async/await in JS [part 1]
+
+  // Locate the Directional Light from the Scene
+  const directionalLight = await Scene.root.findFirst('directionalLight0');
+
+  // Set the color of this light source
+  directionalLight.color = directionalLight.color = Reactive.RGBA(0,0.5,0.5,1);
+  // Set the intensity of this light source, between 0.0 and 1.0.
+  directionalLight.intensity = 0.5;
+
+})(); // Enable async/await in JS [part 2]
+
+*/

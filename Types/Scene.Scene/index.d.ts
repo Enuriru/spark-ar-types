@@ -30,6 +30,8 @@ When creating the scene objects, keep the following in mind:
 - `initialState` can contain any `key: value` pair for any settable property of the class being instantiated.
 - `name` in `initialState` is being used, unless it's not provided - then `dynamicObject` is used.
 )
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
 */
 create(className: string, initialState?: {[key: string]: any}): Promise<SceneObjectBase>
 
@@ -45,6 +47,8 @@ When destroying scene objects, keep the following in mind:
  - Destroying a scene object automatically removes it all children from it.
  - Destroying a scene object that doesn't exist fails the `Promise`.
  - Destroying a scene object that was created in Studio fails the `Promise`.
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
 */
 destroy(sceneObject: string | SceneObjectBase): Promise<void>
 

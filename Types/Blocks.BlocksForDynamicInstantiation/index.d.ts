@@ -75,6 +75,8 @@ When instantiating blocks, keep the following in mind:
 - `initialState` can contain any `key: value` pair for any settable property of a `Block` class (e.g. `hidden`).
 - `name` in `initialState` is being used, unless it's not provided - then `dynamicBlock` is used.
 - Block's inputs and outputs are not accessible until `SceneObjectBase.addChild()` call finishes
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
 */
 instantiate(blockAssetOrName: string | BlockAsset, initialState: {[key: string]: any}): Promise<BlockSceneRoot>
 

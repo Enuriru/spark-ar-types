@@ -39,7 +39,7 @@ createFaceMeshSceneObject(initialState?: {[key: string]: any}): Promise<FaceMesh
 
 Creates a new [dynamic](https://sparkar.facebook.com/ar-studio/learn/scripting/dynamic-instantiation) `FaceMesh` object in the scene.
 * `initialState` - an optional set of JSON-formatted parameters to instantiate the `FaceMesh` object with. For example, `{"name": "DynamicFaceMesh", "visible": true}`. The parameter `key`s must be valid `FaceMesh` object properties.
-Use of dynamic objects requires the Scripting Dynamic Instantiation capability to be enabled within the project's properties.
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
 */
 createFaceMeshSceneObject(initialState?: {[key: string]: any}): Promise<FaceMesh>
 
@@ -50,7 +50,7 @@ createFaceTrackerSceneObject(initialState?: {[key: string]: any}): Promise<FaceT
 
 Creates a new [dynamic](https://sparkar.facebook.com/ar-studio/learn/scripting/dynamic-instantiation) `FaceTracker` object in the scene.
 * `initialState` - an optional set of JSON-formatted parameters to instantiate the `FaceTracker` object with. For example, `{"name": "DynamicFaceTracker", "visible": true}`. The parameter `key`s must be valid `FaceTracker` object properties.
- Use of dynamic objects requires the Scripting Dynamic Instantiation capability to be enabled within the project's properties.
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
 */
 createFaceTrackerSceneObject(initialState?: {[key: string]: any}): Promise<FaceTracker>
 
