@@ -1,4 +1,5 @@
 /// <reference path="../FaceTracking.Face/index.d.ts" />
+/// <reference path="../FacialActions.Action/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
 declare interface FacialActions extends Module {
@@ -101,6 +102,14 @@ eyeCloseRight(face: Face): ScalarSignal
 Returns a `ScalarSignal` containing the weight associated with the facial action named `EyeCloseRight`.
 */
 eyeCloseRight(face: Face): ScalarSignal
+
+/**
+```
+getWeight(action: Action, face: Face | null): ScalarSignal
+```
+
+*/
+getWeight(action: Action, face: Face | null): ScalarSignal
 
 /**
 ```

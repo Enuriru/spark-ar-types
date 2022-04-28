@@ -1,8 +1,8 @@
-/// <reference path="../OpenML.SparkVisionBoundingBox/index.d.ts" />
-/// <reference path="../OpenML.SparkVisionKeyPointsContainer/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
+/// <reference path="../SparkVision.SparkVisionBoundingBox/index.d.ts" />
+/// <reference path="../SparkVision.SparkVisionKeyPointsContainer/index.d.ts" />
 
 
 /**

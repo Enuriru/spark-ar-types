@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../VoiceControl.TranscriptionSession/index.d.ts" />
@@ -13,6 +14,21 @@ The `VoiceControlModule` class allows you to respond to commands from people's
 voices by providing access to Assistant.
 */
 declare interface VoiceControl extends Module {
+
+/**
+```
+(get) active: BoolSignal
+(set) active: BoolSignal
+```
+
+Set a signal to control if the current VoiceModule should be active.
+VoiceModule will respond to voice input only when active
+Get the signal if the current VoiceModule is active.
+VoiceModule activation is controlled the the corresponding setter and AR Engine.
+AR Engine may deactivate the current VoiceModule if it is conflicting with
+other modules in the system.
+*/
+active: BoolSignal
 
 /**
 ```

@@ -1,6 +1,6 @@
-/// <reference path="../OpenML.MLModel/index.d.ts" />
-/// <reference path="../OpenML.SparkVisionDetectorObject/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../SparkVision.MLModel/index.d.ts" />
+/// <reference path="../SparkVision.SparkVisionDetectorObject/index.d.ts" />
 
 
 /**

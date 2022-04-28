@@ -1,4 +1,5 @@
 /// <reference path="../Participants.Participant/index.d.ts" />
+/// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
@@ -19,6 +20,16 @@ Participants are not removed from the array if they leave while the call is stil
 Importing this module automatically enables the <b>Participants</b> capability within the project's <b>Properties</b>.
 */
 declare interface Participants extends Module {
+
+/**
+```
+(get) effectGroupInitialised: BoolSignal
+(set) (Not Available)
+```
+
+Whether the group apply of effect in video call initialised, that means all other participants trying to load the same effect has finished loading.
+*/
+effectGroupInitialised: BoolSignal
 
 /**
 ```

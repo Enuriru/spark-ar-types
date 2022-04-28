@@ -1,4 +1,4 @@
-/// <reference path="../Reactive.StringSignal/index.d.ts" />
+/// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
 
@@ -14,26 +14,20 @@ declare interface PersonHologram extends SceneObjectBase {
 
 /**
 ```
-(get) depthTextureIdentifier: StringSignal
-(set) depthTextureIdentifier: StringSignal
+getHologramMaterial(): Promise<MaterialBase | null>
 ```
+
+Returns a promise that is resolved with the material associated with a given person hologram scene object or null if no material was assigned.
 */
-depthTextureIdentifier: StringSignal
+getHologramMaterial(): Promise<MaterialBase | null>
 
 /**
 ```
-(get) materialIdentifier: StringSignal
-(set) materialIdentifier: StringSignal
+setHologramMaterial(m: MaterialBase): Promise<null>
 ```
-*/
-materialIdentifier: StringSignal
 
-/**
-```
-(get) rgbTextureIdentifier: StringSignal
-(set) rgbTextureIdentifier: StringSignal
-```
+Returns a promise that is resolved when given material is associated with a given person hologram scene object.
 */
-rgbTextureIdentifier: StringSignal
+setHologramMaterial(m: MaterialBase): Promise<null>
 
 }

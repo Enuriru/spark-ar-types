@@ -101,6 +101,8 @@ is causing a seek operation in the underlying Video Player.
 
 Any signal bound to "progress" will take precedence over an explicit seek()
 call. An error will be returned from seek() in that case.
+
+Note that seeking a paused video won't implicitly start it.
 */
 seek(value: number): Promise<void>
 

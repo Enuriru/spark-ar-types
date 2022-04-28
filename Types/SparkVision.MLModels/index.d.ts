@@ -1,4 +1,4 @@
-/// <reference path="../OpenML.MLModel/index.d.ts" />
+/// <reference path="../SparkVision.MLModel/index.d.ts" />
 
 
 /**

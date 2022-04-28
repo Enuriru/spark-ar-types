@@ -1,6 +1,6 @@
-/// <reference path="../OpenML.MLModel/index.d.ts" />
-/// <reference path="../OpenML.MLModels/index.d.ts" />
-/// <reference path="../OpenML.SparkVisionDetector/index.d.ts" />
+/// <reference path="../SparkVision.MLModel/index.d.ts" />
+/// <reference path="../SparkVision.MLModels/index.d.ts" />
+/// <reference path="../SparkVision.SparkVisionDetector/index.d.ts" />
 
 
 /**

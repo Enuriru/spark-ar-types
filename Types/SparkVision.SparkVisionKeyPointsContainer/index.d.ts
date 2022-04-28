@@ -1,4 +1,4 @@
-/// <reference path="../OpenML.SparkVisionKeyPoint/index.d.ts" />
+/// <reference path="../SparkVision.SparkVisionKeyPoint/index.d.ts" />
 
 
 /**

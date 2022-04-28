@@ -71,6 +71,16 @@ isSpeaking: BoolSignal
 
 /**
 ```
+(get) loadStatus: StringSignal<ParticipantLoadStatus>
+(set) (Not Available)
+```
+
+The participant's load status, as a [`StringSignal`](/classes/ReactiveModule.StringSignal) containing a [`ParticipantLoadStatus`](/classes/ParticipantsModule.ParticipantLoadStatus) enum value (`LOADING`, `LOADED`, `ERROR` or `OPTED_OUT`).
+*/
+loadStatus: StringSignal<ParticipantLoadStatus>
+
+/**
+```
 (get) name: StringSignal
 (set) (Not Available)
 ```

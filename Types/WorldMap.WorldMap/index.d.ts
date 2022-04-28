@@ -6,6 +6,14 @@ declare interface WorldMap extends SceneObjectBase {
 /**
 ```
 (get) (Not Available)
+(set) centerOnLocation: BoolSignal
+```
+*/
+centerOnLocation: BoolSignal
+
+/**
+```
+(get) (Not Available)
 (set) isVolumetric: BoolSignal
 ```
 */
