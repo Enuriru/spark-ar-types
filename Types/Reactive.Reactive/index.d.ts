@@ -1,5 +1,6 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
-/// <reference path="../Reactive.BoundingBoxSignal/index.d.ts" />
+/// <reference path="../Reactive.Box2DSignal/index.d.ts" />
+/// <reference path="../Reactive.Box3DSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.HsvaSignal/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
@@ -131,10 +132,10 @@ atan2(x: ScalarSignal, y: ScalarSignal): ScalarSignal
 
 /**
 ```
-boundingBox(x: ScalarSignal, y: ScalarSignal, width: ScalarSignal, height: ScalarSignal): BoundingBoxSignal
+boundingBox(x: ScalarSignal, y: ScalarSignal, width: ScalarSignal, height: ScalarSignal): Box2DSignal
 ```
 
-Constructs a [`BoundingBoxSignal`](/classes/reactivemodule.boundingboxsignal) with the dimensions specified by `width` and `height`, positioned at the location specified by `x` and `y`.
+Constructs a [`Box2DSignal`](/classes/reactivemodule.box2dsignal) with the dimensions specified by `width` and `height`, positioned at the location specified by `x` and `y`.
 All arguments should be provided as normalized screen space units.
 
 * `x` -  the x position of the top left corner of the bounding box.
@@ -142,7 +143,33 @@ All arguments should be provided as normalized screen space units.
 * `width` - the width of the bounding box.
 * `height` - the height of the bounding box.
 */
-boundingBox(x: ScalarSignal, y: ScalarSignal, width: ScalarSignal, height: ScalarSignal): BoundingBoxSignal
+boundingBox(x: ScalarSignal, y: ScalarSignal, width: ScalarSignal, height: ScalarSignal): Box2DSignal
+
+/**
+```
+box2d(x: ScalarSignal, y: ScalarSignal, width: ScalarSignal, height: ScalarSignal): Box2DSignal
+```
+
+Constructs a [`Box2DSignal`](/classes/reactivemodule.box2dsignal) with the dimensions specified by `width` and `height`, positioned at the location specified by `x` and `y`.
+All arguments should be provided as normalized screen space units.
+
+* `x` -  the x position of the top left corner of the bounding box.
+* `y` - the y position of the top left corner of the bounding box.
+* `width` - the width of the bounding box.
+* `height` - the height of the bounding box.
+*/
+box2d(x: ScalarSignal, y: ScalarSignal, width: ScalarSignal, height: ScalarSignal): Box2DSignal
+
+/**
+```
+box3d(min: PointSignal, max: PointSignal): Box3DSignal
+```
+
+Constructs a `Box3DSignal` with the provided `min` and `max` points.
+* `min` -  the minimum point of the bounding box.
+* `max` - the maximum point of the bounding box.
+*/
+box3d(min: PointSignal, max: PointSignal): Box3DSignal
 
 /**
 ```

@@ -1,5 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
-/// <reference path="../Reactive.BoundingBoxSignal/index.d.ts" />
+/// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
 
@@ -15,14 +15,14 @@ declare interface OpenMLTexture extends TextureBase {
 
 /**
 ```
-(get) inferenceArea: BoundingBoxSignal
-(set) inferenceArea: BoundingBoxSignal
+(get) inferenceArea: Box2DSignal
+(set) inferenceArea: Box2DSignal
 ```
 
 Returns the inference area -- the region cropped of the camera and fed into the Image-in Image-out ML Model --
-of the OpenML Texture as a `BoundingBoxSignal`
+of the OpenML Texture as a `Box2DSignal`
 */
-inferenceArea: BoundingBoxSignal
+inferenceArea: Box2DSignal
 
 /**
 ```

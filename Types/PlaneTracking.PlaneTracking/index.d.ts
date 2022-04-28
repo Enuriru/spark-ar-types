@@ -1,4 +1,6 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.StringSignal/index.d.ts" />
+/// <reference path="../WorldTracking.TrackingState/index.d.ts" />
 
 
 /**
@@ -7,6 +9,23 @@
 
 
 declare interface PlaneTracking extends Module {
+
+/**
+```
+(get) failureReason: StringSignal<TrackingFailureReason>
+(set) (Not Available)
+```
+
+Returns the reason the plane tracker failed to enter TRACKING state,
+if the value returned by state() is `LIMITED`.
+Possible values:
+- NONE
+- INITIALIZING
+- EXCESSIVE_MOTION
+- INSUFFICIENT_LIGHT
+- INSUFFICIENT_FEATURES
+*/
+failureReason: StringSignal<TrackingFailureReason>
 
 /**
 ```
@@ -31,5 +50,19 @@ If the capability hasn't been enabled for the plane tracker in the Inspector pan
 If `true`, you can use `realScaleActive` to determine whether the effect is ready to display objects at real world scale.
 */
 realScaleSupported: ConstBoolSignal
+
+/**
+```
+(get) state: StringSignal<TrackingState>
+(set) (Not Available)
+```
+
+Returns the current state of the plane tracker.
+Possible values:
+- NOT_AVAILABLE
+- LIMITED
+- TRACKING
+*/
+state: StringSignal<TrackingState>
 
 }

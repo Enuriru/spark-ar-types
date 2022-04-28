@@ -2,7 +2,7 @@
 /// <reference path="../PortalWorldModel.Head/index.d.ts" />
 /// <reference path="../PortalWorldModel.Leg/index.d.ts" />
 /// <reference path="../PortalWorldModel.Torso/index.d.ts" />
-/// <reference path="../Reactive.BoundingBoxSignal/index.d.ts" />
+/// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
 /**
@@ -12,13 +12,13 @@ declare interface Person {
 
 /**
 ```
-(get) box: BoundingBoxSignal
+(get) box: Box2DSignal
 (set) (Not Available)
 ```
 
 Gets the pose bounding box of the given person.
 */
-box: BoundingBoxSignal
+box: Box2DSignal
 
 /**
 ```

@@ -1,5 +1,11 @@
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 
+
+/**
+[{"kind":"removedBy","version":4200001050}]
+*/
+
+
 /**
 The `BoundingBox` class describes the bounds of a scene element in the local coordinate system.
 */

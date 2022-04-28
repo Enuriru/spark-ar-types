@@ -10,6 +10,36 @@ declare interface GeoAnchorTrackingProperties {
 
 /**
 ```
+(get) deviceLatitude: ScalarSignal
+(set) (Not Available)
+```
+
+Returns the device latitude.
+*/
+deviceLatitude: ScalarSignal
+
+/**
+```
+(get) deviceLongitude: ScalarSignal
+(set) (Not Available)
+```
+
+Returns the device longitude.
+*/
+deviceLongitude: ScalarSignal
+
+/**
+```
+(get) headingAccuracyDegrees: ScalarSignal
+(set) (Not Available)
+```
+
+Returns the device heading accuracy in degrees.
+*/
+headingAccuracyDegrees: ScalarSignal
+
+/**
+```
 (get) locationAccuracyMeters: ScalarSignal
 (set) (Not Available)
 ```
@@ -17,15 +47,5 @@ declare interface GeoAnchorTrackingProperties {
 Returns the device location accuracy in meters.
 */
 locationAccuracyMeters: ScalarSignal
-
-/**
-```
-(get) orientationAccuracyDegrees: ScalarSignal
-(set) (Not Available)
-```
-
-Returns the device orientation accuracy in degrees.
-*/
-orientationAccuracyDegrees: ScalarSignal
 
 }

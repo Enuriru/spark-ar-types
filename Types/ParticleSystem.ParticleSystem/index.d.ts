@@ -69,7 +69,7 @@ birthrateDelta: ScalarSignal
 
 /**
 ```
-(get) (Not Available)
+(get) colorModulationHSVA: HsvaSignal
 (set) colorModulationHSVA: HsvaSignal
 ```
 

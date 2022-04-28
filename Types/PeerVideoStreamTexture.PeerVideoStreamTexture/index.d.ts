@@ -15,7 +15,7 @@ declare interface PeerVideoStreamTexture extends TextureBase {
 /**
 ```
 (get) peerId: StringSignal
-(set) peerId: StringSignal
+(set) (Not Available)
 ```
 
 Specifies a `StringSignal` representing the identifier of peer (used by Peer Video Stream Texture Factory to map stream with texture model).

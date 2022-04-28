@@ -122,6 +122,14 @@ getDimenSync(prop: string): number | null
 
 /**
 ```
+getHsvaVecSignal(prop: string): HsvaSignal
+```
+
+*/
+getHsvaVecSignal(prop: string): HsvaSignal
+
+/**
+```
 getScalar(prop: string): Promise<number>
 ```
 

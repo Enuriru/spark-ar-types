@@ -1,6 +1,6 @@
 /// <reference path="../BodyTracking.Body2DPose/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
-/// <reference path="../Reactive.BoundingBoxSignal/index.d.ts" />
+/// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 
 /**
@@ -10,13 +10,13 @@ declare interface Body {
 
 /**
 ```
-(get) boundingBox: BoundingBoxSignal
+(get) boundingBox: Box2DSignal
 (set) (Not Available)
 ```
 
-Returns a `BoundingBoxSignal` object.
+Returns a `Box2DSignal` object.
 */
-boundingBox: BoundingBoxSignal
+boundingBox: Box2DSignal
 
 /**
 ```

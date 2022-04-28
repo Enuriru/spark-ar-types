@@ -1,5 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
-/// <reference path="../Reactive.BoundingBoxSignal/index.d.ts" />
+/// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 
 
 /**
@@ -61,13 +61,13 @@ declare interface Face2D {
 
 /**
 ```
-(get) boundingBox: BoundingBoxSignal
+(get) boundingBox: Box2DSignal
 (set) (Not Available)
 ```
 
-The bounding box of the tracked face relative to normalized screen space, as a [`BoundingBoxSignal`](/classes/ReactiveModule.BoundingBoxSignal).
+The bounding box of the tracked face relative to normalized screen space, as a [`Box2DSignal`](/classes/ReactiveModule.Box2DSignal).
 */
-boundingBox: BoundingBoxSignal
+boundingBox: Box2DSignal
 
 /**
 ```

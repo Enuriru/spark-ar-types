@@ -1,6 +1,6 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.Box3DSignal/index.d.ts" />
 /// <reference path="../Reactive.TransformSignal/index.d.ts" />
-/// <reference path="../Scene.BoundingBox/index.d.ts" />
 /// <reference path="../Scene.CameraVisibility/index.d.ts" />
 /// <reference path="../Scene.OutputVisibility/index.d.ts" />
 /// <reference path="../Scene.Transform/index.d.ts" />
@@ -10,13 +10,15 @@ declare interface SceneObjectBase {
 
 /**
 ```
-(get) boundingBox: BoundingBox
+(get) boundingBox: Box3DSignal
 (set) (Not Available)
 ```
 
-Retrieves the object's bounding box
+Returns a signal that contains a 3D Bounding Box
+of this object in it's local coordinate system.
+Note: This bounding box doesn't include object's children.
 */
-boundingBox: BoundingBox
+boundingBox: Box3DSignal
 
 /**
 ```

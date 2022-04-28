@@ -1,5 +1,5 @@
 /// <reference path="../PortalWorldModel.Person/index.d.ts" />
-/// <reference path="../Reactive.BoundingBoxSignal/index.d.ts" />
+/// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
 
@@ -25,13 +25,13 @@ count: ScalarSignal
 
 /**
 ```
-(get) crop: BoundingBoxSignal
+(get) crop: Box2DSignal
 (set) (Not Available)
 ```
 
 The scene crop (relative to full FOV) currently applied.
 */
-crop: BoundingBoxSignal
+crop: Box2DSignal
 
 /**
 ```
