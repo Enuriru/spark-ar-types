@@ -3,12 +3,6 @@
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
-
-/**
-[{"kind":"introducedBy","version":821887510}]
-*/
-
-
 /**
 `GalleryTextureMediaVideo` represents "video" media that was picked from the gallery that is being used by a given GalleryTexture.
 It exposes a set of APIs that are specifically tailored for controlling video playback.

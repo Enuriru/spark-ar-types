@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":3897906407},{"kind":"capability","capability":"segmentation","orCapability":"multiclassSegmentation"}]
+[{"kind":"capability","capability":"segmentation","orCapability":"multiclassSegmentation"}]
 */
 
 

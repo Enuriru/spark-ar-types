@@ -23,6 +23,14 @@ livePreviewPrefab: Promise<ObjectCaptureLivePreviewPrefab>
 
 /**
 ```
+(get) objectType: StringSignal
+(set) (Not Available)
+```
+*/
+objectType: StringSignal
+
+/**
+```
 (get) pipelineStatus: StringSignal
 (set) (Not Available)
 ```
@@ -55,19 +63,19 @@ onNewCapturedObject(): EventSource<CapturedObjectInfo>
 
 /**
 ```
-pauseCapture(): void
+pauseCapture(): Promise<void>
 ```
 
 */
-pauseCapture(): void
+pauseCapture(): Promise<void>
 
 /**
 ```
-restart(): void
+restart(): Promise<void>
 ```
 
 */
-restart(): void
+restart(): Promise<void>
 
 /**
 ```
@@ -95,10 +103,10 @@ shareModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture
 
 /**
 ```
-startCapture(): void
+startCapture(): Promise<void>
 ```
 
 */
-startCapture(): void
+startCapture(): Promise<void>
 
 }

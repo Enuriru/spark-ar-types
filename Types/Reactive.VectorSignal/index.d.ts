@@ -1,5 +1,6 @@
 /// <reference path="../Reactive.ISignal/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
+/// <reference path="../Reactive.QuaternionSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.SignalHistory/index.d.ts" />
 
@@ -303,6 +304,15 @@ reflect(normal: VectorSignal): VectorSignal
 Calculates the reflection direction for an incident vector and a normal as a `VectorSignal`.
 */
 reflect(normal: VectorSignal): VectorSignal
+
+/**
+```
+rotate(rotation: QuaternionSignal): VectorSignal
+```
+
+Creates a new [`VectorSignal`](/classes/ReactiveModule.VectorSignal) that is calculated by rotating this vector using a given [`quaternion`](/classes/ReactiveModule.QuaternionSignal).
+*/
+rotate(rotation: QuaternionSignal): VectorSignal
 
 /**
 ```

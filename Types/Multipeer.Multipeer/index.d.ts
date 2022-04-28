@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":264862003},{"kind":"capability","capability":"multipeer_messaging","orCapability":""}]
+[{"kind":"capability","capability":"multipeer_messaging","orCapability":""}]
 */
 
 

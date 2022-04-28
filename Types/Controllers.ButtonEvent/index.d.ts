@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":2679561045},{"kind":"capability","capability":"controllers","orCapability":""}]
+[{"kind":"capability","capability":"controllers","orCapability":""}]
 */
 
 

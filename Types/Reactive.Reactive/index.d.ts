@@ -429,15 +429,6 @@ ifThenElse(condition: BoolSignal | boolean, thenValue: ScalarSignal | number, el
 
 /**
 ```
-inverseTransformPack(translation: PointSignal, scale: PointSignal, rotation: PointSignal): TransformSignal
-```
-
-Creates an inverse scene object transform from translation, scale and rotation point signals
-*/
-inverseTransformPack(translation: PointSignal, scale: PointSignal, rotation: PointSignal): TransformSignal
-
-/**
-```
 le(lhs: ScalarSignal, rhs: ScalarSignal): BoolSignal
 ```
 
@@ -1148,12 +1139,12 @@ toRange(x: ScalarSignal, min: ScalarSignal, max: ScalarSignal): ScalarSignal
 
 /**
 ```
-transformPack(translation: PointSignal, scale: PointSignal, rotation: PointSignal): TransformSignal
+transform(translation: PointSignal, scale: PointSignal, rotation: QuaternionSignal): TransformSignal
 ```
 
-Creates a scene object transform from translation, scale and rotation point signals
+Creates a scene object transform from translation, scale and rotation rotation
 */
-transformPack(translation: PointSignal, scale: PointSignal, rotation: PointSignal): TransformSignal
+transform(translation: PointSignal, scale: PointSignal, rotation: QuaternionSignal): TransformSignal
 
 /**
 ```

@@ -1,7 +1,6 @@
 /// <reference path="../Wolf.BoxTrackingScriptObject/index.d.ts" />
 /// <reference path="../Wolf.ConeTrackingScriptObject/index.d.ts" />
 /// <reference path="../Wolf.CylinderTrackingScriptObject/index.d.ts" />
-/// <reference path="../Wolf.GeoAnchorTrackingScriptObject/index.d.ts" />
 /// <reference path="../Wolf.ImageTrackingScriptObject/index.d.ts" />
 /// <reference path="../Wolf.TrackingEventSource/index.d.ts" />
 
@@ -41,14 +40,6 @@ trackCylinderPattern(textureId: string, referenceHeight: number, isStatic: boole
 
 */
 trackCylinderPattern(textureId: string, referenceHeight: number, isStatic: boolean): CylinderTrackingScriptObject
-
-/**
-```
-trackGeoAnchor(latitude: number, longitude: number, altitude: number, bearing: number): GeoAnchorTrackingScriptObject
-```
-
-*/
-trackGeoAnchor(latitude: number, longitude: number, altitude: number, bearing: number): GeoAnchorTrackingScriptObject
 
 /**
 ```

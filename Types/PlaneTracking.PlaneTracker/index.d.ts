@@ -43,15 +43,6 @@ mode: StringSignal<TrackingMode>
 
 /**
 ```
-addPerturbance(jitter: number, reprojError: number, radiansPerPixel: number): void
-```
-
-Adds perturbance in terms of jitter, bounding box error and radiansPerPixel parameter in 2D.
-*/
-addPerturbance(jitter: number, reprojError: number, radiansPerPixel: number): void
-
-/**
-```
 performHitTest(screenXLocation: number, screenYLocation: number): Promise<Point3D>
 performHitTest(screenLocation: Point2D): Promise<Point3D>
 ```

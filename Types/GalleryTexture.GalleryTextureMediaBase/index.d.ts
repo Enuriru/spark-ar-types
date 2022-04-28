@@ -1,11 +1,5 @@
 /// <reference path="../GalleryTexture.MediaType/index.d.ts" />
 
-
-/**
-[{"kind":"introducedBy","version":821887510}]
-*/
-
-
 /**
 `GalleryTextureMediaBase` is a base class for different types of media that can be selected from gallery and used in a gallery texture.
 */

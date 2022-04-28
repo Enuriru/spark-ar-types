@@ -51,6 +51,15 @@ getAllOtherParticipants(): Promise<Array<Participant>>
 
 /**
 ```
+getAllParticipantsInSameEffect(): Promise<Array<Participant>>
+```
+
+Returns an array of [`Participant`](/classes/ParticipantsModule.Participant) object containing all participants in the effect, including the current user (`self`).
+*/
+getAllParticipantsInSameEffect(): Promise<Array<Participant>>
+
+/**
+```
 getParticipantById(id: string): Promise<Participant>
 ```
 
@@ -124,6 +133,13 @@ const Diagnostics = require('Diagnostics');
  // Log the array of participants on the call
  //Diagnostics.log(participants);
 
+ //==========================================================================
+ // Retrieve all participants in the same effect
+ //==========================================================================
+
+ // Retrieve active participants in the effect including self.
+ const participantsInSameEffect = await Participants.getAllParticipantsInSameEffect();
+ Diagnostics.log(participantsInSameEffect);
 
  //==========================================================================
  // Retrieve other participants on the call
