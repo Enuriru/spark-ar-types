@@ -1,0 +1,5 @@
+declare enum AssetType {
+
+Text,
+
+}
