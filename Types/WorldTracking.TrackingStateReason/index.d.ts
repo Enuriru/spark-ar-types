@@ -1,8 +1,9 @@
 /**
-The `TrackingStateReason` enum describes the possible reasons why
+The enum describes the possible reasons why
 the world tracker may be experiencing limited tracking quality.
-Used by `WorldTrackingModule.stateReason`, if the value returned
-by `WorldTrackingModule.state` is `LIMITED`.
+It's a unified definition of TrackingStateReason regardless of the
+platform, e.g. arcore, arkit, first frame (FF). FF does not provide
+tracking failure reason, and will be default to None.
 */
 declare enum TrackingStateReason {
 

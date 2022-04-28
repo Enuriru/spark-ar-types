@@ -4,6 +4,7 @@
 /// <reference path="../WorldTracking.ARGeoTrackableElevationType/index.d.ts" />
 /// <reference path="../WorldTracking.ARPointTrackable/index.d.ts" />
 /// <reference path="../WorldTracking.ARTrackable/index.d.ts" />
+/// <reference path="../WorldTracking.GeoAnchorTrackingProperties/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestResult/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestType/index.d.ts" />
 /// <reference path="../WorldTracking.TrackingState/index.d.ts" />
@@ -18,6 +19,14 @@ position couches or tables, for example. Creators are also able to visualize pla
 in the scene.
 */
 declare interface WorldTracking extends Module {
+
+/**
+```
+(get) geoAnchorTrackingProperties: GeoAnchorTrackingProperties
+(set) (Not Available)
+```
+*/
+geoAnchorTrackingProperties: GeoAnchorTrackingProperties
 
 /**
 ```
