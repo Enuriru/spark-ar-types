@@ -47,6 +47,12 @@ const SV = require('SparkVision');
    SV.mlModels.findFirst('model1')]
  );
  const [detector, detector1] = await SV.createDetectors([model, model1]);
+ log(detector.capabilitiesSupported[0]);
+ const detectorObject = detector.getObject(0);
+ const objectId = detectorObject.objectId;
+ const box2D = detectorObject.boundingBox.box2D;
+ const kpPosition = detectorObject.keyPoints.getKeyPointByName('leftEar').position;
+ const category = detectorObject.category;
 })();
 
 */

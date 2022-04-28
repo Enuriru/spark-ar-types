@@ -14,6 +14,14 @@ declare interface RawTouchGesture extends Gesture {
 
 /**
 ```
+(get) gestureId: number
+(set) (Not Available)
+```
+*/
+gestureId: number
+
+/**
+```
 (get) location: Vec2Signal
 (set) (Not Available)
 ```

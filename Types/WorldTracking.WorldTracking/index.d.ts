@@ -1,10 +1,10 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../WorldTracking.ARGeoTrackableElevationType/index.d.ts" />
 /// <reference path="../WorldTracking.ARPointTrackable/index.d.ts" />
 /// <reference path="../WorldTracking.ARTrackable/index.d.ts" />
-/// <reference path="../WorldTracking.GeoAnchorTrackingProperties/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestResult/index.d.ts" />
 /// <reference path="../WorldTracking.HitTestType/index.d.ts" />
 /// <reference path="../WorldTracking.TrackingState/index.d.ts" />
@@ -22,11 +22,11 @@ declare interface WorldTracking extends Module {
 
 /**
 ```
-(get) geoAnchorTrackingProperties: GeoAnchorTrackingProperties
+(get) geoTrackingQuality: ScalarSignal
 (set) (Not Available)
 ```
 */
-geoAnchorTrackingProperties: GeoAnchorTrackingProperties
+geoTrackingQuality: ScalarSignal
 
 /**
 ```

@@ -24,12 +24,12 @@ intersectionPoint: Point3D
 
 /**
 ```
-(get) trackable: ARTrackable
+(get) trackable: ARTrackable | null
 (set) (Not Available)
 ```
 
 Returns the trackable (plane/feature point) that intersected with the raycast during a hitTest.
 */
-trackable: ARTrackable
+trackable: ARTrackable | null
 
 }

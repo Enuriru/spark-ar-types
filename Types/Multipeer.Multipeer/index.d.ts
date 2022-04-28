@@ -1,3 +1,4 @@
+/// <reference path="../Multipeer.BinaryMessageChannel/index.d.ts" />
 /// <reference path="../Multipeer.MessageChannel/index.d.ts" />
 
 
@@ -17,6 +18,18 @@ Messages are broadcast to all peers except the instance that the message was bro
 You can use the [multipeer debugging tool](https://sparkar.facebook.com/ar-studio/learn/scripting/multipeer-debugging) to simulate message streams and debug multipeer effects.
 */
 declare interface Multipeer extends Module {
+
+/**
+```
+getBinaryMessageChannel(topic: string): BinaryMessageChannel
+```
+
+Returns the specified [`BinaryMessageChannel`](/classes/MultipeerModule.BinaryMessageChannel).
+If no channel with the specified name is found, the `GLOBAL` channel is used by default.
+
+* `topic` - the name of the message channel (topic) to retrieve.
+*/
+getBinaryMessageChannel(topic: string): BinaryMessageChannel
 
 /**
 ```

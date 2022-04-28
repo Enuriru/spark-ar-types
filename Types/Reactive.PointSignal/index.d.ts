@@ -149,6 +149,8 @@ expSmooth(dampFactor: number): PointSignal
 
 Smoothes a variable signal using exponential averaging over time. The argument specifies the dampening time constant in milliseconds.
 **Note**: See also `ReactiveModule.expSmooth`.
+
+* `dampFactor` - the dampening time constant, in milliseconds.
 */
 expSmooth(dampFactor: number): PointSignal
 
@@ -176,8 +178,11 @@ fromRange(min: ScalarSignal, max: ScalarSignal): ScalarSignal
 history(framesCount: number, initialValues?: Array<Point3D>): SignalHistory<Point3D>
 ```
 
-Returns an object used to access signal values from past frames. The amount of frames tracked is customizable via `framesCount` parameter.
+Returns an object used to access signal values from past frames.
 Historical signal values are going to be initialized with signal value at call time or using `initialValues` if provided.
+
+* `framesCount` - the number of frames to track.
+* `initialValues` - an optional initial value to assign to the signal.
 */
 history(framesCount: number, initialValues?: Array<Point3D>): SignalHistory<Point3D>
 

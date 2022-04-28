@@ -4,7 +4,7 @@
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
 /**
-The `ShaderSignal` represents a shader signal. Scalar and Vector signals can automatically be converted to a ShaderSignal.
+The `ShaderSignal` represents a shader signal. Scalar and Vector signals can be automatically converted to a ShaderSignal.
 */
 declare interface ShaderSignal {
 
@@ -166,8 +166,10 @@ fromRange(min: ScalarSignal, max: ScalarSignal): ScalarSignal
 history(framesCount: number): SignalHistory<Shader>
 ```
 
-Returns an object used to access signal values from past frames. The amount of frames tracked is customizable via `framesCount` parameter.
+Returns an object used to access signal values from past frames.
 Historical signal values are going to be initialized with signal value at call time or using `initialValues` if provided.
+
+* `framesCount` - the number of frames to track.
 */
 history(framesCount: number): SignalHistory<Shader>
 

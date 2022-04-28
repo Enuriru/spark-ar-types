@@ -167,8 +167,9 @@ fromRange(min: ScalarSignal, max: ScalarSignal): ScalarSignal
 history(framesCount: number, initialValues?: Array<Point2D>): SignalHistory<Point2D>
 ```
 
-Returns an object used to access signal values from past frames. The amount of frames tracked is customizable via `framesCount` parameter.
 Historical signal values are going to be initialized with signal value at call time or using `initialValues` if provided.
+* `framesCount` - the number of frames to track.
+* `initialValues` - an optional initial value to assign to the signal.
 */
 history(framesCount: number, initialValues?: Array<Point2D>): SignalHistory<Point2D>
 

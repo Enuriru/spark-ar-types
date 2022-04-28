@@ -1,4 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.StringSignal/index.d.ts" />
 
 
 /**
@@ -46,6 +47,50 @@ Whether the specified participant is currently active in the same effect, as a [
 This is distinct from `isActiveInCall` as a participant may be active in the video call but not necessarily be active in the running effect.
 */
 isActiveInSameEffect: BoolSignal
+
+/**
+```
+(get) isMuted: BoolSignal
+(set) (Not Available)
+```
+
+Whether the specified participant is muted, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+*/
+isMuted: BoolSignal
+
+/**
+```
+(get) isSpeaking: BoolSignal
+(set) (Not Available)
+```
+
+Whether the specified participant is currently speaking, as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+*/
+isSpeaking: BoolSignal
+
+/**
+```
+(get) name: StringSignal
+(set) (Not Available)
+```
+
+Returns the participant name as a [`StringSignal`](/classes/ReactiveModule.StringSignal).
+*/
+name: StringSignal
+
+/**
+```
+(get) videoStatus: StringSignal<ParticipantVideoStatus>
+(set) (Not Available)
+```
+
+Returns the participant video status [`StringSignal`](/classes/ReactiveModule.StringSignal).
+Possible values:
+- ACTIVE
+- DISABLED
+- INTERRUPTED
+*/
+videoStatus: StringSignal<ParticipantVideoStatus>
 
 }
 

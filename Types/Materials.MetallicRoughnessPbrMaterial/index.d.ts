@@ -125,6 +125,16 @@ normalTextureTransform: TextureTransform
 
 /**
 ```
+(get) occlusionStrength: ScalarSignal
+(set) occlusionStrength: ScalarSignal
+```
+
+Specifies the occlusion strength.
+*/
+occlusionStrength: ScalarSignal
+
+/**
+```
 (get) roughnessFactor: ScalarSignal
 (set) roughnessFactor: ScalarSignal
 ```

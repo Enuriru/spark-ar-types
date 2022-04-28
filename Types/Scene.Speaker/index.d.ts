@@ -54,3 +54,33 @@ Returns a `ScalarSignal` indicating the timestamp of the played audio source ins
 minProgress(): ScalarSignal
 
 }
+
+
+
+/**
+
+//==============================================================================
+// The following example demonstrates how to set a Speaker's volume,
+// using a slow sawtooth shaped signal based on `Time.ms`.
+//
+// Project setup:
+// - Add a Speaker to the scene using the `Add/Effect/Speaker` menu
+// - Keep the default `speaker0` name
+//==============================================================================
+
+import Reactive from 'Reactive';
+import Scene from 'Scene';
+import Time from 'Time';
+
+(async function () {  // Enables async/await in JS [part 1]
+
+    // Locate the Speaker instance
+    const [speaker] = await Promise.all([
+       Scene.root.findFirst('speaker0') as Promise<Speaker>
+    ]);
+
+    // Set its volume from a sawtooth shaped signal based on `Time.ms`
+    speaker.volume = Time.ms.div(Reactive.val(100)).mod(Reactive.val(100)).div(100);
+})(); // Enables async/await in JS [part 2]
+
+*/

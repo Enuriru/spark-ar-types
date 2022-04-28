@@ -23,6 +23,14 @@ livePreviewPrefab: Promise<ObjectCaptureLivePreviewPrefab>
 
 /**
 ```
+(get) pipelineStatus: StringSignal
+(set) (Not Available)
+```
+*/
+pipelineStatus: StringSignal
+
+/**
+```
 (get) status: StringSignal
 (set) (Not Available)
 ```
@@ -44,6 +52,14 @@ onNewCapturedObject(): EventSource<CapturedObjectInfo>
 
 */
 onNewCapturedObject(): EventSource<CapturedObjectInfo>
+
+/**
+```
+pauseCapture(): void
+```
+
+*/
+pauseCapture(): void
 
 /**
 ```

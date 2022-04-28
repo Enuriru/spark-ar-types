@@ -7,7 +7,7 @@
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
 /**
-The `ScalarSignal` class monitors a numerical value.
+Monitors a numerical value and exposes functionality for performing mathematical operations with the given signal.
 */
 declare interface ScalarSignal {
 
@@ -138,10 +138,12 @@ dot(other: VectorSignal): ScalarSignal
 eq(other: ScalarSignal | number): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is **equal** to the value of the right-hand-side one, and the value of `false` all other time.
-**Note**: the scalar values are tested for exact equality. For some applications it might be reasonable to perform a non-strict comparison allowing the values to be within a small distance one from another.
+Compares whether the signal's value is equal to the value of the `ScalarSignal` passed in the argument and returns the result as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+If the value is equal to the value of `other` then `true` is returned. If the value is greater or lower than the value of `other` then `false` is returned.
 
-**See Also**: `ReactiveModule.eq`
+The [`Reactive.eq()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `ScalarSignal` or number to compare against.
 */
 eq(other: ScalarSignal | number): BoolSignal
 
@@ -150,8 +152,10 @@ eq(other: ScalarSignal | number): BoolSignal
 expSmooth(dampFactor: number): ScalarSignal
 ```
 
-Smoothes a variable signal using exponential averaging over time. The argument specifies the dampening time constant in milliseconds.
-**Note**: See also `ReactiveModule.expSmooth`.
+Smooths the specified variable signal using exponential averaging over time and returns the result as a signal of the same type.
+The [`Reactive.expSmooth()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `dampFactor` - the dampening time constant, in milliseconds.
 */
 expSmooth(dampFactor: number): ScalarSignal
 
@@ -170,10 +174,28 @@ floor(): ScalarSignal
 format(formatString: string): StringSignal
 ```
 
-Converts a `ScalarSignal` to a `StringSignal` according to the supplied formatting string.
-**Note**: `formatString` shall conform to the Folly formatting rules as specified here: https://github.com/facebook/folly/blob/master/folly/docs/Format.md#format-string-syntax .
+Converts the value of the signal to a string and returns the result as a [`StringSignal`](/classes/ReactiveModule.StringSignal).
+```
+// Load in the required module
+const FaceTracking = require('FaceTracking');
 
-**See Also**: `ScalarSignal.toString`.
+// Create a reference to the detected face's mouth openness value
+const mouthOpenness = FaceTracking.face(0).mouth.openness;
+
+// Format the full mouth openness value to a string
+const opennessVal = mouthOpenness.format("Mouth openness is {} ");
+
+// Format the mouth openness value to a string with two decimal places
+const opennessTwoDecimals = mouthOpenness.format("Mouth openness is {:.2f} ");
+
+// Format the mouth openness value to a string with four decimal places
+const opennessFourDecimals = mouthOpenness.format("Mouth openness is {:.4f} ");
+
+// Format the mouth openness value to a string using scientific notation
+const opennessNotation = mouthOpenness.format("Mouth openness is {:e} ");
+```
+
+* `formatString` - the type of formatting to apply to the string. Use the Folly formatting rules described [here](https://github.com/facebook/folly/blob/master/folly/docs/Format.md#format-string-syntax) to configure the format.
 */
 format(formatString: string): StringSignal
 
@@ -191,8 +213,12 @@ fromRange(min: ScalarSignal, max: ScalarSignal): ScalarSignal
 ge(other: ScalarSignal | number): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is **greated than or equal** to the value of the right-hand-side one, and the value of `false` all other time.
-**See Also**: `ReactiveModule.ge`
+Compares whether the signal's value is greater than or equal to the value of the `ScalarSignal` passed in the argument and returns the result as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+If the value is greater than or equal to the value of `other` then `true` is returned. If the value is lower than the value of `other` then `false` is returned.
+
+The [`Reactive.ge()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `ScalarSignal` or number to compare against.
 */
 ge(other: ScalarSignal | number): BoolSignal
 
@@ -201,8 +227,12 @@ ge(other: ScalarSignal | number): BoolSignal
 gt(other: ScalarSignal | number): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is strictly **greated than** the value of the right-hand-side one, and the value of `false` all other time.
-**See Also**: `ReactiveModule.gt`
+Compares whether the signal's value is greater than the value of the `ScalarSignal` passed in the argument and returns the result as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+If the value is greater than the value of `other` then `true` is returned. If the value is lower than the value of `other`, or if the values are equal, `false` is returned.
+
+The [`Reactive.gt()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `ScalarSignal` or number to compare against.
 */
 gt(other: ScalarSignal | number): BoolSignal
 
@@ -211,8 +241,11 @@ gt(other: ScalarSignal | number): BoolSignal
 history(framesCount: number, initialValues?: Array<number>): SignalHistory<number>
 ```
 
-Returns an object used to access signal values from past frames. The amount of frames tracked is customizable via `framesCount` parameter.
-Historical signal values are going to be initialized with signal value at call time or using `initialValues` if provided.
+Returns a [`SignalHistory`](/classes/ReactiveModule.SignalHistory) object containing the values of the signal from past frames.
+Historical signal values are initialized with the signal's value at the time the method was called, or with `initialValues` if provided.
+
+* `framesCount` - the number of previous frames to track.
+* `initialValues` - optional initial values for the signal.
 */
 history(framesCount: number, initialValues?: Array<number>): SignalHistory<number>
 
@@ -221,14 +254,30 @@ history(framesCount: number, initialValues?: Array<number>): SignalHistory<numbe
 interval(threshold: number): EventSource<number>
 ```
 
-Returns an `EventSource` that emits an event whenever the supplied `ScalarSignal` first passes (becomes greater than or equal) a value of `N*threshold`, N = 1, 2, 3, ... Events are signaled in increasing order of N, starting from 1, with no omissions. For each value of N, the respective event is fired only once.
-The emitted event (the argument passed to the callback function) has the value of corresponding `N*threshold`.
+Returns an [`EventSource`](/classes/ReactiveModule.EventSource) that emits an event whenever the signal increases to a value greater than or equal to `N * threshold`, where `N` is a value that starts at `1` and increases by `1` sequentially.
+For every `N * threshold` instance the event is only emitted once. If the scalar signal decreases and subsequently increases again to a previous `N * threshold` value no event is emitted. As such, the method is best used with positive scalar values that increase progressively.
 
-**Note**: The threshold must be a positive number.
+The argument passed to the callback function for the event contains the `N * threshold` value.
 
-**Note**: `interval` is mostly useful for non-negative non-decreasing scalar signals.
+```
+//============================================================================
+// Load in the required modules
+const FaceTracking = require('FaceTracking');
+const Diagnostics = require('Diagnostics');
 
-**See Also**: `ReactiveModule.trigger`, `ReactiveModule.multiTrigger`.
+// Create a reference to the mouth openness value
+const mouthOpen = FaceTracking.face(0).mouth.openness;
+
+// Subscribe to the events emitted when the openness value increases to
+// a multiple of 0.05. Each N * threshold occurence is only emitted once.
+mouthOpen.interval(0.05).subscribe((val) => {
+
+    // Log the 'N * threshold' value to the console
+    Diagnostics.log(`Mouth openness value reached ${val}`);
+});
+```
+
+* `threshold` - the value of the signal at which the event will be emitted at each `N` occurence. `threshold` must be a positive number.
 */
 interval(threshold: number): EventSource<number>
 
@@ -237,8 +286,12 @@ interval(threshold: number): EventSource<number>
 le(other: ScalarSignal | number): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is **less than or equal** to the value of the right-hand-side one, and the value of `false` all other time.
-**See Also**: `ReactiveModule.le`
+Compares whether the signal's value is less than or equal to the value of the `ScalarSignal` passed in the argument and returns the result as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+If the value is lower than or equal to the value of `other` then `true` is returned. If the value is greater than the value of `other` then `false` is returned.
+
+The [`Reactive.le()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `ScalarSignal` or number to compare against.
 */
 le(other: ScalarSignal | number): BoolSignal
 
@@ -247,8 +300,12 @@ le(other: ScalarSignal | number): BoolSignal
 lt(other: ScalarSignal | number): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is strictly **less than** the value of the right-hand-side one, and the value of `false` all other time.
-**See Also**: `ReactiveModule.lt`
+Compares whether the signal's value is less than the value of the `ScalarSignal` passed in the argument and returns the result as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+If the value is lower than the value of `other` then `true` is returned. If the value is greater than the value of `other`, or if the values are equal, `false` is returned.
+
+The [`Reactive.lt()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `ScalarSignal` or number to compare against.
 */
 lt(other: ScalarSignal | number): BoolSignal
 
@@ -317,12 +374,31 @@ mod(other: ScalarSignal): ScalarSignal
 monitor(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: number, oldValue: number}>
 ```
 
-Returns an `EventSource` that emits an event every time the value of the input signal changes. The event contains a JSON object with the old and new values in the format:
+Returns an [`EventSource`](/classes/ReactiveModule.EventSource) that emits an event whenever the value of the `ScalarSignal` changes.
+The event contains a JSON object which provides the old and new values of the signal in the format `{ "oldValue": number, "newValue": number }`.
+
 ```
-{ "oldValue": number, "newValue": number }
+// Load in the required modules
+const FaceTracking = require('FaceTracking');
+const Diagnostics = require('Diagnostics');
+
+// Create a reference to the number of detected faces
+const faceCount = FaceTracking.count;
+
+// Monitor changes to the value of the 'faceCount' signal
+faceCount.monitor({fireOnInitialValue: false}).subscribe((event) => {
+
+  // Log the old and new values to the console
+  Diagnostics.log(`Old faceCount value: ${event.oldValue}`);
+  Diagnostics.log(`New faceCount value: ${event.newValue}`);
+});
 ```
 
-**Note**: By default, there is no event fired for the initial value of the signal. If `config.fireOnInitialValue` is set to `true` then an event for initial signal value is also emitted. `oldValue` is unset for this initial event.
+* `config` - an optional configuration for the event source.
+
+The `config` JSON object can have the following field:
+
+**`fireOnInitialValue`** - specifies whether an initial event should be emitted containing the signal's initial value. If no value is specified, `false` is used by default. If set to `true`, an initial event will be emitted but `oldValue` will not be available for the first instance.
 */
 monitor(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: number, oldValue: number}>
 
@@ -344,12 +420,25 @@ mul(other: ScalarSignal): ScalarSignal
 multiTrigger(threshold: number): EventSource<number>
 ```
 
-Returns an `EventSource` that fires **every time** the signal raises to (becomes greater than or equal after being less than) the value of `threshold`.
-The emitted event (the argument passed to the callback function) has the value of `threshold`.
+Returns an [`EventSource`](/classes/ReactiveModule.EventSource) that emits an event every time the `ScalarSignal` increases to a value greater than or equal to `threshold`.
+The argument passed to the callback function for the event contains the `threshold` value.
 
-**Note**: The initial value of the signal is assumed to be 0.0.
+```
+// Load in the required modules
+const FaceTracking = require('FaceTracking');
+const Diagnostics = require('Diagnostics');
 
-**See Also**: `ReactiveModule.trigger`, `ReactiveModule.interval`.
+
+// Create a reference to the number of detected faces
+const faceCount = FaceTracking.count;
+
+// Subscribe to the event emitted when faceCount reaches 1
+faceCount.multiTrigger(1).subscribe((val) => {
+  Diagnostics.log(val); // Logs '1' to the console
+});
+```
+
+* `threshold` - the value of the signal at which the event will be emitted.
 */
 multiTrigger(threshold: number): EventSource<number>
 
@@ -358,10 +447,12 @@ multiTrigger(threshold: number): EventSource<number>
 ne(other: ScalarSignal | number): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is **not equal** to the value of the right-hand-side one, and the value of `false` all other time.
-**Note**: the scalar values are tested for exact equality. For some applications it might be reasonable to perform a non-strict comparison allowing the values to be within a small distance one from another.
+Compares whether the signal's value is not equal to the value of the `ScalarSignal` passed in the argument and returns the result as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+If the value is not equal to the value of `other` then `true` is returned. If the values are equal then `false` is returned.
 
-**See Also**: `ReactiveModule.ne`
+The [`Reactive.ne()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `ScalarSignal` or number to compare against.
 */
 ne(other: ScalarSignal | number): BoolSignal
 
@@ -389,7 +480,7 @@ normalize(): VectorSignal
 pin(): ScalarSignal
 ```
 
-Returns a `ScalarSignal` containing a constant value which is the value of the specified signal immediately after `pin` is called.
+Returns a new `ScalarSignal` with a constant value, which is equal to the value that the original signal contained immediately after the method was called.
 */
 pin(): ScalarSignal
 
@@ -398,8 +489,8 @@ pin(): ScalarSignal
 pinLastValue(): ConstScalarSignal
 ```
 
-Returns a `ConstScalarSignal` containing a constant value which is the last value of the specified signal before `pinLastValue` is called.
-ConstScalarSignal can be passed to a functions which accept numbers.
+Returns a `ConstScalarSignal` with a constant value, which is equal to the value that the original signal contained immediately before the method was called.
+Unlike `ScalarSignal` objects, `ConstScalarSignal` objects can be passed as an argument to methods that expect a primitive `number` type.
 */
 pinLastValue(): ConstScalarSignal
 
@@ -441,9 +532,30 @@ round(): ScalarSignal
 schmittTrigger(config: {high: number, initialValue?: false | true, low: number}): BoolSignal
 ```
 
-Returns a Boolean signal that is `true` when the input is strictly greater than the upper threshold, and `false` when it is strictly less than the lower threshold.
-For input values between and including the thresholds, the Shmitt trigger returns the same value as at the previous update, or **initialValue** if this is the first update.
-**Note**: The initialValue is assumed to be `false` if it isn't specified.
+Returns a [`BoolSignal`](/classes/ReactiveModule.BoolSignal) with `true` if the signal is higher than the upper threshold specified, or `false` if the signal is lower than the lower threshold specified.
+If the signal contains a value within, or equal to, the threshold values this method returns the same boolean value it contained in the previous update, or the value specified by `initialValue` if this is the first update.
+
+```
+// Load in the required module
+const FaceTracking = require('FaceTracking');
+
+// Create a reference to the mouth openness of the detected face
+const mouthOpen = FaceTracking.face(0).mouth.openness;
+
+const valAboveThreshold = mouthOpen.schmittTrigger({
+  "low": 0.3,
+  "high": 0.7,
+  "initialValue": false
+});
+```
+
+* `config` - the configuration for the threshold values.
+
+The `config` JSON object can have the following fields:
+
+**`low`** - the lower threshold. If the signal is lower than this, the method returns `false`.
+**`high`** - the upper threshold. If the signal is higher than this, the method returns `true`.
+**`initialValue`** - an optional initial value for the boolean returned by the method. If no value is specified, this is set to `false` by default.
 */
 schmittTrigger(config: {high: number, initialValue?: false | true, low: number}): BoolSignal
 
@@ -531,12 +643,29 @@ toString(): StringSignal
 trigger(threshold: number): EventSource<number>
 ```
 
-Returns an `EventSource` that fires **the first time** the value of the signal raises (becomes greater than or equal) to the level of `threshold`. No more than one event is ever emitted by this `EventSource`.
-The emitted event (the argument passed to the callback function) has the value of `threshold`.
+Returns an [`EventSource`](/classes/ReactiveModule.EventSource) that emits an event the first time the `ScalarSignal` increases to a value greater than or equal to `threshold`.
+Only a single event is ever emitted by the returned `EventSource`.
 
-**Note**: for positive thresholds, `trigger` is equivalent to `interval(threshold).take(1)`.
+The argument passed to the callback function for the event contains the `threshold` value.
 
-**See Also**: `ReactiveModule.multiTrigger`, `ReactiveModule.interval`.
+Calling this method with a positive `threshold` value is equivalent to calling `EventSource.interval(threshold).take(1)`.
+
+```
+// Load in the required modules
+const FaceTracking = require('FaceTracking');
+const Diagnostics = require('Diagnostics');
+
+
+// Create a reference to the number of detected faces
+const faceCount = FaceTracking.count;
+
+// Subscribe to the event emitted when faceCount reaches 1
+faceCount.trigger(1).subscribe((val) => {
+  Diagnostics.log(val); // Logs '1' to the console
+});
+```
+
+* `threshold` - the value of the signal at which the event will be emitted.
 */
 trigger(threshold: number): EventSource<number>
 
@@ -546,42 +675,25 @@ trigger(threshold: number): EventSource<number>
 
 /**
 
+//============================================================================
+// Perform various mathematical and logical operations with a given set of
+// signals and constant values.
+//
+//
+// Required project capabilities:
+// - FaceTracking (auto added on module import)
+//
+//============================================================================
+
 // Load in the required modules
-const Animation = require('Animation');
-const Scene = require('Scene');
+const FaceTracking = require('FaceTracking');
 const TouchGestures = require('TouchGestures');
+const Diagnostics = require('Diagnostics');
 
-// Enable async/await in JS [part 1]
-(async function() {
-  // Access a plane inserted in the scene
-  const [plane] = await Promise.all([
-    Scene.root.findFirst('plane0')
-  ]);
 
-  // Use pinLastValue as a way of getting the intial Y position of the plane
-  const planeInitialYPosition = plane.transform.y.pinLastValue();
-  // Define an end value using the negative Y value of the plane
-  const planeEndYPosition = plane.transform.y.mul(-1).pinLastValue();
+(async function() { // Enable async/await in JS [part 1]
 
-  // Create a timeDriver to set the duration of our animation
-  const timeDriver = Animation.timeDriver({durationMilliseconds: 5000});
-  // Create a linear sampler using the positions defined above as the start and end points
-  let linearSampler = Animation.samplers.linear(planeInitialYPosition, planeEndYPosition);
 
-  // Bind the Y position of the plane to an animation using the driver and sampler and
-  // start the timeDriver
-  plane.transform.y = Animation.animate(timeDriver, linearSampler);
-  timeDriver.start();
-
-  // Register a tap event on the plane
-  TouchGestures.onTap(plane).subscribe(() => {
-    // Redefine the linear sampler using the last Y value of the plane and the intial y value stored earlier
-    linearSampler = Animation.samplers.linear(plane.transform.y.pinLastValue(), planeInitialYPosition);
-    // Bind the Y position of the plane to an animation using the updated sampler and reset the time driver
-    plane.transform.y = Animation.animate(timeDriver, linearSampler);
-    timeDriver.reset();
-  });
-// Enable async/await in JS [part 2]
-})();
+})(); // Enable async/await in JS [part 2]
 
 */

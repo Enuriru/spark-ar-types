@@ -141,6 +141,7 @@ applyTo(transform: TransformSignal): TransformSignal
 ```
 
 Returns a signal with the value that is equal to the value of the provided transformation with the transformation of the current `TransformSignal` applied to it.
+* `transform` - the transform to apply the current transform to, as a [`TransformSignal`](/classes/ReactiveModule.TransformSignal).
 */
 applyTo(transform: TransformSignal): TransformSignal
 
@@ -151,6 +152,8 @@ applyToPoint(signal: PointSignal): PointSignal
 
 Returns a signal with the value that is equal to the value of the provided point with the transformation applied to it.
 This performs a matrix multiplication of the provided point (with an implicit `1` in the 4th dimension) and the receiver transform, and divides by perspective.
+
+* `signal` - the point to apply the transform to, as a [`PointSignal`](/classes/ReactiveModule.PointSignal).
 */
 applyToPoint(signal: PointSignal): PointSignal
 
@@ -161,6 +164,8 @@ applyToVector(signal: VectorSignal): VectorSignal
 
 Returns a signal with the value that is equal to the value of the provided vector with the transformation applied to it.
 This performs a matrix multiplication of the provided vector (with an implicit `0` in the 4th dimension) and the receiver transform, without change of position.
+
+* `signal` - the vector to apply the transform to, as a [`VectorSignal`](/classes/ReactiveModule.VectorSignal).
 */
 applyToVector(signal: VectorSignal): VectorSignal
 
@@ -178,10 +183,12 @@ delayBy(timeSpan: {milliseconds: number}): ISignal
 expSmooth(dampFactor: number): TransformSignal
 ```
 
-Smoothes a variable signal using exponential averaging over time. The argument specifies the dampening time constant in milliseconds.
+Smoothes a variable signal using exponential averaging over time.
 **Note**: The smoothed transformation for a signal that specifies a rigid body transformation is guaranteed to be a rigid body transformation. The rotation component is smoothed in spherical coordinates using Slerp (spherical linear interpolation).
 
 **Note**: See also `ReactiveModule.expSmooth`.
+
+* `dampFactor` - the dampening time constant, in milliseconds.
 */
 expSmooth(dampFactor: number): TransformSignal
 
@@ -190,8 +197,10 @@ expSmooth(dampFactor: number): TransformSignal
 history(framesCount: number): SignalHistory<Transform>
 ```
 
-Returns an object used to access signal values from past frames. The amount of frames tracked is customizable via `framesCount` parameter.
-Historical signal values are going to be initialized with signal value at call time or using `initialValues` if provided.
+Returns an object used to access signal values from past frames.
+Historical signal values are going to be initialized with signal value at call time.
+
+* `framesCount` - the number of frames to track.
 */
 history(framesCount: number): SignalHistory<Transform>
 
@@ -209,9 +218,11 @@ inverse(): TransformSignal
 lookAt(targetPosition: PointSignal, selfUp?: VectorSignal): TransformSignal
 ```
 
-Default `selfUp` is `ReactiveModule.vector(0, 1, 0)`.
 Creates a scene object transform with rotation in direction of target.
 **Note:** self needs to be pointing the scene object alongside the X axis.
+
+* `targetPosition` - The position of the target, as a [`PointSignal`](/classes/ReactiveModule.PointSignal).
+* `selfUp` - The up direction vector, as a [`VectorSignal`](/classes/ReactiveModule.VectorSignal). If no value is specified, a vector of `[0, 1, 0]` is used by default.
 */
 lookAt(targetPosition: PointSignal, selfUp?: VectorSignal): TransformSignal
 

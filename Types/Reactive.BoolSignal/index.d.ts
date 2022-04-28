@@ -4,7 +4,7 @@
 /// <reference path="../Reactive.SignalHistory/index.d.ts" />
 
 /**
-The `BoolSignal` class monitors a boolean value.
+Monitors a boolean value and exposes functionality for performing logical operations with the given signal.
 */
 declare interface BoolSignal {
 
@@ -24,8 +24,12 @@ lastValue: boolean
 and(other: BoolSignal): BoolSignal
 ```
 
-Returns a signal with the value that is the logical conjunction of the values of the given signals. It is `true` every time both input signals are `true` and `false` at all other times.
-**See Also**: `BoolSignal.and`
+Performs a logical AND operation with the signal and the `BoolSignal` passed to the method and returns the result as a `BoolSignal`.
+If both signals are `true` then `true` is returned, otherwise `false` is returned.
+
+To perform an AND operation with more than two operands, use the [`Reactive.andList()`](/classes/ReactiveModule#methods) method.
+
+* `other` - the other `BoolSignal` to perform the logical AND operation with.
 */
 and(other: BoolSignal): BoolSignal
 
@@ -51,10 +55,12 @@ delayBy(timeSpan: {milliseconds: number}): ISignal
 eq(other: BoolSignal | boolean): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is **equal** to the value of the right-hand-side one, and the value of `false` all other time.
-**Note**: the scalar values are tested for exact equality. For some applications it might be reasonable to perform a non-strict comparison allowing the values to be within a small distance one from another.
+Compares whether the signal's value is equal to the `BoolSignal` passed in the argument and returns the result as a `BoolSignal`.
+If the values are equal `true` is returned, otherwise `false` is returned.
 
-**See Also**: `ReactiveModule.eq`
+The [`Reactive.eq()`](/classes/ReactiveModule#methods) method also allows two `BoolSignal`s to be compared.
+
+* `other` - the `BoolSignal` to compare against.
 */
 eq(other: BoolSignal | boolean): BoolSignal
 
@@ -63,8 +69,11 @@ eq(other: BoolSignal | boolean): BoolSignal
 history(framesCount: number, initialValues?: Array<boolean>): SignalHistory<boolean>
 ```
 
-Returns an object used to access signal values from past frames. The amount of frames tracked is customizable via `framesCount` parameter.
-Historical signal values are going to be initialized with signal value at call time or using `initialValues` if provided.
+Returns a [`SignalHistory`](/classes/ReactiveModule.SignalHistory) object containing the values of the signal from past frames.
+Historical signal values are initialized with the signal's value at the time the method was called, or with `initialValues` if provided.
+
+* `framesCount` - the number of previous frames to track.
+* `initialValues` - optional initial values for the signal.
 */
 history(framesCount: number, initialValues?: Array<boolean>): SignalHistory<boolean>
 
@@ -76,7 +85,13 @@ ifThenElse(thenValue: StringSignal | string, elseValue: StringSignal | string): 
 ifThenElse(thenValue: BoolSignal | boolean, elseValue: BoolSignal | boolean): BoolSignal
 ```
 
-Returns a signal or an `EventSource` which at any point of time takes the value (passes the events in case of `EventSource`) of one or another inputs, depending on the momentary value of the given `BoolSignal`.
+Constructs a conditional if-then-else expression with the signal as the boolean condition.
+If the signal is `true` the returned signal will take the value of `thenValue`. Otherwise, it will take the value of `elseValue`. In the case of [`EventSource`](/classes/ReactiveModule.EventSource) objects being passed to the method, the corresponding event will be returned.
+
+The type of signal returned ([`ScalarSignal`](/classes/ReactiveModule.ScalarSignal), [`StringSignal`](/classes/ReactiveModule.StringSignal) or `BoolSignal`) depends on the values passed.
+
+* `thenValue` - the value or `EventSource` to return if the signal is `true`.
+* `elseValue` - the value or `EventSource` to return if the signal is `false`.
 */
 ifThenElse(thenValue: ScalarSignal | number, elseValue: ScalarSignal | number): ScalarSignal
 
@@ -85,12 +100,35 @@ ifThenElse(thenValue: ScalarSignal | number, elseValue: ScalarSignal | number): 
 monitor(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: boolean, oldValue: boolean}>
 ```
 
-Returns an `EventSource` that emits an event every time the value of the input signal changes. The event contains a JSON object with the old and new values in the format:
+Returns an [`EventSource`](/classes/ReactiveModule.EventSource) that emits an event whenever the value of the `BoolSignal` changes.
+The event contains a JSON object which provides the old and new values of the signal in the format `{ "oldValue": boolean, "newValue": boolean }`.
+
 ```
-{ "oldValue": boolean, "newValue": boolean }
+// Load in the required modules
+const FaceTracking = require('FaceTracking');
+const FaceGestures = require('FaceGestures');
+const Diagnostics = require('Diagnostics');
+
+// Create a reference to a detected face
+const face = FaceTracking.face(0);
+
+// Create a reference to whether the detected face is smiling
+const isSmiling = FaceGestures.isSmiling(face);
+
+// Monitor changes to the value of the 'isSmiling' signal
+isSmiling.monitor({fireOnInitialValue: false}).subscribe((event) => {
+
+  // Log the old and new values to the console
+  Diagnostics.log(`Old isSmiling value: ${event.oldValue}`);
+  Diagnostics.log(`New isSmiling value: ${event.newValue}`);
+});
 ```
 
-**Note**: By default, there is no event fired for the initial value of the signal. If `config.fireOnInitialValue` is set to `true` then an event for initial signal value is also emitted. `oldValue` is unset for this initial event.
+* `config` - an optional configuration for the event source.
+
+The `config` JSON object can have the following field:
+
+**`fireOnInitialValue`** - specifies whether an initial event should be emitted containing the signal's initial value. If no value is specified, `false` is used by default. If set to `true`, an initial event will be emitted but `oldValue` will not be available for the first instance.
 */
 monitor(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: boolean, oldValue: boolean}>
 
@@ -99,10 +137,12 @@ monitor(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: bo
 ne(other: BoolSignal | boolean): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is **not equal** to the value of the right-hand-side one, and the value of `false` all other time.
-**Note**: the scalar values are tested for exact equality. For some applications it might be reasonable to perform a non-strict comparison allowing the values to be within a small distance one from another.
+Compares whether the signal's value is not equal to the `BoolSignal` passed in the argument and returns the result as a `BoolSignal`.
+If the values are not equal `true` is returned, otherwise `false` is returned.
 
-**See Also**: `ReactiveModule.ne`
+The [`Reactive.ne()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `BoolSignal` to compare against.
 */
 ne(other: BoolSignal | boolean): BoolSignal
 
@@ -111,8 +151,10 @@ ne(other: BoolSignal | boolean): BoolSignal
 not(): BoolSignal
 ```
 
-Returns a signal with the logically negated value of the given signal.
-**See Also**: `ReactiveModule.not`
+Performs a logical NOT operation with the signal and returns the result as a `BoolSignal`.
+If the signal is `true`, `false` will be returned and vice versa.
+
+The [`Reactive.not()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
 */
 not(): BoolSignal
 
@@ -121,12 +163,14 @@ not(): BoolSignal
 onOff(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: boolean, oldValue: boolean}>
 ```
 
-Returns an `EventSource` that emits an event every time the value of the input signal changes to `false`. The event contains a JSON object with the old and new values in the format:
-```
-{ "oldValue": boolean, "newValue": boolean }
-```
+Returns an [`EventSource`](/classes/ReactiveModule.EventSource) that emits an event whenever the value of the signal changes to `false`.
+The event contains a JSON object which provides the old and new values of the signal in the format `{ "oldValue": boolean, "newValue": boolean }`.
 
-**Note**: By default, there is no event fired for the initial value of the signal if it's `false` straight away. If `config.fireOnInitialValue` is set to `true` then an event for initial signal value is also emitted. `oldValue` is unset for this initial event.
+* `config` - an optional configuration for the event source.
+
+The `config` JSON object can have the following field:
+
+**`fireOnInitialValue`** - specifies whether an initial event should be emitted containing the signal's initial value. If no value is specified, `false` is used by default. If set to `true`, an initial event will be emitted but `oldValue` will not be available for that first instance.
 */
 onOff(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: boolean, oldValue: boolean}>
 
@@ -135,12 +179,14 @@ onOff(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: bool
 onOn(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: boolean, oldValue: boolean}>
 ```
 
-Returns an `EventSource` that emits an event every time the value of the input signal changes to `true`. The event contains a JSON object with the old and new values in the format:
-```
-{ "oldValue": boolean, "newValue": boolean }
-```
+Returns an [`EventSource`](/classes/ReactiveModule.EventSource) that emits an event whenever the value of the signal changes to `true`.
+The event contains a JSON object which provides the old and new values of the signal in the format `{ "oldValue": boolean, "newValue": boolean }`.
 
-**Note**: By default, there is no event fired for the initial value of the signal if it's `true` straight away. If `config.fireOnInitialValue` is set to `true` then an event for initial signal value is also emitted. `oldValue` is unset for this initial event.
+* `config` - an optional configuration for the event source.
+
+The `config` JSON object can have the following field:
+
+**`fireOnInitialValue`** - specifies whether an initial event should be emitted containing the signal's initial value. If no value is specified, `false` is used by default. If set to `true`, an initial event will be emitted but `oldValue` will not be available for that first instance.
 */
 onOn(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: boolean, oldValue: boolean}>
 
@@ -149,8 +195,12 @@ onOn(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: boole
 or(other: BoolSignal): BoolSignal
 ```
 
-Returns a signal with the value that is the logical disjunction of the values of the given signals. It is `true` every time at least one of the input signals is `true` and `false` at all other times.
-**See Also**: `BoolSignal.or`
+Performs a logical OR operation with the signal and the `BoolSignal` passed to the method and returns the result as a `BoolSignal`.
+If either one, or both, of the signals are `true` then `true` is returned. If neither signal is `true` then `false` is returned.
+
+To perform an OR operation with more than two operands, use the [`Reactive.orList()`](/classes/ReactiveModule#methods) method.
+
+* `other` - the other `BoolSignal` to perform the logical OR operation with.
 */
 or(other: BoolSignal): BoolSignal
 
@@ -159,7 +209,7 @@ or(other: BoolSignal): BoolSignal
 pin(): BoolSignal
 ```
 
-Returns a `BoolSignal` containing a constant value which is the value of the specified signal immediately after `pin` is called.
+Returns a new `BoolSignal` with a constant value, which is equal to the value that the original signal contained immediately after the method was called.
 */
 pin(): BoolSignal
 
@@ -168,8 +218,8 @@ pin(): BoolSignal
 pinLastValue(): ConstBoolSignal
 ```
 
-Returns a `ConstBoolSignal` containing a constant value which is the last value of the specified signal before `pinLastValue` is called.
-ConstBoolSignal can be passed to a functions which accept numbers.
+Returns a `ConstBoolSignal` with a constant value, which is equal to the value that the original signal contained immediately before the method was called.
+Unlike `BoolSignal` objects, `ConstBoolSignal` objects can be passed as an argument to methods that expect a primitive `bool` type.
 */
 pinLastValue(): ConstBoolSignal
 
@@ -178,11 +228,64 @@ pinLastValue(): ConstBoolSignal
 xor(other: BoolSignal | boolean): BoolSignal
 ```
 
-Returns a signal with the value that is the logical exclusive disjunction of the values of the given signals. It is `true` every time exactly one of the input signals is `true` and `false` at all other times.
-**Note**: It is equivalent to `BoolSignal.ne`.
+Performs a logical XOR operation with the signal and the `BoolSignal` passed to the method and returns the result as a `BoolSignal`.
+If only one of the signals is `true` then `true` is returned. If both, or neither, of the signals are `true` then `false` is returned.
 
-**See Also**: `ReactiveModule.xor`
+To perform an XOR operation with more than two operands, use the [`Reactive.xorList()`](/classes/ReactiveModule#methods) method.
+
+* `other` - the other `BoolSignal` to perform the logical XOR operation with.
 */
 xor(other: BoolSignal | boolean): BoolSignal
 
 }
+
+
+
+/**
+
+//============================================================================
+// Performs various operations with a given BoolSignal.
+//
+//
+// Required project capabilities:
+// - FaceTracking (auto added on module import)
+// - FaceGestures (auto added on module import)
+//
+//============================================================================
+
+// Load in the required modules
+const FaceGestures = require('FaceGestures');
+const FaceTracking = require('FaceTracking');
+const Diagnostics = require('Diagnostics');
+
+
+// Create a reference to a detected face
+const face = FaceTracking.face(0);
+
+// Create a reference to whether either of the eyes are closed
+const leftEyeClosed = FaceGestures.hasLeftEyeClosed(face);
+const rightEyeClosed = FaceGestures.hasRightEyeClosed(face);
+
+
+//==========================================================================
+// Perform a logical XOR operation with a given BoolSignal
+//==========================================================================
+
+// Returns true if only one of the BoolSignals is true
+const onlyOneEyeClosed = leftEyeClosed.xor(rightEyeClosed);
+
+
+//==========================================================================
+// Subscribe to an event emitted when the BoolSignal's value changes
+//==========================================================================
+
+// Log the old and new values whenever the leftEyeClosed signal's value
+// changes to 'true'
+leftEyeClosed.onOn({fireOnInitialValue: true}).subscribe((event) => {
+
+  // oldValue will be undefined the first time the event is emitted
+  Diagnostics.log(`Old leftEyeClosed value: ${event.oldValue}`);
+  Diagnostics.log(`New leftEyeClosed value: ${event.newValue}`);
+});
+
+*/

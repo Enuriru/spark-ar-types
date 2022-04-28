@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"assistant","orCapability":""},{"kind":"introducedBy","version":2939567426}]
+[{"kind":"capability","capability":"assistant","orCapability":""}]
 */
 
 

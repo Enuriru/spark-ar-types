@@ -4,7 +4,7 @@
 /// <reference path="../Reactive.SignalHistory/index.d.ts" />
 
 /**
-The `StringSignal` class monitors a string value.
+Monitors a string value.
 */
 declare interface StringSignal {
 
@@ -26,6 +26,8 @@ concat(other: StringSignal | string): StringSignal
 
 Returns a `StringSignal` containing the concatenation of the values specified by the input signals.
 **See Also**: `ReactiveModule.concat`
+
+* `other` - the `StringSignal` or string to concatenate with.
 */
 concat(other: StringSignal | string): StringSignal
 
@@ -51,8 +53,12 @@ delayBy(timeSpan: {milliseconds: number}): ISignal
 eq(other: StringSignal | string): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is **equal** to the value of the right-hand-side one, and the value of `false` all other time.
-**See Also**: `ReactiveModule.eq`
+Compares whether the signal's value is equal to the value of the `StringSignal` passed in the argument and returns the result as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+If the value is equal to the value of `other` then `true` is returned. If not, then `false` is returned.
+
+The [`Reactive.eq()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `StringSignal` or string to compare against.
 */
 eq(other: StringSignal | string): BoolSignal
 
@@ -61,8 +67,11 @@ eq(other: StringSignal | string): BoolSignal
 history(framesCount: number, initialValues?: Array<string>): SignalHistory<string>
 ```
 
-Returns an object used to access signal values from past frames. The amount of frames tracked is customizable via `framesCount` parameter.
-Historical signal values are going to be initialized with signal value at call time or using `initialValues` if provided.
+Returns a [`SignalHistory`](/classes/ReactiveModule.SignalHistory) object containing the values of the signal from past frames.
+Historical signal values are initialized with the signal's value at the time the method was called, or with `initialValues` if provided.
+
+* `framesCount` - the number of previous frames to track.
+* `initialValues` - optional initial values for the signal.
 */
 history(framesCount: number, initialValues?: Array<string>): SignalHistory<string>
 
@@ -71,12 +80,33 @@ history(framesCount: number, initialValues?: Array<string>): SignalHistory<strin
 monitor(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: string, oldValue: string}>
 ```
 
-Returns an `EventSource` that emits an event every time the value of the input signal changes. The event contains a JSON object with the old and new values in the format:
+Returns an [`EventSource`](/classes/ReactiveModule.EventSource) that emits an event whenever the value of the `StringSignal` changes.
+The event contains a JSON object which provides the old and new values of the signal in the format `{ "oldValue": number, "newValue": number }`.
+
 ```
-{ "oldValue": string, "newValue": string }
+// Load in the required modules
+const Locale = require('Locale');
+const Diagnostics = require('Diagnostics');
+
+// Get the device's language
+const language = Locale.language;
+
+// Monitor changes to the value of the 'language' signal
+language.monitor({fireOnInitialValue: false}).subscribe((event) => {
+
+  // Log the device language to the console
+  Diagnostics.log(`My language is: ${event.newValue}`);
+
+  // Old values of a given StringSignal can also be accessed
+  // Diagnostics.log(`Previous value: ${event.oldValue}`);
+});
 ```
 
-**Note**: By default, there is no event fired for the initial value of the signal. If `config.fireOnInitialValue` is set to `true` then an event for initial signal value is also emitted. `oldValue` is unset for this initial event.
+* `config` - an optional configuration for the event source.
+
+The `config` JSON object can have the following field:
+
+**`fireOnInitialValue`** - specifies whether an initial event should be emitted containing the signal's initial value. If no value is specified, `false` is used by default. If set to `true`, an initial event will be emitted but `oldValue` will not be available for the first instance.
 */
 monitor(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: string, oldValue: string}>
 
@@ -85,8 +115,12 @@ monitor(config?: {fireOnInitialValue?: false | true}): EventSource<{newValue: st
 ne(other: StringSignal | string): BoolSignal
 ```
 
-Returns a Boolean signal that takes the value of `true` every time when the value of the left-hand-side signal is **not equal** to the value of the right-hand-side one, and the value of `false` all other time.
-**See Also**: `ReactiveModule.ne`
+Compares whether the signal's value is not equal to the value of the `StringSignal` passed in the argument and returns the result as a [`BoolSignal`](/classes/ReactiveModule.BoolSignal).
+If the value is not equal to the value of `other` then `true` is returned. If the values are equal then `false` is returned.
+
+The [`Reactive.ne()`](/classes/ReactiveModule#methods) method provides equivalent functionality.
+
+* `other` - the `StringSignal` or string to compare against.
 */
 ne(other: StringSignal | string): BoolSignal
 
@@ -95,7 +129,7 @@ ne(other: StringSignal | string): BoolSignal
 pin(): StringSignal
 ```
 
-Returns a `StringSignal` containing a constant value which is the value of the specified signal immediately after `pin` is called.
+Returns a new `StringSignal` with a constant value, which is equal to the value that the original signal contained immediately after the method was called.
 */
 pin(): StringSignal
 
@@ -104,9 +138,61 @@ pin(): StringSignal
 pinLastValue(): ConstStringSignal
 ```
 
-Returns a `ConstStringSignal` containing a constant value which is the last value of the specified signal before `pinLastValue` is called.
-ConstScalarSignal can be passed to a functions which accept numbers.
+Returns a `ConstStringSignal` with a constant value, which is equal to the value that the original signal contained immediately before the method was called.
+Unlike `StringSignal` objects, `ConstStringSignal` objects can be passed as an argument to methods that expect a primitive `string` type.
 */
 pinLastValue(): ConstStringSignal
 
 }
+
+
+
+/**
+
+//============================================================================
+// Performs various operations with a given StringSignal.
+//
+//
+// Required project capabilities:
+// - Locale (auto added on module import)
+//
+//============================================================================
+
+// Load in the required modules
+const Locale = require('Locale');
+const Diagnostics = require('Diagnostics');
+
+// Get the device's language and region
+const language = Locale.language;
+const region = Locale.region;
+
+//==========================================================================
+// Compare the value of a StringSignal to a given string
+//==========================================================================
+
+// Compare whether the device region matches the ISO 3166-1 code for
+// the 'US' region
+const regionIsUs = region.eq("US");
+
+if (regionIsUs){
+  Diagnostics.log("Device region is US");
+} else{
+  Diagnostics.log("Device region is not US");
+}
+
+
+//==========================================================================
+// Monitor changes to a StringSignal's value
+//==========================================================================
+
+// Monitor changes to the value of the 'language' signal
+language.monitor({fireOnInitialValue: false}).subscribe((event) => {
+
+  // Log the device language to the console
+  Diagnostics.log(`Device language is: ${event.newValue}`);
+
+  // Old values of a given StringSignal can also be accessed
+  // Diagnostics.log(`Previous value: ${event.oldValue}`);
+});
+
+*/

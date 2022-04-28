@@ -3,7 +3,7 @@
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 
 /**
-The `Box2DSignal` class monitors 2D bounding box value.
+The `Box2DSignal` class monitors a 2D bounding box value.
 */
 declare interface Box2DSignal {
 
@@ -62,8 +62,10 @@ y: ScalarSignal
 history(framesCount: number): SignalHistory<Box2D>
 ```
 
-Returns an object used to access signal values from past frames. The amount of frames tracked is customizable via `framesCount` parameter.
-Historical signal values are going to be initialized with signal value at call time or using `initialValues` if provided.
+Returns an object used to access signal values from past frames.
+Historical signal values are going to be initialized with signal value at call time.
+
+* `framesCount` - the number of frames to track.
 */
 history(framesCount: number): SignalHistory<Box2D>
 
