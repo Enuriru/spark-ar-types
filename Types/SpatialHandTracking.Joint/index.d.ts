@@ -1,4 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../SpatialGesture.Pose/index.d.ts" />
 /// <reference path="../SpatialHandTracking.Pose/index.d.ts" />
 /// <reference path="../SpatialHandTracking.Velocity/index.d.ts" />
 

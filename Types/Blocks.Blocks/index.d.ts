@@ -8,14 +8,14 @@
 
 
 /**
-[{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"introducedBy","version":1470402116}]
+[{"kind":"capability","capability":"blocks","orCapability":""}]
 */
 
 
 /**
 The `BlocksModule` class provides methods for interacting with the Blocks in your effect.
 */
-declare interface BlocksForDynamicInstantiation extends Module {
+declare interface Blocks extends Module {
 
 /**
 ```

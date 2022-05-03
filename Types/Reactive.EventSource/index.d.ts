@@ -7,7 +7,7 @@
 /**
 The `EventSource` class provides methods for monitoring signals.
 */
-declare interface EventSource extends ISignal {
+declare interface EventSource<T> extends ISignal {
 
 /**
 ```

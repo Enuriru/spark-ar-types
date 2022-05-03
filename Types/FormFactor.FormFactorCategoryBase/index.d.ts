@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":3829334519},{"kind":"capability","capability":"formFactor","orCapability":""}]
+[{"kind":"capability","capability":"formFactor","orCapability":""}]
 */
 
 

@@ -3,7 +3,7 @@
 /**
 The `EventSourceHistory` encapsulates methods for accessing values of `EventSource` from previous frames.
 */
-declare interface EventSourceHistory {
+declare interface EventSourceHistory<T> {
 
 /**
 ```

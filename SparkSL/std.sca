@@ -1,0 +1,227 @@
+//
+using Texture2d1ch = function<float(vec2)>;
+  using Texture2d2ch = function<vec2(vec2)>;
+  using Texture2d3ch = function<vec3(vec2)>;
+  using Texture2d4ch = function<vec4(vec2)>;
+
+//
+import vec4 getVertexBasePosition();
+import vec4 getVertexPosition();
+import vec3 getVertexNormal();
+import vec4 getVertexTangent4();
+import float getTangentHandedness();
+import vec3 getVertexTangent();
+import vec3 getVertexBitangent();
+import vec2 getVertexTexCoord();
+import optional<vec2> getVertexTexCoord1();
+import optional<vec2> getVertexTexCoord2();
+import optional<vec2> getVertexTexCoord3();
+import optional<vec4> getVertexColor();
+import vec3 getFragmentNormal();
+import vec3 getFragmentTangent();
+import vec3 getFragmentBitangent();
+import mat3 getTangentFrame();
+import vec4 getFragmentCoord();
+import bool getFrontFacing();
+
+//
+import struct Light {
+  vec3 intensity;
+  vec4 position;
+  vec3 direction;
+  vec3 attenuation;
+  vec2 spotCosCutoff;
+};
+import std::Light getLight0();
+import std::Light getLight1();
+import std::Light getLight2();
+import std::Light getLight3();
+import int getActiveLightCount();
+import vec3 getAmbientLight();
+import struct LightData {
+  vec3 toLightDirection;
+  vec3 intensity;
+};
+import std::LightData getLightData0(vec3 position);
+import std::LightData getLightData1(vec3 position);
+import std::LightData getLightData2(vec3 position);
+import std::LightData getLightData3(vec3 position);
+
+//
+import float getShadowData0(vec4 worldSpacePosition);
+import float getShadowData1(vec4 worldSpacePosition);
+import float getShadowData2(vec4 worldSpacePosition);
+import float getShadowData3(vec4 worldSpacePosition);
+
+//
+import mat4 getModelMatrix();
+import mat4 getViewMatrix();
+import mat4 getProjectionMatrix();
+import mat4 getModelViewMatrix();
+import mat4 getViewProjectionMatrix();
+import mat4 getModelViewProjectionMatrix();
+import mat3 getNormalMatrix();
+import mat4 getInverseModelMatrix();
+import mat4 getInverseViewMatrix();
+import mat4 getInverseProjectionMatrix();
+import mat4 getModelVideoProjectionMatrix();
+import vec2 getVideoTextureScale();
+import vec2 getRenderTargetSize();
+import float getTime();
+import float getDeltaTime();
+import vec3 getBoundingBoxMin();
+import vec3 getBoundingBoxMax();
+import vec4 getCameraPosition();
+
+//
+import vec3 blendNormal(vec3 src, vec3 dest);
+import vec3 blendAdd(vec3 src, vec3 dest);
+import vec3 blendSubtract(vec3 src, vec3 dest);
+import vec3 blendDifference(vec3 src, vec3 dest);
+import vec3 blendMultiply(vec3 src, vec3 dest);
+import vec3 blendScreen(vec3 src, vec3 dest);
+import vec3 blendPlusDarker(vec3 src, vec3 dest);
+import vec3 blendDivide(vec3 src, vec3 dest);
+import vec3 blendDodge(vec3 src, vec3 dest);
+import vec3 blendBurn(vec3 src, vec3 dest);
+import vec3 blendMin(vec3 src, vec3 dest);
+import vec3 blendMax(vec3 src, vec3 dest);
+import vec3 blendOverlay(vec3 src, vec3 dest);
+import vec3 blend(vec3 src, vec3 dest, function<vec3(vec3,vec3)> blendFunc);
+import vec4 blend(vec3 src, vec4 dest, function<vec3(vec3,vec3)> blendFunc);
+import vec4 blend(vec4 src, vec3 dest, function<vec3(vec3,vec3)> blendFunc);
+import vec4 blend(vec4 src, vec4 dest, function<vec3(vec3,vec3)> blendFunc);
+
+//
+import vec3 hueToRgb(float hue);
+import vec3 rgbToHsv(vec3 rgb);
+import vec3 hsvToRgb(vec3 hsv);
+import vec3 rgbToHsl(vec3 rgb);
+import vec3 hslToRgb(vec3 hsl);
+import vec3 hsvToHsl(vec3 hsv);
+import vec3 hslToHsv(vec3 hsl);
+import vec3 colorSpaceConvert(vec3 src, function<vec3(vec3)> conversionFunc);
+import vec4 colorSpaceConvert(vec4 src, function<vec3(vec3)> conversionFunc);
+
+//
+import float normalizeDepth(float depth, mat4 projection);
+
+//
+import float gradientHorizontal(vec2 uv);
+import float gradientVertical(vec2 uv);
+import float gradientCircular(vec2 uv);
+
+//
+import float sdfUnion(float lhs, float rhs);
+import float sdfSmoothUnion(float lhs, float rhs, float smoothness);
+import float sdfIntersection(float lhs, float rhs);
+import float sdfSmoothIntersection(float lhs, float rhs, float smoothness);
+import float sdfDifference(float lhs, float rhs);
+import float sdfSmoothDifference(float lhs, float rhs, float smoothness);
+import float sdfComplement(float sdf);
+import float sdfMix(float lhs, float rhs, float alpha);
+import float sdfRound(float sdf, float radius);
+import float sdfAnnular(float operand, float radius);
+import function<float(vec2)> sdfUnion(function<float(vec2)> lhs, function<float(vec2)> rhs);
+import function<float(vec2)> sdfSmoothUnion(function<float(vec2)> lhs, function<float(vec2)> rhs, float alpha);
+import function<float(vec2)> sdfIntersection(function<float(vec2)> lhs, function<float(vec2)> rhs);
+import function<float(vec2)> sdfSmoothIntersection(function<float(vec2)> lhs, function<float(vec2)> rhs, float alpha);
+import function<float(vec2)> sdfDifference(function<float(vec2)> lhs, function<float(vec2)> rhs);
+import function<float(vec2)> sdfSmoothDifference(function<float(vec2)> lhs, function<float(vec2)> rhs, float alpha);
+import function<float(vec2)> sdfComplement(function<float(vec2)> sdf);
+import function<float(vec2)> sdfMix(function<float(vec2)> lhs, function<float(vec2)> rhs, float alpha);
+import function<float(vec2)> sdfRound(function<float(vec2)> sdf, float radius);
+import function<float(vec2)> sdfAnnular(function<float(vec2)> sdf, float radius);
+
+//
+import function<float(vec2)> sdfEllipse(vec2 center, vec2 radius);
+import function<float(vec2)> sdfPolygon(vec2 center, float radius, float n);
+import function<float(vec2)> sdfPolygonSharp(vec2 center, float radius, float n);
+import function<float(vec2)> sdfStarSharp(vec2 center, float r, float R, float n);
+import function<float(vec2)> sdfCircle(vec2 center, float radius);
+import function<float(vec2)> sdfRectangle(vec2 center, vec2 halfSize);
+import function<float(vec2)> sdfRectangleSharp(vec2 center, vec2 halfSize);
+import function<float(vec2)> sdfHalfPlane(vec2 offset, vec2 normal);
+import function<float(vec2)> sdfLine(vec2 offset, vec2 normal, float halfWidth);
+
+//
+import function<float(vec2)> sdfRotation(function<float(vec2)> sdf, vec2 pivot, float angle);
+import function<float(vec2)> sdfTranslation(function<float(vec2)> sdf, vec2 translation);
+import function<float(vec2)> sdfScale(function<float(vec2)> sdf, vec2 pivot, vec2 scale);
+import function<float(vec2)> sdfShear(function<float(vec2)> sdf, vec2 pivot, vec2 shear);
+import function<float(vec2)> sdfFlip(function<float(vec2)> sdf, vec2 offset, vec2 normal);
+import function<float(vec2)> sdfRepeat(function<float(vec2)> sdf, vec2 pivot, vec2 size);
+import function<float(vec2)> sdfMirroredRepeatXY(function<float(vec2)> sdf, vec2 pivot, vec2 size);
+import function<float(vec2)> sdfMirroredRepeatX(function<float(vec2)> sdf, vec2 pivot, vec2 size);
+import function<float(vec2)> sdfMirroredRepeatY(function<float(vec2)> sdf, vec2 pivot, vec2 size);
+import function<float(vec2)> sdfRotationalRepeat(function<float(vec2)> sdf, vec2 pivot, float radius, float n);
+import function<float(vec2)> sdfTwist(function<float(vec2)> sdf, vec2 pivot, float twist);
+
+//
+import vec2 safeNormalize(vec2 v);
+import vec3 safeNormalize(vec3 v);
+import vec4 safeNormalize(vec4 v);
+import float safeLength(vec2 v);
+import float safeLength(vec3 v);
+import float safeLength(vec4 v);
+import float safeDistance(vec2 p0, vec2 p1);
+import float safeDistance(vec3 p0, vec3 p1);
+import float safeDistance(vec4 p0, vec4 p1);
+import float safeAtan(float y, float x);
+import vec3 normFragNorm(vec3 v);
+
+//
+import struct Texture2d {
+  function<vec4(vec2)> sample;
+  vec2 size;
+  function<vec4(vec2,float)> sampleLod;
+};
+
+//
+import struct TextureDepth2dCompare {
+  function<float(vec2,float)> sampleDref;
+};
+
+//
+import struct TextureEnv {
+  function<vec4(vec3)> sample;
+  function<vec4(vec3,float)> sampleNormalizedLod;
+};
+
+//
+import struct TextureShadowMap {
+  function<float(vec4)> sample;
+};
+
+//
+// ApiAttributes
+import vec4 getVertexBasePosition();
+import vec4 getVertexPosition();
+import vec3 getVertexNormal();
+import vec4 getVertexTangent4();
+import vec2 getVertexTexCoord();
+import optional<vec4> getVertexColor();
+
+// ApiMatrices
+import mat4 getModelMatrix();
+import mat4 getViewMatrix();
+import mat4 getProjectionMatrix();
+import mat4 getModelViewMatrix();
+import mat4 getViewProjectionMatrix();
+import mat4 getModelViewProjectionMatrix();
+import mat3 getNormalMatrix();
+import mat4 getInverseModelMatrix();
+import mat4 getInverseViewMatrix();
+import mat4 getInverseProjectionMatrix();
+import mat4 getModelVideoProjectionMatrix();
+import vec2 getVideoTextureScale();
+import vec2 getRenderTargetSize();
+import float getTime();
+import vec3 getBoundingBoxMin();
+import vec3 getBoundingBoxMax();
+
+import struct Texture2d {
+  function<vec4(vec2)> sample;
+  vec2 size;
+  function<vec4(vec2, float)> sampleLod;
+};

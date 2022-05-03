@@ -12,7 +12,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":1594774570},{"kind":"capability","capability":"externalFonts","orCapability":""}]
+[{"kind":"capability","capability":"externalFonts","orCapability":""}]
 */
 
 

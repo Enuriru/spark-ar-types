@@ -1,3 +1,4 @@
+/// <reference path="../Persistence.BlockStorage/index.d.ts" />
 
 
 /**
@@ -21,5 +22,16 @@ A unique id for block multipeer communication channel. A multipeer message in th
 The value must be unique across all instantiated blocks in the parent.
 */
 multipeerId: string
+
+/**
+```
+(get) storage: BlockStorage
+(set) storage: BlockStorage
+```
+
+A config for persistence in the instantiated block. It determines where this data is stored, e.g. local vs. on the network.
+The value must be unique across all instantiated blocks in the parent.
+*/
+storage: BlockStorage
 
 }

@@ -9,7 +9,7 @@
 /**
 The `FacewaveModule` class allows you to get visemes from microphone input.
 */
-declare interface Facewave extends Module {
+declare interface Lipsync extends Module {
 
 /**
 ```

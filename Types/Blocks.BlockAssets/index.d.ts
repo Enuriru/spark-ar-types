@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"introducedBy","version":1470402116}]
+[{"kind":"capability","capability":"blocks","orCapability":""}]
 */
 
 

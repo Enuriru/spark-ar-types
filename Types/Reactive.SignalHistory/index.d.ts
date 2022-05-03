@@ -3,7 +3,7 @@
 /**
 The `SignalHistory<T>` class encapsulates methods for accessing values from previous frames.
 */
-declare interface SignalHistory {
+declare interface SignalHistory<T> {
 
 /**
 ```

@@ -3,6 +3,7 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
+/// <reference path="../Scene.WorldTransform/index.d.ts" />
 
 /**
 The `Canvas` class describes a scene canvas.
@@ -67,6 +68,17 @@ Specifies the horizontal size, in 3D units.
 **Note:** this is only effective when `renderMode` property is set to WORLD_SPACE.
 */
 width: ScalarSignal
+
+/**
+```
+(get) worldTransform: WorldTransform
+(set) worldTransform: TransformSignal
+```
+
+Specifies a `TransformSignal` object describing the object's transformation relative to world coordinate system.
+World transform in not supported for Canvas. Accessing this property from such objects or any of their children is not allowed.
+*/
+worldTransform: WorldTransform
 
 /**
 ```

@@ -9,17 +9,6 @@ declare interface StringSignal {
 
 /**
 ```
-(get) lastValue: string
-(set) (Not Available)
-```
-
-Specifies a string that represents the last value of the signal.
-**Note**: The signal value is updated during simulation tick. This means that the value of `lastValue` is undefined before its first update. It is also undefined for signals that aren't used for any bindings/subscriptions, because those signals aren't guaranteed to be updated at each simulation tick.
-*/
-lastValue: string
-
-/**
-```
 concat(other: StringSignal | string): StringSignal
 ```
 

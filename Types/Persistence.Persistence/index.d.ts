@@ -1,3 +1,4 @@
+/// <reference path="../Persistence.BlockStorage/index.d.ts" />
 /// <reference path="../Persistence.StorageScope/index.d.ts" />
 
 /**
@@ -34,6 +35,30 @@ sharedScope: StorageScope
 Gets an instance of StorageScope corresponding to the user scope.
 */
 userScope: StorageScope
+
+/**
+```
+localBlockStorage(storageIdentifier: string): BlockStorage
+```
+
+Gets the local BlockStorage instance associated with the storageIdentifier. This storage
+is on the user's device.
+- calling the API with the same `storageIdentifier` will return the same `BlockStorage` object, even if it's completely different Block instances.
+*/
+localBlockStorage(storageIdentifier: string): BlockStorage
+
+/**
+```
+temporaryBlockStorage(storageIdentifier: string): BlockStorage
+```
+
+Gets the temporary BlockStorage instance associated with the storageIdentifier. This storage
+goes away once the effect restarts or is unloaded, but it does allow for a
+Block to be unloaded and re-loaded during the lifetime of an effect while
+maintaining its persistent data.
+- calling the API with the same `storageIdentifier` will return the same `BlockStorage` object, even if it's completely different Block instances.
+*/
+temporaryBlockStorage(storageIdentifier: string): BlockStorage
 
 }
 

@@ -1,4 +1,3 @@
-/// <reference path="../Location.CoordinateSignal/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
@@ -15,17 +14,6 @@ in control of the device user and cannot be guaranteed.
 Use `hasValidLocation` to check for such data availability.
 */
 declare interface Location extends Module {
-
-/**
-```
-(get) coordinate: CoordinateSignal
-(set) (Not Available)
-```
-
-Current device geolocation or 'Null Island' if invalid.
-**See**: `hasValidLocation`
-*/
-coordinate: CoordinateSignal
 
 /**
 ```
