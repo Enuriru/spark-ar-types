@@ -2,6 +2,8 @@
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 /// <reference path="../SpatialGesture.IntersectEvent/index.d.ts" />
 /// <reference path="../SpatialGesture.Pointer/index.d.ts" />
+/// <reference path="../SpatialGesture.ScrollEvent/index.d.ts" />
+/// <reference path="../SpatialGesture.SelectEvent/index.d.ts" />
 
 
 /**
@@ -26,5 +28,21 @@ onIntersection(object: SceneObjectBase): EventSource<IntersectEvent>
 
 */
 onIntersection(object: SceneObjectBase): EventSource<IntersectEvent>
+
+/**
+```
+onScroll(object: SceneObjectBase, deadzone: number): EventSource<ScrollEvent>
+```
+
+*/
+onScroll(object: SceneObjectBase, deadzone: number): EventSource<ScrollEvent>
+
+/**
+```
+onSelect(object: SceneObjectBase): EventSource<SelectEvent>
+```
+
+*/
+onSelect(object: SceneObjectBase): EventSource<SelectEvent>
 
 }

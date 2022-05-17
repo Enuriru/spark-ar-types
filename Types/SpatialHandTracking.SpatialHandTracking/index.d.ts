@@ -27,10 +27,10 @@ rightHand: Hand
 
 /**
 ```
-hand(index: HandType): Hand
+hand(index: HandTypeInt): Hand
 ```
 
 */
-hand(index: HandType): Hand
+hand(index: HandTypeInt): Hand
 
 }

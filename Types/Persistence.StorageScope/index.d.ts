@@ -1,4 +1,10 @@
 
+
+/**
+[{"kind":"deprecatedBy","version":2720997685},{"kind":"removedBy","version":1510423516}]
+*/
+
+
 /**
 The `StorageScope` class encapsulates different methods of storage for persistent objects.
 */

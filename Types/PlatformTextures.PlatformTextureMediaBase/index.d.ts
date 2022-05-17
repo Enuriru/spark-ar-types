@@ -1,6 +1,7 @@
 
 /**
-`PlatformTextureMedia` is a base class for different types of media that can be used as platform textures.
+`PlatformTextureMedia` is a base class for different types of media that can be used as
+platform textures.
 */
 declare interface PlatformTextureMediaBase {
 

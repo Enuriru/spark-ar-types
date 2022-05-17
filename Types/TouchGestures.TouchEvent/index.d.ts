@@ -48,7 +48,7 @@ time: number
 (set) (Not Available)
 ```
 
-The type of the touch event, as a [`TouchEventType`](/enums/touchgesturesmodule.touchevnettype) enum value.
+The type of the touch event, as a [`TouchEventType`](/enums/touchgesturesmodule.toucheventtype) enum value.
 */
 type: TouchEventType
 

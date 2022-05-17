@@ -7,10 +7,20 @@
 
 
 /**
-The `BlockInitializationParameters` are key-value pairs used to define the behavior of certain features and JavaScript modules inside a dynamically instantiated Block.
+The `BlockModulesConfig` are key-value pairs used to define the behavior of certain features and JavaScript modules inside a dynamically instantiated Block.
 All properties below are optional, and you may specify them to determine how these JS modules and features are going to behave on dynamically instantiated Blocks.
 */
 declare interface BlocksConfig {
+
+/**
+```
+(get) extras: {[key: string]: any}
+(set) extras: {[key: string]: any}
+```
+
+Extra data that will be pass down to the instantiated block. The extras will be accessible in the Block script via `modulesConfigExtras` as constants.
+*/
+extras: {[key: string]: any}
 
 /**
 ```

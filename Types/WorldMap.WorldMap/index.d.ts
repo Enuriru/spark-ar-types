@@ -22,11 +22,11 @@ isVolumetric: BoolSignal
 
 /**
 ```
-loadMap(id: {lat: number, lng: number, zoom: number}): Promise<string>
+loadMap(id: {degreesFromNorth: number, lat: number, lng: number, zoom: number}): Promise<string>
 ```
 
 */
-loadMap(id: {lat: number, lng: number, zoom: number}): Promise<string>
+loadMap(id: {degreesFromNorth: number, lat: number, lng: number, zoom: number}): Promise<string>
 
 /**
 ```

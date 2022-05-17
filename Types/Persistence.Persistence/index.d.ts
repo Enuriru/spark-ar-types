@@ -1,10 +1,23 @@
 /// <reference path="../Persistence.BlockStorage/index.d.ts" />
+/// <reference path="../Persistence.StorageLocation/index.d.ts" />
 /// <reference path="../Persistence.StorageScope/index.d.ts" />
 
 /**
 The `Persistence` class encapsulates persistent objects.
 */
 declare interface Persistence extends Module {
+
+/**
+```
+(get) block: StorageLocation
+(set) (Not Available)
+```
+
+Gets the StorageLocation that stores data for this block. This location only returns data that was stored for the
+ currently logged-in user. This storage is specific to this instance of the block:
+ blocks cannot access the data stored by other blocks.
+*/
+block: StorageLocation
 
 /**
 ```
@@ -15,6 +28,33 @@ declare interface Persistence extends Module {
 Gets an instance of StorageScope corresponding to the capture scope.
 */
 captureScope: StorageScope
+
+/**
+```
+(get) local: StorageLocation
+(set) (Not Available)
+```
+
+Gets an instance of StorageLocation that stores data on the user's local
+ device storage. This location only returns data that was stored for the
+ currently logged-in user. This storage is specific to the  given effect:
+ effects cannot access the data stored by other effects.
+*/
+local: StorageLocation
+
+/**
+```
+(get) remote: StorageLocation
+(set) (Not Available)
+```
+
+Gets an instance of StorageLocation that stores data remotely on the servers
+ of the app on which the effect is running (e.g. Instagram, Facebook, etc.),
+ associated with the relevant user's account on that app. This storage is
+ specific to the  given effect: effects cannot access the data stored by other
+ effects.
+*/
+remote: StorageLocation
 
 /**
 ```

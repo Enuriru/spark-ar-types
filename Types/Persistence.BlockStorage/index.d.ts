@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"capability","capability":"scriptingDynamicInstantiation","orCapability":""},{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"capability","capability":"persistenceV2","orCapability":""}]
+[{"kind":"capability","capability":"scriptingDynamicInstantiation","orCapability":""},{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"capability","capability":"persistenceV2","orCapability":""},{"kind":"introducedBy","version":867759298}]
 */
 
 

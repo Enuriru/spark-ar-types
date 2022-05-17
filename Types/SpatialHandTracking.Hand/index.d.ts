@@ -181,10 +181,10 @@ wrist: Joint
 
 /**
 ```
-joint(index: JointType): Joint
+joint(index: JointTypeInt): Joint
 ```
 
 */
-joint(index: JointType): Joint
+joint(index: JointTypeInt): Joint
 
 }
