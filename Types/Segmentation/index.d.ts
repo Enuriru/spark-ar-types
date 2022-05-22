@@ -1,4 +1,4 @@
-/// <reference path="../PersonSegmentation.PersonSegmentation/index.d.ts" />
+/// <reference path="../PersonSegmentation/index.d.ts" />
 /// <reference path="../Segmentation.HairSegmentation/index.d.ts" />
 /// <reference path="../Segmentation.PersonSegmentation/index.d.ts" />
 /// <reference path="../Segmentation.SkinSegmentation/index.d.ts" />
