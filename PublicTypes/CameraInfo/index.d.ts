@@ -2,6 +2,7 @@
 /// <reference path="../CameraInfo.CameraPosition/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
+/// <reference path="../Reactive.TransformSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 /// <reference path="../Reactive.Vec4Signal/index.d.ts" />
 declare class CameraInfoModule {
@@ -59,6 +60,16 @@ static readonly previewScreenScale: ScalarSignal;
 Specifies a `Vec2Signal` describing the size of the preview, in pixels.
 */
 static readonly previewSize: Vec2Signal;
+/**
+* ```
+(get) viewMatrix: TransformSignal
+(set) (Not Available)
+```
+
+Specifies a `TransformSignal` describing the transform that needs to be applied to a given
+object to transform it from world-space to view-space. It's inverse of the Camera transform.
+*/
+static readonly viewMatrix: TransformSignal;
 /**
  * The `CameraPosition` enum describes the direction the camera is facing.
  * @property BACK Indicates that the back-facing camera is in use.
