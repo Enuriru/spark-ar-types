@@ -6,6 +6,7 @@
 /// <reference path="../Reactive.ShaderSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
+/// <reference path="../Reactive.Vec4Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 declare interface BlockInstanceOutputs {
 /**
@@ -26,7 +27,7 @@ setBoolean(name: string, signal: BoolSignal | boolean): Promise<void>;
  * 
  * Sends a RgbaSignal to the Block's input with the given `name`. Returns a promise that
  *  is fulfilled if the operation succeeds and is rejected if the operation fails, such
- *  as if no input exists with the given name, or if the input's type is not a RgbaSignal
+ *  as if no input exists with the given name, or if the input's type is not of Rgba or Vec4.
  */
 setColor(name: string, signal: RgbaSignal): Promise<void>;
 
@@ -95,6 +96,17 @@ setShader(name: string, signal: ShaderSignal): Promise<void>;
  *  as if no input exists with the given name, or if the input's type is not a StringSignal
  */
 setString(name: string, signal: StringSignal | string): Promise<void>;
+
+/**
+*  
+ * setVec4(name: string, signal: Vec4Signal): Promise<void>
+ *  
+ * 
+ * Sends a Vec4Signal to the Block's input with the given `name`. Returns a promise that
+ *  is fulfilled if the operation succeeds and is rejected if the operation fails, such
+ *  as if no input exists with the given name, or if the input's type is not of Rgba or Vec4.
+ */
+setVec4(name: string, signal: Vec4Signal): Promise<void>;
 
 /**
 *  

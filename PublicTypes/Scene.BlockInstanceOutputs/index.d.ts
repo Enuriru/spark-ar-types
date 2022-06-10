@@ -6,6 +6,7 @@
 /// <reference path="../Reactive.ShaderSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
+/// <reference path="../Reactive.Vec4Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 declare interface BlockInstanceOutputs {
 /**
@@ -35,7 +36,7 @@ getBooleanOrFallback(name: string, fallback: BoolSignal | boolean): BoolSignal;
  *  
  * 
  * Returns a promise that is resolved with a `ColorSignal` from the Block output with the given `name`. Fails the promise if no
- * output with that `name` is present in the Block or if the output with that `name` is not of type `ColorSignal`.
+ * output with that `name` is present in the Block or if the output with that `name` is not of Color or Vec4 type.
  */
 getColor(name: string): Promise<ColorSignal>;
 
@@ -46,7 +47,7 @@ getColor(name: string): Promise<ColorSignal>;
  * 
  * Returns a `ColorSignal` from the Block output with the given `name`.
  * Returns the `fallback` if any error happens, such as if no output with that `name` is present in the Block, or if the
- * output with that `name` is not of type `ColorSignal'.
+ * output with that `name` is not of Color or Vec4 type.
  */
 getColorOrFallback(name: string, fallback: ColorSignal): ColorSignal;
 
@@ -175,6 +176,27 @@ getString(name: string): Promise<StringSignal>;
  * output with that `name` is not of type `StringSignal'.
  */
 getStringOrFallback(name: string, fallback: StringSignal | string): StringSignal;
+
+/**
+*  
+ * getVec4(name: string): Promise<Vec4Signal>
+ *  
+ * 
+ * Returns a promise that is resolved with a `Vec4Signal` from the Block output with the given `name`. Fails the promise if no
+ * output with that `name` is present in the Block or if the output with that `name` is not of Color or Vec4 type.
+ */
+getVec4(name: string): Promise<Vec4Signal>;
+
+/**
+*  
+ * getVec4OrFallback(name: string, fallback: Vec4Signal): Vec4Signal
+ *  
+ * 
+ * Returns a `Vec4Signal` from the Block output with the given `name`.
+ * Returns the `fallback` if any error happens, such as if no output with that `name` is present in the Block, or if the
+ * output with that `name` is not of Color or Vec4 type.
+ */
+getVec4OrFallback(name: string, fallback: Vec4Signal): Vec4Signal;
 
 /**
 *  

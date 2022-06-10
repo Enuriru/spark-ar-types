@@ -3,6 +3,7 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.SignalHistory/index.d.ts" />
 /// <reference path="../Reactive.TransformSignal/index.d.ts" />
+/// <reference path="../Reactive.Vec3/index.d.ts" />
 declare interface VectorSignal {
 /**
 * ```
