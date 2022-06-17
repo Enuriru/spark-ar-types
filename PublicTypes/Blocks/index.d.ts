@@ -25,6 +25,15 @@ Get an object encapsulating all inputs for this Block.
 static readonly inputs: BlockInstanceInputs;
 /**
 * ```
+(get) modulesConfigExtras: {[key: string]: any} | null
+(set) (Not Available)
+```
+
+Get an object encapsulating all extras for this Block. Returns null if no extras was configured during block initialization.
+*/
+static readonly modulesConfigExtras: any;
+/**
+* ```
 (get) outputs: BlockInstanceOutputs
 (set) (Not Available)
 ```

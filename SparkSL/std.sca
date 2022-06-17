@@ -1,8 +1,8 @@
 //
 using Texture2d1ch = function<float(vec2)>;
-  using Texture2d2ch = function<vec2(vec2)>;
-  using Texture2d3ch = function<vec3(vec2)>;
-  using Texture2d4ch = function<vec4(vec2)>;
+using Texture2d2ch = function<vec2(vec2)>;
+using Texture2d3ch = function<vec3(vec2)>;
+using Texture2d4ch = function<vec4(vec2)>;
 
 //
 import vec4 getVertexBasePosition();

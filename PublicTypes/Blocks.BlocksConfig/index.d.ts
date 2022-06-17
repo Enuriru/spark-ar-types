@@ -1,6 +1,15 @@
 declare class BlockModulesConfig {
 /**
 * ```
+(get) extras: {[key: string]: any}
+(set) extras: {[key: string]: any}
+```
+
+Extra data that will be pass down to the instantiated block. The extras will be accessible in the Block script via `modulesConfigExtras` as constants.
+*/
+static readonly extras: any;
+/**
+* ```
 (get) multipeerId: string
 (set) multipeerId: string
 ```
