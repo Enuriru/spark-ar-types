@@ -6,7 +6,6 @@
 /// <reference path="../Scene.Canvas/index.d.ts" />
 /// <reference path="../Scene.Direction/index.d.ts" />
 /// <reference path="../Scene.DirectionalLightSource/index.d.ts" />
-/// <reference path="../Scene.DynamicExtrusion/index.d.ts" />
 /// <reference path="../Scene.EnvironmentLightSource/index.d.ts" />
 /// <reference path="../Scene.FaceMesh/index.d.ts" />
 /// <reference path="../Scene.FaceTracker/index.d.ts" />

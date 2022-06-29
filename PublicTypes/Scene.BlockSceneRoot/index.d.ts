@@ -47,7 +47,7 @@ Returns an object encapsulating all outputs getters for the Block Instance.
 outputs: BlockInstanceOutputs;
 /**
 *  
- * getBoundingBox(options?: {includeChildren: boolean}): Box3DSignal
+ * getBoundingBox(options?: {includeChildren?: false | true, skipHidden?: false | true}): Box3DSignal
  *  
  * 
  * Returns a signal that contains a 3D Bounding Box
@@ -55,13 +55,15 @@ outputs: BlockInstanceOutputs;
  * Optional parameters include:
  *  - `includeChildren`: whether to include all children (in the parent context)
  *                       of this object when computing bounding box.
- *                       Default: `False`
+ *                       Default: `false`.
+ *  - `skipHidden`: whether to skip hidden children (or this object) when computing bounding box.
+ *                  Default: `false`.
  */
-getBoundingBox(options?: {includeChildren: boolean}): Box3DSignal;
+getBoundingBox(options?: {includeChildren?: false | true, skipHidden?: false | true}): Box3DSignal;
 
 /**
 *  
- * getBoundingBoxVisible(options?: {includeChildren: boolean}): BoolSignal
+ * getBoundingBoxVisible(options?: {includeChildren?: false | true, skipHidden?: false | true}): BoolSignal
  *  
  * 
  * Returns a signal that contains value representing
@@ -69,8 +71,10 @@ getBoundingBox(options?: {includeChildren: boolean}): Box3DSignal;
  * Optional parameters include:
  *  - `includeChildren`: whether to include all children (in the parent context)
  *                       of this object when computing bounding box.
- *                       Default: `False`
+ *                       Default: `false`.
+ *  - `skipHidden`: whether to skip hidden children (or this object) when computing bounding box.
+ *                  Default: `false`.
  */
-getBoundingBoxVisible(options?: {includeChildren: boolean}): BoolSignal;
+getBoundingBoxVisible(options?: {includeChildren?: false | true, skipHidden?: false | true}): BoolSignal;
 
 }

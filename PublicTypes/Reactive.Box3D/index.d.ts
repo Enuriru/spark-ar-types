@@ -1,21 +1,21 @@
-/// <reference path="../Reactive.Point3D/index.d.ts" />
+/// <reference path="../Reactive.Vec3/index.d.ts" />
 declare interface Box3D {
 /**
 * ```
-(get) max: Point3D
-(set) max: Point3D
+(get) max: Vec3
+(set) max: Vec3
 ```
 
 Retrieves the maximum point of bounding box.
 */
-max: Point3D;
+max: Vec3;
 /**
 * ```
-(get) min: Point3D
-(set) min: Point3D
+(get) min: Vec3
+(set) min: Vec3
 ```
 
 Retrieves the minimum point of object's bounding box in object's local coordinate system.
 */
-min: Point3D;
+min: Vec3;
 }

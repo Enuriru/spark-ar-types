@@ -174,30 +174,38 @@ findFirst(name: string, config?: {recursive: boolean}): Promise<SceneObjectBase 
 
 /**
 *  
- * getBoundingBox(options?: {includeChildren: boolean}): Box3DSignal
+ * getBoundingBox(options?: {includeChildren?: false | true, skipHidden?: false | true}): Box3DSignal
  *  
  * 
  * Returns a signal that contains a 3D Bounding Box of this object.
  * Optional parameters include:
  *  - `includeChildren`: whether to include all children of this object when computing box.
- *                       If "true" - the resulting bounding box is in the parent coordinate system.
- *                       If "false" or not provided - resulting bounding box is in the local object's coordinate system.
- *                       Default: "false".
+ *                       If `true` - the resulting bounding box is in the parent coordinate system.
+ *                       If `false` or not provided - resulting bounding box is in the local object's coordinate system.
+ *                       Default: `false`.
+ *  - `skipHidden`: whether to skip "hidden" objects or children (in case of `includeChidlren` set to `true`) when computing bounding box.
+ *                  If `true` - the resulting bounding box will not include a given object or a children of it that are parented under an Object that is `hidden`.
+ *                  If `false` - resulting bounding box includes children, regardless whether they are visible or not.
+ *                  Default: `false`.
  */
-getBoundingBox(options?: {includeChildren: boolean}): Box3DSignal;
+getBoundingBox(options?: {includeChildren?: false | true, skipHidden?: false | true}): Box3DSignal;
 
 /**
 *  
- * getBoundingBoxVisible(options?: {includeChildren: boolean}): BoolSignal
+ * getBoundingBoxVisible(options?: {includeChildren?: false | true, skipIfHidden?: false | true}): BoolSignal
  *  
  * 
  * Returns a signal that contains value representing
  * whether bounding box of a given object is visible or not in the viewport.
  * Optional parameters include:
  *  - `includeChildren`: whether to include all children of this object when computing bounding box.
- *                       Default: "false".
+ *                       Default: `false`.
+ *  - `skipHidden`: whether to skip "hidden" objects or children (in case of `includeChidlren` set to `true`) when computing bounding box.
+ *                  If `true` - the resulting bounding box will not include a given object or a children of it that are parented under an Object that is `hidden`.
+ *                  If `false` - resulting bounding box includes children, regardless whether they are visible or not.
+ *                  Default: `false`.
  */
-getBoundingBoxVisible(options?: {includeChildren: boolean}): BoolSignal;
+getBoundingBoxVisible(options?: {includeChildren?: false | true, skipIfHidden?: false | true}): BoolSignal;
 
 /**
 *  

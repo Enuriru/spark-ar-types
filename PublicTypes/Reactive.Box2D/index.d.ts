@@ -1,14 +1,13 @@
-/// <reference path="../Reactive.Point2D/index.d.ts" />
 declare interface Box2D {
 /**
 * ```
-(get) center: Point2D
+(get) center: Vec2
 (set) (Not Available)
 ```
 
 Returns the point at the center of the box.
 */
-center: Point2D;
+center: Vec2;
 /**
 * ```
 (get) height: number
