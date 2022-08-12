@@ -43,20 +43,18 @@ Represents the Y coordinate of the point, or the second element of the vector.
 y: ScalarSignal;
 /**
 *  
- * abs(): ScalarSignal
+ * abs(): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the absolute value of the given signal.
  * **See Also**: `ReactiveModule.abs`
  */
-abs(): ScalarSignal;
+abs(): Vec2Signal;
 
 /**
 *  
- * add(other: ScalarSignal): ScalarSignal
- * add(other: VectorSignal): PointSignal
- * add(other: PointSignal): PointSignal
- * add(other: VectorSignal): VectorSignal
+ * add(other: ScalarSignal): Vec2Signal
+ * add(other: Vec2Signal): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the sum of the values of the given signals.
@@ -64,13 +62,9 @@ abs(): ScalarSignal;
  * 
  * **See Also**: `ReactiveModule.sum`, `ScalarSignal.add`, `PointSignal.add`, `VectorSignal.add`
  */
-add(other: ScalarSignal | number): ScalarSignal;
+add(other: ScalarSignal | number): Vec2Signal;
 
-add(other: VectorSignal): PointSignal;
-
-add(other: PointSignal): PointSignal;
-
-add(other: VectorSignal): VectorSignal;
+add(other: Vec2Signal): Vec2Signal;
 
 /**
 *  
@@ -84,13 +78,13 @@ atan2(other: ScalarSignal | number): ScalarSignal;
 
 /**
 *  
- * ceil(): ScalarSignal
+ * ceil(): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the smallest integer that is greater than or equal to the value of the given signal.
  * **See Also**: `ScalarSignal.ceil`
  */
-ceil(): ScalarSignal;
+ceil(): Vec2Signal;
 
 /**
 *  
@@ -143,13 +137,13 @@ dot(other: VectorSignal): ScalarSignal;
 
 /**
 *  
- * floor(): ScalarSignal
+ * floor(): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the largest integer that is less than or equal to the value of the given signal.
  * **See Also**: `ScalarSignal.floor`
  */
-floor(): ScalarSignal;
+floor(): Vec2Signal;
 
 /**
 *  
@@ -239,32 +233,26 @@ mod(other: ScalarSignal | number): ScalarSignal;
 
 /**
 *  
- * mul(other: ScalarSignal): ScalarSignal
- * mul(other: ScalarSignal): VectorSignal
- * mul(other: VectorSignal): VectorSignal
- * mul(other: VectorSignal): VectorSignal
+ * mul(other: ScalarSignal): Vec2Signal
+ * mul(other: Vec2Signal): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the product of the values of the given signals.
  * **See Also**: `ScalarSignal.mul`, `VectorSignal.mul`
  */
-mul(other: ScalarSignal | number): ScalarSignal;
+mul(other: ScalarSignal | number): Vec2Signal;
 
-mul(other: ScalarSignal | number): VectorSignal;
-
-mul(other: VectorSignal): VectorSignal;
-
-mul(other: VectorSignal): VectorSignal;
+mul(other: Vec2Signal): Vec2Signal;
 
 /**
 *  
- * neg(): ScalarSignal
+ * neg(): Vec2Signal
  *  
  * 
  * Returns a signal with the negated value of the given signal.
  * **See Also**: `ScalarSignal.neg`, `VectorSignal.neg`
  */
-neg(): ScalarSignal;
+neg(): Vec2Signal;
 
 /**
 *  
@@ -307,7 +295,7 @@ reflect(normal: VectorSignal): VectorSignal;
 
 /**
 *  
- * round(): ScalarSignal
+ * round(): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the rounded value of the given signal.
@@ -315,11 +303,11 @@ reflect(normal: VectorSignal): VectorSignal;
  * 
  * **See Also**: `ScalarSignal.round`
  */
-round(): ScalarSignal;
+round(): Vec2Signal;
 
 /**
 *  
- * sign(): ScalarSignal
+ * sign(): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the sign of the given signal. Possible sign values: NaN, -0.0, 0.0, -1.0, 1.0.
@@ -327,7 +315,7 @@ round(): ScalarSignal;
  * 
  * **See Also**: `ScalarSignal.sign`
  */
-sign(): ScalarSignal;
+sign(): Vec2Signal;
 
 /**
 *  
@@ -341,39 +329,31 @@ smoothStep(edge0: ScalarSignal | number, edge1: ScalarSignal | number): ScalarSi
 
 /**
 *  
- * sqrt(): ScalarSignal
+ * sqrt(): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the square root of the value of the given signal.
  * **See Also**: `ScalarSignal.sqrt`
  */
-sqrt(): ScalarSignal;
+sqrt(): Vec2Signal;
 
 /**
 *  
- * sub(other: ScalarSignal): ScalarSignal
- * sub(other: VectorSignal): PointSignal
- * sub(other: VectorSignal): VectorSignal
- * sub(other: PointSignal): VectorSignal
+ * sub(other: ScalarSignal): Vec2Signal
+ * sub(other: Vec2Signal): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the difference of the values of the given signals.
  * **See Also**: `ScalarSignal.sub`, `VectorSignal.sub`, `PointSignal.sub`
  */
-sub(other: ScalarSignal | number): ScalarSignal;
+sub(other: ScalarSignal | number): Vec2Signal;
 
-sub(other: VectorSignal): PointSignal;
-
-sub(other: VectorSignal): VectorSignal;
-
-sub(other: PointSignal): VectorSignal;
+sub(other: Vec2Signal): Vec2Signal;
 
 /**
 *  
- * sum(other: ScalarSignal): ScalarSignal
- * sum(other: VectorSignal): PointSignal
- * sum(other: PointSignal): PointSignal
- * sum(other: VectorSignal): VectorSignal
+ * sum(other: ScalarSignal): Vec2Signal
+ * sum(other: Vec2Signal): Vec2Signal
  *  
  * 
  * Returns a signal with the value that is the sum of the values of the given signals.
@@ -381,13 +361,9 @@ sub(other: PointSignal): VectorSignal;
  * 
  * **See Also**: `ReactiveModule.sum`, `ScalarSignal.add`, `PointSignal.add`, `VectorSignal.add`
  */
-sum(other: ScalarSignal | number): ScalarSignal;
+sum(other: ScalarSignal | number): Vec2Signal;
 
-sum(other: VectorSignal): PointSignal;
-
-sum(other: PointSignal): PointSignal;
-
-sum(other: VectorSignal): VectorSignal;
+sum(other: Vec2Signal): Vec2Signal;
 
 /**
 *  
