@@ -1,4 +1,3 @@
-/// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
@@ -16,16 +15,6 @@ declare interface Plane extends SceneObjectBase {
 Specifies the vertical size, in 3D units.
 */
 height: ScalarSignal
-
-/**
-```
-(get) (Not Available)
-(set) material: MaterialBase | null
-```
-
-Specifies the material of the scene object.
-*/
-material: MaterialBase | null
 
 /**
 ```
@@ -56,15 +45,6 @@ x: ScalarSignal
 Specifies the vertical offset, in 3D units.
 */
 y: ScalarSignal
-
-/**
-```
-getMaterial(): Promise<MaterialBase | null>
-```
-
-Returns a promise that is resolved with the material associated with a given scene object or null if no material was assigned.
-*/
-getMaterial(): Promise<MaterialBase | null>
 
 }
 

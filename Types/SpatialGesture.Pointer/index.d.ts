@@ -1,15 +1,6 @@
-/// <reference path="../SpatialGesture.Pose/index.d.ts" />
-/// <reference path="../SpatialHandTracking.Pose/index.d.ts" />
+/// <reference path="../Reactive.TransformSignal/index.d.ts" />
 
 declare interface Pointer {
-
-/**
-```
-(get) pose: Pose
-(set) (Not Available)
-```
-*/
-pose: Pose
 
 /**
 ```
@@ -18,5 +9,13 @@ pose: Pose
 ```
 */
 source: GestureSource
+
+/**
+```
+(get) transform: TransformSignal
+(set) (Not Available)
+```
+*/
+transform: TransformSignal
 
 }

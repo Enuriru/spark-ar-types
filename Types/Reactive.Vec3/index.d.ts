@@ -1,0 +1,37 @@
+
+/**
+The `Vec3` class contains a 3D coordinate.
+*/
+declare interface Vec3 {
+
+/**
+```
+(get) x: number
+(set) x: number
+```
+
+Specifies the x coordinate.
+*/
+x: number
+
+/**
+```
+(get) y: number
+(set) y: number
+```
+
+Specifies the y coordinate.
+*/
+y: number
+
+/**
+```
+(get) z: number
+(set) z: number
+```
+
+Specifies the z coordinate.
+*/
+z: number
+
+}

@@ -9,18 +9,10 @@ declare interface PatchGraph extends Module {
 
 /**
 ```
-invokeComponentAction(componentPrototype: string, signals: Array<any>, config: any): any
+instantiatePatch(componentPrototype: string, signals: Array<any>, config: any): Array<any>
 ```
 
 */
-invokeComponentAction(componentPrototype: string, signals: Array<any>, config: any): any
+instantiatePatch(componentPrototype: string, signals: Array<any>, config: any): Array<any>
 
 }
-
-
-
-/**
-
-...
-
-*/

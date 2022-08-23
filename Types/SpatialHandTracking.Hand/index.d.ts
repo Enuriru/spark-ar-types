@@ -1,190 +1,221 @@
-/// <reference path="../Scene.Joint/index.d.ts" />
-/// <reference path="../SpatialHandTracking.Joint/index.d.ts" />
+/// <reference path="../SpatialHandTracking.HandJoint/index.d.ts" />
 
 declare interface Hand {
 
 /**
 ```
-(get) indexDistal: Joint
+(get) indexDistal: HandJoint
 (set) (Not Available)
 ```
 */
-indexDistal: Joint
+indexDistal: HandJoint
 
 /**
 ```
-(get) indexMetacarpal: Joint
+(get) indexIntermediate: HandJoint
 (set) (Not Available)
 ```
 */
-indexMetacarpal: Joint
+indexIntermediate: HandJoint
 
 /**
 ```
-(get) indexProximal: Joint
+(get) indexMetacarpal: HandJoint
 (set) (Not Available)
 ```
 */
-indexProximal: Joint
+indexMetacarpal: HandJoint
 
 /**
 ```
-(get) indexTip: Joint
+(get) indexProximal: HandJoint
 (set) (Not Available)
 ```
 */
-indexTip: Joint
+indexProximal: HandJoint
 
 /**
 ```
-(get) littleDistal: Joint
+(get) indexTip: HandJoint
 (set) (Not Available)
 ```
 */
-littleDistal: Joint
+indexTip: HandJoint
 
 /**
 ```
-(get) littleMetacarpal: Joint
+(get) littleDistal: HandJoint
 (set) (Not Available)
 ```
 */
-littleMetacarpal: Joint
+littleDistal: HandJoint
 
 /**
 ```
-(get) littleProximal: Joint
+(get) littleIntermediate: HandJoint
 (set) (Not Available)
 ```
 */
-littleProximal: Joint
+littleIntermediate: HandJoint
 
 /**
 ```
-(get) littleTip: Joint
+(get) littleMetacarpal: HandJoint
 (set) (Not Available)
 ```
 */
-littleTip: Joint
+littleMetacarpal: HandJoint
 
 /**
 ```
-(get) middleDistal: Joint
+(get) littleProximal: HandJoint
 (set) (Not Available)
 ```
 */
-middleDistal: Joint
+littleProximal: HandJoint
 
 /**
 ```
-(get) middleMetacarpal: Joint
+(get) littleTip: HandJoint
 (set) (Not Available)
 ```
 */
-middleMetacarpal: Joint
+littleTip: HandJoint
 
 /**
 ```
-(get) middleProximal: Joint
+(get) middleDistal: HandJoint
 (set) (Not Available)
 ```
 */
-middleProximal: Joint
+middleDistal: HandJoint
 
 /**
 ```
-(get) middleTip: Joint
+(get) middleIntermediate: HandJoint
 (set) (Not Available)
 ```
 */
-middleTip: Joint
+middleIntermediate: HandJoint
 
 /**
 ```
-(get) palm: Joint
+(get) middleMetacarpal: HandJoint
 (set) (Not Available)
 ```
 */
-palm: Joint
+middleMetacarpal: HandJoint
 
 /**
 ```
-(get) ringDistal: Joint
+(get) middleProximal: HandJoint
 (set) (Not Available)
 ```
 */
-ringDistal: Joint
+middleProximal: HandJoint
 
 /**
 ```
-(get) ringMetacarpal: Joint
+(get) middleTip: HandJoint
 (set) (Not Available)
 ```
 */
-ringMetacarpal: Joint
+middleTip: HandJoint
 
 /**
 ```
-(get) ringProximal: Joint
+(get) palm: HandJoint
 (set) (Not Available)
 ```
 */
-ringProximal: Joint
+palm: HandJoint
 
 /**
 ```
-(get) ringTip: Joint
+(get) ringDistal: HandJoint
 (set) (Not Available)
 ```
 */
-ringTip: Joint
+ringDistal: HandJoint
 
 /**
 ```
-(get) thumbDistal: Joint
+(get) ringIntermediate: HandJoint
 (set) (Not Available)
 ```
 */
-thumbDistal: Joint
+ringIntermediate: HandJoint
 
 /**
 ```
-(get) thumbMetacarpal: Joint
+(get) ringMetacarpal: HandJoint
 (set) (Not Available)
 ```
 */
-thumbMetacarpal: Joint
+ringMetacarpal: HandJoint
 
 /**
 ```
-(get) thumbProximal: Joint
+(get) ringProximal: HandJoint
 (set) (Not Available)
 ```
 */
-thumbProximal: Joint
+ringProximal: HandJoint
 
 /**
 ```
-(get) thumbTip: Joint
+(get) ringTip: HandJoint
 (set) (Not Available)
 ```
 */
-thumbTip: Joint
+ringTip: HandJoint
 
 /**
 ```
-(get) wrist: Joint
+(get) thumbDistal: HandJoint
 (set) (Not Available)
 ```
 */
-wrist: Joint
+thumbDistal: HandJoint
 
 /**
 ```
-joint(index: JointTypeInt): Joint
+(get) thumbMetacarpal: HandJoint
+(set) (Not Available)
+```
+*/
+thumbMetacarpal: HandJoint
+
+/**
+```
+(get) thumbProximal: HandJoint
+(set) (Not Available)
+```
+*/
+thumbProximal: HandJoint
+
+/**
+```
+(get) thumbTip: HandJoint
+(set) (Not Available)
+```
+*/
+thumbTip: HandJoint
+
+/**
+```
+(get) wrist: HandJoint
+(set) (Not Available)
+```
+*/
+wrist: HandJoint
+
+/**
+```
+handJoint(index: JointTypeInt): HandJoint
 ```
 
 */
-joint(index: JointTypeInt): Joint
+handJoint(index: JointTypeInt): HandJoint
 
 }

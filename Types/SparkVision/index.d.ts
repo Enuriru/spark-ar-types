@@ -25,6 +25,14 @@ mlModels: MLModels
 
 /**
 ```
+createDetectorByCapability(capability: string): Promise<SparkVisionDetector>
+```
+
+*/
+createDetectorByCapability(capability: string): Promise<SparkVisionDetector>
+
+/**
+```
 createDetectors(models: Array<MLModel>): Promise<Array<SparkVisionDetector>>
 ```
 

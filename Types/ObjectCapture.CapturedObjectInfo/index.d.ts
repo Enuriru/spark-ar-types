@@ -1,5 +1,5 @@
-/// <reference path="../ObjectCapture.CapturedObjectPrefab/index.d.ts" />
-/// <reference path="../ObjectCapture.CapturedObjectTexture/index.d.ts" />
+/// <reference path="../Prefabs.CapturedObjectPrefab/index.d.ts" />
+/// <reference path="../Textures.CapturedObjectTexture/index.d.ts" />
 
 
 /**

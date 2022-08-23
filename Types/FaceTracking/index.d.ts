@@ -1,8 +1,8 @@
-/// <reference path="../FaceScene.FaceMesh/index.d.ts" />
 /// <reference path="../FaceTracking.Face/index.d.ts" />
-/// <reference path="../FaceTracking.FaceTracker/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Scene.FaceMesh/index.d.ts" />
+/// <reference path="../Scene.FaceTracker/index.d.ts" />
 
 /**
 Enables the tracking of faces in three-dimensional space and exposes classes that describe key points of a detected face.

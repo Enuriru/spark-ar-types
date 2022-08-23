@@ -1,6 +1,6 @@
 /// <reference path="../PlatformTextures.PlatformTexture/index.d.ts" />
-/// <reference path="../PlatformTextures.PlatformTextureMediaBase/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
+/// <reference path="../Textures.PlatformTextureMediaBase/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
 /**

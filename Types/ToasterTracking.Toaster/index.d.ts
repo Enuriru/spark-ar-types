@@ -45,12 +45,4 @@ Specifies the 3D position of the toast slot, in the toaster local coordinate sys
 */
 toastSlot: PointSignal
 
-/**
-```
-extensionMethod(s: string): string
-```
-
-*/
-extensionMethod(s: string): string
-
 }

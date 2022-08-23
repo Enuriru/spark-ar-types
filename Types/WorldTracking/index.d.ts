@@ -192,6 +192,14 @@ that emits an ARTrackable each time a trackable is deleted.
 */
 onTrackableDeleted(): EventSource<ARTrackable>
 
+/**
+```
+restoreTrackable(config: {trackableId: string}): Promise<ARPointTrackable>
+```
+
+*/
+restoreTrackable(config: {trackableId: string}): Promise<ARPointTrackable>
+
 }
 
 

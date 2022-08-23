@@ -6,7 +6,7 @@
 
 
 /**
-A class that represents an ML Model in the effect.
+A class that represents an ML Model
 */
 declare interface MLModel {
 

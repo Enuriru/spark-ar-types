@@ -10,4 +10,20 @@ declare interface SelectEvent {
 */
 location: Point3D
 
+/**
+```
+(get) state: GestureState
+(set) (Not Available)
+```
+*/
+state: GestureState
+
+/**
+```
+(get) time: number
+(set) (Not Available)
+```
+*/
+time: number
+
 }

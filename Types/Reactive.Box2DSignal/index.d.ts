@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.Box2D/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.SignalHistory/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />

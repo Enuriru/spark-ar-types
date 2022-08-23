@@ -6,6 +6,7 @@
 /// <reference path="../Reactive.ShaderSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
+/// <reference path="../Reactive.Vec4Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
 
@@ -18,6 +19,32 @@
 The `BlockInstanceOutputs` class encapsulates methods for getting outputs of the block instance.
 */
 declare interface BlockInstanceOutputs {
+
+/**
+```
+findFirst(name: string, config?: {type?: string}): Promise<BlockInstanceOutput | null>
+```
+
+*/
+findFirst(name: string, config?: {type?: string}): Promise<BlockInstanceOutput | null>
+
+/**
+```
+findUsingPattern(namePattern: string, config?: {limit?: number, type?: string}): Promise<Array<BlockInstanceOutput>>
+```
+
+*/
+findUsingPattern(namePattern: string, config?: {limit?: number, type?: string}): Promise<Array<BlockInstanceOutput>>
+
+/**
+```
+getAll(config?: {type?: string}): Promise<Array<BlockInstanceOutput>>
+```
+
+Returns a promise that is resolved with all of the Block outputs configured for the block.
+The optional type param will limit the result to the given type.
+*/
+getAll(config?: {type?: string}): Promise<Array<BlockInstanceOutput>>
 
 /**
 ```
@@ -46,7 +73,7 @@ getColor(name: string): Promise<ColorSignal>
 ```
 
 Returns a promise that is resolved with a `ColorSignal` from the Block output with the given `name`. Fails the promise if no
-output with that `name` is present in the Block or if the output with that `name` is not of type `ColorSignal`.
+output with that `name` is present in the Block or if the output with that `name` is not of Color or Vec4 type.
 */
 getColor(name: string): Promise<ColorSignal>
 
@@ -57,7 +84,7 @@ getColorOrFallback(name: string, fallback: ColorSignal): ColorSignal
 
 Returns a `ColorSignal` from the Block output with the given `name`.
 Returns the `fallback` if any error happens, such as if no output with that `name` is present in the Block, or if the
-output with that `name` is not of type `ColorSignal'.
+output with that `name` is not of Color or Vec4 type.
 */
 getColorOrFallback(name: string, fallback: ColorSignal): ColorSignal
 
@@ -186,6 +213,27 @@ Returns the `fallback` if any error happens, such as if no output with that `nam
 output with that `name` is not of type `StringSignal'.
 */
 getStringOrFallback(name: string, fallback: StringSignal): StringSignal
+
+/**
+```
+getVec4(name: string): Promise<Vec4Signal>
+```
+
+Returns a promise that is resolved with a `Vec4Signal` from the Block output with the given `name`. Fails the promise if no
+output with that `name` is present in the Block or if the output with that `name` is not of Color or Vec4 type.
+*/
+getVec4(name: string): Promise<Vec4Signal>
+
+/**
+```
+getVec4OrFallback(name: string, fallback: Vec4Signal): Vec4Signal
+```
+
+Returns a `Vec4Signal` from the Block output with the given `name`.
+Returns the `fallback` if any error happens, such as if no output with that `name` is present in the Block, or if the
+output with that `name` is not of Color or Vec4 type.
+*/
+getVec4OrFallback(name: string, fallback: Vec4Signal): Vec4Signal
 
 /**
 ```

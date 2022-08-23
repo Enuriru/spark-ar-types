@@ -6,6 +6,7 @@
 /// <reference path="../Reactive.ShaderSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
+/// <reference path="../Reactive.Vec4Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
 
@@ -48,7 +49,7 @@ getColor(name: string): Promise<RgbaSignal>
 
 Returns a promise that is resolved with a RgbaSignal from the Block output
  with the given `name`. Fails the promise if no output with that `name` is present
- in the Block or if the output with that `name` is not of type RgbaSignal
+ in the Block or if the output with that `name` is not of Color or Vec4 type.
 */
 getColor(name: string): Promise<RgbaSignal>
 
@@ -59,7 +60,7 @@ getColorOrFallback(name: string, fallback: RgbaSignal): RgbaSignal
 
 Returns a RgbaSignal from the Block output with the given `name`. Returns the
 `fallback` if any error happens, such as if no output with that `name` is present in the Block,
-or if the output with that `name` is not of type RgbaSignal
+or if the output with that `name` is not of Color or Vec4 type.
 */
 getColorOrFallback(name: string, fallback: RgbaSignal): RgbaSignal
 
@@ -194,6 +195,28 @@ Returns a StringSignal from the Block output with the given `name`. Returns the
 or if the output with that `name` is not of type StringSignal
 */
 getStringOrFallback(name: string, fallback: StringSignal | string): StringSignal
+
+/**
+```
+getVec4(name: string): Promise<Vec4Signal>
+```
+
+Returns a promise that is resolved with a Vec4Signal from the Block output
+ with the given `name`. Fails the promise if no output with that `name` is present
+ in the Block or if the output with that `name` is not of Color or Vec4 type.
+*/
+getVec4(name: string): Promise<Vec4Signal>
+
+/**
+```
+getVec4OrFallback(name: string, fallback: Vec4Signal): Vec4Signal
+```
+
+Returns a Vec4Signal from the Block output with the given `name`. Returns the
+`fallback` if any error happens, such as if no output with that `name` is present in the Block,
+or if the output with that `name` is not of Color or Vec4 type.
+*/
+getVec4OrFallback(name: string, fallback: Vec4Signal): Vec4Signal
 
 /**
 ```

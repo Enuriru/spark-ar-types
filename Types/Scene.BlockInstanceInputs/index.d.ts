@@ -6,6 +6,7 @@
 /// <reference path="../Reactive.ShaderSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
+/// <reference path="../Reactive.Vec4Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
 
@@ -18,6 +19,30 @@
 The `BlockInstanceInputs` class encapsulates methods for setting inputs to the block instance.
 */
 declare interface BlockInstanceInputs {
+
+/**
+```
+findFirst(name: string, config?: {type?: string}): Promise<BlockInstanceInput | null>
+```
+
+*/
+findFirst(name: string, config?: {type?: string}): Promise<BlockInstanceInput | null>
+
+/**
+```
+findUsingPattern(namePattern: string, config?: {limit?: number, type?: string}): Promise<Array<BlockInstanceInput>>
+```
+
+*/
+findUsingPattern(namePattern: string, config?: {limit?: number, type?: string}): Promise<Array<BlockInstanceInput>>
+
+/**
+```
+getAll(config?: {type?: string}): Promise<Array<BlockInstanceInput>>
+```
+
+*/
+getAll(config?: {type?: string}): Promise<Array<BlockInstanceInput>>
 
 /**
 ```
@@ -37,7 +62,7 @@ setColor(name: string, v: ColorSignal): Promise<void>
 
 Sends a `ColorSignal` to the Block's input with the given `name`. Returns a promise that is fulfilled
 if the operation succeeds and is rejected if the operation fails, such as if no
-input exists with the given name, or if the input's type is not a `ColorSignal`.
+input exists with the given name, or if the input's type is not of Color or Vec4.
 */
 setColor(name: string, v: ColorSignal): Promise<void>
 
@@ -106,6 +131,17 @@ if the operation succeeds and is rejected if the operation fails, such as if no
 input exists with the given name, or if the input's type is not a `StringSignal`.
 */
 setString(name: string, v: StringSignal): Promise<void>
+
+/**
+```
+setVec4(name: string, v: Vec4Signal): Promise<void>
+```
+
+Sends a `Vec4Signal` to the Block's input with the given `name`. Returns a promise that is fulfilled
+if the operation succeeds and is rejected if the operation fails, such as if no
+input exists with the given name, or if the input's type is not of Color or Vec4.
+*/
+setVec4(name: string, v: Vec4Signal): Promise<void>
 
 /**
 ```

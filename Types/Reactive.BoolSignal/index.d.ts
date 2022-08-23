@@ -31,15 +31,6 @@ delay(): BoolSignal
 
 /**
 ```
-delayBy(timeSpan: {milliseconds: number}): BoolSignal
-```
-
-Delays a signal. The argument is an object with a "milliseconds" property specifying the delay duration in milliseconds.
-*/
-delayBy(timeSpan: {milliseconds: number}): BoolSignal
-
-/**
-```
 eq(other: BoolSignal | boolean): BoolSignal
 ```
 

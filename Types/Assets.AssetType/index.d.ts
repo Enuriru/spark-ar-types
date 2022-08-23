@@ -1,5 +1,0 @@
-declare enum AssetType {
-
-Text,
-
-}

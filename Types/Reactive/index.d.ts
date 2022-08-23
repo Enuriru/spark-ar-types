@@ -1,5 +1,4 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
-/// <reference path="../Reactive.BoolSignalSource/index.d.ts" />
 /// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Reactive.Box3DSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
@@ -9,12 +8,9 @@
 /// <reference path="../Reactive.RgbaSignal/index.d.ts" />
 /// <reference path="../Reactive.Rotation/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
-/// <reference path="../Reactive.ScalarSignalSource/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
-/// <reference path="../Reactive.StringSignalSource/index.d.ts" />
 /// <reference path="../Reactive.TransformSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
-/// <reference path="../Reactive.Vec4Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
 /**
@@ -60,50 +56,6 @@ RGBA(r: ScalarSignal | number, g: ScalarSignal | number, b: ScalarSignal | numbe
 
 /**
 ```
-abs(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the absolute value of the given signal.
-**See Also**: `ScalarSignal.abs`
-*/
-abs(x: ScalarSignal): ScalarSignal
-
-/**
-```
-acos(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the inverse cosine of the value of the given signal (interpreted as radians).
-*/
-acos(x: ScalarSignal): ScalarSignal
-
-/**
-```
-add(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-add(x: PointSignal, y: VectorSignal): PointSignal
-add(x: VectorSignal, y: PointSignal): PointSignal
-add(x: VectorSignal, y: VectorSignal): VectorSignal
-```
-
-Returns a signal with the value that is the sum of the values of the given signals.
-**Note**: `add` and `sum` functions are synonyms, the behavior they provide is equivalent.
-
-**See Also**: `ReactiveModule.sum`, `ScalarSignal.add`, `PointSignal.add`, `VectorSignal.add`
-*/
-add(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-
-/**
-```
-and(lhs: BoolSignal, rhs: BoolSignal): BoolSignal
-```
-
-Returns a signal with the value that is the logical conjunction of the values of the given signals. It is `true` every time both input signals are `true` and `false` at all other times.
-**See Also**: `BoolSignal.and`
-*/
-and(lhs: BoolSignal, rhs: BoolSignal): BoolSignal
-
-/**
-```
 andList(x: Array<BoolSignal>): BoolSignal
 ```
 
@@ -131,48 +83,6 @@ The `config` JSON object can have the following fields:
 **`overflowBehavior`** - how the antiderivative output should behave when the values exceed `min` and `max`, as an [`AntiderivativeOverflowBehavior`](/enums/reactivemodule.antiderivativeoverflowbehaviour) enum value. If set to `CLAMP`, the output is clamped to the `min` and `max` values. If set to `WRAP`, the output is wrapped around to the `min` value if `max` is exceeded and vice versa. The latter is often used when the output represents a cyclic value, such as an angle, which may have a `min` of `0` and a `max` of `2 * PI` for example.
 */
 antiderivative(signal: ScalarSignal, config: {initialValue: number, max: number, min: number, overflowBehaviour: ReactiveModule.AntiderivativeOverflowBehaviour}): ScalarSignal
-
-/**
-```
-asin(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the inverse sine of the value of the given signal (interpreted as radians).
-*/
-asin(x: ScalarSignal): ScalarSignal
-
-/**
-```
-atan(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the inverse tangent of the value of the given signal (interpreted as radians).
-*/
-atan(x: ScalarSignal): ScalarSignal
-
-/**
-```
-atan2(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the angle in radians between the x-axis and the ray from (0, 0) to (x, y) where x and y are the values of the specified signals. The range is -PI to +PI.
-**See Also**: `ScalarSignal.atan2`
-*/
-atan2(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-
-/**
-```
-boolSignalSource(sourceId: string): BoolSignalSource
-```
-
-Creates a new [`BoolSignalSource`](/classes/ReactiveModule.BoolSignalSource) object, which allows for the value of a [`BoolSignal`](/classes/ReactiveModule.BoolSignal) object to be updated without rebinding the signal.
-The signal provided by the source contains a value of `false` until a value is assigned via [`BoolSignalSource.set()`](/classes/ReactiveModule.BoolSignalSource#methods).
-
-When calling the method, avoid reusing the `sourceId` of an object that you've called [`dispose()`](/classes/ReactiveModule.ScalarSignalSource#methods) on.
-
-* `sourceId` - the unique ID of the signal to create or retrieve.
-*/
-boolSignalSource(sourceId: string): BoolSignalSource
 
 /**
 ```
@@ -217,26 +127,6 @@ box3d(min: PointSignal, max: PointSignal): Box3DSignal
 
 /**
 ```
-ceil(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the smallest integer that is greater than or equal to the value of the given signal.
-**See Also**: `ScalarSignal.ceil`
-*/
-ceil(x: ScalarSignal): ScalarSignal
-
-/**
-```
-clamp(x: ScalarSignal, min: ScalarSignal, max: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the value of the given `x` signal constrained to lie between the values of the given `min` and `max` signals.
-**Note**: The behavior is undefined if `min` is greater than `max`.
-*/
-clamp(x: ScalarSignal, min: ScalarSignal, max: ScalarSignal): ScalarSignal
-
-/**
-```
 concat(lhs: StringSignal, rhs: StringSignal): StringSignal
 ```
 
@@ -260,25 +150,6 @@ concat(lhs: StringSignal, rhs: StringSignal): StringSignal
 
 /**
 ```
-cos(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the cosine of the value of the given signal (interpreted as radians).
-*/
-cos(x: ScalarSignal): ScalarSignal
-
-/**
-```
-cross(v1: VectorSignal, v2: VectorSignal): PointSignal
-```
-
-Returns a vector signal with the value that is the cross product of the given signals.
-**See Also**: `VectorSignal.dot`, `ScalarSignal.mul`, `VectorSignal.mul`
-*/
-cross(v1: VectorSignal, v2: VectorSignal): PointSignal
-
-/**
-```
 derivative(signal: ScalarSignal): ScalarSignal
 ```
 
@@ -290,35 +161,6 @@ Input signals with constantly updating values, such as the `openness` signal exp
 * `signal` - the value to calculate the derivative of.
 */
 derivative(signal: ScalarSignal): ScalarSignal
-
-/**
-```
-distance(v1: PointSignal, v2: PointSignal): ScalarSignal
-```
-
-Returns the distance from the point to another point as a `ScalarSignal`.
-*/
-distance(v1: PointSignal, v2: PointSignal): ScalarSignal
-
-/**
-```
-div(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the value of the first signal divided by the value of the second signal.
-**See Also**: `ScalarSignal.div`
-*/
-div(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-
-/**
-```
-dot(v1: VectorSignal, v2: VectorSignal): ScalarSignal
-```
-
-Returns a scalar signal with the value that is the dot product of the given signals.
-**See Also**: `VectorSignal.cross`, `ScalarSignal.mul`, `VectorSignal.mul`
-*/
-dot(v1: VectorSignal, v2: VectorSignal): ScalarSignal
 
 /**
 ```
@@ -341,15 +183,6 @@ eq(lhs: ScalarSignal, rhs: ScalarSignal): BoolSignal
 
 /**
 ```
-exp(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is e (the Euler's constant 2.718...) to the power of the value of the given signal.
-*/
-exp(x: ScalarSignal): ScalarSignal
-
-/**
-```
 expSmooth(signal: ScalarSignal, dampFactor: number): ScalarSignal
 expSmooth(signal: PointSignal, dampFactor: number): PointSignal
 expSmooth(signal: VectorSignal, dampFactor: number): VectorSignal
@@ -365,25 +198,6 @@ The smoothed transformation for a signal that specifies a rigid body transformat
 * `dampFactor` - the dampening time constant, in milliseconds.
 */
 expSmooth(signal: ScalarSignal, dampFactor: number): ScalarSignal
-
-/**
-```
-floor(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the largest integer that is less than or equal to the value of the given signal.
-**See Also**: `ScalarSignal.floor`
-*/
-floor(x: ScalarSignal): ScalarSignal
-
-/**
-```
-fromRange(x: ScalarSignal, min: ScalarSignal, max: ScalarSignal): ScalarSignal
-```
-
-Maps x from [min, max] range to [0.0, 1.0] range.
-*/
-fromRange(x: ScalarSignal, min: ScalarSignal, max: ScalarSignal): ScalarSignal
 
 /**
 ```
@@ -417,18 +231,6 @@ gt(lhs: ScalarSignal, rhs: ScalarSignal): BoolSignal
 
 /**
 ```
-ifThenElse<T, U>(condition: BoolSignal | boolean, thenValue: EventSource<T>, elseValue: EventSource<U>): EventSource<T | U>
-ifThenElse(condition: BoolSignal | boolean, thenValue: ScalarSignal | number, elseValue: ScalarSignal | number): ScalarSignal
-ifThenElse(condition: BoolSignal | boolean, thenValue: StringSignal | string, elseValue: StringSignal | string): StringSignal
-ifThenElse(condition: BoolSignal | boolean, thenValue: BoolSignal | boolean, elseValue: BoolSignal | boolean): BoolSignal
-```
-
-Returns a signal or an `EventSource` which at any point of time takes the value (passes the events in case of `EventSource`) of one or another inputs, depending on the momentary value of the given condition `BoolSignal`.
-*/
-ifThenElse(condition: BoolSignal | boolean, thenValue: ScalarSignal | number, elseValue: ScalarSignal | number): ScalarSignal
-
-/**
-```
 le(lhs: ScalarSignal, rhs: ScalarSignal): BoolSignal
 ```
 
@@ -441,15 +243,6 @@ If the left hand value is lower than or equal to the right hand value `true` is 
 * `rhs` - the second scalar value to compare.
 */
 le(lhs: ScalarSignal, rhs: ScalarSignal): BoolSignal
-
-/**
-```
-log(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the natural logarithm of the value of the given signal.
-*/
-log(x: ScalarSignal): ScalarSignal
 
 /**
 ```
@@ -513,38 +306,6 @@ lt(lhs: ScalarSignal, rhs: ScalarSignal): BoolSignal
 
 /**
 ```
-magnitude(v: VectorSignal): ScalarSignal
-```
-
-Returns the magnitude of the vector as a `ScalarSignal`.
-*/
-magnitude(v: VectorSignal): ScalarSignal
-
-/**
-```
-magnitudeSquared(signal: ScalarSignal): ScalarSignal
-magnitudeSquared(signal: Vec2Signal): ScalarSignal
-magnitudeSquared(signal: VectorSignal): ScalarSignal
-magnitudeSquared(signal: Vec4Signal): ScalarSignal
-```
-
-Returns the squared length (magnitude) of a given signal.
-Calculating the squared magnitude instead of the magnitude is much faster.
-Often if you are comparing magnitudes of two vectors you can just compare their squared magnitudes.
-*/
-magnitudeSquared(signal: ScalarSignal): ScalarSignal
-
-/**
-```
-max(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the greater of the values of the given signals.
-*/
-max(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-
-/**
-```
 merge<T>(lhs: EventSource<T>, rhs: EventSource<T>): EventSource<T>
 ```
 
@@ -558,37 +319,6 @@ TODO: consider generalizing to arbitrary number of inputs
 Note: it is experimental because it's main area of usage is in conjunction with holdAsXXX and setTriggerForXXX
 */
 merge(x,y) is equivalent to x.merge(y)
-
-/**
-```
-min(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the lesser of the values of the given signals.
-*/
-min(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-
-/**
-```
-mix(x: ScalarSignal, y: ScalarSignal, alpha: ScalarSignal): ScalarSignal
-mix(x: PointSignal, y: PointSignal, alpha: ScalarSignal): PointSignal
-mix(x: VectorSignal, y: VectorSignal, alpha: ScalarSignal): VectorSignal
-mix(x: TransformSignal, y: TransformSignal, alpha: ScalarSignal): TransformSignal
-```
-
-Returns a signal with the value that is the interpolation of the values of the given signals.
-*/
-mix(x: ScalarSignal, y: ScalarSignal, alpha: ScalarSignal): ScalarSignal
-
-/**
-```
-mod(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the floating-point remainder of the division of the value of the first signal by the value of the second signal.
-**See Also**: `ScalarSignal.mod`
-*/
-mod(x: ScalarSignal, y: ScalarSignal): ScalarSignal
 
 /**
 ```
@@ -632,19 +362,6 @@ monitorMany(signals: {[name: string]: ScalarSignal}, config?: {fireOnInitialValu
 
 /**
 ```
-mul(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-mul(x: VectorSignal, y: ScalarSignal): VectorSignal
-mul(x: ScalarSignal, y: VectorSignal): VectorSignal
-mul(x: VectorSignal, y: VectorSignal): VectorSignal
-```
-
-Returns a signal with the value that is the product of the values of the given signals.
-**See Also**: `ScalarSignal.mul`, `VectorSignal.mul`
-*/
-mul(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-
-/**
-```
 mulList(x: Array<number | ScalarSignal>): ScalarSignal
 ```
 
@@ -679,26 +396,6 @@ ne(lhs: ScalarSignal, rhs: ScalarSignal): BoolSignal
 
 /**
 ```
-neg(x: ScalarSignal): ScalarSignal
-neg(x: VectorSignal): VectorSignal
-```
-
-Returns a signal with the negated value of the given signal.
-**See Also**: `ScalarSignal.neg`, `VectorSignal.neg`
-*/
-neg(x: ScalarSignal): ScalarSignal
-
-/**
-```
-normalize(v: VectorSignal): VectorSignal
-```
-
-Returns the normalized (unit) vector in the direction of the original vector as a `VectorSignal`.
-*/
-normalize(v: VectorSignal): VectorSignal
-
-/**
-```
 not(signal: BoolSignal): BoolSignal
 ```
 
@@ -722,16 +419,6 @@ once(): EventSource<void>
 
 /**
 ```
-or(lhs: BoolSignal, rhs: BoolSignal): BoolSignal
-```
-
-Returns a signal with the value that is the logical disjunction of the values of the given signals. It is `true` every time at least one of the input signals is `true` and `false` at all other times.
-**See Also**: `BoolSignal.or`
-*/
-or(lhs: BoolSignal, rhs: BoolSignal): BoolSignal
-
-/**
-```
 orList(x: Array<BoolSignal>): BoolSignal
 ```
 
@@ -741,41 +428,6 @@ If any of the signals in the array are `true` then `true` is returned, otherwise
 * `x` - the array of booleans to perform the logical OR operation with.
 */
 orList(x: Array<BoolSignal>): BoolSignal
-
-/**
-```
-pack2(x: ScalarSignal, y: ScalarSignal): Vec2Signal
-pack2(x: ScalarSignal, y: Vec2Signal): PointSignal
-pack2(x: Vec2Signal, y: ScalarSignal): PointSignal
-pack2(x: ScalarSignal, y: PointSignal): Vec4Signal
-pack2(x: PointSignal, y: ScalarSignal): Vec4Signal
-pack2(x: Vec2Signal, y: Vec2Signal): Vec4Signal
-```
-
-Packs two Scalar or Point signals into a bigger Point signal.
-*/
-pack2(x: ScalarSignal, y: ScalarSignal): Vec2Signal
-
-/**
-```
-pack3(x: ScalarSignal, y: ScalarSignal, z: ScalarSignal): PointSignal
-pack3(x: ScalarSignal, y: ScalarSignal, z: Vec2Signal): Vec4Signal
-pack3(x: ScalarSignal, y: Vec2Signal, z: ScalarSignal): Vec4Signal
-pack3(x: Vec2Signal, y: ScalarSignal, z: ScalarSignal): Vec4Signal
-```
-
-Packs three Scalar or Point signals into a bigger Point signal.
-*/
-pack3(x: ScalarSignal, y: ScalarSignal, z: ScalarSignal): PointSignal
-
-/**
-```
-pack4(x: ScalarSignal, y: ScalarSignal, z: ScalarSignal, w: ScalarSignal): Vec4Signal
-```
-
-Packs four `ScalarSignals` into a `Vec4Signal`.
-*/
-pack4(x: ScalarSignal, y: ScalarSignal, z: ScalarSignal, w: ScalarSignal): Vec4Signal
 
 /**
 ```
@@ -799,18 +451,6 @@ Constructs a [`Vec2Signal`](/classes/ReactiveModule.Vec2Signal) from the two [`S
 * `y` - the y component of the 2D vector.
 */
 point2d(x: ScalarSignal | number, y: ScalarSignal | number): Vec2Signal
-
-/**
-```
-pow(base: ScalarSignal, exponent: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the base signal raised to the power of the exponent signal.
-The result is undefined if the base is negative, or if the base is zero and the exponent is not positive.
-
-**See Also**: `ScalarSignal.pow`
-*/
-pow(base: ScalarSignal, exponent: ScalarSignal): ScalarSignal
 
 /**
 ```
@@ -881,15 +521,6 @@ quaternionLookAt(targetPosition: PointSignal, selfUp?: VectorSignal): Quaternion
 
 /**
 ```
-reflect(incident: VectorSignal, normal: VectorSignal): VectorSignal
-```
-
-Calculates the reflection direction for an incident vector and a normal as a `VectorSignal`.
-*/
-reflect(incident: VectorSignal, normal: VectorSignal): VectorSignal
-
-/**
-```
 rotation(w: number, x: number, y: number, z: number): Rotation
 ```
 
@@ -900,32 +531,6 @@ Creates a [`Rotation`](/classes/ReactiveModule.Rotation) from the quaternion com
 * `z` - the z component of the quaternion.
 */
 rotation(w: number, x: number, y: number, z: number): Rotation
-
-/**
-```
-round(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the rounded value of the given signal.
-**Note**: When the fractional part is 0.5, it rounds the number away from zero, which is at odds with JavaScript standard behavior of rounding it always up in such cases. Therefore, this function is NOT exactly the reactive counterpart of the standard JavaScript `Math.round` utility.
-
-**See Also**: `ScalarSignal.round`
-*/
-round(x: ScalarSignal): ScalarSignal
-
-/**
-```
-scalarSignalSource(sourceId: string): ScalarSignalSource
-```
-
-Creates a new [`ScalarSignalSource`](/classes/ReactiveModule.ScalarSignalSource#methods) object, which allows for the value of a [`ScalarSignal`](/classes/ReactiveModule.ScalarSignal) object to be updated without rebinding the signal.
-The signal provided by the source contains a value of `0` until a value is assigned via [`ScalarSignalSource.set()`](/classes/ReactiveModule.ScalarSignalSource#methods).
-
-When calling the method, avoid reusing the `sourceId` of an object that you've called [`dispose()`](/classes/ReactiveModule.ScalarSignalSource#methods) on.
-
-* `sourceId` - the unique ID of the signal to create or retrieve.
-*/
-scalarSignalSource(sourceId: string): ScalarSignalSource
 
 /**
 ```
@@ -972,18 +577,6 @@ schmittTrigger(signal: ScalarSignal, config: {high: number, initialValue?: false
 
 /**
 ```
-sign(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the sign of the given signal. Possible sign values: NaN, -0.0, 0.0, -1.0, 1.0.
-**Note**: this function is the reactive counterpart of the standard JavaScript `Math.sign` utility.
-
-**See Also**: `ScalarSignal.sign`
-*/
-sign(x: ScalarSignal): ScalarSignal
-
-/**
-```
 signalHistory<T>(source: EventSource<T>, count: number): EventSourceHistory<T>
 signalHistory<T>(signal: Signal<T>, count: number, initialValues?: Array<T>): SignalHistory<T>
 ```
@@ -997,86 +590,6 @@ If the method is called with an `EventSource` as the `source`, an [`EventSourceH
 * `initialValues` - sets the initial value of the signal. If unspecified, the value of the signal when the method is called is used instead. Not valid if and `EventSource` object is passed in the method call.
 */
 signalHistory
-
-/**
-```
-sin(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the sine of the value of the given signal (interpreted as radians).
-*/
-sin(x: ScalarSignal): ScalarSignal
-
-/**
-```
-smoothStep(x: ScalarSignal, edge0: ScalarSignal, edge1: ScalarSignal): ScalarSignal
-```
-
-Returns 0.0 if x is less than edge0, and 1.0 if x is greater than edge1.
-If x is between edge0 and edge1, smooth Hermite interpolation is performed.
-*/
-smoothStep(x: ScalarSignal, edge0: ScalarSignal, edge1: ScalarSignal): ScalarSignal
-
-/**
-```
-sqrt(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the square root of the value of the given signal.
-**See Also**: `ScalarSignal.sqrt`
-*/
-sqrt(x: ScalarSignal): ScalarSignal
-
-/**
-```
-step(x: ScalarSignal, edge: ScalarSignal): ScalarSignal
-```
-
-Returns 0.0 if x is less than edge, and 1.0 is returned otherwise.
-*/
-step(x: ScalarSignal, edge: ScalarSignal): ScalarSignal
-
-/**
-```
-stringSignalSource(sourceId: string): StringSignalSource
-```
-
-Creates a new [`StringSignalSource`](/classes/ReactiveModule.StringSignalSource) object, which allows for the value of a [`StringSignal`](/classes/ReactiveModule.StringSignal) object to be updated without rebinding the signal.
-The signal provided by the source contains an empty string until a value is assigned via [`StringSignalSource.set()`](/classes/ReactiveModule.StringSignalSource#methods).
-
-When calling the method, avoid reusing the `sourceId` of an object that you've called [`dispose()`](/classes/ReactiveModule.ScalarSignalSource#methods) on.
-
-* `sourceId` - the unique ID of the signal to create or retrieve.
-*/
-stringSignalSource(sourceId: string): StringSignalSource
-
-/**
-```
-sub(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-sub(x: PointSignal, y: VectorSignal): PointSignal
-sub(x: VectorSignal, y: VectorSignal): VectorSignal
-sub(x: PointSignal, y: PointSignal): VectorSignal
-```
-
-Returns a signal with the value that is the difference of the values of the given signals.
-**See Also**: `ScalarSignal.sub`, `VectorSignal.sub`, `PointSignal.sub`
-*/
-sub(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-
-/**
-```
-sum(x: ScalarSignal, y: ScalarSignal): ScalarSignal
-sum(x: PointSignal, y: VectorSignal): PointSignal
-sum(x: VectorSignal, y: PointSignal): PointSignal
-sum(x: VectorSignal, y: VectorSignal): VectorSignal
-```
-
-Returns a signal with the value that is the sum of the values of the given signals.
-**Note**: `add` and `sum` functions are synonyms, the behavior they provide is equivalent.
-
-**See Also**: `ReactiveModule.sum`, `ScalarSignal.add`, `PointSignal.add`, `VectorSignal.add`
-*/
-sum(x: ScalarSignal, y: ScalarSignal): ScalarSignal
 
 /**
 ```
@@ -1118,33 +631,6 @@ var switchString = Reactive.switch(condition, {
 * `defaultValue` - the default value to assign to the `StringSignal` returned by the method, if `condition` does not match any of the keys from `map`.
 */
 switch(condition: StringSignal, map: {[key: string]: string}, defaultValue: string): StringSignal
-
-/**
-```
-tan(x: ScalarSignal): ScalarSignal
-```
-
-Returns a signal with the value that is the tangent of the value of the given signal (interpreted as radians).
-*/
-tan(x: ScalarSignal): ScalarSignal
-
-/**
-```
-toRange(x: ScalarSignal, min: ScalarSignal, max: ScalarSignal): ScalarSignal
-```
-
-Maps x from [0.0, 1.0] range to [min, max] range.
-*/
-toRange(x: ScalarSignal, min: ScalarSignal, max: ScalarSignal): ScalarSignal
-
-/**
-```
-transform(translation: PointSignal, scale: PointSignal, rotation: QuaternionSignal): TransformSignal
-```
-
-Creates a scene object transform from translation, scale and rotation rotation
-*/
-transform(translation: PointSignal, scale: PointSignal, rotation: QuaternionSignal): TransformSignal
 
 /**
 ```

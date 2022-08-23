@@ -47,19 +47,6 @@ enterRawTextEditMode(nodeName: string): Promise<boolean>
 
 /**
 ```
-enterTextEditMode(nodeName: string): Promise<boolean>
-```
-
-Requests text input from the user for the specified object.
-* `nodeName` - the name of the text object to request user input for.
-The promise returned is resolved with a boolean value which represents whether the input request was successful.
-
-On a successful input, the `nodeName` object's text will be updated automatically.
-*/
-enterTextEditMode(nodeName: string): Promise<boolean>
-
-/**
-```
 exitRawTextEditMode(): Promise<boolean>
 ```
 

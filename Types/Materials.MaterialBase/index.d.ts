@@ -1,11 +1,7 @@
 /// <reference path="../Materials.TextureTransform/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
-/// <reference path="../Reactive.ShaderSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
-/// <reference path="../Shaders.BlendedMaterialTextures/index.d.ts" />
-/// <reference path="../Shaders.DefaultMaterialTextures/index.d.ts" />
-/// <reference path="../Shaders.FacePaintMaterialTextures/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
 /**
@@ -138,23 +134,5 @@ getDiffuse(): Promise<TextureBase | null>
 Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
 */
 getDiffuse(): Promise<TextureBase | null>
-
-/**
-```
-setTexture(signal: ShaderSignal, config: {textureSlotName: DefaultMaterialTextures | BlendedMaterialTextures | FacePaintMaterialTextures | PhysicallyBasedMaterialTextures}): void
-```
-
-Assigns a ShaderSignal to the specified texture slot.
-*/
-setTexture(signal: ShaderSignal, config: {textureSlotName: DefaultMaterialTextures | BlendedMaterialTextures | FacePaintMaterialTextures | PhysicallyBasedMaterialTextures}): void
-
-/**
-```
-setTextureSlot(textureSlotName: string, signal: ShaderSignal): void
-```
-
-Assigns a ShaderSignal to the specified texture slot.
-*/
-setTextureSlot(textureSlotName: string, signal: ShaderSignal): void
 
 }

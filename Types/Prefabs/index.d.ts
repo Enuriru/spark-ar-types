@@ -1,4 +1,3 @@
-/// <reference path="../ObjectCapture.ObjectCapturePrefabBase/index.d.ts" />
 /// <reference path="../Prefabs.PrefabBase/index.d.ts" />
 
 
@@ -11,17 +10,6 @@
 The `PrefabsModule` module provides functionality for working with external meshes.
 */
 declare interface Prefabs extends Module {
-
-/**
-```
-destroy(prefab: ObjectCapturePrefabBase): Promise<void>
-```
-
-Destroy a prefab asynchronously.
-When destroying the prefabs, keep the following in mind:
-- All bound properties will be automatically unbound on destruction.
-*/
-destroy(prefab: ObjectCapturePrefabBase): Promise<void>
 
 /**
 ```

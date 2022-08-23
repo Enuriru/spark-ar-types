@@ -1,3 +1,4 @@
+/// <reference path="../Avatar.VisemeType/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
 

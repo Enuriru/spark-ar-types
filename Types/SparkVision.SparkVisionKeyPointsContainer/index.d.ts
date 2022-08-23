@@ -14,6 +14,16 @@ declare interface SparkVisionKeyPointsContainer {
 
 /**
 ```
+(get) keyPointNames: Array<String>
+(set) (Not Available)
+```
+
+Returns KeyPoint names if supported
+*/
+keyPointNames: Array<String>
+
+/**
+```
 getKeyPointByName(keyPointName: string): SparkVisionKeyPoint
 ```
 

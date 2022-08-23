@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 
@@ -34,6 +35,17 @@ Returns the keyPoint occlusion of given name.
 Returns the most recent value if data not generated, or 0.0 if not supported
 */
 isOccluded: ScalarSignal
+
+/**
+```
+(get) isTracked: BoolSignal
+(set) (Not Available)
+```
+
+Returns the keyPoint isTracked of given name.
+Value is either true if keypoint is tracked or false if it's not
+*/
+isTracked: BoolSignal
 
 /**
 ```

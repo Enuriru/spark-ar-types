@@ -12,22 +12,42 @@ declare interface BlockStorage {
 
 /**
 ```
-(get) identifier: string
+(get) assetId: string
+(set) (Not Available)
+```
+
+External Block ID
+*/
+assetId: string
+
+/**
+```
+(get) assetType: PersistenceAssetType
+(set) (Not Available)
+```
+
+Asset type: { MAIN_EFFECT, EXTERNAL_BLOCK }
+*/
+assetType: PersistenceAssetType
+
+/**
+```
+(get) storageIdentifier: string
 (set) (Not Available)
 ```
 
 Unique identifier of this Block Storage, given the PersistenceLocation.
 */
-identifier: string
+storageIdentifier: string
 
 /**
 ```
-(get) location: PersistenceLocation
+(get) storageLocation: PersistenceLocation
 (set) (Not Available)
 ```
 
-Type of the persistence location. One of temporary, local and remote.
+Type of persistence location : { temporary, local, remote }
 */
-location: PersistenceLocation
+storageLocation: PersistenceLocation
 
 }

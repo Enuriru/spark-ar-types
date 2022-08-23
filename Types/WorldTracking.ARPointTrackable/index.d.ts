@@ -16,6 +16,14 @@ declare interface ARPointTrackable {
 
 /**
 ```
+(get) id: string
+(set) (Not Available)
+```
+*/
+id: string
+
+/**
+```
 (get) plane: ARTrackable
 (set) (Not Available)
 ```

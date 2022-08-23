@@ -2,6 +2,7 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../SparkVision.SparkVisionBoundingBox/index.d.ts" />
+/// <reference path="../SparkVision.SparkVisionBoundingBox3D/index.d.ts" />
 /// <reference path="../SparkVision.SparkVisionKeyPointsContainer/index.d.ts" />
 
 
@@ -26,6 +27,17 @@ Returns the bounding box represented as a SparkVisionBoundingBox
 Throws an error if Bounding Box is not supported
 */
 boundingBox: SparkVisionBoundingBox
+
+/**
+```
+(get) boundingBox3D: SparkVisionBoundingBox3D
+(set) (Not Available)
+```
+
+Returns the 3D bounding box represented as a SparkVisionBoundingBox3D
+Throws an error if 3D Bounding Box is not supported
+*/
+boundingBox3D: SparkVisionBoundingBox3D
 
 /**
 ```

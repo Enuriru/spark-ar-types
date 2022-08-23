@@ -165,7 +165,6 @@ tracking failure reason, and will be default to None.
  * @property INSUFFICIENT_FEATURES The scene does not contain sufficient distinguishing features for accurate tracking.
  * @property INSUFFICIENT_LIGHT The scene is not sufficiently lit for accurate tracking.
  * @property NONE The world tracker is not experiencing limited tracking quality.
- * @property RELOCALIZING The AR session is attempting to resume after an interruption.
  */
 static readonly TrackingStateReason: {
   EXCESSIVE_MOTION: "EXCESSIVE_MOTION",
@@ -173,7 +172,6 @@ static readonly TrackingStateReason: {
   INSUFFICIENT_FEATURES: "INSUFFICIENT_FEATURES",
   INSUFFICIENT_LIGHT: "INSUFFICIENT_LIGHT",
   NONE: "NONE",
-  RELOCALIZING: "RELOCALIZING",
 }
 }
 export = WorldTrackingModule;

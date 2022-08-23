@@ -1,7 +1,5 @@
 /// <reference path="../ObjectCapture.CapturedObjectInfo/index.d.ts" />
-/// <reference path="../ObjectCapture.CapturedObjectPrefab/index.d.ts" />
-/// <reference path="../ObjectCapture.CapturedObjectType/index.d.ts" />
-/// <reference path="../ObjectCapture.ObjectCaptureLivePreviewPrefab/index.d.ts" />
+/// <reference path="../Prefabs.ObjectCaptureLivePreviewPrefab/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 
@@ -23,22 +21,6 @@ livePreviewPrefab: Promise<ObjectCaptureLivePreviewPrefab>
 
 /**
 ```
-(get) objectType: StringSignal
-(set) (Not Available)
-```
-*/
-objectType: StringSignal
-
-/**
-```
-(get) pipelineStatus: StringSignal
-(set) (Not Available)
-```
-*/
-pipelineStatus: StringSignal
-
-/**
-```
 (get) status: StringSignal
 (set) (Not Available)
 ```
@@ -47,66 +29,10 @@ status: StringSignal
 
 /**
 ```
-endCapture(): Promise<CapturedObjectInfo>
-```
-
-*/
-endCapture(): Promise<CapturedObjectInfo>
-
-/**
-```
 onNewCapturedObject(): EventSource<CapturedObjectInfo>
 ```
 
 */
 onNewCapturedObject(): EventSource<CapturedObjectInfo>
-
-/**
-```
-pauseCapture(): Promise<void>
-```
-
-*/
-pauseCapture(): Promise<void>
-
-/**
-```
-restart(): Promise<void>
-```
-
-*/
-restart(): Promise<void>
-
-/**
-```
-saveModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture}): Promise<void>
-```
-
-*/
-saveModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture}): Promise<void>
-
-/**
-```
-setObjectType(type: CapturedObjectType): void
-```
-
-*/
-setObjectType(type: CapturedObjectType): void
-
-/**
-```
-shareModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture}): Promise<void>
-```
-
-*/
-shareModel(config: {prefab: CapturedObjectPrefab, texture: CapturedObjectTexture}): Promise<void>
-
-/**
-```
-startCapture(): Promise<void>
-```
-
-*/
-startCapture(): Promise<void>
 
 }

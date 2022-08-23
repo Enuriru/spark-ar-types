@@ -54,21 +54,6 @@ destroy(sceneObject: string | SceneObjectBase): Promise<void>
 
 /**
 ```
-projectToScreen(point: PointSignal): Vec2Signal
-```
-
-Returns a signal with the value that corresponds to the 2D point value (in Screen Space) of the given world coordinate.
-Screen space positions are represented in the range of `(0, 0)` to `(CameraInfo.previewSize.width, CameraInfo.previewSize.height)`,
-with the coordinate start being the top left point of the screen and `previewSize.width/height` being the bottom right.
-
-The values in the returned signal are not capped to the size of the screen space and can lie outside of the visible screen area.
-
-This functionality can be used for precisely positioning 2D screen elements or to add additional effects that apply to the entire camera texture, based on contents of the scene.
-*/
-projectToScreen(point: PointSignal): Vec2Signal
-
-/**
-```
 unprojectToFocalPlane(location: Vec2Signal): PointSignal
 ```
 
@@ -85,24 +70,6 @@ var signal = S.unprojectToFocalPlane(gesture.location);
 ```
 */
 unprojectToFocalPlane(location: Vec2Signal): PointSignal
-
-/**
-```
-unprojectWithDepth(location: Vec2Signal, depth: number): PointSignal
-```
-
-Returns a signal with the value that corresponds to the 3d point value (in World Space, in current units) of the given screenSpace point from the Vec2Signal.
-The z coordinate of the PointSignal will always be equal to the given depth value. The depth should be given in current units.
-This function can be combined with TouchGestures to create a 3d point signal.
-```
-var Scene = require('Scene')
-var TouchGestures = require('TouchGestures')
-TouchGestures.onPan().subscribe(function(gesture) {
-var signal = Scene.unprojectWithDepth(gesture.location, 0.5);
-});
-```
-*/
-unprojectWithDepth(location: Vec2Signal, depth: number): PointSignal
 
 }
 

@@ -10,4 +10,12 @@ declare interface IntersectEvent {
 */
 location: Point3D
 
+/**
+```
+(get) state: GestureState
+(set) (Not Available)
+```
+*/
+state: GestureState
+
 }

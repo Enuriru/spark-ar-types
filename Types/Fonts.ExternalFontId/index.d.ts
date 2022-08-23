@@ -1,14 +1,10 @@
-/// <reference path="../ExternalTexture.State/index.d.ts" />
+/// <reference path="../Fonts.ExternalFont.State/index.d.ts" />
 /// <reference path="../Fonts.FontId/index.d.ts" />
-/// <reference path="../Fonts.State/index.d.ts" />
-/// <reference path="../GalleryTexture.State/index.d.ts" />
 /// <reference path="../LiveStreaming.State/index.d.ts" />
-/// <reference path="../PlaneTracking.State/index.d.ts" />
-/// <reference path="../PointTracker.State/index.d.ts" />
 /// <reference path="../Prefabs.State/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
-/// <reference path="../TouchGestures.State/index.d.ts" />
-/// <reference path="../WorldTracking.State/index.d.ts" />
+/// <reference path="../Textures.ExternalTexture.State/index.d.ts" />
+/// <reference path="../TouchGestures.Gesture.State/index.d.ts" />
 
 
 /**

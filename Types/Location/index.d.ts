@@ -50,4 +50,13 @@ Current device longitude.
 */
 longitude: ScalarSignal
 
+/**
+```
+injectLocation(latitude: Number, longitude: Number, altitude: Number): void
+```
+
+Inject Location which injects a longitude, latitude, and altitude
+*/
+injectLocation(latitude: Number, longitude: Number, altitude: Number): void
+
 }
