@@ -76,3 +76,57 @@ Convert this signal to Vector signal, using R, G, B, A for four components of ve
 toVec4(): Vec4Signal
 
 }
+
+
+
+/**
+
+//=========================================================================
+// The following example demonstrates how to use an RgbaSignal as a
+// property for materials.
+//
+// Project setup:
+// - Insert two Planes under Focal Distance
+// - Insert a Material into Assets
+// - Insert a second Material and a Shader Code Asset into Assets
+// - Set the new shader asset as the Shader Type of the second new material
+//=========================================================================
+
+// Load in the required modules
+const Materials = require('Materials');
+const Reactive = require('Reactive');
+const Scene = require('Scene');
+
+(async function() { // Enable async/await in JS [part 1]
+
+  // Locate the planes and materials in the project
+  const [plane0, plane1, material, customMaterial] = await Promise.all([
+    Scene.root.findFirst('plane0'),
+    Scene.root.findFirst('plane1'),
+    Materials.findFirst('material0'),
+    Materials.findFirst('material1')
+  ]);
+
+  // Move the planes so they are both visible in the Scene
+  plane0.transform.x = -0.05;
+  plane1.transform.x = 0.05;
+
+  // Bind materials to the planes' material properties
+  plane0.material = material;
+  plane1.material = customMaterial;
+
+  // Create a new RgbaSignal with four 0 to 1 scalar values
+  const diffuseColor = Reactive.RGBA(0.98, 0.09, 0.51, 1.0);
+
+  // Set the diffuse color factor of the built-in material
+  material.diffuseColorFactor = diffuseColor;
+
+  // Convert the RgbaSignal to a Vec4Signal
+  const color1 = diffuseColor.toVec4();
+
+  // Assign the signal to a color parameter of the patch asset material
+  customMaterial.setParameter('color1', color1);
+
+})(); // Enable async/await in JS [part 2]
+
+*/

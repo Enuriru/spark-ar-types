@@ -3,7 +3,7 @@
 /// <reference path="../Reactive.SignalHistory/index.d.ts" />
 
 /**
-Monitors a boolean value and exposes functionality for performing logical operations with the given signal.
+Monitors a boolean value and exposes functionality for performing logical operations with a given signal.
 */
 declare interface BoolSignal {
 
@@ -247,7 +247,7 @@ const rightEyeClosed = FaceGestures.hasRightEyeClosed(face);
 
 
 //==========================================================================
-// Perform a logical XOR operation with a given BoolSignal
+// Perform a logical XOR operation with given BoolSignal
 //==========================================================================
 
 // Returns true if only one of the BoolSignals is true

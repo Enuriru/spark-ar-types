@@ -380,3 +380,70 @@ Retrieves the array of ParticleTypeDescription objects.
 getTypes(): Promise<Array<ParticleTypeDescription>>
 
 }
+
+
+
+/**
+
+//=========================================================================
+// The following example demonstrates how to use the properties of a
+// ParticleSystem to change various properties of a particle emitter.
+//
+// Project setup:
+// - Insert a Particle System object with a name emitter0 into your scene
+//=========================================================================
+
+// Load in the required modules
+const Reactive = require('Reactive');
+const Animation = require('Animation');
+const Scene = require('Scene');
+
+(async function() { // Enable async/await in JS [part 1]
+
+// Locate the Particle System in the scene
+const [emitter] = await Promise.all([
+  Scene.root.findFirst('emitter0'),
+]);
+
+// Set the lifespan of particles in seconds
+emitter.lifetimeSeconds = 5;
+
+// Set the birthrate of particles and add randomness to the birthrate (birthrateDelta)
+emitter.birthrate = 200;
+emitter.birthrateDelta = 0.5;
+
+// Set the scale of particles and add randomness to the scale (scaleDelta)
+emitter.scale = 0.001;
+emitter.scaleDelta = 0.5;
+
+// Create a particle size sampler (specifies change in the particle size over its lifespan) and assign it to the size modifier to change the particle size over time
+const sizeSampler = Animation.samplers.linear(0.01,0.1);
+emitter.sizeModifier = sizeSampler;
+
+// Create a HSVA (Hue, Saturation, Value, Alpha) sampler, the HSVA sampler takes in an array of 4 samplers that correspond to H,S,V and A values
+const hueSampler = Animation.samplers.linear(0,1);
+const saturationSampler = Animation.samplers.linear(0,1);
+const valueSampler = Animation.samplers.linear(0,1);
+const alphaSampler = Animation.samplers.linear(1,0);
+const HSVASampler = Animation.samplers.HSVA([hueSampler,saturationSampler,valueSampler,alphaSampler]);
+
+// Set base HSVA values against which the modultaion will apply
+emitter.colorModulationHSVA = Reactive.HSVA(0,0,0,1);
+
+// Assign the HSVA sampler as HSVA color modulation modifier to change hue, saturation, value (brightness) and alpha (opacity) over the lifespan of a particle
+emitter.hsvaColorModulationModifier = HSVASampler;
+
+// Create polybezier samplers for X,Y and Z values with arbitrary values for keyframes
+const samplerX = Animation.samplers.polybezier({keyframes:[0,1,0,-1,0],knots:[0,1,2,3,4]})
+const samplerY = Animation.samplers.polybezier({keyframes:[1,0,-1,0,1],knots:[0,1,2,3,4]})
+const samplerZ = Animation.samplers.polybezier({keyframes:[-0.5,0.5,-0.5,0.5,-0.5],knots:[0,1,2,3,4]})
+
+// Use XYZ samplers to modify position of particles over time
+emitter.positionModifier = [samplerX,samplerY,samplerZ];
+
+// Use XYZ samplers to modify velocity of particles over time
+emitter.velocityModifier = [samplerX,samplerY,samplerZ];
+
+})(); // Enable async/await in JS [part 2]
+
+*/

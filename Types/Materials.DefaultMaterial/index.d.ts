@@ -178,3 +178,44 @@ Returns a promise that is resolved with the texture associated with a given mate
 getReflective(): Promise<TextureBase | null>
 
 }
+
+
+
+/**
+
+//=========================================================================
+// The following example demonstrates how to set the properties of a
+// material using the Standard shader.
+//
+// Project setup:
+// - Insert a Plane into the Scene
+// - Insert a new Material into Assets
+//=========================================================================
+
+// Load in the required modules
+const Materials = require('Materials');
+const Reactive = require('Reactive');
+const Scene = require('Scene');
+
+(async function() { // Enable async/await in JS [part 1]
+
+  // Locate the plane and material in the project
+  const [plane, material] = await Promise.all([
+    Scene.root.findFirst('plane0'),
+    Materials.findFirst('material0')
+  ]);
+
+  // Bind the material to the plane's material property
+  plane.material = material;
+
+  // Create RgbaSignals using values between 0 and 1
+  const darkGray = Reactive.RGBA(0.11, 0.17, 0.2, 1.0);
+  const blue = Reactive.RGBA(0.1, 0.47, 0.95, 1.0);
+
+  // Set the diffuse and specular color factors of the material
+  material.diffuseColorFactor = darkGray;
+  material.specularColorFactor = blue;
+
+})(); // Enable async/await in JS [part 2]
+
+*/

@@ -25,11 +25,11 @@ name: string
 
 /**
 ```
-(get) type: PhysicsObjectTypeInt
+(get) type: PhysicsObjectType
 (set) (Not Available)
 ```
 */
-type: PhysicsObjectTypeInt
+type: PhysicsObjectType
 
 /**
 ```

@@ -193,3 +193,69 @@ Returns a promise that is resolved when the texture is assigned.
 setNormal(texture: TextureBase | null): Promise<void>
 
 }
+
+
+
+/**
+
+//=========================================================================
+// The following example demonstrates how to set the properties of a
+// physically-based material.
+//
+// Project setup:
+// - Insert a Plane under Focal Distance
+// - Insert a Material into Assets
+// - Set the Shader Type of the new material to Physically-Based
+// - Extract the Camera texture into Assets
+//=========================================================================
+
+// Load in the required modules
+const Materials = require('Materials');
+const Reactive = require('Reactive');
+const Scene = require('Scene');
+const Textures = require('Textures');
+const Time = require('Time');
+
+(async function() { // Enable async/await in JS [part 1]
+
+  // Locate the planes and materials in the project
+  const [plane, material, texture] = await Promise.all([
+    Scene.root.findFirst('plane0'),
+    Materials.findFirst('material0'),
+    Textures.findFirst('cameraTexture0')
+  ]);
+
+  // Bind the material to the plane's material property
+  plane.material = material;
+
+  // Get the current runtime in seconds
+  const timeSeconds = Time.ms.mul(0.001);
+
+  // Create a signal that changes over time
+  const progress = timeSeconds.mul(0.1).mod(1.0);
+
+  // Use the signal to drive an animated scalar value representing rotation
+  const rotation = progress.mul(2.0 * Math.PI);
+
+  // Bind the transform of the plane to the animated rotation value signal
+  plane.transform.rotationX = rotation;
+  plane.transform.rotationZ = rotation;
+
+  // Make the material double-sided
+  material.doubleSided = true;
+
+  // Set the metallic factor of the material
+  material.metallicFactor = 0.75;
+
+  // Create a color signal with hue that animates over time
+  const color = Reactive.HSVA(progress, 1.0, 1.0, 1.0);
+
+  // Set the base color factor of the material
+  material.baseColorFactor = color;
+
+  // Assign the texture to the base color slot of the material
+  material.baseColor = texture;
+
+})(); // Enable async/await in JS [part 2]
+
+*/

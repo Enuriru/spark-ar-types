@@ -27,4 +27,13 @@ Destroy a physics world.  All bodies, constraints, and volumes inside the world 
 */
 destroyWorld(world: PhysicsWorld): Promise<void>
 
+/**
+```
+interface(object: PhysicsObject, iface: PhysicsInterface): PhysicsAllInterfaces
+```
+
+Retrieves the specified interface on the given object.
+*/
+interface(object: PhysicsObject, iface: PhysicsInterface): PhysicsAllInterfaces
+
 }

@@ -96,3 +96,38 @@ Sends a `VectorSignal` to the Patch Editor under specified `name`.
 setVector(name: string, signal: VectorSignal): Promise<void>
 
 }
+
+
+
+/**
+
+//=========================================================================
+// The following example demonstrates how to send values from script to
+// patches.
+//
+// Project setup:
+// - Add a from script variable with type to match the data being sent
+// - e.g. 'Number' for ScalarSignal
+// - and the name of the variable to send using the '+' button in the
+//   script properties panel
+// - In this example we have called it 'scalarToPatch'
+// - Drag the script asset into the patch editor to create a producer patch
+//   to use the value with patches
+//=========================================================================
+
+// Load in the required modules
+const Patches = require('Patches');
+const Reactive = require('Reactive');
+
+(async function() { // Enable async/await in JS [part 1]
+
+  // Create a scalar signal
+  const myScalarSignal = Reactive.val(1);
+
+  // Send it to use with the patch editor and assign it the same name as
+  // given under the 'From Script' panel
+  Patches.inputs.setScalar('scalarToPatch', myScalarSignal);
+
+})(); // Enable async/await in JS [part 2]
+
+*/

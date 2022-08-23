@@ -1,6 +1,5 @@
 /// <reference path="../Physics.PhysicsBody/index.d.ts" />
 /// <reference path="../Physics.PhysicsConstraint/index.d.ts" />
-/// <reference path="../Physics.PhysicsObjectBaseType/index.d.ts" />
 /// <reference path="../Physics.PhysicsVolume/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.Vec3/index.d.ts" />

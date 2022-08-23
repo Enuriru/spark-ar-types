@@ -58,3 +58,54 @@ Historical signal values are going to be initialized with signal value at call t
 history(framesCount: number): SignalHistory<Shader>
 
 }
+
+
+
+/**
+
+//=========================================================================
+// The following example demonstrates how to modify the color values of a
+// texture before assigning it to a material's texture slot.
+//
+// Project setup:
+// - Insert a Plane into the Scene
+// - Insert a Material into Assets
+// - Extract the Camera texture into Assets
+//=========================================================================
+
+// Load in the required modules
+const Materials = require('Materials');
+onst Reactive = require('Reactive');
+const Scene = require('Scene');
+const Textures = require('Textures');
+
+(async function() { // Enable async/await in JS [part 1]
+
+  // Locate the plane and material in the project
+  const [plane, material, texture] = await Promise.all([
+    Scene.root.findFirst('plane0'),
+    Materials.findFirst('material0'),
+    Textures.findFirst('cameraTexture0')
+  ]);
+
+  // Bind the material to the plane's material property
+  plane.material = material;
+
+  // Modify the texture signal's x value
+  const x = texture.signal.x.add(0.25).min(1.0);
+
+  // Modify the texture signal's y value
+  const y = texture.signal.y.clamp(0.25, 0.75);
+
+  // Modify the texture signal's z value
+  const z = texture.signal.z.max(0.5);
+
+  // Pack modified texture signal values into a new signal
+  const color = Reactive.pack4(x, y, z, 1.0);
+
+  // Assign the new signal to the diffuse texture slot of the material
+  material.setTextureSlot('DIFFUSE', color);
+
+})(); // Enable async/await in JS [part 2]
+
+*/

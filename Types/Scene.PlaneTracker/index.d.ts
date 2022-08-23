@@ -82,3 +82,52 @@ TouchGestures.onPan().subscribe(function(gesture) {
 trackPoint(screenLocation: Point2D): void
 
 }
+
+
+
+/**
+
+//=========================================================================
+// The following example demonstrates how to place an object in world space
+// with screen tap location from screen coordinates
+//
+// Project setup:
+// - Add a plane tracker to the scene
+// - Add a cube asset from the Spark Library and add it to the scene
+//   as a child of the plane tracker
+// - Enable touch gestures capability in Properties -> Capabilities ->
+//   + Touch Gestures -> Tap Gesture
+//=========================================================================
+
+// Load in the required modules
+const Scene = require('Scene');
+const TouchGestures = require('TouchGestures');
+const Diagnostics = require('Diagnostics');
+
+(async function() { // Enable async/await in JS [part 1]
+  const [planeTracker, cube] = await Promise.all([
+    Scene.root.findFirst('planeTracker0'),
+    Scene.root.findFirst('Cube')
+  ]);
+
+  // Use the confidence property to watch the confidence level of the plane
+  // tracker
+  Diagnostics.watch('Plane Tracking Confidence', planeTracker.confidence);
+
+  // Subscribe to a screen tap event which has a location property in
+  // screen coordinates which is the same coordinate space performHitTest
+  // takes as an argument
+  TouchGestures.onTap().subscribe(async(gesture) => {
+    const threeDLocation = await planeTracker.performHitTest(gesture.location);
+    Diagnostics.log(threeDLocation);
+
+    // Bind the cube's x,y,z local transforms with the performHitTest generated
+    // point3d signals
+    cube.transform.x = threeDLocation.x;
+    cube.transform.y = threeDLocation.y;
+    cube.transform.z = threeDLocation.z;
+  });
+
+})(); // Enable async/await in JS [part 2]
+
+*/
