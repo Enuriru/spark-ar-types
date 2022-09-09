@@ -66,7 +66,7 @@ findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<L
 getAll(): Promise<Array<Layer>>
 ```
 
-Returns and array of all layers
+Returns an array of all layers
 */
 getAll(): Promise<Array<Layer>>
 

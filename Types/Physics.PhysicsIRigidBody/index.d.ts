@@ -41,7 +41,7 @@ addForceImpulse(impulse: Vec3, space?: PhysicsSpace): Promise<void>
 addForceImpulseAt(impulse: Vec3, at: Vec3, space?: PhysicsSpace): Promise<void>
 ```
 
-Applies an impulsive force at the location specified for an immediate change in acceleration.
+Applies an impulsive force at the location specified for an immediate change in velocity.
 */
 addForceImpulseAt(impulse: Vec3, at: Vec3, space?: PhysicsSpace): Promise<void>
 
@@ -59,7 +59,7 @@ addTorque(torque: Vec3, space?: PhysicsSpace): Promise<void>
 addTorqueImpulse(impulse: Vec3, space?: PhysicsSpace): Promise<void>
 ```
 
-Applies an impulsive torque for an immediate change in angular acceleration.
+Applies an impulsive torque for an immediate change in angular velocity.
 */
 addTorqueImpulse(impulse: Vec3, space?: PhysicsSpace): Promise<void>
 

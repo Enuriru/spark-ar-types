@@ -31,6 +31,30 @@ allUpdateEvents: EventSource<PhysicsWorldUpdateEvent>
 
 /**
 ```
+(get) id: number
+(set) (Not Available)
+```
+*/
+id: number
+
+/**
+```
+(get) name: string
+(set) (Not Available)
+```
+*/
+name: string
+
+/**
+```
+(get) type: PhysicsObjectType
+(set) (Not Available)
+```
+*/
+type: PhysicsObjectType
+
+/**
+```
 create(properties: NamedObject): Promise<PhysicsBody | PhysicsConstraint | PhysicsVolume>
 ```
 

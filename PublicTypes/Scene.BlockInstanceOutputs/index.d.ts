@@ -11,6 +11,32 @@
 declare interface BlockInstanceOutputs {
 /**
 *  
+ * findFirst(name: string, config?: {type?: string}): Promise<BlockInstanceOutput | null>
+ *  
+ * 
+ */
+findFirst(name: string, config?: {type?: string}): Promise<BlockInstanceOutput | null>;
+
+/**
+*  
+ * findUsingPattern(namePattern: string, config?: {limit?: number, type?: string}): Promise<Array<BlockInstanceOutput>>
+ *  
+ * 
+ */
+findUsingPattern(namePattern: string, config?: {limit?: number, type?: string}): Promise<Array<BlockInstanceOutput>>;
+
+/**
+*  
+ * getAll(config?: {type?: string}): Promise<Array<BlockInstanceOutput>>
+ *  
+ * 
+ * Returns a promise that is resolved with all of the Block outputs configured for the block.
+ * The optional type param will limit the result to the given type.
+ */
+getAll(config?: {type?: string}): Promise<Array<BlockInstanceOutput>>;
+
+/**
+*  
  * getBoolean(name: string): Promise<BoolSignal>
  *  
  * 

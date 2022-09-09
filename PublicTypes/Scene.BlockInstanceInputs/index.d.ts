@@ -11,6 +11,30 @@
 declare interface BlockInstanceInputs {
 /**
 *  
+ * findFirst(name: string, config?: {type?: string}): Promise<BlockInstanceInput | null>
+ *  
+ * 
+ */
+findFirst(name: string, config?: {type?: string}): Promise<BlockInstanceInput | null>;
+
+/**
+*  
+ * findUsingPattern(namePattern: string, config?: {limit?: number, type?: string}): Promise<Array<BlockInstanceInput>>
+ *  
+ * 
+ */
+findUsingPattern(namePattern: string, config?: {limit?: number, type?: string}): Promise<Array<BlockInstanceInput>>;
+
+/**
+*  
+ * getAll(config?: {type?: string}): Promise<Array<BlockInstanceInput>>
+ *  
+ * 
+ */
+getAll(config?: {type?: string}): Promise<Array<BlockInstanceInput>>;
+
+/**
+*  
  * setBoolean(name: string, v: BoolSignal): Promise<void>
  *  
  * 

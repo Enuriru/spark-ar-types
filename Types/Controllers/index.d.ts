@@ -1,3 +1,4 @@
+/// <reference path="../Controllers.Axis/index.d.ts" />
 /// <reference path="../Controllers.Button/index.d.ts" />
 
 
@@ -10,6 +11,14 @@
 The `ControllersModule` allows access to input devices such as the Portal TV remote control.
 */
 declare interface Controllers extends Module {
+
+/**
+```
+getAxis(name: string): Promise<Axis>
+```
+
+*/
+getAxis(name: string): Promise<Axis>
 
 /**
 ```

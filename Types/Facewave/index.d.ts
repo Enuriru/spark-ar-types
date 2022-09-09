@@ -21,12 +21,13 @@ Returns a `ScalarSignal` representing the viseme.
 */
 viseme(viseme: VisemeType): ScalarSignal
 
-}
-
-
-
 /**
+```
+visemes(): Array<ScalarSignal>
+```
 
-TODO
-
+Returns an array of `ScalarSignal` containing all visemes.
 */
+visemes(): Array<ScalarSignal>
+
+}
