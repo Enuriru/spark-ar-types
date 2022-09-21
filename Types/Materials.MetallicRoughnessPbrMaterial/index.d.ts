@@ -128,6 +128,16 @@ normalTextureTransform: TextureTransform
 
 /**
 ```
+(get) (Not Available)
+(set) occlusion: TextureBase | null
+```
+
+Specifies the occlusion texture of the material.
+*/
+occlusion: TextureBase | null
+
+/**
+```
 (get) occlusionStrength: ScalarSignal
 (set) occlusionStrength: ScalarSignal
 ```
@@ -135,6 +145,16 @@ normalTextureTransform: TextureTransform
 Specifies the occlusion strength.
 */
 occlusionStrength: ScalarSignal
+
+/**
+```
+(get) occlusionTextureTransform: TextureTransform
+(set) occlusionTextureTransform: TextureTransformSignal
+```
+
+Specifies the coordinates transform of the Occlusion texture of this material.
+*/
+occlusionTextureTransform: TextureTransform
 
 /**
 ```
@@ -148,6 +168,26 @@ roughnessFactor: ScalarSignal
 
 /**
 ```
+(get) (Not Available)
+(set) roughnessMetallic: TextureBase | null
+```
+
+Specifies the RoughnessMetallic texture of the material.
+*/
+roughnessMetallic: TextureBase | null
+
+/**
+```
+(get) roughnessMetallicTextureTransform: TextureTransform
+(set) roughnessMetallicTextureTransform: TextureTransformSignal
+```
+
+Specifies the coordinates transform of the RoughnessMetallic texture of this material.
+*/
+roughnessMetallicTextureTransform: TextureTransform
+
+/**
+```
 getBaseColor(): Promise<TextureBase | null>
 ```
 
@@ -181,6 +221,24 @@ getNormal(): Promise<TextureBase | null>
 Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
 */
 getNormal(): Promise<TextureBase | null>
+
+/**
+```
+getOcclusion(): Promise<TextureBase | null>
+```
+
+Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
+*/
+getOcclusion(): Promise<TextureBase | null>
+
+/**
+```
+getRoughnessMetallic(): Promise<TextureBase | null>
+```
+
+Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
+*/
+getRoughnessMetallic(): Promise<TextureBase | null>
 
 /**
 ```

@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":1959304548}]
+[{"kind":"introducedBy","version":1959304548},{"kind":"capability","capability":"spatialHandTracking","orCapability":""}]
 */
 
 

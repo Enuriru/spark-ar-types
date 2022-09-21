@@ -7,7 +7,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":3767353864}]
+[{"kind":"introducedBy","version":3767353864},{"kind":"capability","capability":"spatialGesture","orCapability":""}]
 */
 
 
@@ -26,6 +26,8 @@ pointer: Pointer
 onIntersection(object: SceneObjectBase): EventSource<IntersectEvent>
 ```
 
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new IntersectEvent object for each hover interaction.
+* `object` - the scene object to register tap gestures for
 */
 onIntersection(object: SceneObjectBase): EventSource<IntersectEvent>
 
@@ -42,6 +44,9 @@ onMoveInteraction(object: SceneObjectBase, options: MoveOptions): EventSource<Se
 onScroll(object: SceneObjectBase, deadzone: number): EventSource<ScrollEvent>
 ```
 
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new ScrollEvent object for each scroll interaction.
+* `object` - the scene object to register tap gestures for
+* `deadzone` - the magnitude below deadzone would be ignored
 */
 onScroll(object: SceneObjectBase, deadzone: number): EventSource<ScrollEvent>
 
@@ -50,6 +55,8 @@ onScroll(object: SceneObjectBase, deadzone: number): EventSource<ScrollEvent>
 onSelect(object: SceneObjectBase): EventSource<SelectEvent>
 ```
 
+Returns an [`EventSource`](/classes/reactivemodule.eventsource) that emits a new SelectEvent object for each select interaction.
+* `object` - the scene object to register tap gestures for
 */
 onSelect(object: SceneObjectBase): EventSource<SelectEvent>
 

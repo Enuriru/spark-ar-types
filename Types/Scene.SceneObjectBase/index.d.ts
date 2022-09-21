@@ -112,6 +112,28 @@ findAll(name: string, config?: {recursive: boolean}): Promise<Array<SceneObjectB
 
 /**
 ```
+findByAllTags(tags: Array<string>, config?: {limit: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>
+```
+
+Returns a promise that is resolved with all occurances of scene objects with given tags or empty array if none was found.
+`limit` parameter describes if `findByAllTags` should finish the search if it finds specified number of objects (default is no limit). Non-positive values for limit are treated as unlimited.
+`recursive` parameter, if true (default) `findByAllTags` search for object through all children. If false, `findByAllTags` checks direct children only.
+*/
+findByAllTags(tags: Array<string>, config?: {limit: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>
+
+/**
+```
+findByAnyTags(tags: Array<string>, config?: {limit: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>
+```
+
+Returns a promise that is resolved with all occurances of scene objects that contains any of given tags or empty array if none was found.
+`limit` parameter describes if `findByAnyTags` should finish the search if it finds specified number of objects (default is no limit). Non-positive values for limit are treated as unlimited.
+`recursive` parameter, if true (default) `findByAnyTags` search for object through all children. If false, `findByAnyTags` checks direct children only.
+*/
+findByAnyTags(tags: Array<string>, config?: {limit: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>
+
+/**
+```
 findByPath(pathQuery: string, config?: {limit: number}): Promise<Array<SceneObjectBase>>
 ```
 
@@ -195,6 +217,22 @@ Diagnostics.log(tags); // => ["ExampleTag1", "ExampleTag2"]
 ```
 */
 getTags(): Promise<Array<string>>
+
+/**
+```
+removeTag(tag: string): Promise<void>
+```
+
+Remove tag from a scene object.
+Returns a promise.
+```
+const object = await Scene.root.findFirst("myObject");
+Diagnostics.log(await object.getTags()); // => ["Tag1", "Tag2"]
+await object.remove("Tag1");
+Diagnostics.log(await object.getTags()); // => ["Tag2"]
+```
+*/
+removeTag(tag: string): Promise<void>
 
 /**
 ```

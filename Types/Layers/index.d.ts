@@ -130,12 +130,12 @@ const Scene = require('Scene');
   // Create new layer
   const [newLayer, object1] = await Promise.all([
     Layers.create({name:'NewLayer',renderOrder:Layers.END_COUNT}),
-    Scene.root.findFirst('Object1');
+    Scene.root.findFirst('Object1')
   ]);
 
   // Place object1 into newLayer
   await Promise.all([
-    Layers.setLayer(object1, newLayer);
+    Layers.setLayer(object1, newLayer)
   ]);
 // Enable async/await in JS [part 2]
 })();
