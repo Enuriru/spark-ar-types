@@ -1,5 +1,6 @@
 /// <reference path="../Controllers.Axis/index.d.ts" />
 /// <reference path="../Controllers.Button/index.d.ts" />
+/// <reference path="../Controllers.Pose/index.d.ts" />
 
 
 /**
@@ -31,5 +32,13 @@ controller, must be set up in Spark AR Studio's controller configuration. If no 
 mapping exists with the given name, the returned promise will fail.
 */
 getButton(name: string): Promise<Button>
+
+/**
+```
+getPose(name: string): Promise<Pose>
+```
+
+*/
+getPose(name: string): Promise<Pose>
 
 }

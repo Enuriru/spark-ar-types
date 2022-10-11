@@ -60,6 +60,26 @@ findAll(name: string, config?: {recursive: boolean}): Promise<Array<SceneObjectB
 
 /**
 *  
+ * findByAllTags(tags: Array<string>, config?: {limit: number}): Promise<Array<SceneObjectBase>>
+ *  
+ * 
+ * Returns a promise that is resolved with all occurances of scene objects with given tags or empty array if none was found.
+ * `limit` parameter describes if `findByAllTags` should finish the search if it finds specified number of objects (default is no limit). Non-positive values for limit are treated as unlimited.
+ */
+findByAllTags(tags: Array<string>, config?: {limit: number}): Promise<Array<SceneObjectBase>>;
+
+/**
+*  
+ * findByAnyTags(tags: Array<string>, config?: {limit: number}): Promise<Array<SceneObjectBase>>
+ *  
+ * 
+ * Returns a promise that is resolved with all occurances of scene objects that contains any of given tags or empty array if none was found.
+ * `limit` parameter describes if `findByAnyTags` should finish the search if it finds specified number of objects (default is no limit). Non-positive values for limit are treated as unlimited.
+ */
+findByAnyTags(tags: Array<string>, config?: {limit: number}): Promise<Array<SceneObjectBase>>;
+
+/**
+*  
  * findByPath(pathQuery: string, config?: {limit: number}): Promise<Array<SceneObjectBase>>
  *  
  * 
@@ -88,6 +108,16 @@ findAll(name: string, config?: {recursive: boolean}): Promise<Array<SceneObjectB
  * **See Also**: `SceneObjectBase.findAll`, `SceneObjectBase.findFirst`, `SceneModule.root`.
  */
 findByPath(pathQuery: string, config?: {limit: number}): Promise<Array<SceneObjectBase>>;
+
+/**
+*  
+ * findByTag(tag: string, config?: {limit: number}): Promise<Array<SceneObjectBase>>
+ *  
+ * 
+ * Returns a promise that is resolved with all occurances of scene objects with given tag or empty array if none was found.
+ * `limit` parameter describes if `findByTag` should finish the search if it finds specified number of objects (default is no limit). Non-positive values for limit are treated as unlimited.
+ */
+findByTag(tag: string, config?: {limit: number}): Promise<Array<SceneObjectBase>>;
 
 /**
 *  

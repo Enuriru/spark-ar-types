@@ -10,6 +10,7 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Reactive.TransformSignal/index.d.ts" />
+/// <reference path="../SpatialEyeTracking.Eye/index.d.ts" />
 
 /**
 Exposes details and key points of a three-dimensionally tracked face.

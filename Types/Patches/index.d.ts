@@ -8,6 +8,16 @@ declare interface Patches extends Module {
 
 /**
 ```
+(get) decorators: PatchesDecorators
+(set) (Not Available)
+```
+
+Decorator utilities for the TypeScript patches.
+*/
+decorators: PatchesDecorators
+
+/**
+```
 (get) inputs: PatchesInputs
 (set) (Not Available)
 ```
@@ -25,6 +35,24 @@ inputs: PatchesInputs
 Returns an object encapsulating all outputs getters for the Patch Editor patches.
 */
 outputs: PatchesOutputs
+
+/**
+```
+registerPatchFactory(name: string, factory: any): void
+```
+
+Registers a TypeScript patch JS instance.
+*/
+registerPatchFactory(name: string, factory: any): void
+
+/**
+```
+registerPatchesCompleted(): void
+```
+
+Starts to use the registered TypeScript patches.
+*/
+registerPatchesCompleted(): void
 
 }
 

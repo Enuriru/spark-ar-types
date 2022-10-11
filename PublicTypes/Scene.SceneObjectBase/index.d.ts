@@ -118,6 +118,22 @@ addChild(child: SceneObjectBase | string): Promise<void>;
 
 /**
 *  
+ * addTag(tag: string): Promise<void>
+ *  
+ * 
+ * Add tag to a scene object.
+ * Returns a promise.
+ *  
+ * const object = await Scene.root.findFirst("myObject");
+ * Diagnostics.log(await object.getTags()); // => ["Tag1"]
+ * await object.addTag("Tag2");
+ * Diagnostics.log(await object.getTags()); // => ["Tag1", "Tag2"]
+ *  
+ */
+addTag(tag: string): Promise<void>;
+
+/**
+*  
  * findAll(name: string, config?: {recursive: boolean}): Promise<Array<SceneObjectBase>>
  *  
  * 
@@ -128,6 +144,28 @@ addChild(child: SceneObjectBase | string): Promise<void>;
  * **See Also**: `SceneObjectBase.findFirst`, `SceneObjectBase.findByPath`, `SceneModule.root`.
  */
 findAll(name: string, config?: {recursive: boolean}): Promise<Array<SceneObjectBase>>;
+
+/**
+*  
+ * findByAllTags(tags: Array<string>, config?: {limit: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>
+ *  
+ * 
+ * Returns a promise that is resolved with all occurances of scene objects with given tags or empty array if none was found.
+ * `limit` parameter describes if `findByAllTags` should finish the search if it finds specified number of objects (default is no limit). Non-positive values for limit are treated as unlimited.
+ * `recursive` parameter, if true (default) `findByAllTags` search for object through all children. If false, `findByAllTags` checks direct children only.
+ */
+findByAllTags(tags: Array<string>, config?: {limit: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>;
+
+/**
+*  
+ * findByAnyTags(tags: Array<string>, config?: {limit: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>
+ *  
+ * 
+ * Returns a promise that is resolved with all occurances of scene objects that contains any of given tags or empty array if none was found.
+ * `limit` parameter describes if `findByAnyTags` should finish the search if it finds specified number of objects (default is no limit). Non-positive values for limit are treated as unlimited.
+ * `recursive` parameter, if true (default) `findByAnyTags` search for object through all children. If false, `findByAnyTags` checks direct children only.
+ */
+findByAnyTags(tags: Array<string>, config?: {limit: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>;
 
 /**
 *  
@@ -159,6 +197,21 @@ findAll(name: string, config?: {recursive: boolean}): Promise<Array<SceneObjectB
  * **See Also**: `SceneObjectBase.findAll`, `SceneObjectBase.findFirst`, `SceneModule.root`.
  */
 findByPath(pathQuery: string, config?: {limit: number}): Promise<Array<SceneObjectBase>>;
+
+/**
+*  
+ * findByTag(tag: string, config?: {limit?: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>
+ *  
+ * 
+ * Returns a promise that is resolved with all occurances of scene objects
+ * with given tag or empty array if none was found.
+ * `limit` parameter describes if `findByTag` should finish the search
+ *    if it finds specified number of objects (default is no limit).
+ *    Non-positive values for limit are treated as unlimited.
+ * `recursive` parameter, if true (default) `findByTag` search for object through all children.
+ *    If false, `findByTag` checks direct children only.
+ */
+findByTag(tag: string, config?: {limit?: number, recursive?: false | true}): Promise<Array<SceneObjectBase>>;
 
 /**
 *  
@@ -223,6 +276,20 @@ getParent(): Promise<SceneObjectBase | null>;
 
 /**
 *  
+ * getTags(): Promise<Array<string>>
+ *  
+ * 
+ * Returns a promise that is resolved with all tags of scene objects.
+ *  
+ * const object = await Scene.root.findFirst("myObject");
+ * const tags = await object.getTags();
+ * Diagnostics.log(tags); // => ["ExampleTag1", "ExampleTag2"]
+ *  
+ */
+getTags(): Promise<Array<string>>;
+
+/**
+*  
  * removeChild(child: SceneObjectBase | string): Promise<void>
  *  
  * 
@@ -250,5 +317,31 @@ removeChild(child: SceneObjectBase | string): Promise<void>;
  * Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
  */
 removeFromParent(): Promise<void>;
+
+/**
+*  
+ * removeTag(tag: string): Promise<void>
+ *  
+ * 
+ * Remove tag from a scene object.
+ * Returns a promise.
+ *  
+ * const object = await Scene.root.findFirst("myObject");
+ * Diagnostics.log(await object.getTags()); // => ["Tag1", "Tag2"]
+ * await object.remove("Tag1");
+ * Diagnostics.log(await object.getTags()); // => ["Tag2"]
+ *  
+ */
+removeTag(tag: string): Promise<void>;
+
+/**
+*  
+ * setTags(tags: Array<string>): Promise<void>
+ *  
+ * 
+ * Replaces tags of a scene object with tags provided in the argument.
+ * Returns a promise.
+ */
+setTags(tags: Array<string>): Promise<void>;
 
 }
