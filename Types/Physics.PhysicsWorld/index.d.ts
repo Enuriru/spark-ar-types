@@ -65,6 +65,14 @@ create(properties: NamedObject): Promise<PhysicsBody | PhysicsConstraint | Physi
 
 /**
 ```
+deregisterDestroyCallback(callback: PhysicsObjectDestroyCallback): void
+```
+
+*/
+deregisterDestroyCallback(callback: PhysicsObjectDestroyCallback): void
+
+/**
+```
 destroy(obj: PhysicsBody | PhysicsConstraint | PhysicsVolume): Promise<void>
 ```
 
@@ -113,6 +121,15 @@ getAll(): Promise<Array<PhysicsBody | PhysicsConstraint | PhysicsVolume>>
 
 /**
 ```
+getCollisionBodies(event: CollisionEvent): undefined
+```
+
+Returns the colliding bodies associated with a CollisionEvent.
+*/
+getCollisionBodies(event: CollisionEvent): undefined
+
+/**
+```
 getProperties(): Promise<object>
 ```
 
@@ -127,6 +144,14 @@ raycast(start: Vec3, end: Vec3, parameters: object, raycastCallback: PhysicsWorl
 Casts a ray through the physics world.
 */
 raycast(start: Vec3, end: Vec3, parameters: object, raycastCallback: PhysicsWorldRaycastCallback): Promise<void>
+
+/**
+```
+registerDestroyCallback(callback: PhysicsObjectDestroyCallback): void
+```
+
+*/
+registerDestroyCallback(callback: PhysicsObjectDestroyCallback): void
 
 /**
 ```

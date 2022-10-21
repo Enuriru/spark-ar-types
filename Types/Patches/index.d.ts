@@ -45,15 +45,6 @@ Registers a TypeScript patch JS instance.
 */
 registerPatchFactory(name: string, factory: any): void
 
-/**
-```
-registerPatchesCompleted(): void
-```
-
-Starts to use the registered TypeScript patches.
-*/
-registerPatchesCompleted(): void
-
 }
 
 

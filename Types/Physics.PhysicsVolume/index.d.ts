@@ -39,4 +39,12 @@ getProperties(): Promise<unknown>
 */
 getProperties(): Promise<unknown>
 
+/**
+```
+setProperties(props: object): Promise<void>
+```
+
+*/
+setProperties(props: object): Promise<void>
+
 }
