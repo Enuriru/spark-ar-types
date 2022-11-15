@@ -5,7 +5,7 @@
 
 
 /**
-[{"kind":"capability","capability":"liveStreaming","orCapability":""}]
+[{"kind":"capability","capability":"liveStreaming","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
 */
 
 

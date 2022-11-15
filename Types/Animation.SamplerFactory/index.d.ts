@@ -5,6 +5,12 @@
 /// <reference path="../Animation.SignalRecord/index.d.ts" />
 /// <reference path="../Reactive.Rotation/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `SamplerFactory` class creates different types of animation samplers.
 */

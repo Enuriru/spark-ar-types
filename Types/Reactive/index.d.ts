@@ -13,6 +13,12 @@
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 Exposes functionality for performing mathematical and logical operations with [signals](https://sparkar.facebook.com/ar-studio/learn/scripting/signals).
 As the Spark AR API uses a [reactive](https://sparkar.facebook.com/ar-studio/learn/scripting/reactive-programming) model to propagate data and values, regular JavaScript mathematical operations are not valid. Instead methods exposed by the `Reactive` module should be used, for example `Reactive.add(scalarSignalX, scalarSignalY);` adds two `ScalarSignal`s together.

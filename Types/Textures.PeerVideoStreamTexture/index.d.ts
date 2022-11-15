@@ -14,20 +14,6 @@ declare interface PeerVideoStreamTexture extends TextureBase {
 
 /**
 ```
-(get) participant: StringSignal
-(set) participant: StringSignal
-```
-
-Sets a participant id (from Participant API) for the given Participant Texture.
-Returns a participant id (from Participant API) for the given Participant Texture.
-It expects a `StringSignal`.
-
-It returns a `StringSignal`.
-*/
-participant: StringSignal
-
-/**
-```
 (get) peerId: StringSignal
 (set) (Not Available)
 ```

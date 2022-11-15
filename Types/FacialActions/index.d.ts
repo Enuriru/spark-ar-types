@@ -2,6 +2,12 @@
 /// <reference path="../FacialActions.Action/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 declare interface FacialActions extends Module {
 
 /**

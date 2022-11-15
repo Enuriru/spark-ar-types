@@ -7,7 +7,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":3767353864},{"kind":"capability","capability":"spatialGesture","orCapability":""}]
+[{"kind":"introducedBy","version":3767353864},{"kind":"capability","capability":"spatialGesture","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

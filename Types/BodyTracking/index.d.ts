@@ -1,6 +1,12 @@
 /// <reference path="../BodyTracking.Body/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `BodyTrackingModule` class allows you to track the body and get `Body` details.
 */

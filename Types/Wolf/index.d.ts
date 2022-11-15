@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"wolf","orCapability":""},{"kind":"introducedBy","version":5336865}]
+[{"kind":"capability","capability":"wolf","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"introducedBy","version":5336865}]
 */
 
 

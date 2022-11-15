@@ -1,6 +1,12 @@
 /// <reference path="../Audio.AudioComponent/index.d.ts" />
 /// <reference path="../Audio.PlaybackController/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `AudioModule` class enables sound effects.
 */

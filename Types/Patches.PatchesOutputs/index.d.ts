@@ -8,6 +8,12 @@
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `PatchesOutputs` class encapsulates methods for getting outputs of the Patch Editor.
 */

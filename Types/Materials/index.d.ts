@@ -1,6 +1,12 @@
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Materials.ShaderProcessor/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `Materials` module provides access to the materials in an effect.
 */

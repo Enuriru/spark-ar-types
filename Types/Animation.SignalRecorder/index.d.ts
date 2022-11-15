@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"recordedSignalsForSamplers","orCapability":""}]
+[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"capability","capability":"recordedSignalsForSamplers","orCapability":""}]
 */
 
 

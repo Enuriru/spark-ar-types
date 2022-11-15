@@ -11,7 +11,7 @@
 
 
 /**
-[{"kind":"capability","capability":"blocksScripting","orCapability":""}]
+[{"kind":"capability","capability":"blocksScripting","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.SubEffect"}]
 */
 
 

@@ -1,4 +1,10 @@
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `NativeNavigation` module allows navigating within the context of the same application.
 */

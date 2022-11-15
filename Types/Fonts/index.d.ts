@@ -1,5 +1,11 @@
 /// <reference path="../Fonts.FontId/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `FontsModule` class is used for working with custom fonts in effects.
 */

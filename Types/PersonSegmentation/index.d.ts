@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"segmentation","orCapability":""},{"kind":"deprecatedBy","version":3623664000},{"kind":"removedBy","version":2353946659}]
+[{"kind":"capability","capability":"segmentation","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"deprecatedBy","version":3623664000},{"kind":"removedBy","version":2353946659}]
 */
 
 

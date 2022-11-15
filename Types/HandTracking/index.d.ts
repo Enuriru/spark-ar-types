@@ -2,6 +2,12 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../SpatialHandTracking.Hand/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 Enables the tracking of hands. Up to two hands can be tracked in the camera view.
 References to detected `Hand` objects are not persistent. The same `index` argument passed to `HandTrackingModule.hand()` may refer to different `Hand` objects if a hand that was previously tracked has lost tracking.

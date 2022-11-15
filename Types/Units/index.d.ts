@@ -1,4 +1,10 @@
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `UnitsModule` class provides functionality for converting values into world-space units.
 */

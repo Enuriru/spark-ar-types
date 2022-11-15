@@ -5,7 +5,7 @@
 
 
 /**
-[{"kind":"capability","capability":"assistant","orCapability":""}]
+[{"kind":"capability","capability":"assistant","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

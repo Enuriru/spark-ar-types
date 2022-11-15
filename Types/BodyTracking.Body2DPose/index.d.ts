@@ -5,7 +5,7 @@
 
 
 /**
-[{"kind":"capability","capability":"bodyTracking2DKeyPoints","orCapability":""}]
+[{"kind":"capability","capability":"bodyTracking2DKeyPoints","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

@@ -1,4 +1,10 @@
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `WeatherModule` class provides information about the current weather.
 */

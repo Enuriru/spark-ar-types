@@ -41,7 +41,7 @@ addForceImpulse(impulse: Vec3, space?: PhysicsSpace): void
 addForceImpulseAt(impulse: Vec3, at: Vec3, space?: PhysicsSpace): void
 ```
 
-Applies an impulsive force at the location specified for an immediate change in velocity.
+Applies an impulsive force at specified location for an immediate change in linear and angular velocity.
 */
 addForceImpulseAt(impulse: Vec3, at: Vec3, space?: PhysicsSpace): void
 
@@ -76,7 +76,7 @@ angularVelocity(space?: PhysicsSpace): Vec3
 clearForces(): void
 ```
 
-Clears all forces and torques (continuous and impulsive) currently acting on the body
+Clears all continuous forces and torques currently acting on the body
 */
 clearForces(): void
 
@@ -119,7 +119,7 @@ setLinearVelocity(vel: Vec3, space?: PhysicsSpace): void
 totalForce(space?: PhysicsSpace): Vec3
 ```
 
-Represents the summation of all continous and impulsive forces that will be applied to this
+Represents the sum of all continuous forces that will be applied to this
  body on the next time-step (excluding gravity).  This also excludes any forces that may get
  applied due to constraint resolution/collision.
 */
@@ -130,7 +130,7 @@ totalForce(space?: PhysicsSpace): Vec3
 totalTorque(space?: PhysicsSpace): Vec3
 ```
 
-Represents the summation of all continous and impulsive torques that will be applied to this
+Represents the sum of all continuous torques that will be applied to this
  body on the next time-step.  This also excludes any forces that may get applied due to
  constraint resolution/collision.
 */

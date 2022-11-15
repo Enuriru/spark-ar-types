@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":755072778},{"kind":"capability","capability":"spatialEyeTracking","orCapability":""}]
+[{"kind":"introducedBy","version":755072778},{"kind":"capability","capability":"spatialEyeTracking","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

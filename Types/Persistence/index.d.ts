@@ -1,6 +1,12 @@
 /// <reference path="../Persistence.StorageLocation/index.d.ts" />
 /// <reference path="../Persistence.StorageScope/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `Persistence` class encapsulates persistent objects.
 */

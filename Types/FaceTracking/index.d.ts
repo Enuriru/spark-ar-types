@@ -4,6 +4,12 @@
 /// <reference path="../Scene.FaceMesh/index.d.ts" />
 /// <reference path="../Scene.FaceTracker/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 Enables the tracking of faces in three-dimensional space and exposes classes that describe key points of a detected face.
 Importing this module automatically enables the *Face Tracking* capability within the project's *Properties*.

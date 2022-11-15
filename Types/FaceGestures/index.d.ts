@@ -2,6 +2,12 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 Enables detection of various facial gestures for a given [`Face`](/classes/FaceTrackingModule.Face) object.
 Use of the `FaceGestures` module also requires the [`FaceTracking`](/classes/facetrackingmodule) module to be imported.

@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":2160429959},{"kind":"capability","capability":"controllers","orCapability":""}]
+[{"kind":"introducedBy","version":2160429959},{"kind":"capability","capability":"controllers","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"faceTrackingScripting2D","orCapability":""}]
+[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"capability","capability":"faceTrackingScripting2D","orCapability":""}]
 */
 
 

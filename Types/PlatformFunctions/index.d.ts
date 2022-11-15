@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"capability","capability":"platformFunctions","orCapability":""}]
+[{"kind":"capability","capability":"platformFunctions","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

@@ -4,7 +4,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":1239481247},{"kind":"capability","capability":"layers","orCapability":""}]
+[{"kind":"introducedBy","version":1239481247},{"kind":"capability","capability":"layers","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
 */
 
 

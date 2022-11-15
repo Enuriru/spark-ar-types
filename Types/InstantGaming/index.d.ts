@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"instantGame","orCapability":""}]
+[{"kind":"capability","capability":"instantGame","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
 */
 
 

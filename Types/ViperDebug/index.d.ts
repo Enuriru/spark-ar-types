@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"viperDebug","orCapability":""}]
+[{"kind":"capability","capability":"viperDebug","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
 */
 
 

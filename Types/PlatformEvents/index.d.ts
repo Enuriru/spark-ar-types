@@ -1,5 +1,11 @@
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 `PlatformEvents` module exposes functionality to send and receive events between effect's script and platform.
 */

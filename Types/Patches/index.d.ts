@@ -1,6 +1,12 @@
 /// <reference path="../Patches.PatchesInputs/index.d.ts" />
 /// <reference path="../Patches.PatchesOutputs/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `PatchesModule` module allows interop between JS scripting and the AR Studio patches visual scripting system.
 */

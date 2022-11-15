@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":1179878185}]
+[{"kind":"introducedBy","version":1179878185},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":1774572365},{"kind":"capability","capability":"genericML","orCapability":""}]
+[{"kind":"introducedBy","version":1774572365},{"kind":"capability","capability":"genericML","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

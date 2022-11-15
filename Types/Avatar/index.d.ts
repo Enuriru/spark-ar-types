@@ -15,7 +15,7 @@
 
 
 /**
-[{"kind":"capability","capability":"avatarSDK","orCapability":""}]
+[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"capability","capability":"avatarSDK","orCapability":""}]
 */
 
 
@@ -36,6 +36,14 @@ loadOwn(streamingType: AvatarStreamingType, solverType: AvatarIkType, renderType
 
 */
 loadOwn(streamingType: AvatarStreamingType, solverType: AvatarIkType, renderType: AvatarRenderType, peerId: string, manifestation: AvatarManifestation, lod: AvatarLOD): Promise<void>
+
+/**
+```
+loadRemote(peerId: string): Promise<void>
+```
+
+*/
+loadRemote(peerId: string): Promise<void>
 
 /**
 ```

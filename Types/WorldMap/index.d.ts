@@ -2,6 +2,12 @@
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 /// <reference path="../WorldMap.GeoPosition/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 declare interface WorldMap extends SceneObjectBase {
 
 /**

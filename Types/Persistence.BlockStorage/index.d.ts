@@ -16,7 +16,7 @@ declare interface BlockStorage {
 (set) (Not Available)
 ```
 
-External Block ID
+External Block ID or VO Instance State ID
 */
 assetId: string
 
@@ -26,7 +26,7 @@ assetId: string
 (set) (Not Available)
 ```
 
-Asset type: { MAIN_EFFECT, EXTERNAL_BLOCK }
+Asset type: { MAIN_EFFECT, EXTERNAL_BLOCK, SHARED_STATE }
 */
 assetType: PersistenceAssetType
 

@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"irisTracking","orCapability":""}]
+[{"kind":"capability","capability":"irisTracking","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

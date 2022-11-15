@@ -7,6 +7,12 @@
 /// <reference path="../Animation.ValueDriver/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `AnimationModule` class implements object animation.
 */

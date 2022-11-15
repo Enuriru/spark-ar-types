@@ -3,6 +3,12 @@
 /// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `Body` class exposes details of a tracked body.
 */

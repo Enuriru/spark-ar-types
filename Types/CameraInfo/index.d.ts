@@ -5,6 +5,12 @@
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 /// <reference path="../Reactive.Vec4Signal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `CameraInfoModule` class provides access to details about the device camera.
 */

@@ -4,7 +4,7 @@
 
 
 /**
-[{"kind":"capability","capability":"portalPose","orCapability":""}]
+[{"kind":"capability","capability":"portalPose","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
 */
 
 

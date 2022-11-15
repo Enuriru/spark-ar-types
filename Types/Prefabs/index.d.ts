@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"externalMeshes","orCapability":"objectCapture"}]
+[{"kind":"capability","capability":"externalMeshes","orCapability":"objectCapture"},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

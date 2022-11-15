@@ -1,5 +1,11 @@
 /// <reference path="../Animation.Driver/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `ValueDriver` class allows driving an animation sampler using raw values.
 */

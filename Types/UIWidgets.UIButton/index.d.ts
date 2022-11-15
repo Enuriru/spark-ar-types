@@ -1,4 +1,4 @@
-/// <reference path="../Scene.PlanarObject/index.d.ts" />
+/// <reference path="../UIScene.UIElement/index.d.ts" />
 
 
 /**
@@ -6,6 +6,6 @@
 */
 
 
-declare interface UiElement extends PlanarObject {
+declare interface UIButton extends UIElement {
 
 }

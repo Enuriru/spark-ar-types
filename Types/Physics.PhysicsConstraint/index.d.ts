@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":2977307455},{"kind":"capability","capability":"physics","orCapability":""}]
+[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"introducedBy","version":2977307455},{"kind":"capability","capability":"physics","orCapability":""}]
 */
 
 
@@ -33,10 +33,10 @@ type: PhysicsObjectType
 
 /**
 ```
-getProperties(): Promise<unknown>
+getProperties(): Promise<object>
 ```
 
 */
-getProperties(): Promise<unknown>
+getProperties(): Promise<object>
 
 }

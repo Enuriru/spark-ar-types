@@ -8,6 +8,12 @@
 /// <reference path="../TouchGestures.TapGesture/index.d.ts" />
 /// <reference path="../TouchGestures.TouchEvent/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 Enables detection of touch gestures and exposes classes that describe various types of touch interaction.
 By default touch gestures will be registered on the entire screen unless an object is specified in the gesture method call, for example: `TouchGestures.onTap(plane)`.

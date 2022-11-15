@@ -8,6 +8,12 @@
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `PatchesInputs` class encapsulates methods for setting inputs to the Patch Editor.
 */

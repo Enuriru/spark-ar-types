@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"capability","capability":"graphQL","orCapability":""}]
+[{"kind":"capability","capability":"graphQL","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

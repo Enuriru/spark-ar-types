@@ -1,6 +1,12 @@
 /// <reference path="../Prefabs.PrefabBase/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `Prefab` class represents a downloadable prefab mesh.
 */

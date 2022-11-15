@@ -1,4 +1,10 @@
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 declare interface Worker extends Module {
 
 /**

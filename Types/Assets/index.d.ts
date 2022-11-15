@@ -1,8 +1,8 @@
-/// <reference path="../Assets.Asset/index.d.ts" />
+/// <reference path="../Assets.AssetBase/index.d.ts" />
 
 
 /**
-[{"kind":"capability","capability":"textAssets","orCapability":""}]
+[{"kind":"capability","capability":"textAssets","orCapability":"imageAssets"},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 
@@ -13,29 +13,29 @@ declare interface Assets extends Module {
 
 /**
 ```
-findFirst(name: string): Promise<Asset | null>
+findFirst(name: string): Promise<AssetBase | null>
 ```
 
-Find first text asset that matches a given name pattern.
+Find first asset of any type that matches a given name pattern.
 */
-findFirst(name: string): Promise<Asset | null>
+findFirst(name: string): Promise<AssetBase | null>
 
 /**
 ```
-findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<Asset>>
+findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<AssetBase>>
 ```
 
-Find text assets with names that match a given pattern.
+Find assets of any type with names that match a given pattern.
 */
-findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<Asset>>
+findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<AssetBase>>
 
 /**
 ```
-getAll(): Promise<Array<Asset>>
+getAll(): Promise<Array<AssetBase>>
 ```
 
-Get all text assets that are bundled in this effect.
+Get all assets of any type that are bundled in this effect.
 */
-getAll(): Promise<Array<Asset>>
+getAll(): Promise<Array<AssetBase>>
 
 }

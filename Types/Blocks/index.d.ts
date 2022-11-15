@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"blocks","orCapability":""}]
+[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"capability","capability":"blocks","orCapability":""}]
 */
 
 

@@ -1,5 +1,11 @@
 /// <reference path="../Animation.AnimationPlaybackController/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `AnimationPlaybackControllers` class allows access to animation playback controllers.
 */

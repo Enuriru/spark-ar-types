@@ -2,6 +2,12 @@
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `SceneModule` class exposes properties and methods to access the objects in a scene.
 */

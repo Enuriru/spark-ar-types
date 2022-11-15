@@ -1,4 +1,10 @@
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `RandomModule` class enables random number generation.
 */

@@ -3,6 +3,12 @@
 /// <reference path="../Textures.PlatformTextureMediaBase/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 `PlatformTextures` module exposes functionality to send and receive textures between effect's
 script and platform.

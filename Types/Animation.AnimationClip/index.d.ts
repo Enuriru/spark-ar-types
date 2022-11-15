@@ -1,5 +1,11 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `AnimationClip` class describes an animation clip asset.
 */

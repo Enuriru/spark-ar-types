@@ -1,4 +1,10 @@
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `ShadersModule` exposes APIs to create Visual Shaders using JavaScript.
 The following is an explanation of the unique types and concepts specific to the ShadersModule.

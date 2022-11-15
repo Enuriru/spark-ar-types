@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"frameBrightness","orCapability":""}]
+[{"kind":"capability","capability":"frameBrightness","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
 */
 
 

@@ -1,4 +1,10 @@
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `NetworkingModule` class enables effects to fetch information from a network.
 To use the Networking class you must add the Networking capability to the project manifest.

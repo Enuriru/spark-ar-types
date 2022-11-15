@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"capability","capability":"syncDomApis","orCapability":""},{"kind":"introducedBy","version":1280623657}]
+[{"kind":"capability","capability":"syncDomApis","orCapability":""},{"kind":"introducedBy","version":1280623657},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

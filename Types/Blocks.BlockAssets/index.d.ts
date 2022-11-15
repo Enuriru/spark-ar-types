@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"blocks","orCapability":""}]
+[{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
 */
 
 

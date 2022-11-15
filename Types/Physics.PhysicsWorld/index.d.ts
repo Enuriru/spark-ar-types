@@ -2,11 +2,10 @@
 /// <reference path="../Physics.PhysicsConstraint/index.d.ts" />
 /// <reference path="../Physics.PhysicsVolume/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
-/// <reference path="../Reactive.Vec3/index.d.ts" />
 
 
 /**
-[{"kind":"introducedBy","version":2977307455},{"kind":"capability","capability":"physics","orCapability":""}]
+[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"introducedBy","version":2977307455},{"kind":"capability","capability":"physics","orCapability":""}]
 */
 
 
@@ -135,15 +134,6 @@ getProperties(): Promise<object>
 
 */
 getProperties(): Promise<object>
-
-/**
-```
-raycast(start: Vec3, end: Vec3, parameters: object, raycastCallback: PhysicsWorldRaycastCallback): Promise<void>
-```
-
-Casts a ray through the physics world.
-*/
-raycast(start: Vec3, end: Vec3, parameters: object, raycastCallback: PhysicsWorldRaycastCallback): Promise<void>
 
 /**
 ```

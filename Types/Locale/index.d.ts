@@ -1,5 +1,11 @@
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `LocaleModule` class encapsulates access to the locale identifier of the device.
 */

@@ -1,4 +1,11 @@
 /// <reference path="../Animation.AnimationClip/index.d.ts" />
+/// <reference path="../Reactive.AnimationClip/index.d.ts" />
+
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
 
 /**
 The `AnimationClips` class allows access to animation clips.

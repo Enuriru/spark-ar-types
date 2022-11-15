@@ -1,5 +1,11 @@
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
+
+/**
+[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+*/
+
+
 /**
 The `TexturesModule` class enables images, animation sequences, videos, colors, and other visual artifacts to be combined to form materials.
 */
