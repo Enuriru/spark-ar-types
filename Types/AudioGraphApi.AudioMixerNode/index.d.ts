@@ -1,6 +1,5 @@
 /// <reference path="../AudioGraphApi.AudioInput/index.d.ts" />
-/// <reference path="../AudioGraphApi.AudioNodeBase/index.d.ts" />
-/// <reference path="../Reactive.PointSignal/index.d.ts" />
+/// <reference path="../AudioGraphApi.AudioOutputNode/index.d.ts" />
 
 
 /**
@@ -8,7 +7,7 @@
 */
 
 
-declare interface AudioSpatialEmitterNode extends AudioNodeBase {
+declare interface AudioMixerNode extends AudioOutputNode {
 
 /**
 ```
@@ -25,13 +24,5 @@ audioInput: AudioInput
 ```
 */
 input: AudioInput
-
-/**
-```
-(get) (Not Available)
-(set) objectPosition: PointSignal
-```
-*/
-objectPosition: PointSignal
 
 }

@@ -29,6 +29,15 @@ clearCallbacks(body: PhysicsBody): void
 
 /**
 ```
+deregisterCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: CollisionCallback): boolean
+```
+
+Deregisters a previously registered callback function.
+*/
+deregisterCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: CollisionCallback): boolean
+
+/**
+```
 registerCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: CollisionCallback): void
 ```
 

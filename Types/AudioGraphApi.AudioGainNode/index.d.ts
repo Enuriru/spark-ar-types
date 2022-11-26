@@ -1,6 +1,5 @@
 /// <reference path="../AudioGraphApi.AudioInput/index.d.ts" />
 /// <reference path="../AudioGraphApi.AudioOutputNode/index.d.ts" />
-/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 
 
 /**
@@ -20,18 +19,18 @@ audioInput: AudioInput
 
 /**
 ```
+(get) gain: GainImpl
+(set) gain: GainImpl
+```
+*/
+gain: GainImpl
+
+/**
+```
 (get) input: AudioInput
 (set) input: AudioInput
 ```
 */
 input: AudioInput
-
-/**
-```
-(get) volume: ScalarSignal
-(set) volume: ScalarSignal
-```
-*/
-volume: ScalarSignal
 
 }

@@ -1,8 +1,15 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.Box2DSignal/index.d.ts" />
+/// <reference path="../Reactive.Box3DSignal/index.d.ts" />
 /// <reference path="../Reactive.ISignal/index.d.ts" />
+/// <reference path="../Reactive.PointSignal/index.d.ts" />
+/// <reference path="../Reactive.QuaternionSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Reactive.Subscription/index.d.ts" />
+/// <reference path="../Reactive.TransformSignal/index.d.ts" />
+/// <reference path="../Reactive.Vec2Signal/index.d.ts" />
+/// <reference path="../Reactive.VectorSignal/index.d.ts" />
 
 /**
 The `EventSource` class provides methods for monitoring signals.
@@ -82,7 +89,7 @@ subscribeOnNext(callback: {}): Subscription
 
 /**
 ```
-subscribeWithSnapshot(snapshot: {[name: string]: BoolSignal | StringSignal | ScalarSignal}, callback: {}): Subscription
+subscribeWithSnapshot(snapshot: {[name: string]: BoolSignal | StringSignal | ScalarSignal | Box2DSignal | Box3DSignal | TransformSignal | QuaternionSignal | VectorSignal | PointSignal | Vec2Signal | Vec4Signal}, callback: {}): Subscription
 ```
 
 Sets a callback for the event source, similar to `Subscribe` function, but with additional `Snapshot` parameter.
@@ -91,7 +98,7 @@ Sets a callback for the event source, similar to `Subscribe` function, but with 
 * `snapshot` - A dictionary containing [`BoolSignal`](/classes/ReactiveModule.BoolSignal), [`StringSignal`](/classes/ReactiveModule.ScalarSignal) and [`ScalarSignal`](/classes/ReactiveModule.ScalarSignal) signals, which are passed as JSON to the callback function with the last value each signal contained at call time.
 * `callback` - The callback function to call when the event is fired.
 */
-subscribeWithSnapshot(snapshot: {[name: string]: BoolSignal | StringSignal | ScalarSignal}, callback: {}): Subscription
+subscribeWithSnapshot(snapshot: {[name: string]: BoolSignal | StringSignal | ScalarSignal | Box2DSignal | Box3DSignal | TransformSignal | QuaternionSignal | VectorSignal | PointSignal | Vec2Signal | Vec4Signal}, callback: {}): Subscription
 
 /**
 ```

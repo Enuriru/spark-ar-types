@@ -37,7 +37,6 @@
 /// <reference path="../Scene.SpotLightSource/index.d.ts" />
 /// <reference path="../Scene.StackAlign/index.d.ts" />
 /// <reference path="../Scene.StackDistribute/index.d.ts" />
-/// <reference path="../Scene.SvgImage/index.d.ts" />
 /// <reference path="../Scene.TargetTracker/index.d.ts" />
 /// <reference path="../Scene.TextAlignment/index.d.ts" />
 /// <reference path="../Scene.TextAlignmentWrapper/index.d.ts" />

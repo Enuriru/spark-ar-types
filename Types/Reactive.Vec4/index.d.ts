@@ -1,6 +1,6 @@
 
 /**
-The `Vec3` class contains a 3D coordinate.
+The `Vec4` class contains a 4D coordinate.
 */
 declare interface Vec4 {
 

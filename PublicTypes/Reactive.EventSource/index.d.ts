@@ -41,7 +41,7 @@ subscribeOnNext(callback: {}): Subscription;
 
 /**
 *  
- * subscribeWithSnapshot(snapshot: {[name: string]: BoolSignal | StringSignal | ScalarSignal}, callback: {}): Subscription
+ * subscribeWithSnapshot(snapshot: {[name: string]: BoolSignal | StringSignal | ScalarSignal | Box2DSignal | Box3DSignal | TransformSignal | QuaternionSignal | VectorSignal | PointSignal | Vec2Signal | Vec4Signal}, callback: {}): Subscription
  *  
  * 
  * Sets a callback for the event source, similar to `Subscribe` function, but with additional `Snapshot` parameter.
@@ -50,7 +50,7 @@ subscribeOnNext(callback: {}): Subscription;
  * * `snapshot` - A dictionary containing [`BoolSignal`](/classes/ReactiveModule.BoolSignal), [`StringSignal`](/classes/ReactiveModule.ScalarSignal) and [`ScalarSignal`](/classes/ReactiveModule.ScalarSignal) signals, which are passed as JSON to the callback function with the last value each signal contained at call time.
  * * `callback` - The callback function to call when the event is fired.
  */
-subscribeWithSnapshot(snapshot: {[name: string]: BoolSignal | StringSignal | ScalarSignal}, callback: {}): Subscription;
+subscribeWithSnapshot(snapshot: {[name: string]: BoolSignal | StringSignal | ScalarSignal | Box2DSignal | Box3DSignal | TransformSignal | QuaternionSignal | VectorSignal | PointSignal | Vec2Signal | Vec4Signal}, callback: {}): Subscription;
 
 /**
 *  

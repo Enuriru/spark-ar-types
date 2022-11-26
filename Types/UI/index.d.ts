@@ -1,3 +1,4 @@
+/// <reference path="../UI.UIDimensionUtils/index.d.ts" />
 
 
 /**
@@ -6,6 +7,32 @@
 
 
 declare interface UI extends Module {
+
+/**
+```
+(get) DimensionUtils: UIDimensionUtils
+(set) DimensionUtils: UIDimensionUtils
+```
+
+The static utility class to help with the calculation of dimensions
+*/
+DimensionUtils: UIDimensionUtils
+
+/**
+```
+createPrimitive(style: UIPrimitiveStyle): UIPrimitive<any>
+```
+
+*/
+createPrimitive(style: UIPrimitiveStyle): UIPrimitive<any>
+
+/**
+```
+createTextPrimitive(style: UITextPrimitiveStyle): UITextPrimitive
+```
+
+*/
+createTextPrimitive(style: UITextPrimitiveStyle): UITextPrimitive
 
 /**
 ```

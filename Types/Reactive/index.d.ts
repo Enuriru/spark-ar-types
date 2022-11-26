@@ -643,12 +643,19 @@ switch(condition: StringSignal, map: {[key: string]: string}, defaultValue: stri
 val(constant: number): ScalarSignal
 val(constant: string): StringSignal
 val(constant: boolean): BoolSignal
+val(constant: Box2D): Box2DSignal
+val(constant: Point3D | Vec3): PointSignal
+val(constant: Point2D | Vec2): Vec2Signal
+val(constant: Vec4): Vec4Signal
+val(constant: Box3D): Box3DSignal
+val(constant: Rotation): QuaternionSignal
+val(constant: Mat4): TransformSignal
 ```
 
 Returns a signal containing a constant value, as specified by the argument.
-The type of signal returned ([`ScalarSignal`](/classes/ReactiveModule.ScalarSignal), [`StringSignal`](/classes/ReactiveModule.StringSignal) or [`BoolSignal`](/classes/ReactiveModule.BoolSignal)) depends on the value passed.
+The type of signal returned ([`ScalarSignal`](/classes/ReactiveModule.ScalarSignal), [`StringSignal`](/classes/ReactiveModule.StringSignal), [`BoolSignal`](/classes/ReactiveModule.BoolSignal), [`Box2DSignal`](/classes/ReactiveModule.Box2DSignal), [`Box3DSignal`](/classes/ReactiveModule.Box3DSignal), [`Vec2Signal`](/classes/ReactiveModule.Vec2Signal), [`PointSignal`](/classes/ReactiveModule.PointSignal), [`Vec4Signal`](/classes/ReactiveModule.Vec4Signal), [`QuaternionSignal`](/classes/ReactiveModule.QuaternionSignal), or [`TransformSignal`](/classes/ReactiveModule.TransformSignal)) depends on the value passed.
 
-Primitive JavaScript types (`number`, `string` and `bool`) are implicitly converted to their signal equivalents when passed as a method argument or when setting a property. Converting the values to signals with `Reactive.val()` method is not required.
+Raw JavaScript types (`number`, `string`, `bool`, `Box2D`, `Point3D`, `Vec3`, `Point2D`, `Vec2`, `Vec4`, `Box3D`, `Rotation`, `Mat4`) are implicitly converted to their signal equivalents when passed as a method argument or when setting a property. Converting the values to signals with `Reactive.val()` method is not required.
 
 * `val` - the value to assign to the constructed signal.
 */
