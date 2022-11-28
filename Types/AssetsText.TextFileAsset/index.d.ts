@@ -1,26 +1,15 @@
 /// <reference path="../Assets.AssetBase/index.d.ts" />
-/// <reference path="../Assets.AssetType/index.d.ts" />
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 
 /**
 The `TextAsset` class represents a text file asset.
 */
-declare interface TextAsset extends AssetBase {
-
-/**
-```
-(get) assetType: AssetType
-(set) (Not Available)
-```
-
-Asset type of this asset.
-*/
-assetType: AssetType
+declare interface TextFileAsset extends AssetBase {
 
 /**
 ```

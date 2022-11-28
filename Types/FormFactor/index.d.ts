@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"formFactor","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"capability","capability":"formFactor","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

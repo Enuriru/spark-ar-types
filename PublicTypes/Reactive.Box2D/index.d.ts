@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.Vec2/index.d.ts" />
 declare interface Box2D {
 /**
 * ```

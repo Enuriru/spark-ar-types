@@ -1,7 +1,9 @@
+/// <reference path="../Reactive.Rotation/index.d.ts" />
+/// <reference path="../Reactive.Vec3/index.d.ts" />
 
 
 /**
-[{"kind":"capability","capability":"syncDomApis","orCapability":""},{"kind":"introducedBy","version":1280623657},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"capability","capability":"syncDomApis","orCapability":""},{"kind":"introducedBy","version":1280623657},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 
@@ -10,6 +12,42 @@ The `TransformSync` class describes an object transform for a scene.
 All the operations with this class are synchronous.
 */
 declare interface TransformSync {
+
+/**
+```
+(get) forward: Vec3
+(set) (Not Available)
+```
+*/
+forward: Vec3
+
+/**
+```
+(get) position: Vec3
+(set) position: Vec3
+```
+
+Specifies the object position along the X, Y and Z axis of the object's local coordinate system.
+*/
+position: Vec3
+
+/**
+```
+(get) right: Vec3
+(set) (Not Available)
+```
+*/
+right: Vec3
+
+/**
+```
+(get) rotation: Rotation
+(set) rotation: Rotation
+```
+
+Specifies the object rotation along the X, Y and Z axis of the object's local coordinate system.
+*/
+rotation: Rotation
 
 /**
 ```
@@ -46,6 +84,16 @@ rotationZ: number
 
 /**
 ```
+(get) scale: Vec3
+(set) scale: Vec3
+```
+
+Specifies the object scale along the X, Y and Z axis.
+*/
+scale: Vec3
+
+/**
+```
 (get) scaleX: number
 (set) scaleX: number
 ```
@@ -73,6 +121,14 @@ scaleY: number
 Specifies the object scale along the Z-axis of the object's local coordinate system.
 */
 scaleZ: number
+
+/**
+```
+(get) up: Vec3
+(set) (Not Available)
+```
+*/
+up: Vec3
 
 /**
 ```

@@ -5,7 +5,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"deprecatedBy","version":3623664000},{"kind":"removedBy","version":516005979}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"deprecatedBy","version":3623664000},{"kind":"removedBy","version":516005979}]
 */
 
 

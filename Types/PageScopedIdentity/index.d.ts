@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"capability","capability":"pageScopedIdentity","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
+[{"kind":"capability","capability":"pageScopedIdentity","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect"]}]
 */
 
 

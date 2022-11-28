@@ -20,6 +20,16 @@ DimensionUtils: UIDimensionUtils
 
 /**
 ```
+(get) uiElement: uiElement
+(set) uiElement: uiElement
+```
+
+Decorator used to register UIElements to the dynamic UI type system
+*/
+uiElement: uiElement
+
+/**
+```
 createPrimitive(style: UIPrimitiveStyle): UIPrimitive<any>
 ```
 
@@ -33,14 +43,5 @@ createTextPrimitive(style: UITextPrimitiveStyle): UITextPrimitive
 
 */
 createTextPrimitive(style: UITextPrimitiveStyle): UITextPrimitive
-
-/**
-```
-registerElement(elementType: string, constructor: IUIElementConstructor): IUIElementConstructor
-```
-
-Registers a UI element class to Spark UI
-*/
-registerElement(elementType: string, constructor: IUIElementConstructor): IUIElementConstructor
 
 }

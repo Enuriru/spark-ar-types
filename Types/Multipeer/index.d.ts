@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"capability","capability":"multipeer_messaging","orCapability":""}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"capability","capability":"multipeer_messaging","orCapability":""}]
 */
 
 

@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":1934559862},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"introducedBy","version":1934559862},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

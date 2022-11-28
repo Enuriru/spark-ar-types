@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"capability","capability":"scriptingDynamicInstantiation","orCapability":""},{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"capability","capability":"persistenceV2","orCapability":""},{"kind":"introducedBy","version":867759298}]
+[{"kind":"capability","capability":"scriptingDynamicInstantiation","orCapability":""},{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"capabilityOr","version":394293456,"capability":"persistenceV2"},{"kind":"introducedBy","version":867759298}]
 */
 
 
@@ -26,7 +26,7 @@ assetId: string
 (set) (Not Available)
 ```
 
-Asset type: { MAIN_EFFECT, EXTERNAL_BLOCK, SHARED_STATE }
+Asset type this storage is associated with.
 */
 assetType: PersistenceAssetType
 
@@ -46,7 +46,7 @@ storageIdentifier: string
 (set) (Not Available)
 ```
 
-Type of persistence location : { temporary, local, remote }
+Type of persistence location.
 */
 storageLocation: PersistenceLocation
 

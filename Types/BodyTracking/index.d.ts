@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

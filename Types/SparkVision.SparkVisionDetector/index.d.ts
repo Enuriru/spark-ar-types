@@ -1,10 +1,11 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../SparkVision.MLModel/index.d.ts" />
 /// <reference path="../SparkVision.SparkVisionDetectorObject/index.d.ts" />
+/// <reference path="../SparkVision.SparkVisionTextureContainer/index.d.ts" />
 
 
 /**
-[{"kind":"introducedBy","version":1774572365},{"kind":"capability","capability":"genericML","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"introducedBy","version":1774572365},{"kind":"capability","capability":"genericML","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 
@@ -53,6 +54,14 @@ model: MLModel
 The number of actively returned objects in the detector
 */
 objectCount: ScalarSignal
+
+/**
+```
+(get) textures: SparkVisionTextureContainer
+(set) (Not Available)
+```
+*/
+textures: SparkVisionTextureContainer
 
 /**
 ```

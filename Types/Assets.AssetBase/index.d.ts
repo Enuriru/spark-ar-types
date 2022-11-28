@@ -1,8 +1,7 @@
-/// <reference path="../Assets.AssetType/index.d.ts" />
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 
@@ -10,13 +9,13 @@ declare interface AssetBase {
 
 /**
 ```
-(get) assetType: AssetType
+(get) assetType: string
 (set) (Not Available)
 ```
 
-Asset type of this asset.
+Asset type of this asset as registered.
 */
-assetType: AssetType
+assetType: string
 
 /**
 ```

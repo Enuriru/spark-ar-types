@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":2720997685},{"kind":"capability","capability":"persistenceV2","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"introducedBy","version":2720997685},{"kind":"capabilityOr","version":394293456,"capability":"persistenceV2"},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

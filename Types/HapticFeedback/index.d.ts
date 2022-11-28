@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Effect"},{"kind":"introducedBy","version":4175003719},{"kind":"capability","capability":"hapticFeedback","orCapability":""}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect"]},{"kind":"introducedBy","version":4175003719},{"kind":"capability","capability":"hapticFeedback","orCapability":""}]
 */
 
 

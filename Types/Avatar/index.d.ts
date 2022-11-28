@@ -3,10 +3,12 @@
 /// <reference path="../Avatar.AvatarManifestation/index.d.ts" />
 /// <reference path="../Avatar.AvatarRenderType/index.d.ts" />
 /// <reference path="../Avatar.AvatarStreamingType/index.d.ts" />
+/// <reference path="../Avatar.AvatarSubmesh/index.d.ts" />
 /// <reference path="../Avatar.FaceExpressionType/index.d.ts" />
 /// <reference path="../Avatar.HandBoneType/index.d.ts" />
 /// <reference path="../Avatar.JointType/index.d.ts" />
 /// <reference path="../Avatar.VisemeType/index.d.ts" />
+/// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.QuaternionSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
@@ -15,7 +17,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"capability","capability":"avatarSDK","orCapability":""}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"capability","capability":"avatarSDK","orCapability":""}]
 */
 
 
@@ -23,6 +25,22 @@ declare interface Avatar extends SceneObjectBase {
 
 /**
 ```
+getMaterial(matName: string): string
+```
+
+*/
+getMaterial(matName: string): string
+
+/**
+```
+getMaterialNamesForSubmesh(avatarSubmesh: AvatarSubmesh): Promise<Array<String>>
+```
+
+*/
+getMaterialNamesForSubmesh(avatarSubmesh: AvatarSubmesh): Promise<Array<String>>
+
+/**
+```
 loadFromUri_debug(uri: string, streamingType: AvatarStreamingType, solverType: AvatarIkType, renderType: AvatarRenderType, manifestation: AvatarManifestation, lod: AvatarLOD): Promise<void>
 ```
 
@@ -60,6 +78,38 @@ loadSelfAvatarFromUri_debug(uri: string, useBodyAPI: boolean, renderType: Avatar
 
 */
 loadSelfAvatarFromUri_debug(uri: string, useBodyAPI: boolean, renderType: AvatarRenderType, peerId: string): Promise<void>
+
+/**
+```
+playbackStart(): Promise<void>
+```
+
+*/
+playbackStart(): Promise<void>
+
+/**
+```
+playbackStop(): Promise<void>
+```
+
+*/
+playbackStop(): Promise<void>
+
+/**
+```
+recordStart(): Promise<void>
+```
+
+*/
+recordStart(): Promise<void>
+
+/**
+```
+recordStop(): Promise<void>
+```
+
+*/
+recordStop(): Promise<void>
 
 /**
 ```
@@ -156,6 +206,14 @@ setLipSyncVisemes(v: Array<ScalarSignal>): Promise<void>
 
 */
 setLipSyncVisemes(v: Array<ScalarSignal>): Promise<void>
+
+/**
+```
+setMaterial(matName: string, mat: MaterialBase): Promise<unknown>
+```
+
+*/
+setMaterial(matName: string, mat: MaterialBase): Promise<unknown>
 
 /**
 ```

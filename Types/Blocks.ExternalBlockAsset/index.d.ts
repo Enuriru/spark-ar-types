@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"capability","capability":"externalBlocks","orCapability":""}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"capability","capability":"blocks","orCapability":""},{"kind":"capability","capability":"externalBlocks","orCapability":""}]
 */
 
 

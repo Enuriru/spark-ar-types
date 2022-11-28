@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"textAssets","orCapability":"imageAssets"},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"capability","capability":"textAssets","orCapability":"imageAssets"},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 
@@ -10,6 +10,20 @@
 The `AssetsModule` class allows you to find, load and use the assets packaged together with the effect.
 */
 declare interface Assets extends Module {
+
+/**
+```
+(get) AssetType: {[key: string]: string}
+(set) (Not Available)
+```
+
+Accessor for all known, registered asset types as they are returned via assetType(), as in:
+- Assets.AssetType.Image
+- Assets.AssetType.Text
+
+The properties returned by this object depend on the set of plugins loaded.
+*/
+AssetType: {[key: string]: string}
 
 /**
 ```

@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"},{"kind":"introducedBy","version":2977307455},{"kind":"capability","capability":"physics","orCapability":""}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"introducedBy","version":2977307455},{"kind":"capability","capability":"physics","orCapability":""}]
 */
 
 

@@ -1,4 +1,4 @@
-/// <reference path="../UIScene.UIElement/index.d.ts" />
+/// <reference path="../UI.UIElement/index.d.ts" />
 
 
 /**
@@ -6,6 +6,6 @@
 */
 
 
-declare interface UIButton extends UIElement {
+declare interface UIButton<TStyle> extends UIElement {
 
 }

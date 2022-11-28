@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":1959304548},{"kind":"capability","capability":"spatialHandTracking","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"introducedBy","version":1959304548},{"kind":"capability","capability":"spatialHandTracking","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

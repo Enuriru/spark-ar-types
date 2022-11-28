@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"deviceMotion","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"capability","capability":"deviceMotion","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

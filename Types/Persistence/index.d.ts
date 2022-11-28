@@ -1,9 +1,8 @@
-/// <reference path="../Persistence.StorageLocation/index.d.ts" />
 /// <reference path="../Persistence.StorageScope/index.d.ts" />
 
 
 /**
-[{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 
@@ -14,18 +13,6 @@ declare interface Persistence extends Module {
 
 /**
 ```
-(get) block: StorageLocation
-(set) (Not Available)
-```
-
-Gets the StorageLocation that stores data for this block. This location only returns data that was stored for the
- currently logged-in user. This storage is specific to this instance of the block:
- blocks cannot access the data stored by other blocks.
-*/
-block: StorageLocation
-
-/**
-```
 (get) captureScope: StorageScope
 (set) (Not Available)
 ```
@@ -33,33 +20,6 @@ block: StorageLocation
 Gets an instance of StorageScope corresponding to the capture scope.
 */
 captureScope: StorageScope
-
-/**
-```
-(get) local: StorageLocation
-(set) (Not Available)
-```
-
-Gets an instance of StorageLocation that stores data on the user's local
- device storage. This location only returns data that was stored for the
- currently logged-in user. This storage is specific to the  given effect:
- effects cannot access the data stored by other effects.
-*/
-local: StorageLocation
-
-/**
-```
-(get) remote: StorageLocation
-(set) (Not Available)
-```
-
-Gets an instance of StorageLocation that stores data remotely on the servers
- of the app on which the effect is running (e.g. Instagram, Facebook, etc.),
- associated with the relevant user's account on that app. This storage is
- specific to the  given effect: effects cannot access the data stored by other
- effects.
-*/
-remote: StorageLocation
 
 /**
 ```
@@ -95,7 +55,6 @@ userScope: StorageScope
 // - Insert two rectangles
 // - Insert text
 // - Position the rectangles and text so that all are visible
-// - Add 'data' to 'Whitelisted keys' under the 'Persistence' Capability
 // - Add the 'Tap Gesture' capability under 'Touch Gestures'
 //==============================================================================
 
@@ -113,8 +72,8 @@ const TouchGestures = require('TouchGestures');
     Scene.root.findFirst('text0')
   ]);
 
-  // Store a reference to the userScope
-  const userScope = Persistence.userScope;
+  // Store a reference to the local storage location
+  const localStorage = Persistence.local;
 
   // Create a JavaScript object to store the data
   const data = { name: 'Spark AR' };
@@ -125,7 +84,7 @@ const TouchGestures = require('TouchGestures');
 
   try {
     // Attempt to get the stored data and if successful...
-    const result = await userScope.get('data');
+    const result = await localStorage.get('data');
     // Output a success message with the data added
     dataText.text = 'Successfully retrieved data ' + result.name;
   } catch (error) {
@@ -141,7 +100,7 @@ const TouchGestures = require('TouchGestures');
   TouchGestures.onTap(storeRectangle).subscribe(() => {
     try {
       // Attempt to store the data and if successful...
-      await userScope.set('data', data);
+      await localStorage.set('data', data);
       // Output a success message
       dataText.text = 'Successfully stored';
     } catch (error) {
@@ -158,7 +117,7 @@ const TouchGestures = require('TouchGestures');
   TouchGestures.onTap(removeRectangle).subscribe(() => {
     try {
       // Attempt to remove the data and if successful...
-      await userScope.remove('data');
+      await localStorage.remove('data');
 
       // Output a success message
       dataText.text = 'Successfully removed';

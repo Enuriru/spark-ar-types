@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"deprecatedBy","version":2183824011},{"kind":"removedBy","version":1510423516},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
+[{"kind":"removedBy","version":1510423516},{"kind":"availableIn","availableIn":["DocumentType.Effect"]}]
 */
 
 

@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"capability","capability":"remote3DModels","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"capability","capability":"remote3DModels","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

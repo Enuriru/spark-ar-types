@@ -1,7 +1,7 @@
 
 
 /**
-[{"kind":"capability","capability":"identity","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
+[{"kind":"capability","capability":"identity","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect"]}]
 */
 
 

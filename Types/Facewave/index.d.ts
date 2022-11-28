@@ -4,7 +4,7 @@
 
 
 /**
-[{"kind":"capability","capability":"facewave","orCapability":""},{"kind":"introducedBy","version":3745275114},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"capability","capability":"facewave","orCapability":""},{"kind":"introducedBy","version":3745275114},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

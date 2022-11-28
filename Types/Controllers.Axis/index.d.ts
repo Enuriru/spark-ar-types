@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":954056457},{"kind":"capability","capability":"controllers","orCapability":""},{"kind":"availableIn","availableIn":"DocumentType.Any"}]
+[{"kind":"introducedBy","version":954056457},{"kind":"capability","capability":"controllers","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

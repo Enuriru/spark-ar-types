@@ -1,3 +1,4 @@
+/// <reference path="../Persistence.BlockStorage/index.d.ts" />
 declare class BlockModulesConfig {
 /**
 * ```
@@ -18,5 +19,15 @@ A unique id for block multipeer communication channel. A multipeer message in th
 The value must be unique across all instantiated blocks in the parent.
 */
 static readonly multipeerId: string;
+/**
+* ```
+(get) storage: BlockStorage
+(set) storage: BlockStorage
+```
+
+A storage location for a Block's persistent data.
+The value must be unique across all instantiated blocks in the parent. See the PersistenceModule APIs for details.
+*/
+static readonly storage: BlockStorage;
 }
 export = BlockModulesConfig;

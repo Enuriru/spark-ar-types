@@ -4,7 +4,7 @@
 
 
 /**
-[{"kind":"capability","capability":"genericML","orCapability":""},{"kind":"introducedBy","version":1774572365},{"kind":"availableIn","availableIn":"DocumentType.Effect"}]
+[{"kind":"capability","capability":"genericML","orCapability":""},{"kind":"introducedBy","version":1774572365},{"kind":"availableIn","availableIn":["DocumentType.Effect"]}]
 */
 
 
