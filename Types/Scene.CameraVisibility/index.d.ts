@@ -17,6 +17,16 @@ forBackCamera: BoolSignal
 
 /**
 ```
+(get) forBackCameraValue: boolean
+(set) forBackCameraValue: boolean
+```
+
+Specifies whether the object is visible when the back camera is the active one.
+*/
+forBackCameraValue: boolean
+
+/**
+```
 (get) forFrontCamera: BoolSignal
 (set) forFrontCamera: BoolSignal
 ```
@@ -27,6 +37,16 @@ forFrontCamera: BoolSignal
 
 /**
 ```
+(get) forFrontCameraValue: boolean
+(set) forFrontCameraValue: boolean
+```
+
+Specifies whether the object is visible when the front camera is the active one.
+*/
+forFrontCameraValue: boolean
+
+/**
+```
 (get) forUnspecifiedCamera: BoolSignal
 (set) forUnspecifiedCamera: BoolSignal
 ```
@@ -34,6 +54,16 @@ forFrontCamera: BoolSignal
 Specifies whether the object is visible when the active camera couldn't be specified.
 */
 forUnspecifiedCamera: BoolSignal
+
+/**
+```
+(get) forUnspecifiedCameraValue: boolean
+(set) forUnspecifiedCameraValue: boolean
+```
+
+Specifies whether the object is visible when the active camera couldn't be specified.
+*/
+forUnspecifiedCameraValue: boolean
 
 }
 

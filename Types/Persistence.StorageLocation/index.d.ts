@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.EventSource/index.d.ts" />
 
 
 /**
@@ -9,6 +10,14 @@
 The `StorageLocation` class encapsulates different methods of storage for persistent objects. Now with better error handling.
 */
 declare interface StorageLocation {
+
+/**
+```
+(get) onRemoteStateChange: EventSource<Object>
+(set) (Not Available)
+```
+*/
+onRemoteStateChange: EventSource<Object>
 
 /**
 ```

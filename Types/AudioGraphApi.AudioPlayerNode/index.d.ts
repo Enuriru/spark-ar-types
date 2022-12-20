@@ -52,6 +52,14 @@ playState: ScalarSignal
 
 /**
 ```
+(get) (Not Available)
+(set) playbackSpeed: number
+```
+*/
+playbackSpeed: number
+
+/**
+```
 pause(): Promise<void>
 ```
 

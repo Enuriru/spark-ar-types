@@ -32,6 +32,16 @@ filteringMode: StringSignal<TextureFilteringMode>
 
 /**
 ```
+(get) (Not Available)
+(set) imageAsset: string
+```
+
+Sets the image asset to use for this image texture.
+*/
+imageAsset: string
+
+/**
+```
 (get) uWrapMode: StringSignal<TextureWrapMode>
 (set) (Not Available)
 ```

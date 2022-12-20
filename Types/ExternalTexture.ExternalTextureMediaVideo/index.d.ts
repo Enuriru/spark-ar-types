@@ -98,4 +98,13 @@ Note that seeking a paused video won't implicitly start it.
 */
 seek(value: number): Promise<void>
 
+/**
+```
+setVolume(leftVolume: number, rightVolume: number): Promise<void>
+```
+
+Set volume of the media. Volume range is [0.0 1.0]
+*/
+setVolume(leftVolume: number, rightVolume: number): Promise<void>
+
 }

@@ -29,20 +29,20 @@ clearCallbacks(body: PhysicsBody): void
 
 /**
 ```
-deregisterCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: CollisionCallback): boolean
+deregisterCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: PhysicsCollisionCallback): boolean
 ```
 
 Deregisters a previously registered callback function.
 */
-deregisterCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: CollisionCallback): boolean
+deregisterCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: PhysicsCollisionCallback): boolean
 
 /**
 ```
-registerCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: CollisionCallback): void
+registerCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: PhysicsCollisionCallback): void
 ```
 
 Registers a callback function to be called when a specific body is in a collision event.
 */
-registerCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: CollisionCallback): void
+registerCallback(body: PhysicsBody, callbackType: CollisionCallbackType, callback: PhysicsCollisionCallback): void
 
 }

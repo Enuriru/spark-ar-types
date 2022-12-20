@@ -1,9 +1,5 @@
-/// <reference path="../Augment.BlockInstanceInputs/index.d.ts" />
-/// <reference path="../Augment.BlockInstanceOutputs/index.d.ts" />
-/// <reference path="../Blocks.BlockInstanceInputs/index.d.ts" />
-/// <reference path="../Blocks.BlockInstanceOutputs/index.d.ts" />
-/// <reference path="../Scene.BlockInstanceInputs/index.d.ts" />
-/// <reference path="../Scene.BlockInstanceOutputs/index.d.ts" />
+/// <reference path="../Augment.BlockProxyInstanceInputs/index.d.ts" />
+/// <reference path="../Augment.BlockProxyInstanceOutputs/index.d.ts" />
 
 
 /**
@@ -15,18 +11,26 @@ declare interface BlockSceneRootProxy {
 
 /**
 ```
-(get) inputs: BlockInstanceInputs
+(get) identifier: string
 (set) (Not Available)
 ```
 */
-inputs: BlockInstanceInputs
+identifier: string
 
 /**
 ```
-(get) outputs: BlockInstanceOutputs
+(get) inputs: BlockProxyInstanceInputs
 (set) (Not Available)
 ```
 */
-outputs: BlockInstanceOutputs
+inputs: BlockProxyInstanceInputs
+
+/**
+```
+(get) outputs: BlockProxyInstanceOutputs
+(set) (Not Available)
+```
+*/
+outputs: BlockProxyInstanceOutputs
 
 }

@@ -5,6 +5,10 @@
 */
 
 
+/**
+The `AssetBase` class represents shared functionality for asset classes,
+like accessing an asset's name, identifier and registered type name.
+*/
 declare interface AssetBase {
 
 /**

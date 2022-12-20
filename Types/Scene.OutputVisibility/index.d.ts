@@ -17,6 +17,16 @@ forCaptureOutput: BoolSignal
 
 /**
 ```
+(get) forCaptureOutputValue: boolean
+(set) forCaptureOutputValue: boolean
+```
+
+Specifies whether the object is visible on the capture output.
+*/
+forCaptureOutputValue: boolean
+
+/**
+```
 (get) forPreviewOutput: BoolSignal
 (set) forPreviewOutput: BoolSignal
 ```
@@ -24,6 +34,16 @@ forCaptureOutput: BoolSignal
 Specifies whether the object is visible on the preview output.
 */
 forPreviewOutput: BoolSignal
+
+/**
+```
+(get) forPreviewOutputValue: boolean
+(set) forPreviewOutputValue: boolean
+```
+
+Specifies whether the object is visible on the preview output.
+*/
+forPreviewOutputValue: boolean
 
 }
 

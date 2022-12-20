@@ -1,5 +1,3 @@
-/// <reference path="../Augment.BlockInstanceInputs/index.d.ts" />
-/// <reference path="../Augment.BlockInstanceOutputs/index.d.ts" />
 /// <reference path="../Blocks.BlockInstanceInputs/index.d.ts" />
 /// <reference path="../Blocks.BlockInstanceOutputs/index.d.ts" />
 /// <reference path="../Scene.BlockInstanceInputs/index.d.ts" />

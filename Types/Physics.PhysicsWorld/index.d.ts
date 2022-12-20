@@ -137,6 +137,15 @@ getProperties(): Promise<object>
 
 /**
 ```
+getRayCollisionBody(event: PhysicsRayEvent): PhysicsBody
+```
+
+Returns the colliding bodies associated with a PhysicsRayEvent.
+*/
+getRayCollisionBody(event: PhysicsRayEvent): PhysicsBody
+
+/**
+```
 registerDestroyCallback(callback: PhysicsObjectDestroyCallback): void
 ```
 

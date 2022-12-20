@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.Mat4/index.d.ts" />
 /// <reference path="../Reactive.Rotation/index.d.ts" />
 /// <reference path="../Reactive.Vec3/index.d.ts" />
 
@@ -20,6 +21,14 @@ declare interface TransformSync {
 ```
 */
 forward: Vec3
+
+/**
+```
+(get) matrix: Mat4
+(set) (Not Available)
+```
+*/
+matrix: Mat4
 
 /**
 ```
@@ -159,5 +168,15 @@ y: number
 Specifies the object offset along the Z-axis of the object's local coordinate system.
 */
 z: number
+
+/**
+```
+lookAt(targetPosition: Vec3, selfUp?: Vec3): Mat4
+```
+
+Returns new transform matrix looking in direction of target.
+Default `selfUp` is `ReactiveModule.vector(0, 1, 0)`.
+*/
+lookAt(targetPosition: Vec3, selfUp?: Vec3): Mat4
 
 }

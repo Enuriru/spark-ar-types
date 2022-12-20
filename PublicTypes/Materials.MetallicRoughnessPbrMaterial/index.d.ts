@@ -131,6 +131,15 @@ Specifies the coordinates transform of the normal texture of this material.
 normalTextureTransform: TextureTransform;
 /**
 * ```
+(get) (Not Available)
+(set) occlusion: TextureBase | null
+```
+
+Specifies the occlusion texture of the material.
+*/
+occlusion: TextureBase | null;
+/**
+* ```
 (get) occlusionStrength: ScalarSignal
 (set) occlusionStrength: ScalarSignal
 ```
@@ -140,6 +149,15 @@ Specifies the occlusion strength.
 occlusionStrength: ScalarSignal;
 /**
 * ```
+(get) occlusionTextureTransform: TextureTransform
+(set) occlusionTextureTransform: TextureTransformSignal
+```
+
+Specifies the coordinates transform of the Occlusion texture of this material.
+*/
+occlusionTextureTransform: TextureTransform;
+/**
+* ```
 (get) roughnessFactor: ScalarSignal
 (set) roughnessFactor: ScalarSignal
 ```
@@ -147,6 +165,24 @@ occlusionStrength: ScalarSignal;
 Specifies the roughness factor.
 */
 roughnessFactor: ScalarSignal;
+/**
+* ```
+(get) (Not Available)
+(set) roughnessMetallic: TextureBase | null
+```
+
+Specifies the RoughnessMetallic texture of the material.
+*/
+roughnessMetallic: TextureBase | null;
+/**
+* ```
+(get) roughnessMetallicTextureTransform: TextureTransform
+(set) roughnessMetallicTextureTransform: TextureTransformSignal
+```
+
+Specifies the coordinates transform of the RoughnessMetallic texture of this material.
+*/
+roughnessMetallicTextureTransform: TextureTransform;
 /**
 * ```
 (get) (Not Available)
@@ -209,6 +245,24 @@ getMetallicRoughness(): Promise<TextureBase | null>;
  * Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
  */
 getNormal(): Promise<TextureBase | null>;
+
+/**
+*  
+ * getOcclusion(): Promise<TextureBase | null>
+ *  
+ * 
+ * Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
+ */
+getOcclusion(): Promise<TextureBase | null>;
+
+/**
+*  
+ * getRoughnessMetallic(): Promise<TextureBase | null>
+ *  
+ * 
+ * Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
+ */
+getRoughnessMetallic(): Promise<TextureBase | null>;
 
 /**
 *  

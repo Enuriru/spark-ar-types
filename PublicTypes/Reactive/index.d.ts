@@ -10,6 +10,7 @@
 /// <reference path="../Reactive.EventSourceHistory/index.d.ts" />
 /// <reference path="../Reactive.HsvaSignal/index.d.ts" />
 /// <reference path="../Reactive.ISignal/index.d.ts" />
+/// <reference path="../Reactive.Mat4/index.d.ts" />
 /// <reference path="../Reactive.Point2D/index.d.ts" />
 /// <reference path="../Reactive.Point3D/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />

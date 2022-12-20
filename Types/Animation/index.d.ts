@@ -104,7 +104,7 @@ valueDriver(value: ScalarSignal, min: number, max: number): ValueDriver
 
 /**
 
-//==========================================================================
+//=========================================================================
 // The following example demonstrates how to animate the properties of an
 // object using drivers and samplers.
 //

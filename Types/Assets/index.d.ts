@@ -7,7 +7,8 @@
 
 
 /**
-The `AssetsModule` class allows you to find, load and use the assets packaged together with the effect.
+The `AssetsModule` class allows you to discover and use the assets packaged together with
+an effect.
 */
 declare interface Assets extends Module {
 
@@ -17,11 +18,13 @@ declare interface Assets extends Module {
 (set) (Not Available)
 ```
 
-Accessor for all known, registered asset types as they are returned via assetType(), as in:
+Accessor that will return the names of all registered asset types.  The name of an asset type
+is as it is returned via assetType() API on AssetBase:
 - Assets.AssetType.Image
 - Assets.AssetType.Text
 
-The properties returned by this object depend on the set of plugins loaded.
+The properties returned by this API depend on the set of plugins loaded as they can declare
+additional asset types.
 */
 AssetType: {[key: string]: string}
 
