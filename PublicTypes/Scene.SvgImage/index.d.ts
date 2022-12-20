@@ -2,6 +2,7 @@
 /// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Scene.CameraVisibility/index.d.ts" />
 /// <reference path="../Scene.OutputVisibility/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 /// <reference path="../Svgs.Svg/index.d.ts" />
 /// <reference path="../Scene.Transform/index.d.ts" />
@@ -130,6 +131,18 @@ outputVisibility: OutputVisibility;
 ```
 */
 ref_: SceneObjectRef;
+/**
+* ```
+(get) renderingOrder: ScalarSignal
+(set) renderingOrder: ScalarSignal
+```
+
+Represents an explicit render order that only applies when layers are not used.
+This is usually the case when scene object are dynamically instantiated.
+Note that the incoming scalar signal will get truncated, ie. an 1.6 will become
+an render ordering of 1.
+*/
+renderingOrder: ScalarSignal;
 /**
 * ```
 (get) (Not Available)

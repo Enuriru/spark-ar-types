@@ -1,5 +1,5 @@
-/// <reference path="../ExternalTexture.ExternalTextureMediaBase/index.d.ts" />
 /// <reference path="../Textures.ExternalTexture/index.d.ts" />
+/// <reference path="../Textures.ExternalTextureMediaBase/index.d.ts" />
 
 
 /**

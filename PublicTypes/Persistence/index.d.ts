@@ -34,6 +34,7 @@ static readonly local: StorageLocation;
 (set) (Not Available)
 ```
 
+Deprecated. Please use Persistence.local and its StorageLocation class instead.
 Gets an instance of StorageScope corresponding to the user scope.
 */
 static readonly userScope: StorageScope;

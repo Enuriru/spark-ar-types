@@ -7,18 +7,18 @@ declare interface UIPlanarImagePrimitive<TStyle> extends UIPlanarObjectPrimitive
 
 /**
 ```
-applyStyle(style: Partial<UIPlanarImagePrimitiveStyle>): void
+applyStyle(style: Partial<TStyle>): void
 ```
 
 */
-applyStyle(style: Partial<UIPlanarImagePrimitiveStyle>): void
+applyStyle(style: Partial<TStyle>): void
 
 /**
 ```
-init(parent: SceneObjectBase, style: Partial<UIPlanarImagePrimitiveStyle>): void
+init(parent: SceneObjectBase, style: Partial<TStyle>): void
 ```
 
 */
-init(parent: SceneObjectBase, style: Partial<UIPlanarImagePrimitiveStyle>): void
+init(parent: SceneObjectBase, style: Partial<TStyle>): void
 
 }

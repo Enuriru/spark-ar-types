@@ -1,5 +1,4 @@
 /// <reference path="../Physics.PhysicsBody/index.d.ts" />
-/// <reference path="../Reactive.TransformSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec3/index.d.ts" />
 
 
@@ -82,14 +81,6 @@ clearForces(): Promise<void>
 
 /**
 ```
-inertialTransform(): Promise<TransformSignal>
-```
-
-*/
-inertialTransform(): Promise<TransformSignal>
-
-/**
-```
 linearVelocity(space?: PhysicsSpace): Promise<Vec3>
 ```
 
@@ -135,13 +126,5 @@ Represents the sum of all continuous torques that will be applied to this
  constraint resolution/collision.
 */
 totalTorque(space?: PhysicsSpace): Promise<Vec3>
-
-/**
-```
-worldTransform(): Promise<TransformSignal>
-```
-
-*/
-worldTransform(): Promise<TransformSignal>
 
 }

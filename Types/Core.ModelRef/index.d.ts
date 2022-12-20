@@ -50,6 +50,14 @@ destroy(): Promise<void>
 
 /**
 ```
+destroySync(): void
+```
+
+*/
+destroySync(): void
+
+/**
+```
 getArrayRefProp(prop: string): Promise<ModelRef>
 ```
 

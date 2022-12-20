@@ -33,7 +33,7 @@ AssetType: {[key: string]: string}
 findFirst(name: string): Promise<AssetBase | null>
 ```
 
-Find first asset of any type that matches a given name pattern.
+Finds the first asset of any type that matches a given name pattern.
 */
 findFirst(name: string): Promise<AssetBase | null>
 

@@ -1,4 +1,7 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.Box3D/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Scene.PlanarObject/index.d.ts" />
 /// <reference path="../UI.UIRoot/index.d.ts" />
 
@@ -8,17 +11,28 @@
 */
 
 
+/**
+The base UIElement class
+*/
 declare interface UIElement<TStyle> extends PlanarObject {
 
 /**
 ```
-(get) calculatedStyle: DeepReadonly<Partial<TStyle>>
-(set) calculatedStyle: DeepReadonly<Partial<TStyle>>
+(get) calculatedStyle: Partial<TStyle>
+(set) (Not Available)
+```
+*/
+calculatedStyle: Partial<TStyle>
+
+/**
+```
+(get) currentStyle: Partial<TStyle>
+(set) (Not Available)
 ```
 
-The resulting cascadingly calculated style for the element
+The current style based on the state of the UI element
 */
-calculatedStyle: DeepReadonly<Partial<TStyle>>
+currentStyle: Partial<TStyle>
 
 /**
 ```
@@ -56,6 +70,26 @@ parentElement: UIElement | null
 
 /**
 ```
+(get) state: StringSignal
+(set) (Not Available)
+```
+
+The UIElement's state signal
+*/
+state: StringSignal
+
+/**
+```
+(get) stateValue: string
+(set) stateValue: string
+```
+
+The current value of the UIElement's state
+*/
+stateValue: string
+
+/**
+```
 (get) style: DeepReadonly<Partial<TStyle>>
 (set) style: DeepReadonly<Partial<TStyle>>
 ```
@@ -64,6 +98,16 @@ Object containing the UIElement's style parameters.
 This property can be thought as similar to the HTML element.style property
 */
 style: DeepReadonly<Partial<TStyle>>
+
+/**
+```
+(get) styleClasses: ReadonlyArray<string>
+(set) styleClasses: ReadonlyArray<string>
+```
+
+The style classes for the UIElement.
+*/
+styleClasses: ReadonlyArray<string>
 
 /**
 ```
@@ -77,11 +121,78 @@ uiRoot: UIRoot | null
 
 /**
 ```
+(get) usableVolumeForChildren: Box3D
+(set) (Not Available)
+```
+
+The bounding box in local space usable by the child elements.
+*/
+usableVolumeForChildren: Box3D
+
+/**
+```
+(get) x: ScalarSignal
+(set) x: ScalarSignal
+```
+
+Positional offset of UIElement in X axis
+*/
+x: ScalarSignal
+
+/**
+```
+(get) xValue: number
+(set) xValue: number
+```
+
+Positional offset of UIElement in X axis
+*/
+xValue: number
+
+/**
+```
+(get) y: ScalarSignal
+(set) y: ScalarSignal
+```
+
+Positional offset of UIElement in Y axis
+*/
+y: ScalarSignal
+
+/**
+```
+(get) yValue: number
+(set) yValue: number
+```
+
+Positional offset of UIElement in Y axis
+*/
+yValue: number
+
+/**
+```
 _initialize(): void
 ```
 
 */
 _initialize(): void
+
+/**
+```
+_onAddedToScene(): void
+```
+
+*/
+_onAddedToScene(): void
+
+/**
+```
+createChild<T>(elementClass: IUIElementConstructor<T> | string, config?: undefined): T
+```
+
+Creates a new instance of the UI element with the given config and adds it as a child to this instance
+*/
+createChild
 
 /**
 ```
@@ -112,5 +223,23 @@ Recalculates the style for the UIElement.
 The style is calculated in a css-like cascading fashion.
 */
 recalculateStyle(): void
+
+/**
+```
+updateLayout(): void
+```
+
+This callback is called when the UIElement requires recalulation of its layout.
+*/
+updateLayout(): void
+
+/**
+```
+updateStyle(): void
+```
+
+This callback is called when UIElement requires update of its style parameters.
+*/
+updateStyle(): void
 
 }

@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.BoolSignal/index.d.ts" />
 
 
 /**
@@ -12,10 +13,10 @@ declare interface BlockProxyInstanceOutputs {
 
 /**
 ```
-getBoolean(name: string): Boolean
+getBoolean(name: string): Promise<BoolSignal>
 ```
 
 */
-getBoolean(name: string): Boolean
+getBoolean(name: string): Promise<BoolSignal>
 
 }

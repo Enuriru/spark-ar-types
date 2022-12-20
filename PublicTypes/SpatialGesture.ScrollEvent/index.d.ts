@@ -15,4 +15,11 @@ location: Point3D;
 ```
 */
 scroll: Point2D;
+/**
+* ```
+(get) source: GestureSource
+(set) (Not Available)
+```
+*/
+source: GestureSource;
 }

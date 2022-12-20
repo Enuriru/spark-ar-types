@@ -37,4 +37,13 @@ sizeU: ScalarSignal;
 Specifies the vertical span in UV texture coordinates.
 */
 sizeV: ScalarSignal;
+/**
+* ```
+(get) (Not Available)
+(set) source: TextureBase
+```
+
+Sets the source texture to use for this sub texture.
+*/
+source: TextureBase;
 }

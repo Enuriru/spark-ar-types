@@ -1,5 +1,6 @@
 /// <reference path="../Physics.PhysicsBody/index.d.ts" />
 /// <reference path="../Physics.PhysicsConstraint/index.d.ts" />
+/// <reference path="../Physics.PhysicsObject/index.d.ts" />
 /// <reference path="../Physics.PhysicsVolume/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 
@@ -9,7 +10,7 @@
 */
 
 
-declare interface PhysicsWorld {
+declare interface PhysicsWorld extends PhysicsObject {
 
 /**
 ```
@@ -27,30 +28,6 @@ Example:
  world.startSimulation();
 */
 allUpdateEvents: EventSource<PhysicsWorldUpdateEvent>
-
-/**
-```
-(get) id: number
-(set) (Not Available)
-```
-*/
-id: number
-
-/**
-```
-(get) name: string
-(set) (Not Available)
-```
-*/
-name: string
-
-/**
-```
-(get) type: PhysicsObjectType
-(set) (Not Available)
-```
-*/
-type: PhysicsObjectType
 
 /**
 ```

@@ -9,6 +9,13 @@ declare interface SelectEvent {
 location: Point3D;
 /**
 * ```
+(get) source: GestureSource
+(set) (Not Available)
+```
+*/
+source: GestureSource;
+/**
+* ```
 (get) state: GestureState
 (set) (Not Available)
 ```

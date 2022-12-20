@@ -1,4 +1,4 @@
-/// <reference path="../Reactive.TransformSignal/index.d.ts" />
+/// <reference path="../Physics.PhysicsObject/index.d.ts" />
 
 
 /**
@@ -6,37 +6,15 @@
 */
 
 
-declare interface PhysicsBody {
-
-/**
-```
-(get) id: number
-(set) (Not Available)
-```
-*/
-id: number
-
-/**
-```
-(get) name: string
-(set) (Not Available)
-```
-*/
-name: string
-
-/**
-```
-(get) type: PhysicsObjectType
-(set) (Not Available)
-```
-*/
-type: PhysicsObjectType
+declare interface PhysicsBody extends PhysicsObject {
 
 /**
 ```
 (get) worldId: number
 (set) (Not Available)
 ```
+
+Returns the world ID the body belongs to
 */
 worldId: number
 
@@ -55,22 +33,5 @@ setProperties(props: object): Promise<void>
 
 */
 setProperties(props: object): Promise<void>
-
-/**
-```
-setWorldTransform(t: TransformSignal): Promise<void>
-```
-
-Set the world transform signal of the rigid body.
-*/
-setWorldTransform(t: TransformSignal): Promise<void>
-
-/**
-```
-worldTransformPromise(): Promise<TransformSignal>
-```
-
-*/
-worldTransformPromise(): Promise<TransformSignal>
 
 }

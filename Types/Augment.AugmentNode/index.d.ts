@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"augmentControl","orCapability":""},{"kind":"introducedBy","version":1125385390}]
+[{"kind":"capability","capability":"augmentControl","orCapability":""},{"kind":"introducedBy","version":1125385390},{"kind":"availableIn","availableIn":["DocumentType.Experience"]}]
 */
 
 
@@ -23,5 +23,21 @@ blockProxy: BlockSceneRootProxy
 ```
 */
 identifier: string
+
+/**
+```
+getAugmentHidden(): Promise<Boolean>
+```
+
+*/
+getAugmentHidden(): Promise<Boolean>
+
+/**
+```
+setAugmentHidden(hidden: Boolean): Promise<void>
+```
+
+*/
+setAugmentHidden(hidden: Boolean): Promise<void>
 
 }

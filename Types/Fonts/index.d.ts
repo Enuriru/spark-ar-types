@@ -23,6 +23,16 @@ findFirst(fontName: string): Promise<FontId | null>
 
 /**
 ```
+findFirstSync(fontName: string): FontId | null
+```
+
+Returns the font identifier of a requested name or null if none was found.
+**See Also**: `FontsModule.findUsingPatternSync`, `FontsModule.getAllSync`.
+*/
+findFirstSync(fontName: string): FontId | null
+
+/**
+```
 findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<FontId>>
 ```
 
@@ -45,6 +55,28 @@ findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<F
 
 /**
 ```
+findUsingPatternSync(namePattern: string, config?: {limit: number}): Array<FontId>
+```
+
+Returns all font identifiers matching the name pattern or empty array if none was found.
+Pattern format:
+`*` matches any characters sequence.
+`\` can be used to include in pattern any of the control characters (including '\' itself)
+
+Examples:
+`findUsingPattern("*")` will retrive all of the font identifiers.
+`findUsingPattern("*A")` will retrieve all of the font identifiers suffixed with 'A'.
+`findUsingPattern("A*")` will retrieve all of the font identifiers prefixed with 'A'.
+`findUsingPattern("*A*", {limit: 10})` will retrieve at most 10 of the font identifiers containing 'A',
+
+`limit` parameter describes if `findUsingPattern` should finish the search if it finds specified number of results (default is no limit). Non-positive values for limit are treated as unlimited.
+
+**See Also**: `FontsModule.getAllSync`, `FontsModule.findFirstSync`.
+*/
+findUsingPatternSync(namePattern: string, config?: {limit: number}): Array<FontId>
+
+/**
+```
 getAll(): Promise<Array<FontId>>
 ```
 
@@ -52,6 +84,16 @@ Returns a promise that is resolved with all of the font identifiers.
 **See Also**: `FontsModule.findUsingPattern`, `FontsModule.findFirst`.
 */
 getAll(): Promise<Array<FontId>>
+
+/**
+```
+getAllSync(): Array<FontId>
+```
+
+Returns all font identifiers.
+**See Also**: `FontsModule.findUsingPatternSync`, `FontsModule.findFirstSync`.
+*/
+getAllSync(): Array<FontId>
 
 }
 

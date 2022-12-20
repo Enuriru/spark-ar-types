@@ -1,4 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Scene.CameraVisibility/index.d.ts" />
 /// <reference path="../Scene.OutputVisibility/index.d.ts" />
 /// <reference path="../Scene.Transform/index.d.ts" />
@@ -70,6 +71,19 @@ name: string
 Represents the `OutputVisibility` that contains a set of flags that specify the scene object (and its descendants) visibility depending on the output.
 */
 outputVisibility: OutputVisibility
+
+/**
+```
+(get) renderingOrder: ScalarSignal
+(set) renderingOrder: ScalarSignal
+```
+
+Represents an explicit render order that only applies when layers are not used.
+This is usually the case when scene object are dynamically instantiated.
+Note that the incoming scalar signal will get truncated, ie. an 1.6 will become
+an render ordering of 1.
+*/
+renderingOrder: ScalarSignal
 
 /**
 ```

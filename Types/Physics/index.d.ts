@@ -1,3 +1,4 @@
+/// <reference path="../Physics.PhysicsObject/index.d.ts" />
 /// <reference path="../Physics.PhysicsWorld/index.d.ts" />
 
 

@@ -24,6 +24,15 @@ hsva(h: number, s: number, v: number, a: number): UIColorHSVA
 
 /**
 ```
+isColor(value: any): boolean
+```
+
+Checks the input and and returns true if the input is a color
+*/
+isColor(value: any): boolean
+
+/**
+```
 rgba(r: number, g: number, b: number, a: number): UIColorRGBA
 ```
 

@@ -5,6 +5,9 @@
 */
 
 
+/**
+`ExternalTextureMediaBase` is a base class for different types of media that can be created as ExternalTextureMdedia
+*/
 declare interface ExternalTextureMediaBase {
 
 /**
@@ -16,15 +19,5 @@ declare interface ExternalTextureMediaBase {
 Returns the type of the media.
 */
 mediaType: ExternalTextureMediaType
-
-/**
-```
-(get) nodeId: number
-(set) (Not Available)
-```
-
-Returns an unique identifer of the media.
-*/
-nodeId: number
 
 }

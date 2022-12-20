@@ -73,6 +73,14 @@ loadRemoteAvatarFromUri_debug(uri: string): Promise<void>
 
 /**
 ```
+loadRemoteForMessaging(peerId: string): Promise<void>
+```
+
+*/
+loadRemoteForMessaging(peerId: string): Promise<void>
+
+/**
+```
 loadSelfAvatarFromUri_debug(uri: string, useBodyAPI: boolean, renderType: AvatarRenderType, peerId: string): Promise<void>
 ```
 

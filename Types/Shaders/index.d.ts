@@ -46,8 +46,8 @@ const Shaders = require('Shaders');
   ]);
 
   // Create the SDF Star parameters
-  const center = Reactive.pack2(0.05,0.05);
-  const radius = 0.04;
+  const center = Reactive.pack2(0.5,0.5);
+  const radius = 0.5;
   const radius2 = Reactive.mul(radius,0.5);
   const sides = 5;
 
@@ -57,15 +57,8 @@ const Shaders = require('Shaders');
   // Create the SDF Mix
   const sdfMix = Shaders.sdfMix(sdfStar,0,0.993);
 
-  // Create the SDF Repeat parameters
-  const pivot = Reactive.pack2(0.05,0.05);
-  const size = Reactive.pack2(0.09,0.09);
-
-  // Create the SDF Repeat
-  const sdfRepeat = Shaders.sdfRepeat(sdfMix,pivot,size);
-
   // Create the step
-  const step = Reactive.step(sdfRepeat,0);
+  const step = Reactive.step(sdfMix,0);
 
   // Create the gradient
   const gradient = Shaders.gradient({"type" : Shaders.GradientType.HORIZONTAL});
@@ -87,8 +80,9 @@ const Shaders = require('Shaders');
   const textureSlot = Shaders.DefaultMaterialTextures.DIFFUSE;
 
   // Assign the shader signal to the texture slot
-  material.setTexture(mix2, {textureSlotName: textureSlot});
+  material.setTextureSlot(textureSlot, mix2);
 
 // Enable async/await in JS [part 2]
+})();
 
 */

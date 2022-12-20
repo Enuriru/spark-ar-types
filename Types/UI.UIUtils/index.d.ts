@@ -7,6 +7,15 @@ declare interface UIUtils {
 
 /**
 ```
+getUniqueSignalId(): string
+```
+
+Generates a unique signal ID
+*/
+getUniqueSignalId(): string
+
+/**
+```
 isObject(obj: any): boolean
 ```
 

@@ -1,7 +1,7 @@
-/// <reference path="../ExternalTexture.ExternalTextureMediaBase/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Textures.ExternalTextureMediaBase/index.d.ts" />
 
 
 /**
@@ -9,6 +9,10 @@
 */
 
 
+/**
+`ExternalTextureMediaVideo` represents "video" media that was that was created from the URL.
+It exposes a set of APIs that are specifically tailored for controlling video playback.
+*/
 declare interface ExternalTextureMediaVideo extends ExternalTextureMediaBase {
 
 /**

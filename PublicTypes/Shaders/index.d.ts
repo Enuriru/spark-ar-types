@@ -296,7 +296,7 @@ static sdfRectangle(center: ShaderSignal | Vec2Signal, halfSize: ShaderSignal | 
 
 /**
 *  
- * sdfRepeat(sdf: ShaderSignal, pivot: ShaderSignal | Vec2Signal, size: ShaderSignal | Vec2Signal): ShaderSignal
+ * sdfRepeat(sdf: ShaderSignal, pivot: ShaderSignal | Vec2Signal, size: ShaderSignal | Vec2Signal, config: {sdfVariant: SdfVariant}): ShaderSignal
  *  
  * 
  * Returns a signal of the given SDF shape's grid repetition.
@@ -306,7 +306,7 @@ static sdfRectangle(center: ShaderSignal | Vec2Signal, halfSize: ShaderSignal | 
  * `size`: `Vec2Signal` or shader `function(): Vec2Signal`
  * returns: shader `function(Vec2Signal): ScalarSignal`
  */
-static sdfRepeat(sdf: ShaderSignal, pivot: ShaderSignal | Vec2Signal, size: ShaderSignal | Vec2Signal): ShaderSignal;
+static sdfRepeat(sdf: ShaderSignal, pivot: ShaderSignal | Vec2Signal, size: ShaderSignal | Vec2Signal, config: {sdfVariant: SdfVariant}): ShaderSignal;
 
 /**
 *  

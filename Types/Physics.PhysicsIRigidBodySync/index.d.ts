@@ -1,14 +1,13 @@
 /// <reference path="../Physics.PhysicsBody/index.d.ts" />
-/// <reference path="../Reactive.TransformSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec3/index.d.ts" />
 
 
 /**
-[{"kind":"capability","capability":"physics","orCapability":""},{"kind":"capability","capability":"physics_synch","orCapability":""},{"kind":"introducedBy","version":2977307455}]
+[{"kind":"capability","capability":"physics","orCapability":""},{"kind":"capability","capability":"physics_sync","orCapability":""},{"kind":"introducedBy","version":2977307455}]
 */
 
 
-declare interface PhysicsIRigidBodySynch extends PhysicsBody {
+declare interface PhysicsIRigidBodySync extends PhysicsBody {
 
 /**
 ```
@@ -82,14 +81,6 @@ clearForces(): void
 
 /**
 ```
-inertialTransform(): TransformSignal
-```
-
-*/
-inertialTransform(): TransformSignal
-
-/**
-```
 linearVelocity(space?: PhysicsSpace): Vec3
 ```
 
@@ -135,13 +126,5 @@ Represents the sum of all continuous torques that will be applied to this
  constraint resolution/collision.
 */
 totalTorque(space?: PhysicsSpace): Vec3
-
-/**
-```
-worldTransform(): TransformSignal
-```
-
-*/
-worldTransform(): TransformSignal
 
 }

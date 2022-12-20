@@ -2,11 +2,11 @@
 
 
 /**
-[{"kind":"capability","capability":"physics","orCapability":""},{"kind":"capability","capability":"physics_synch","orCapability":""}]
+[{"kind":"capability","capability":"physics","orCapability":""},{"kind":"capability","capability":"physics_sync","orCapability":""}]
 */
 
 
-declare interface PhysicsIWorldRaycastingSynch {
+declare interface PhysicsIWorldRaycastingSync {
 
 /**
 ```

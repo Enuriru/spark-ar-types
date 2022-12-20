@@ -44,6 +44,16 @@ findFirst(name: string): Promise<MaterialBase | null>
 
 /**
 ```
+findFirstSync(name: string): MaterialBase | null
+```
+
+Returns the material of a requested name or null if none was found.
+**See Also**: `Materials.findUsingPatternSync`, `Materials.getAllSync`.
+*/
+findFirstSync(name: string): MaterialBase | null
+
+/**
+```
 findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<MaterialBase>>
 ```
 
@@ -66,6 +76,28 @@ findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<M
 
 /**
 ```
+findUsingPatternSync(namePattern: string, config?: {limit: number}): Array<MaterialBase>
+```
+
+Returns all materials matching the name pattern or empty array if none was found.
+Pattern format:
+`*` matches any characters sequence.
+`\` can be used to include in pattern any of the control characters (including '\' itself)
+
+Examples:
+`findUsingPatternSync("*")` will retrive all of the materials.
+`findUsingPatternSync("*A")` will retrieve all of the materials suffixed with 'A'.
+`findUsingPatternSync("A*")` will retrieve all of the materials prefixed with 'A'.
+`findUsingPatternSync("*A*", {limit: 10})` will retrieve at most 10 of the materials containing 'A',
+
+`limit` parameter describes if `findUsingPatternSync` should finish the search if it finds specified number of results (default is no limit). Non-positive values for limit are treated as unlimited.
+
+**See Also**: `Materials.getAllSync`, `Materials.findFirstSync`.
+*/
+findUsingPatternSync(namePattern: string, config?: {limit: number}): Array<MaterialBase>
+
+/**
+```
 getAll(): Promise<Array<MaterialBase>>
 ```
 
@@ -73,6 +105,16 @@ Returns a promise that is resolved with all of the materials.
 **See Also**: `Materials.findUsingPattern`, `Materials.findFirst`.
 */
 getAll(): Promise<Array<MaterialBase>>
+
+/**
+```
+getAllSync(): Array<MaterialBase>
+```
+
+Returns all materials.
+**See Also**: `Materials.findUsingPatternSync`, `Materials.findFirstSync`.
+*/
+getAllSync(): Array<MaterialBase>
 
 }
 

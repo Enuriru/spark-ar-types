@@ -10,4 +10,22 @@ declare interface SequenceTexture extends TextureBase {
 Specifies the current frame in the animated sequence.
 */
 currentFrame: ScalarSignal;
+/**
+* ```
+(get) frameRate: ScalarSignal
+(set) frameRate: ScalarSignal
+```
+
+Specifies the frame rate for the animated sequence.
+*/
+frameRate: ScalarSignal;
+/**
+* ```
+(get) (Not Available)
+(set) frames: Array<TextureBase>
+```
+
+Specifies the frames for the animated sequence.
+*/
+frames: Array<TextureBase>;
 }

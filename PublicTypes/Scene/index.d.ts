@@ -61,6 +61,26 @@ Returns an object that is the root of the scene tree. Other objects are accessed
 static readonly root: Scene;
 /**
 *  
+ * clone(sceneObject: string | SceneObjectBase, options?: {cloneBlocksInputConnections?: false | true, cloneChildren?: false | true, initialState?: {[key: string]: any}}): Promise<SceneObjectBase>
+ *  
+ * 
+ * Clone a scene object asynchronously.
+ * When cloning a scene object, keep the following in mind:
+ * - `sceneObject` is either the identifier of the SceneObjectBase or the SceneObjectBase itself to be cloned. Cloning a scene object with an identifier that doesn't exist, or one that cannot be dynamically instantiated fails the `Promise`.
+ * - New objects always get assigned a globally unique `identifier`.
+ * - All properties that are using Signal types get assigned a ConstSignal with the last value unless `initialState` (see below) overrides it.
+ * - `options` include a set of optional parameters for cloning
+ *     - `cloneChildren` - when true, recursively clone all children of the scene object in the scene tree. If any of the children is non-clonable or fails to be cloned, roll back to the previous state before cloning and return an error that specifies the child’s id and type. The default is false.
+ *     - `initialState` overrides any cloned states on `sceneObject`.
+ *     - `initialState` can contain any `key: value` pair for any settable property of the scene object class (e.g. `hidden`, `transform`). Similar to dynamic instantiation, setting invalid fields will fail the promise.
+ *     - `cloneBlocksInputConnections` -  Block's input connections will be cloned if this flag is set to true. The default is false. The flag is ignored if `sceneObject` is not a BlockSceneRoot. If `cloneChildren` is also set to true, this flag will be recurisvely applied to all block children.
+ * 
+ * Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
+ */
+static clone(sceneObject: SceneObjectBase | string, options?: {cloneBlocksInputConnections?: false | true, cloneChildren?: false | true, initialState?: {[key: string]: any}}): Promise<SceneObjectBase>;
+
+/**
+*  
  * create(className: string, initialState?: {[key: string]: any}): Promise<SceneObjectBase>
  *  
  * 

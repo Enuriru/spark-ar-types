@@ -1,3 +1,4 @@
+/// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Scene.PlanarText/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
@@ -16,11 +17,19 @@ planarText: PlanarText
 
 /**
 ```
-(get) text: string
-(set) text: string
+(get) text: StringSignal
+(set) text: StringSignal
 ```
 */
-text: string
+text: StringSignal
+
+/**
+```
+(get) textValue: string
+(set) textValue: string
+```
+*/
+textValue: string
 
 /**
 ```

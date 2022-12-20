@@ -1,3 +1,4 @@
+/// <reference path="../Physics.PhysicsObject/index.d.ts" />
 
 declare interface PhysicsInterfaceManager {
 

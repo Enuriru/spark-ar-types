@@ -59,6 +59,16 @@ url: StringSignal
 
 /**
 ```
+(get) urlValue: string
+(set) urlValue: string
+```
+
+Specifies the URL of the font to be downloaded.
+*/
+urlValue: string
+
+/**
+```
 preload(): Promise<void>
 ```
 
