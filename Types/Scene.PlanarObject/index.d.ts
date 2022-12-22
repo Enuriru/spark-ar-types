@@ -1,4 +1,6 @@
+/// <reference path="../Reactive.Box2D/index.d.ts" />
 /// <reference path="../Reactive.Box2DSignal/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
 /**
@@ -16,6 +18,54 @@ Represents the current 2D bounds relative to the parent element. This is the res
 **Note**: The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
 */
 bounds: Box2DSignal
+
+/**
+```
+(get) boundsValue: Box2D
+(set) (Not Available)
+```
+*/
+boundsValue: Box2D
+
+/**
+```
+(get) height: ScalarSignal
+(set) height: ScalarSignal
+```
+
+Specifies the height of the object.
+**Note**: the specific measurement unit used depends on the context.
+If the object is a descendant of a Screen Plane object (2D Canvas),
+then these units will be in density-independent pixels if the object is set to use "Fixed" positioning,
+or a percentage if set to "Relative".
+Objects that are not a descendant of a Screen Plane will be in meters.
+Dynamically-instantiated planar objects will always act as if set to "Fixed" positioning.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+
+**Note**: You can use -1 if you want height to be automatically decided by layout constrains e.g. having both yOffset and yEndOffset. It will fallback to 0 if no constrains applied.
+*/
+height: ScalarSignal
+
+/**
+```
+(get) heightValue: number
+(set) heightValue: number
+```
+
+Specifies the height of the object.
+**Note**: the specific measurement unit used depends on the context.
+If the object is a descendant of a Screen Plane object (2D Canvas),
+then these units will be in density-independent pixels if the object is set to use "Fixed" positioning,
+or a percentage if set to "Relative".
+Objects that are not a descendant of a Screen Plane will be in meters.
+Dynamically-instantiated planar objects will always act as if set to "Fixed" positioning.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+
+**Note**: You can use -1 if you want height to be automatically decided by layout constrains e.g. having both yOffset and yEndOffset. It will fallback to 0 if no constrains applied.
+*/
+heightValue: number
 
 /**
 ```
@@ -90,6 +140,202 @@ scalingOption: SceneModule.ScalingOption
 Specifies the vertical alignment.
 */
 verticalAlignment: SceneModule.VerticalAlignment
+
+/**
+```
+(get) width: ScalarSignal
+(set) width: ScalarSignal
+```
+
+Specifies the width of the object.
+**Note**: the specific measurement unit used depends on the context.
+If the object is a descendant of a Screen Plane object (2D Canvas),
+then these units will be in density-independent pixels if the object is set to use "Fixed" positioning,
+or a percentage if set to "Relative".
+Objects that are not a descendant of a Screen Plane will be in meters.
+Dynamically-instantiated planar objects will always act as if set to "Fixed" positioning.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+
+**Note**: You can use -1 if you want width to be automatically decided by layout constrains e.g. having both xOffset and xEndOffset. It will fallback to 0 if no constrains applied.
+*/
+width: ScalarSignal
+
+/**
+```
+(get) widthValue: number
+(set) widthValue: number
+```
+
+Specifies the width of the object.
+**Note**: the specific measurement unit used depends on the context.
+If the object is a descendant of a Screen Plane object (2D Canvas),
+then these units will be in density-independent pixels if the object is set to use "Fixed" positioning,
+or a percentage if set to "Relative".
+Objects that are not a descendant of a Screen Plane will be in meters.
+Dynamically-instantiated planar objects will always act as if set to "Fixed" positioning.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+
+**Note**: You can use -1 if you want width to be automatically decided by layout constrains e.g. having both xOffset and xEndOffset. It will fallback to 0 if no constrains applied.
+*/
+widthValue: number
+
+/**
+```
+(get) xCenterOffset: ScalarSignal
+(set) xCenterOffset: ScalarSignal
+```
+
+Specifies the horizontal center offset of the object. Which offset to apply depends on horizontalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+xCenterOffset: ScalarSignal
+
+/**
+```
+(get) xCenterOffsetValue: number
+(set) xCenterOffsetValue: number
+```
+
+Specifies the horizontal center offset of the object. Which offset to apply depends on horizontalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+xCenterOffsetValue: number
+
+/**
+```
+(get) xEndOffset: ScalarSignal
+(set) xEndOffset: ScalarSignal
+```
+
+Specifies the horizontal end offset of the object. Which offset to apply depends on horizontalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+xEndOffset: ScalarSignal
+
+/**
+```
+(get) xEndOffsetValue: number
+(set) xEndOffsetValue: number
+```
+
+Specifies the horizontal end offset of the object. Which offset to apply depends on horizontalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+xEndOffsetValue: number
+
+/**
+```
+(get) xOffset: ScalarSignal
+(set) xOffset: ScalarSignal
+```
+
+Specifies the horizontal offset of the object. Which offset to apply depends on horizontalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+xOffset: ScalarSignal
+
+/**
+```
+(get) xOffsetValue: number
+(set) xOffsetValue: number
+```
+
+Specifies the horizontal offset of the object. Which offset to apply depends on horizontalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+xOffsetValue: number
+
+/**
+```
+(get) yCenterOffset: ScalarSignal
+(set) yCenterOffset: ScalarSignal
+```
+
+Specifies the vertical center offset of the object. Which offset to apply depends on verticalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+yCenterOffset: ScalarSignal
+
+/**
+```
+(get) yCenterOffsetValue: number
+(set) yCenterOffsetValue: number
+```
+
+Specifies the vertical center offset of the object. Which offset to apply depends on verticalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+yCenterOffsetValue: number
+
+/**
+```
+(get) yEndOffset: ScalarSignal
+(set) yEndOffset: ScalarSignal
+```
+
+Specifies the vertical end offset of the object. Which offset to apply depends on verticalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+yEndOffset: ScalarSignal
+
+/**
+```
+(get) yEndOffsetValue: number
+(set) yEndOffsetValue: number
+```
+
+Specifies the vertical end offset of the object. Which offset to apply depends on verticalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+yEndOffsetValue: number
+
+/**
+```
+(get) yOffset: ScalarSignal
+(set) yOffset: ScalarSignal
+```
+
+Specifies the vertical offset of the object. Which offset to apply depends on verticalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+yOffset: ScalarSignal
+
+/**
+```
+(get) yOffsetValue: number
+(set) yOffsetValue: number
+```
+
+Specifies the vertical offset of the object. Which offset to apply depends on verticalAlignment.
+**Note**: the specific measurement unit used depends on the context. It will be regular 3D units unless the object is a descendant of a Screen Plane object (2D Canvas) when it will be density-independent pixels.
+
+**Note**: this parameter is used as an input to the layout algorithm. The layout-calculated size and location of the object is available via `PlanarObject.bounds` property. The `SceneObjectBase.transform` property doesn't affect the layout, the transformation it specifies is applied on top of it.
+*/
+yOffsetValue: number
 
 }
 

@@ -1,8 +1,11 @@
+/// <reference path="../HandTracking.Hand/index.d.ts" />
 /// <reference path="../Physics.PhysicsBody/index.d.ts" />
 /// <reference path="../Physics.PhysicsConstraint/index.d.ts" />
 /// <reference path="../Physics.PhysicsObject/index.d.ts" />
 /// <reference path="../Physics.PhysicsVolume/index.d.ts" />
 /// <reference path="../Reactive.EventSource/index.d.ts" />
+/// <reference path="../SpatialHandTracking.Hand/index.d.ts" />
+/// <reference path="../WorldTracking.ARTrackable/index.d.ts" />
 
 
 /**
@@ -41,6 +44,14 @@ create(properties: NamedObject): Promise<PhysicsBody | PhysicsConstraint | Physi
 
 /**
 ```
+createPhysicsBodiesForTrackedHand(hand: Hand, extraBodyCreationParams: Object, extraVolumeCreationParams: Object): Promise<Array<PhysicsBodyAndVolume>>
+```
+
+*/
+createPhysicsBodiesForTrackedHand(hand: Hand, extraBodyCreationParams: Object, extraVolumeCreationParams: Object): Promise<Array<PhysicsBodyAndVolume>>
+
+/**
+```
 deregisterDestroyCallback(callback: PhysicsObjectDestroyCallback): void
 ```
 
@@ -59,6 +70,50 @@ an object that has already been destroyed will result in an failed promise.
 Destroying a PhysicsVolume will not actually destroy the volume until the last PhysicsBody referencing it is also destroyed.
 */
 destroy(obj: PhysicsBody | PhysicsConstraint | PhysicsVolume): Promise<void>
+
+/**
+```
+disablePhysicsPlaneCreationForAllTrackedPlanes(onError?: {}): void
+```
+
+*/
+disablePhysicsPlaneCreationForAllTrackedPlanes(onError?: {}): void
+
+/**
+```
+disablePhysicsPlaneCreationForTrackable(trackable: ARTrackable, onError?: {}): void
+```
+
+*/
+disablePhysicsPlaneCreationForTrackable(trackable: ARTrackable, onError?: {}): void
+
+/**
+```
+enablePhysicsPlaneCreationForAllTrackedPlanes(config: AutoPlaneCreationConfig): void
+```
+
+Start synchronizing physics planes for each new world-tracked plane (ARTrackable) that is detected via subscription to WorldTrackingModule.onTrackableAdded(), using enablePhysicsPlaneCreationForTrackable().
+This process will continue until disablePhysicsPlaneCreationForAllTrackedPlanes() is called.
+If planes should only be created for a subset of trackables, or if different properties should be used for creating each body and volume, use enablePhysicsPlaneCreationForAllTrackedPlanes instead.
+*/
+enablePhysicsPlaneCreationForAllTrackedPlanes(config: AutoPlaneCreationConfig): void
+
+/**
+```
+enablePhysicsPlaneCreationForTrackable(trackable: ARTrackable, config: AutoPlaneCreationConfig): void
+```
+
+Start synchronizing a physics plane to an ARTrackable. (Only HORIZONTAL_PLANES and VERTICAL_PLANES are supported). When the trackable changes size,
+a new body and volume will be created for the trackable based on the new size. In order to stop synchronizing a plane for this trackable, call
+disablePhysicsPlaneCreationForTrackable()
+config.onError() is called whenever an error occurs during this process. It may be called multiple times.
+config.onPlaneCreate() is called whenever a new plane body is added for this trackable.
+config.extraVolumeCreationParams and config.extraBodyCreationParams are used when creating the PhysicsVolume and PhysicsBody for each world-tracked plane.
+A new plane is created for a given trackable whenever the X or Z size of the plane changes more than config.sizeChangeThreshold (0.02 is the default and minimum).
+
+When the trackable changes size, a new body is created for the current size and the previous body is destroyed.
+*/
+enablePhysicsPlaneCreationForTrackable(trackable: ARTrackable, config: AutoPlaneCreationConfig): void
 
 /**
 ```

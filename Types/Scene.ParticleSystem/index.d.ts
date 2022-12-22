@@ -1,6 +1,7 @@
 /// <reference path="../Animation.ArrayOfScalarSamplers/index.d.ts" />
 /// <reference path="../Animation.ColorSampler/index.d.ts" />
 /// <reference path="../Animation.ScalarSampler/index.d.ts" />
+/// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.HsvaSignal/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
@@ -65,6 +66,19 @@ Whenever a particle is spawned, an "instantaneous birthrate" is chosen uniformly
 **Note**: The behavior is undefined for values outside the valid range.
 */
 birthrateDelta: ScalarSignal
+
+/**
+```
+(get) colorModulationHSVA: HsvaSignal
+(set) colorModulationHSVA: HsvaSignal
+```
+
+Specifies the mean color for modulating the particle material.
+**Note**: `colorModulationHSVA` can only be an instance of `HsvaSignal`, it cannot be specified in other color space like RGBA.
+
+**Note**: the modulation itself happens in RGBA space. Each of the RGBA components specified by the modulation is multiplied to the corresponding component specified by the particle material.
+*/
+colorModulationHSVA: HsvaSignal
 
 /**
 ```
@@ -155,6 +169,17 @@ initialVelocityMagnitudePercentageDelta: ScalarSignal
 
 /**
 ```
+(get) innerRadius: ScalarSignal
+(set) innerRadius: ScalarSignal
+```
+
+Specifies the radius of the inner circle when using the ring emitter for the particle system. The particles spawn between `innerRadius` and `outerRadius`.
+**Note**: `outerRadius` must be greater-than or equal to `innerRadius`.
+*/
+innerRadius: ScalarSignal
+
+/**
+```
 (get) lifetimeSeconds: ScalarSignal
 (set) lifetimeSeconds: ScalarSignal
 ```
@@ -197,6 +222,16 @@ linearDampingPercentageDelta: ScalarSignal
 
 /**
 ```
+(get) (Not Available)
+(set) material: MaterialBase | null
+```
+
+Specifies the material of the scene object.
+*/
+material: MaterialBase | null
+
+/**
+```
 (get) opticalFlowSensitivity: ScalarSignal
 (set) opticalFlowSensitivity: ScalarSignal
 ```
@@ -204,6 +239,17 @@ linearDampingPercentageDelta: ScalarSignal
 Specifies the optical flow sensitivity.
 */
 opticalFlowSensitivity: ScalarSignal
+
+/**
+```
+(get) outerRadius: ScalarSignal
+(set) outerRadius: ScalarSignal
+```
+
+Specifies the radius of the outer circle when using the ring emitter for the particle system. The particles spawn between `innerRadius` and `outerRadius`.
+**Note**: `outerRadius` must be greater-than or equal to `innerRadius`.
+*/
+outerRadius: ScalarSignal
 
 /**
 ```
@@ -369,6 +415,15 @@ velocityModifier: ArrayOfScalarSamplers
 Specifies whether the particles will move with the emitter or will have their own position after being emitted.
 */
 worldSpace: BoolSignal
+
+/**
+```
+getMaterial(): Promise<MaterialBase | null>
+```
+
+Returns a promise that is resolved with the material associated with a given scene object or null if no material was assigned.
+*/
+getMaterial(): Promise<MaterialBase | null>
 
 /**
 ```

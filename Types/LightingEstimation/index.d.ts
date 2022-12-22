@@ -1,4 +1,7 @@
+/// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.RgbaSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Reactive.TransformSignal/index.d.ts" />
 
 
 /**
@@ -13,6 +16,30 @@ declare interface LightingEstimation extends Module {
 
 /**
 ```
+(get) directionalLightColor: RgbaSignal
+(set) (Not Available)
+```
+*/
+directionalLightColor: RgbaSignal
+
+/**
+```
+(get) directionalLightIntensity: ScalarSignal
+(set) (Not Available)
+```
+*/
+directionalLightIntensity: ScalarSignal
+
+/**
+```
+(get) directionalLightTransform: TransformSignal
+(set) (Not Available)
+```
+*/
+directionalLightTransform: TransformSignal
+
+/**
+```
 (get) frameBrightness: ScalarSignal
 (set) (Not Available)
 ```
@@ -20,6 +47,18 @@ declare interface LightingEstimation extends Module {
 Returns a number that represents the brightness of the frame.
 */
 frameBrightness: ScalarSignal
+
+/**
+```
+(get) isDirectionalLightAvailable: BoolSignal
+(set) (Not Available)
+```
+
+Gets whether the information about Estimated Directional Light available.
+If isAvailable is false at any frame, the data returned will be unreliable.
+You may need to make the relevant assets invisible.
+*/
+isDirectionalLightAvailable: BoolSignal
 
 }
 

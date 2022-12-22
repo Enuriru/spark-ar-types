@@ -1,6 +1,7 @@
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Materials.TextureTransform/index.d.ts" />
 /// <reference path="../Reactive.ColorSignal/index.d.ts" />
+/// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
@@ -51,6 +52,26 @@ baseColorTextureTransform: TextureTransform
 Specifies the material blend mode.
 */
 blendMode: StringSignal<MaterialsModule.BlendMode>
+
+/**
+```
+(get) (Not Available)
+(set) diffuseEnvironment: TextureBase | null
+```
+
+Set a diffuse environment texture on this material.
+*/
+diffuseEnvironment: TextureBase | null
+
+/**
+```
+(get) (Not Available)
+(set) emissive: TextureBase | null
+```
+
+Specifies the emissive texture of the material.
+*/
+emissive: TextureBase | null
 
 /**
 ```
@@ -188,12 +209,41 @@ roughnessMetallicTextureTransform: TextureTransform
 
 /**
 ```
+(get) (Not Available)
+(set) specularEnvironment: TextureBase | null
+```
+
+Set a specular environment texture on this material.
+*/
+specularEnvironment: TextureBase | null
+
+/**
+```
+(get) staticEnvironmentRotation: PointSignal
+(set) staticEnvironmentRotation: PointSignal
+```
+
+Specifies the rotation signal to be used for transformations of static environment textures.
+*/
+staticEnvironmentRotation: PointSignal
+
+/**
+```
 getBaseColor(): Promise<TextureBase | null>
 ```
 
 Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
 */
 getBaseColor(): Promise<TextureBase | null>
+
+/**
+```
+getDiffuseEnvironment(): Promise<TextureBase | null>
+```
+
+Returns a promise that is resolved with the diffuse environment texture associated with a given material or null if no texture was assigned.
+*/
+getDiffuseEnvironment(): Promise<TextureBase | null>
 
 /**
 ```
@@ -239,6 +289,15 @@ getRoughnessMetallic(): Promise<TextureBase | null>
 Returns a promise that is resolved with the texture associated with a given material or null if no texture was assigned.
 */
 getRoughnessMetallic(): Promise<TextureBase | null>
+
+/**
+```
+getSpecularEnvironment(): Promise<TextureBase | null>
+```
+
+Returns a promise that is resolved with the specular environment texture associated with a given material or null if no texture was assigned.
+*/
+getSpecularEnvironment(): Promise<TextureBase | null>
 
 /**
 ```

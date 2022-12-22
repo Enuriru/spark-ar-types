@@ -38,6 +38,15 @@ delay(): StringSignal
 
 /**
 ```
+delayBy(timeSpan: {milliseconds: number}): StringSignal
+```
+
+Delays a signal. The argument is an object with a "milliseconds" property specifying the delay duration in milliseconds.
+*/
+delayBy(timeSpan: {milliseconds: number}): StringSignal
+
+/**
+```
 eq(other: StringSignal | string): BoolSignal
 ```
 

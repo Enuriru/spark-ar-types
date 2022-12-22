@@ -1,13 +1,43 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.Box3D/index.d.ts" />
+/// <reference path="../Reactive.Box3DSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Reactive.TransformSignal/index.d.ts" />
 /// <reference path="../Scene.CameraVisibility/index.d.ts" />
 /// <reference path="../Scene.OutputVisibility/index.d.ts" />
 /// <reference path="../Scene.Transform/index.d.ts" />
+/// <reference path="../Scene.TransformSync/index.d.ts" />
+/// <reference path="../Scene.WorldTransform/index.d.ts" />
+/// <reference path="../Scene.WorldTransformSync/index.d.ts" />
 
 /**
 The base class for scene objects.
 */
 declare interface SceneObjectBase {
+
+/**
+```
+(get) boundingBox: Box3DSignal
+(set) (Not Available)
+```
+
+Returns a signal that contains a 3D Bounding Box
+of this object in it's local coordinate system.
+Note: This bounding box doesn't include object's children.
+*/
+boundingBox: Box3DSignal
+
+/**
+```
+(get) boundingBoxValue: Box3D
+(set) (Not Available)
+```
+
+Returns a 3D Bounding Box
+of this object in it's local coordinate system.
+Note: This bounding box doesn't include object's children.
+*/
+boundingBoxValue: Box3D
 
 /**
 ```
@@ -18,6 +48,16 @@ declare interface SceneObjectBase {
 Represents whether or not the bounding box for the object is visible.
 */
 boundingBoxVisible: BoolSignal
+
+/**
+```
+(get) boundingBoxVisibleValue: boolean
+(set) (Not Available)
+```
+
+Represents whether or not the bounding box for the object is visible.
+*/
+boundingBoxVisibleValue: boolean
 
 /**
 ```
@@ -38,6 +78,16 @@ cameraVisibility: CameraVisibility
 Specifies whether the scene object and its descendants are hidden.
 */
 hidden: BoolSignal
+
+/**
+```
+(get) hiddenValue: boolean
+(set) hiddenValue: boolean
+```
+
+Synchronously specifies whether the scene object and its descendants are hidden.
+*/
+hiddenValue: boolean
 
 /**
 ```
@@ -74,6 +124,16 @@ outputVisibility: OutputVisibility
 
 /**
 ```
+(get) parentWorldTransform: TransformSignal
+(set) (Not Available)
+```
+
+Specifies a `TransformSignal` object describing the parent's transformation relative to world coordinate system.
+*/
+parentWorldTransform: TransformSignal
+
+/**
+```
 (get) renderingOrder: ScalarSignal
 (set) renderingOrder: ScalarSignal
 ```
@@ -87,6 +147,19 @@ renderingOrder: ScalarSignal
 
 /**
 ```
+(get) renderingOrderValue: number
+(set) renderingOrderValue: number
+```
+
+Represents an explicit render order that only applies when layers are not used.
+This is usually the case when scene object are dynamically instantiated.
+Note that the incoming scalar signal will get truncated, ie. an 1.6 will become
+an render ordering of 1.
+*/
+renderingOrderValue: number
+
+/**
+```
 (get) transform: Transform
 (set) transform: TransformSignal
 ```
@@ -94,6 +167,63 @@ renderingOrder: ScalarSignal
 Represents the object transformation, in object's local coordinate system.
 */
 transform: Transform
+
+/**
+```
+(get) transformValue: TransformSync
+(set) (Not Available)
+```
+
+Represents the object transformation, in object's local coordinate system.
+*/
+transformValue: TransformSync
+
+/**
+```
+(get) worldTransform: WorldTransform
+(set) worldTransform: TransformSignal
+```
+
+Specifies a `TransformSignal` object describing the object's transformation relative to world coordinate system.
+World transform in not yet supported for Canvas and ScreenPlane. Accessing this property from such objects or any of their children is not allowed.
+*/
+worldTransform: WorldTransform
+
+/**
+```
+(get) worldTransformValue: WorldTransformSync
+(set) (Not Available)
+```
+*/
+worldTransformValue: WorldTransformSync
+
+/**
+```
+addChild(child: SceneObjectBase | string): Promise<void>
+```
+
+Add a child to this scene object.
+Please note the following specific behavior when using this API:
+- Adding an object as a child automatically removes it from any other parent.
+- Adding a child that was created in Studio is not allowed.
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
+*/
+addChild(child: SceneObjectBase | string): Promise<void>
+
+/**
+```
+addChildSync(child: SceneObjectBase | string): void
+```
+
+Add a child to this scene object synchronously.
+Please note the following specific behavior when using this API:
+- Adding an object as a child automatically removes it from any other parent.
+- Adding a child that was created in Studio is not allowed.
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
+*/
+addChildSync(child: SceneObjectBase | string): void
 
 /**
 ```
@@ -206,6 +336,68 @@ findFirst(name: string, config?: {recursive: boolean}): Promise<SceneObjectBase 
 
 /**
 ```
+getBoundingBox(options?: {includeChildren: boolean}): Box3DSignal
+```
+
+Returns a signal that contains a 3D Bounding Box of this object.
+Optional parameters include:
+ - `includeChildren`: whether to include all children of this object when computing box.
+                      If "true" - the resulting bounding box is in the parent coordinate system.
+                      If "false" or not provided - resulting bounding box is in the local object's coordinate system.
+                      Default: "false".
+*/
+getBoundingBox(options?: {includeChildren: boolean}): Box3DSignal
+
+/**
+```
+getBoundingBoxSync(options?: {includeChildren?: false | true, skipHidden?: false | true}): Box3D
+```
+
+Returns a 3D Bounding Box of this object.
+Optional parameters include:
+ - `includeChildren`: whether to include all children of this object when computing box.
+                      If `true` - the resulting bounding box is in the parent coordinate system.
+                      If `false` or not provided - resulting bounding box is in the local object's coordinate system.
+                      Default: `false`.
+ - `skipHidden`: whether to skip "hidden" objects or children (in case of `includeChidlren` set to `true`) when computing bounding box.
+                 If `true` - the resulting bounding box will not include a given object or a children of it that are parented under an Object that is `hidden`.
+                 If `false` - resulting bounding box includes children, regardless whether they are visible or not.
+                 Default: `false`.
+*/
+getBoundingBoxSync(options?: {includeChildren?: false | true, skipHidden?: false | true}): Box3D
+
+/**
+```
+getBoundingBoxVisible(options?: {includeChildren: boolean}): BoolSignal
+```
+
+Returns a signal that contains value representing
+whether bounding box of a given object is visible or not in the viewport.
+Optional parameters include:
+ - `includeChildren`: whether to include all children of this object when computing bounding box.
+                      Default: "false".
+*/
+getBoundingBoxVisible(options?: {includeChildren: boolean}): BoolSignal
+
+/**
+```
+getBoundingBoxVisibleSync(options?: {includeChildren?: false | true, skipIfHidden?: false | true}): boolean
+```
+
+Returns a signal that contains value representing
+whether bounding box of a given object is visible or not in the viewport.
+Optional parameters include:
+ - `includeChildren`: whether to include all children of this object when computing bounding box.
+                      Default: `false`.
+ - `skipHidden`: whether to skip "hidden" objects or children (in case of `includeChidlren` set to `true`) when computing bounding box.
+                 If `true` - the resulting bounding box will not include a given object or a children of it that are parented under an Object that is `hidden`.
+                 If `false` - resulting bounding box includes children, regardless whether they are visible or not.
+                 Default: `false`.
+*/
+getBoundingBoxVisibleSync(options?: {includeChildren?: false | true, skipIfHidden?: false | true}): boolean
+
+/**
+```
 getParent(): Promise<SceneObjectBase | null>
 ```
 
@@ -220,6 +412,15 @@ getParent(): Promise<SceneObjectBase | null>
 
 /**
 ```
+getParentSync(): SceneObjectBase | null
+```
+
+Returns the parent of the scene object or `null` if it doesn't have one.
+*/
+getParentSync(): SceneObjectBase | null
+
+/**
+```
 getTags(): Promise<Array<string>>
 ```
 
@@ -231,6 +432,66 @@ Diagnostics.log(tags); // => ["ExampleTag1", "ExampleTag2"]
 ```
 */
 getTags(): Promise<Array<string>>
+
+/**
+```
+removeChild(child: SceneObjectBase | string): Promise<void>
+```
+
+Remove a child from this scene object list of children.
+When removing scene objects, keep the following in mind:
+- Removing a child that was created in Studio isn't allowed.
+- Removing a child that is not present under a given parent isn't allowed.
+- Removing a child doesn't unbind any of it's properties.
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
+*/
+removeChild(child: SceneObjectBase | string): Promise<void>
+
+/**
+```
+removeChildSync(child: SceneObjectBase | string): void
+```
+
+Remove a child from this scene object synchronously.
+When removing scene objects, keep the following in mind:
+- Removing a child that was created in Studio isn't allowed.
+- Removing a child that is not present under a given parent isn't allowed.
+- Removing a child doesn't unbind any of it's properties.
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
+*/
+removeChildSync(child: SceneObjectBase | string): void
+
+/**
+```
+removeFromParent(): Promise<void>
+```
+
+Remove this child from any parent object.
+When removing scene objects, keep the following in mind:
+- Removing a child that was created in Studio isn't allowed.
+- Removing a child that is not present under a given parent isn't allowed.
+- Removing a child doesn't unbind any of it's properties.
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
+*/
+removeFromParent(): Promise<void>
+
+/**
+```
+removeFromParentSync(): void
+```
+
+Remove this child from any parent object synchronously.
+When removing scene objects, keep the following in mind:
+- Removing a child that was created in Studio isn't allowed.
+- Removing a child that is not present under a given parent isn't allowed.
+- Removing a child doesn't unbind any of it's properties.
+
+Note: This API requires "Scripting Dynamic Instantiation" capability to be enabled.
+*/
+removeFromParentSync(): void
 
 /**
 ```

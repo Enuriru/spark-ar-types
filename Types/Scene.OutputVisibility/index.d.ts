@@ -27,6 +27,46 @@ forCaptureOutputValue: boolean
 
 /**
 ```
+(get) forOverlayOutput: BoolSignal
+(set) forOverlayOutput: BoolSignal
+```
+
+Specifies whether the object is visible on the overlay output.
+*/
+forOverlayOutput: BoolSignal
+
+/**
+```
+(get) forOverlayOutputValue: boolean
+(set) forOverlayOutputValue: boolean
+```
+
+Specifies whether the object is visible on the overlay output.
+*/
+forOverlayOutputValue: boolean
+
+/**
+```
+(get) forPeerOutput: BoolSignal
+(set) forPeerOutput: BoolSignal
+```
+
+Specifies whether the object is visible on the 'Peer output.
+*/
+forPeerOutput: BoolSignal
+
+/**
+```
+(get) forPeerOutputValue: boolean
+(set) forPeerOutputValue: boolean
+```
+
+Specifies whether the object is visible on the 'Peer output.
+*/
+forPeerOutputValue: boolean
+
+/**
+```
 (get) forPreviewOutput: BoolSignal
 (set) forPreviewOutput: BoolSignal
 ```

@@ -15,6 +15,16 @@ declare interface Time extends Module {
 
 /**
 ```
+(get) deltaTimeMS: ScalarSignal
+(set) (Not Available)
+```
+
+Retrieves delta time information in milliseconds from the effect.
+*/
+deltaTimeMS: ScalarSignal
+
+/**
+```
 (get) ms: ScalarSignal
 (set) (Not Available)
 ```

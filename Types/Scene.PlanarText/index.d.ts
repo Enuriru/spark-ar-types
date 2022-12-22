@@ -1,4 +1,5 @@
 /// <reference path="../Fonts.FontId/index.d.ts" />
+/// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Scene.PlanarObject/index.d.ts" />
 /// <reference path="../Scene.TextAlignmentWrapper/index.d.ts" />
@@ -51,6 +52,16 @@ leading: number | null
 /**
 ```
 (get) (Not Available)
+(set) material: MaterialBase | null
+```
+
+Specifies the material of the scene object.
+*/
+material: MaterialBase | null
+
+/**
+```
+(get) (Not Available)
 (set) maxLines: number | null
 ```
 
@@ -87,6 +98,15 @@ text: StringSignal
 Specifies the text spacing. This is the additional distance between letters. Default is zero. Can be negative.
 */
 tracking: number
+
+/**
+```
+getMaterial(): Promise<MaterialBase | null>
+```
+
+Returns a promise that is resolved with the material associated with a given scene object or null if no material was assigned.
+*/
+getMaterial(): Promise<MaterialBase | null>
 
 }
 

@@ -194,6 +194,15 @@ applyToVector(signal: VectorSignal): VectorSignal
 
 /**
 ```
+delayBy(timeSpan: {milliseconds: number}): TransformSignal
+```
+
+Delays a signal. The argument is an object with a "milliseconds" property specifying the delay duration in milliseconds.
+*/
+delayBy(timeSpan: {milliseconds: number}): TransformSignal
+
+/**
+```
 expSmooth(dampFactor: number): TransformSignal
 ```
 
