@@ -1,5 +1,3 @@
-/// <reference path="../Audio.BlockAudioInput/index.d.ts" />
-/// <reference path="../Audio.BlockAudioOutput/index.d.ts" />
 /// <reference path="../Audio.PlaybackController/index.d.ts" />
 declare class AudioModule {
 /**

@@ -1,5 +1,7 @@
+/// <reference path="../Scene.PlanarStack/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 /// <reference path="../UI.CodeBasedTheme/index.d.ts" />
+/// <reference path="../UI.IconSet/index.d.ts" />
 /// <reference path="../UI.UIColorUtils/index.d.ts" />
 /// <reference path="../UI.UIDimensionUtils/index.d.ts" />
 /// <reference path="../UI.UIElement/index.d.ts" />
@@ -67,6 +69,16 @@ Gestures: UIGestures
 
 /**
 ```
+(get) IconSet: IconSet
+(set) IconSet: IconSet
+```
+
+The icon set base class
+*/
+IconSet: IconSet
+
+/**
+```
 (get) Utils: UIUtils
 (set) Utils: UIUtils
 ```
@@ -74,6 +86,16 @@ Gestures: UIGestures
 The static utility class to help with UI related operations.
 */
 Utils: UIUtils
+
+/**
+```
+(get) defaultThemes: undefined
+(set) (Not Available)
+```
+
+The default themes with the assigned order
+*/
+defaultThemes: undefined
 
 /**
 ```
@@ -96,11 +118,21 @@ create
 
 /**
 ```
-createPrimitive(parentSceneObject: SceneObjectBase, style: DeepReadonly<Partial<UIPrimitiveStyle>>): UIPrimitive<any>
+createDeferredChildren(sceneObject: SceneObjectBase, deferredChildrenFactory: {} | {}): undefined
+```
+
+Create children UIElements in a deferred fashion using a method.
+The parent will be auto-injected to the children created in the factory method
+*/
+createDeferredChildren(sceneObject: SceneObjectBase, deferredChildrenFactory: {} | {}): undefined
+
+/**
+```
+createPrimitive(config: UIPrimitiveConfig<UIPrimitiveStyle>): UIPrimitive<any>
 ```
 
 */
-createPrimitive(parentSceneObject: SceneObjectBase, style: DeepReadonly<Partial<UIPrimitiveStyle>>): UIPrimitive<any>
+createPrimitive(config: UIPrimitiveConfig<UIPrimitiveStyle>): UIPrimitive<any>
 
 /**
 ```
@@ -113,11 +145,23 @@ createRoot(config: PartialExcept<Readonly<UIRootConfig>, >): UIRoot
 
 /**
 ```
-createTextPrimitive(parentSceneObject: SceneObjectBase, style: DeepReadonly<Partial<UITextPrimitiveStyle>>): UITextPrimitive
+createStackSync(initialState: Partial<StackConfig>): PlanarStack
+```
+
+[Experimental] This is an experimental (and probably temporary) helper function
+which can be used to add PlanarStacks while creating nested UI hierarchies.
+In addition to all possible initial state configuration parameters of PlanarStack,
+this method also supports "parent" and "children" parameters as in any other UI Element.
+*/
+createStackSync(initialState: Partial<StackConfig>): PlanarStack
+
+/**
+```
+createTextPrimitive(config: UIPrimitiveConfig<UITextPrimitiveStyle>): UITextPrimitive
 ```
 
 */
-createTextPrimitive(parentSceneObject: SceneObjectBase, style: DeepReadonly<Partial<UITextPrimitiveStyle>>): UITextPrimitive
+createTextPrimitive(config: UIPrimitiveConfig<UITextPrimitiveStyle>): UITextPrimitive
 
 /**
 ```
@@ -127,5 +171,32 @@ getElementTypeOfClass<T>(elementClass: IUIElementConstructor<T>): string
 Resolves the elementType of a given UI element class
 */
 getElementTypeOfClass
+
+/**
+```
+getIconData(iconName: string): IconData
+```
+
+Searches through all of the registered icon sets and gets the icon data for the given icon name
+*/
+getIconData(iconName: string): IconData
+
+/**
+```
+registerDefaultTheme(theme: Theme, order: number): void
+```
+
+Registers a theme that will be added to every UIRoot on creation automatically
+*/
+registerDefaultTheme(theme: Theme, order: number): void
+
+/**
+```
+registerIconSet(iconSet: IconSet): void
+```
+
+Registers a new icon set
+*/
+registerIconSet(iconSet: IconSet): void
 
 }

@@ -40,6 +40,16 @@ direction: StringSignal<SceneModule.Direction>
 
 /**
 ```
+(get) directionValue: SceneModule.Direction
+(set) directionValue: SceneModule.Direction
+```
+
+Specifies the direction of the stack layout.
+*/
+directionValue: SceneModule.Direction
+
+/**
+```
 (get) gap: ScalarSignal
 (set) gap: ScalarSignal
 ```
@@ -47,6 +57,16 @@ direction: StringSignal<SceneModule.Direction>
 Specifies the gap between the stack children
 */
 gap: ScalarSignal
+
+/**
+```
+(get) gapValue: number
+(set) gapValue: number
+```
+
+Specifies the gap between the stack children
+*/
+gapValue: number
 
 /**
 ```

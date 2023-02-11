@@ -4,7 +4,7 @@
 
 
 /**
-[{"kind":"capability","capability":"hairSegmentation","orCapability":"multiclassSegmentation"}]
+[{"kind":"capability","capability":"hairSegmentation","orCapability":""}]
 */
 
 

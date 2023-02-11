@@ -39,6 +39,7 @@ transform: TransformSignal;
  * TouchGestures.onPan().subscribe(function(gesture) {
  *   pointTrackable.move({screenLocation: gesture.location, state: gesture.state);
  * });
+ *  
  */
 move(config: {fallbackToEstimatedPlanes?: false | true, planeType?: HitTestType, screenLocation: Vec2Signal, snapToPlane?: false | true, state: StringSignal}): void;
 

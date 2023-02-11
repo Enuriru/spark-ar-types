@@ -44,6 +44,8 @@ builtin.audioBlockInputInside
 builtin.audioBlockInputOutside
 builtin.audioBlockOutputInside
 builtin.audioBlockOutputOutside
+builtin.audioBlockSignalComponent
+builtin.audioBlockSinkComponent
 builtin.audioController
 builtin.audioDelay
 builtin.audioGain
@@ -54,6 +56,7 @@ builtin.audioSourceVolume
 builtin.audioSpatialEmitter
 builtin.binaryBoolAndOperator
 builtin.binaryBoolOrOperator
+builtin.binaryMathOperation
 builtin.binaryScalarAddOperator
 builtin.binaryScalarAtanOperator
 builtin.binaryScalarAtanOperatorV
@@ -74,6 +77,8 @@ builtin.blockInputInside
 builtin.blockInputOutside
 builtin.blockOutputInside
 builtin.blockOutputOutside
+builtin.blockSignalComponent
+builtin.blockSinkComponent
 builtin.bodyBoundingBox
 builtin.bodyFinder
 builtin.bodyHead
@@ -84,6 +89,7 @@ builtin.bodyRightArm
 builtin.bodyRightLeg
 builtin.bodySelect
 builtin.boundingBox
+builtin.bridgingToScriptComponent
 builtin.broadcast.emitter
 builtin.broadcast.receiver
 builtin.cameraControl
@@ -132,6 +138,10 @@ builtin.eyebrow
 builtin.eyebrowsFrowned
 builtin.eyebrowsRaised
 builtin.face
+builtin.faceGestureEventComponent
+builtin.faceGestureSignalComponent
+builtin.faceGestureSignalProxyComponent
+builtin.faceGestureSignalRawActionComponent
 builtin.facePicker
 builtin.faceTracker
 builtin.faceid
@@ -198,6 +208,7 @@ builtin.group.transition
 builtin.group.unifiedTargetTracker
 builtin.hand
 builtin.handBoundingBox
+builtin.handGestureSignalComponent
 builtin.handGlobalTransform
 builtin.handPicker
 builtin.handTracker
@@ -227,9 +238,12 @@ builtin.leanedForward
 builtin.leanedLeft
 builtin.leanedRight
 builtin.leftEyeClosed
+builtin.lightSourceColorSetterComponent
+builtin.lightSourceScalarSetterComponent
 builtin.limiter
 builtin.locale
 builtin.longPressGesture
+builtin.materialSlotComponent
 builtin.mathAbs
 builtin.mathArcCos
 builtin.mathArcSin
@@ -326,18 +340,21 @@ builtin.particleSystemRotationalVelocityX
 builtin.particleSystemRotationalVelocityY
 builtin.particleSystemScale
 builtin.particleSystemScaleDelta
+builtin.particleSystemSetterComponent
 builtin.peerTextureIsActive
 builtin.peerTextureParticipantGetter
 builtin.peerTextureParticipantSetter
 builtin.pinchGesture
 builtin.pitchShifter
 builtin.planarObjectHeight
+builtin.planarObjectSetterComponent
 builtin.planarObjectWidth
 builtin.planarTextColor
 builtin.planarTextFontSize
 builtin.planarTextLetterSpacing
 builtin.planarTextLineSpacing
 builtin.planarTextScaleToFit
+builtin.planarTextSizeSetterComponent
 builtin.planarTextText
 builtin.planeFinder
 builtin.planeFinderRealScaleActive
@@ -373,6 +390,7 @@ builtin.renderPass.sceneMrt
 builtin.renderPass.shadow
 builtin.renderPass.store
 builtin.renderPass.texture
+builtin.renderPassMatrixSetterComponent
 builtin.renderPassProjectionMatrix
 builtin.renderPassViewMatrix
 builtin.rightEyeClosed
@@ -389,10 +407,12 @@ builtin.sceneCameraProjectionComponent
 builtin.sceneCameraTransformComponent
 builtin.sceneDepthTrackingQuality
 builtin.sceneObject
+builtin.sceneObjectBooleanSetterComponent
 builtin.sceneObjectGlobalPosition
 builtin.sceneObjectGlobalRotation
 builtin.sceneObjectGlobalScale
 builtin.sceneObjectGlobalTransformExtractionComponent
+builtin.sceneObjectGlobalTransformSetterComponent
 builtin.sceneObjectHidden
 builtin.sceneObjectLocalTransformExtractionComponent
 builtin.sceneObjectPositionX
@@ -405,6 +425,8 @@ builtin.sceneObjectScaleX
 builtin.sceneObjectScaleY
 builtin.sceneObjectScaleZ
 builtin.sceneObjectTapGesture
+builtin.sceneObjectTransformSetterComponent
+builtin.sceneObjectVec
 builtin.sceneUnderstanding
 builtin.script_patch.typescript
 builtin.scrollGesture
@@ -413,6 +435,8 @@ builtin.sequenceTexture
 builtin.shaderAttribute
 builtin.shaderDerivative
 builtin.shaderUniform
+builtin.shaderVariableComponent
+builtin.shaderVisualComponent
 builtin.shaders.SdfTwist
 builtin.shaders.abs
 builtin.shaders.acos
@@ -525,9 +549,12 @@ builtin.targetFinder
 builtin.targetPicker
 builtin.targetTracker
 builtin.targeted
+builtin.ternaryMathOperation
 builtin.textExtrusionDepth
 builtin.textExtrusionLetterSpacing
 builtin.textExtrusionLineSpacing
+builtin.textExtrusionSetterComponent
+builtin.textExtrusionStringSetterComponent
 builtin.textExtrusionText
 builtin.throttle
 builtin.timeDriver
@@ -542,6 +569,7 @@ builtin.transformSignal
 builtin.triggerStub
 builtin.turnedLeft
 builtin.turnedRight
+builtin.unaryMathOperation
 builtin.unaryScalarCeilOperator
 builtin.unaryScalarFloorOperator
 builtin.unaryScalarRoundOperator
@@ -553,6 +581,7 @@ builtin.uniform
 builtin.value
 builtin.valueDriver
 builtin.variadicMathAdd
+builtin.variadicMathComponent
 builtin.variadicMathDiv
 builtin.variadicMathMax
 builtin.variadicMathMin

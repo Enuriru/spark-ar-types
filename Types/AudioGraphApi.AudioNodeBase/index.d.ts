@@ -12,10 +12,10 @@ declare interface AudioNodeBase {
 
 /**
 ```
-(get) _handle: string
-(set) _handle: string
+(get) _handle: number
+(set) _handle: number
 ```
 */
-_handle: string
+_handle: number
 
 }

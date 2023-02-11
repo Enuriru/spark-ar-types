@@ -91,3 +91,55 @@ Note: This API requires "Scripting Dynamic Instantiation" capability to be enabl
 instantiate(blockAssetOrName: string | BlockAsset, initialState: {[key: string]: any}): Promise<BlockSceneRoot>
 
 }
+
+
+
+/**
+
+//======================================================================
+// The following example demonstrates how to set the input values of a
+// block and get the output values to display on screen.
+//
+// Project setup:
+// - Add a Block and instantiate an instance
+// - Edit the Block
+//   - Insert a particles system in the scene
+//   - Insert a plane in the scene
+//   - Make sure that the particles system and plane are children of the
+//     Block Root
+//   - Edit the block properties of the Block Root
+//   - Create an input of Name: blockInput0, Type: Number, Input Limit:
+//     None, Input Style: Text Input, Default Value: 0.9
+//   - Create an output of Name: blockOutput, Type: Number, Input Limit:
+//     None, Input Style: Text Input, Default Value: 65
+//   - Save and close block
+//======================================================================
+
+// Load in the required modules
+const Scene = require('Scene');
+const Diagnostics = require('Diagnostics');
+// Locate a Block in the scene
+Scene.root.findFirst('block0').then(function(myBlock){
+    // Set a scalar input (signals also accepted)
+    myBlock.inputs.setScalar('blockInput0', 5)
+    .then(function() {
+        // Log a success message on the screen
+        Diagnostics.log('Scalar signal successfully set!');
+    }, function(error) {
+        // input named blockInput probably doesn't exist
+        // or is not of scalar type, check error for details
+        Diagnostics.log(error);
+    });
+    // Get a scalar output
+    myBlock.outputs.getScalar('blockOutput0')
+    .then(function(blockOutputScalarSignal){
+        // Watch the output signal on screen
+        Diagnostics.watch("output", blockOutputScalarSignal);
+    }, function(error) {
+        // output named blockOutput probably doesn't exist
+        // or is not of scalar type, check error for details
+        Diagnostics.log(error);
+    });
+});
+
+*/

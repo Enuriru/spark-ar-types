@@ -40,16 +40,6 @@ gesture: StringSignal
 
 /**
 ```
-(get) gestureType: StringSignal
-(set) (Not Available)
-```
-
-Specifies a `StringSignal` containing the name of the hand gesture.
-*/
-gestureType: StringSignal
-
-/**
-```
 (get) isTracked: BoolSignal
 (set) (Not Available)
 ```

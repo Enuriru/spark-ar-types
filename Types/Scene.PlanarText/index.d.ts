@@ -1,5 +1,6 @@
 /// <reference path="../Fonts.FontId/index.d.ts" />
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Scene.PlanarObject/index.d.ts" />
 /// <reference path="../Scene.TextAlignmentWrapper/index.d.ts" />
@@ -18,6 +19,26 @@ declare interface PlanarText extends PlanarObject {
 Represents the `TextAlignmentWrapper` that contains parameters that specify the text alignment.
 */
 alignment: TextAlignmentWrapper
+
+/**
+```
+(get) depthBias: ScalarSignal
+(set) depthBias: ScalarSignal
+```
+
+Represents a depth bias that can be used for rendering.
+*/
+depthBias: ScalarSignal
+
+/**
+```
+(get) depthBiasValue: number
+(set) depthBiasValue: number
+```
+
+Represents a depth bias that can be used for rendering.
+*/
+depthBiasValue: number
 
 /**
 ```

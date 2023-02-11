@@ -1,5 +1,6 @@
 /// <reference path="../Reactive.ColorSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Reactive.Vec4/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
 /**
@@ -19,6 +20,16 @@ angleInner: ScalarSignal
 
 /**
 ```
+(get) angleInnerValue: number
+(set) angleInnerValue: number
+```
+
+Specifies the inner angle of the spotlight cone, everything inside is fully illuminated. In radians.
+*/
+angleInnerValue: number
+
+/**
+```
 (get) angleOuter: ScalarSignal
 (set) angleOuter: ScalarSignal
 ```
@@ -26,6 +37,16 @@ angleInner: ScalarSignal
 Specifies the outer angle of the spotlight cone, everything outside is not illuminated. In radians.
 */
 angleOuter: ScalarSignal
+
+/**
+```
+(get) angleOuterValue: number
+(set) angleOuterValue: number
+```
+
+Specifies the outer angle of the spotlight cone, everything outside is not illuminated. In radians.
+*/
+angleOuterValue: number
 
 /**
 ```
@@ -39,6 +60,16 @@ color: ColorSignal
 
 /**
 ```
+(get) colorRGBAValue: Vec4
+(set) colorRGBAValue: Vec4
+```
+
+Specifies the color (RGBA format) of this light source.
+*/
+colorRGBAValue: Vec4
+
+/**
+```
 (get) intensity: ScalarSignal
 (set) intensity: ScalarSignal
 ```
@@ -46,6 +77,16 @@ color: ColorSignal
 Specifies the intensity of this light source, usually between 0.0 and 1.0.
 */
 intensity: ScalarSignal
+
+/**
+```
+(get) intensityValue: number
+(set) intensityValue: number
+```
+
+Specifies the intensity of this light source, usually between 0.0 and 1.0.
+*/
+intensityValue: number
 
 }
 

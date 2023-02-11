@@ -1,12 +1,6 @@
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
-
-/**
-[{"kind":"introducedBy","version":3752909909}]
-*/
-
-
 /**
 Describes a texture which provides the current scene's estimated depth information. Depth is calculated as the relative distance to the camera.
 You can follow the steps in [this article](https://sparkar.facebook.com/ar-studio/learn/articles/textures-and-materials/camera-depth-texture#creating-the-camera-depth-texture) to add a camera depth texture asset to your project.

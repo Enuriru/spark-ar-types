@@ -1,3 +1,4 @@
+/// <reference path="../CustomHandGestures.GestureType/index.d.ts" />
 /// <reference path="../Fonts.ExternalFont.State/index.d.ts" />
 /// <reference path="../LiveStreaming.State/index.d.ts" />
 /// <reference path="../Prefabs.State/index.d.ts" />

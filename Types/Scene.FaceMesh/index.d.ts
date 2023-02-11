@@ -2,23 +2,12 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Scene.BlendShape/index.d.ts" />
-/// <reference path="../Scene.BlendShapesFace/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
 /**
 The `FaceMesh` class describes a face mesh.
 */
 declare interface FaceMesh extends SceneObjectBase {
-
-/**
-```
-(get) blendShapes: BlendShapesFace
-(set) (Not Available)
-```
-
-Returns the set of blendshapes that have been added to this face mesh.
-*/
-blendShapes: BlendShapesFace
 
 /**
 ```

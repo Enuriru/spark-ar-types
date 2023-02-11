@@ -25,7 +25,7 @@ forward: Vec3
 /**
 ```
 (get) matrix: Mat4
-(set) (Not Available)
+(set) matrix: Mat4
 ```
 */
 matrix: Mat4

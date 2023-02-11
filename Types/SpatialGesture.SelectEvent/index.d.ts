@@ -1,3 +1,4 @@
+/// <reference path="../CustomHandGestures.GestureState/index.d.ts" />
 /// <reference path="../Reactive.Point3D/index.d.ts" />
 
 declare interface SelectEvent {

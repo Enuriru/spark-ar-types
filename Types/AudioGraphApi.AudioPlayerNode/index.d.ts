@@ -76,19 +76,19 @@ play(): Promise<void>
 
 /**
 ```
-reset(): Promise<void>
+reset(): void
 ```
 
 */
-reset(): Promise<void>
+reset(): void
 
 /**
 ```
-setCurrentPosition(positionMs: number): Promise<void>
+setCurrentPosition(positionMs: number): void
 ```
 
 */
-setCurrentPosition(positionMs: number): Promise<void>
+setCurrentPosition(positionMs: number): void
 
 /**
 ```

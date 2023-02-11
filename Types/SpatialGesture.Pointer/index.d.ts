@@ -4,6 +4,14 @@ declare interface Pointer {
 
 /**
 ```
+(get) interactorPose: TransformSignal
+(set) (Not Available)
+```
+*/
+interactorPose: TransformSignal
+
+/**
+```
 (get) source: GestureSource
 (set) (Not Available)
 ```

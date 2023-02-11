@@ -4,6 +4,7 @@
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.HsvaSignal/index.d.ts" />
+/// <reference path="../Reactive.Point3D/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
@@ -47,6 +48,26 @@ angularVelocityDelta: PointSignal
 
 /**
 ```
+(get) angularVelocityDeltaValue: Point3D
+(set) angularVelocityDeltaValue: Point3D
+```
+
+Specifies the absolute delta value for the `angularVelocity` property. The angular velocity is randomized uniformly in the range `[angularVelocity - angularVelocityDelta; angularVelocity + angularVelocityDelta]` for each particle.
+*/
+angularVelocityDeltaValue: Point3D
+
+/**
+```
+(get) angularVelocityValue: Point3D
+(set) angularVelocityValue: Point3D
+```
+
+Specifies the mean angular velocity of each particle, in radians-per-second.
+*/
+angularVelocityValue: Point3D
+
+/**
+```
 (get) birthrate: ScalarSignal
 (set) birthrate: ScalarSignal
 ```
@@ -66,6 +87,28 @@ Whenever a particle is spawned, an "instantaneous birthrate" is chosen uniformly
 **Note**: The behavior is undefined for values outside the valid range.
 */
 birthrateDelta: ScalarSignal
+
+/**
+```
+(get) birthrateDeltaValue: number
+(set) birthrateDeltaValue: number
+```
+
+Specifies the percentage delta value, between 0.0 and 1.0, for the `birthrate` property.
+Whenever a particle is spawned, an "instantaneous birthrate" is chosen uniformly in the range `[birthrate * (1 - d); birthrate * (1 + d)]` and the next particle will be spawned in (1/instantaneous birthrate) seconds.
+**Note**: The behavior is undefined for values outside the valid range.
+*/
+birthrateDeltaValue: number
+
+/**
+```
+(get) birthrateValue: number
+(set) birthrateValue: number
+```
+
+Specifies the particle birthrate, in number of particles per second.
+*/
+birthrateValue: number
 
 /**
 ```
@@ -108,46 +151,6 @@ hsvaColorModulationModifier: ColorSampler
 
 /**
 ```
-(get) initialRotation: ScalarSignal
-(set) initialRotation: ScalarSignal
-```
-
-Specifies the mean rotation of each particle, in radians.
-*/
-initialRotation: ScalarSignal
-
-/**
-```
-(get) initialRotationDelta: ScalarSignal
-(set) initialRotationDelta: ScalarSignal
-```
-
-Specifies the absolute delta value for the `initialRotation` property. The initial rotation is randomized uniformly in the range `[initialRotation - initialRotationDelta; initialRotation + initialRotationDelta]` for each particle.
-*/
-initialRotationDelta: ScalarSignal
-
-/**
-```
-(get) initialVelocityAngle: ScalarSignal
-(set) initialVelocityAngle: ScalarSignal
-```
-
-Specifies the mean initial velocity angle of each particle, in radians.
-*/
-initialVelocityAngle: ScalarSignal
-
-/**
-```
-(get) initialVelocityAngleDelta: ScalarSignal
-(set) initialVelocityAngleDelta: ScalarSignal
-```
-
-Specifies the absolute delta value for the `initialVelocityAngle` property. The initial velocity angle is randomized uniformly in the range `[initialVelocityAngle - initialVelocityAngleDelta; initialVelocityAngle + initialVelocityAngleDelta]` for each particle.
-*/
-initialVelocityAngleDelta: ScalarSignal
-
-/**
-```
 (get) initialVelocityMagnitude: ScalarSignal
 (set) initialVelocityMagnitude: ScalarSignal
 ```
@@ -166,6 +169,27 @@ Specifies the percentage delta value, between 0.0 and 1.0, for the `initialVeloc
 **Note**: The behavior is undefined for values outside the valid range.
 */
 initialVelocityMagnitudePercentageDelta: ScalarSignal
+
+/**
+```
+(get) initialVelocityMagnitudePercentageDeltaValue: number
+(set) initialVelocityMagnitudePercentageDeltaValue: number
+```
+
+Specifies the percentage delta value, between 0.0 and 1.0, for the `initialVelocityMagnitude` property. The initial velocity magnitude is randomized uniformly in the range `[initialVelocityMagnitude * (1 - d); initialVelocityMagnitude * (1 + d)]` for each particle.
+**Note**: The behavior is undefined for values outside the valid range.
+*/
+initialVelocityMagnitudePercentageDeltaValue: number
+
+/**
+```
+(get) initialVelocityMagnitudeValue: number
+(set) initialVelocityMagnitudeValue: number
+```
+
+Specifies the mean initial velocity magnitude of each particle.
+*/
+initialVelocityMagnitudeValue: number
 
 /**
 ```
@@ -201,6 +225,27 @@ lifetimeSecondsPercentageDelta: ScalarSignal
 
 /**
 ```
+(get) lifetimeSecondsPercentageDeltaValue: number
+(set) lifetimeSecondsPercentageDeltaValue: number
+```
+
+Specifies the percentage delta value, between 0.0 and 1.0, for the `lifetimeSeconds` property. The lifetime is randomized uniformly in the range `[lifetimeSeconds * (1 - d); lifetimeSeconds * (1 + d)]` for each particle.
+**Note**: The behavior is undefined for values outside the valid range.
+*/
+lifetimeSecondsPercentageDeltaValue: number
+
+/**
+```
+(get) lifetimeSecondsValue: number
+(set) lifetimeSecondsValue: number
+```
+
+Specifies the mean lifetime of each particle, in seconds.
+*/
+lifetimeSecondsValue: number
+
+/**
+```
 (get) linearDamping: ScalarSignal
 (set) linearDamping: ScalarSignal
 ```
@@ -222,6 +267,27 @@ linearDampingPercentageDelta: ScalarSignal
 
 /**
 ```
+(get) linearDampingPercentageDeltaValue: number
+(set) linearDampingPercentageDeltaValue: number
+```
+
+Specifies the percentage delta value, between 0.0 and 1.0, for the `linearDamping` property. The linear dumping is randomized uniformly in the range `[linearDamping * (1 - d); linearDamping * (1 + d)]` for each particle.
+**Note**: The behavior is undefined for values outside the valid range.
+*/
+linearDampingPercentageDeltaValue: number
+
+/**
+```
+(get) linearDampingValue: number
+(set) linearDampingValue: number
+```
+
+Specifies the mean linear damping of each particle.
+*/
+linearDampingValue: number
+
+/**
+```
 (get) (Not Available)
 (set) material: MaterialBase | null
 ```
@@ -239,6 +305,16 @@ material: MaterialBase | null
 Specifies the optical flow sensitivity.
 */
 opticalFlowSensitivity: ScalarSignal
+
+/**
+```
+(get) opticalFlowSensitivityValue: number
+(set) opticalFlowSensitivityValue: number
+```
+
+Specifies the optical flow sensitivity.
+*/
+opticalFlowSensitivityValue: number
 
 /**
 ```
@@ -270,6 +346,26 @@ particleRotation: PointSignal
 Specifies the absolute delta value for the `particleRotation` property. The particle rotation is randomized uniformly in the range `[particleRotation - particleRotationDelta; particleRotation + particleRotationDelta]` for each particle.
 */
 particleRotationDelta: PointSignal
+
+/**
+```
+(get) particleRotationDeltaValue: Point3D
+(set) particleRotationDeltaValue: Point3D
+```
+
+Specifies the absolute delta value for the `particleRotation` property. The particle rotation is randomized uniformly in the range `[particleRotation - particleRotationDelta; particleRotation + particleRotationDelta]` for each particle.
+*/
+particleRotationDeltaValue: Point3D
+
+/**
+```
+(get) particleRotationValue: Point3D
+(set) particleRotationValue: Point3D
+```
+
+Specifies the mean rotation of each particle, in radians.
+*/
+particleRotationValue: Point3D
 
 /**
 ```
@@ -326,23 +422,24 @@ rotationalDampingPercentageDelta: ScalarSignal
 
 /**
 ```
-(get) rotationalVelocity: ScalarSignal
-(set) rotationalVelocity: ScalarSignal
+(get) rotationalDampingPercentageDeltaValue: number
+(set) rotationalDampingPercentageDeltaValue: number
 ```
 
-Specifies the mean rotational velocity of each particle, in radians-per-second.
+Specifies the percentage delta value, between 0.0 and 1.0, for the `rotationalDamping` property. The rotational dumping is randomized uniformly in the range `[rotationalDamping * (1 - d); rotationalDamping * (1 + d)]` for each particle.
+**Note**: The behavior is undefined for values outside the valid range.
 */
-rotationalVelocity: ScalarSignal
+rotationalDampingPercentageDeltaValue: number
 
 /**
 ```
-(get) rotationalVelocityDelta: ScalarSignal
-(set) rotationalVelocityDelta: ScalarSignal
+(get) rotationalDampingValue: number
+(set) rotationalDampingValue: number
 ```
 
-Specifies the absolute delta value for the `rotationalVelocity` property. The rotation velocity is randomized uniformly in the range `[rotationalVelocity - rotationalVelocityDelta; rotationalVelocity + rotationalVelocityDelta]` for each particle.
+Specifies the mean rotational damping of each particle.
 */
-rotationalVelocityDelta: ScalarSignal
+rotationalDampingValue: number
 
 /**
 ```
@@ -364,6 +461,27 @@ Specifies the percentage delta value, between 0.0 and 1.0, for the `scale` prope
 **Note**: The behavior is undefined for values outside the valid range.
 */
 scaleDelta: ScalarSignal
+
+/**
+```
+(get) scaleDeltaValue: number
+(set) scaleDeltaValue: number
+```
+
+Specifies the percentage delta value, between 0.0 and 1.0, for the `scale` property. The scale is randomized uniformly in the range `[scale * (1 - d); scale * (1 + d)]` for each particle.
+**Note**: The behavior is undefined for values outside the valid range.
+*/
+scaleDeltaValue: number
+
+/**
+```
+(get) scaleValue: number
+(set) scaleValue: number
+```
+
+Specifies the mean size of each particle, in 3d units.
+*/
+scaleValue: number
 
 /**
 ```
@@ -394,6 +512,26 @@ sprayAngle: PointSignal
 Specifies the absolute delta value for the `sprayAngle` property. The initial velocity angle is randomized uniformly in the range `[sprayAngle - sprayAngleDelta; sprayAngle + sprayAngleDelta]` for each particle.
 */
 sprayAngleDelta: PointSignal
+
+/**
+```
+(get) sprayAngleDeltaValue: Point3D
+(set) sprayAngleDeltaValue: Point3D
+```
+
+Specifies the absolute delta value for the `sprayAngle` property. The initial velocity angle is randomized uniformly in the range `[sprayAngle - sprayAngleDelta; sprayAngle + sprayAngleDelta]` for each particle.
+*/
+sprayAngleDeltaValue: Point3D
+
+/**
+```
+(get) sprayAngleValue: Point3D
+(set) sprayAngleValue: Point3D
+```
+
+Specifies the mean spray angle of the emitter, in radians.
+*/
+sprayAngleValue: Point3D
 
 /**
 ```

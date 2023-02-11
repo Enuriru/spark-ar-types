@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"introducedBy","version":1489134519},{"kind":"capability","capability":"scriptingWriteableSignalSource","orCapability":""}]
+[{"kind":"capability","capability":"scriptingWriteableSignalSource","orCapability":""}]
 */
 
 

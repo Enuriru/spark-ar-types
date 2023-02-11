@@ -2,12 +2,6 @@
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Textures.TextureBase/index.d.ts" />
 
-
-/**
-[{"kind":"introducedBy","version":3525458997}]
-*/
-
-
 /**
 The `PeerVideoStreamTexture` class represents an image texture passed in via external stream provider.
 */

@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"callLayout","orCapability":""},{"kind":"introducedBy","version":4135766224}]
+[{"kind":"capability","capability":"callLayout","orCapability":""}]
 */
 
 

@@ -7,22 +7,6 @@ declare interface UISceneObjectPrimitiveBase<T, TStyle> extends UIPrimitiveBase<
 
 /**
 ```
-(get) boundingBox: Box3D
-(set) boundingBox: Box3D
-```
-*/
-boundingBox: Box3D
-
-/**
-```
-(get) padding: BoxOffset<UIDimension>
-(set) padding: BoxOffset<UIDimension>
-```
-*/
-padding: BoxOffset<UIDimension>
-
-/**
-```
 (get) rotation: Rotation
 (set) rotation: Rotation
 ```
@@ -47,11 +31,11 @@ sceneObject: T
 
 /**
 ```
-(get) zIndex: number
-(set) zIndex: number
+(get) usableVolume: Box3D
+(set) usableVolume: Box3D
 ```
 */
-zIndex: number
+usableVolume: Box3D
 
 /**
 ```

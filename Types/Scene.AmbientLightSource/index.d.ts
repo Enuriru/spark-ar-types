@@ -1,5 +1,6 @@
 /// <reference path="../Reactive.ColorSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Reactive.Vec4/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
 /**
@@ -19,6 +20,16 @@ color: ColorSignal
 
 /**
 ```
+(get) colorRGBAValue: Vec4
+(set) colorRGBAValue: Vec4
+```
+
+Specifies the color (RGBA format) of this light source.
+*/
+colorRGBAValue: Vec4
+
+/**
+```
 (get) intensity: ScalarSignal
 (set) intensity: ScalarSignal
 ```
@@ -26,6 +37,16 @@ color: ColorSignal
 Specifies the intensity of this light source, usually between 0.0 and 1.0.
 */
 intensity: ScalarSignal
+
+/**
+```
+(get) intensityValue: number
+(set) intensityValue: number
+```
+
+Specifies the intensity of this light source, usually between 0.0 and 1.0.
+*/
+intensityValue: number
 
 }
 

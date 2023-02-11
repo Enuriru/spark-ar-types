@@ -2,21 +2,12 @@
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.Rotation/index.d.ts" />
 /// <reference path="../Reactive.Vec3/index.d.ts" />
-/// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 /// <reference path="../UI.UIElement/index.d.ts" />
 
 /**
 The base class for UIPrimitives
 */
 declare interface UIPrimitiveBase<TStyle> {
-
-/**
-```
-(get) boundingBox: Box3D
-(set) boundingBox: Box3D
-```
-*/
-boundingBox: Box3D
 
 /**
 ```
@@ -44,6 +35,14 @@ scale: Vec3
 
 /**
 ```
+(get) usableVolume: Box3D
+(set) usableVolume: Box3D
+```
+*/
+usableVolume: Box3D
+
+/**
+```
 applyStyle(style: TStyle): void
 ```
 
@@ -52,11 +51,11 @@ applyStyle(style: TStyle): void
 
 /**
 ```
-init(parentSceneObject: SceneObjectBase, style: Partial<TStyle>): void
+init(config: UIPrimitiveConfig<TStyle>): void
 ```
 
 */
-init(parentSceneObject: SceneObjectBase, style: Partial<TStyle>): void
+init(config: UIPrimitiveConfig<TStyle>): void
 
 /**
 ```

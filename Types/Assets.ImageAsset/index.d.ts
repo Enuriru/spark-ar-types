@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"capability","capability":"imageAssets","orCapability":""},{"kind":"introducedBy","version":3601282246},{"kind":"capability","capability":"scriptingDynamicInstantiation","orCapability":""}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"capability","capability":"imageAssets","orCapability":""},{"kind":"introducedBy","version":3601282246}]
 */
 
 

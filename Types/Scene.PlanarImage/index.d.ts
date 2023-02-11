@@ -1,10 +1,31 @@
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Scene.PlanarObject/index.d.ts" />
 
 /**
 The `PlanarImage` class describes an image rendered on a plane.
 */
 declare interface PlanarImage extends PlanarObject {
+
+/**
+```
+(get) depthBias: ScalarSignal
+(set) depthBias: ScalarSignal
+```
+
+Represents a depth bias that can be used for rendering.
+*/
+depthBias: ScalarSignal
+
+/**
+```
+(get) depthBiasValue: number
+(set) depthBiasValue: number
+```
+
+Represents a depth bias that can be used for rendering.
+*/
+depthBiasValue: number
 
 /**
 ```

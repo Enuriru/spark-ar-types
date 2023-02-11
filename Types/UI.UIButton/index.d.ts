@@ -1,5 +1,7 @@
+/// <reference path="../Reactive.Box3D/index.d.ts" />
+/// <reference path="../Reactive.EventSource/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
-/// <reference path="../UI.UIElement/index.d.ts" />
+/// <reference path="../Reactive.Subscription/index.d.ts" />
 
 
 /**
@@ -7,39 +9,23 @@
 */
 
 
-declare interface UIButton<TImageStyle, TTextStyle, TStyle> extends UIElement {
+declare interface UIButton<TStyle> extends UIElement<TStyle> {
 
 /**
 ```
-(get) image: UIPrimitive<TImageStyle>
-(set) image: UIPrimitive<TImageStyle>
+(get) image: UIPrimitive<TStyle>
+(set) image: UIPrimitive<TStyle>
 ```
 */
-image: UIPrimitive<TImageStyle>
+image: UIPrimitive<TStyle>
 
 /**
 ```
-(get) isHovered: boolean
-(set) (Not Available)
+(get) label: UITextPrimitive<TStyle>
+(set) label: UITextPrimitive<TStyle>
 ```
 */
-isHovered: boolean
-
-/**
-```
-(get) isPressed: boolean
-(set) (Not Available)
-```
-*/
-isPressed: boolean
-
-/**
-```
-(get) label: UITextPrimitive<TTextStyle>
-(set) label: UITextPrimitive<TTextStyle>
-```
-*/
-label: UITextPrimitive<TTextStyle>
+label: UITextPrimitive<TStyle>
 
 /**
 ```
@@ -63,19 +49,60 @@ textValue: string
 
 /**
 ```
-onLoad(): void
+applyStyle(style: Partial<TStyle>): void
 ```
 
 */
-onLoad(): void
+applyStyle(style: Partial<TStyle>): void
 
 /**
 ```
-updateLayout(): void
+bindFlagProperty(eventSource: EventSource, flagPropertyName: string): void
 ```
 
 */
-updateLayout(): void
+bindFlagProperty(eventSource: EventSource, flagPropertyName: string): void
+
+/**
+```
+isHovered(): boolean
+```
+
+*/
+isHovered(): boolean
+
+/**
+```
+isPressed(): boolean
+```
+
+*/
+isPressed(): boolean
+
+/**
+```
+onClick(callback: {}): Subscription
+```
+
+Registers a callback function to the onClick event of the button
+*/
+onClick(callback: {}): Subscription
+
+/**
+```
+onInit(): void
+```
+
+*/
+onInit(): void
+
+/**
+```
+onLayout(usableVolume: Box3D): void
+```
+
+*/
+onLayout(usableVolume: Box3D): void
 
 /**
 ```
@@ -84,13 +111,5 @@ updateState(): void
 
 */
 updateState(): void
-
-/**
-```
-updateStyle(): void
-```
-
-*/
-updateStyle(): void
 
 }

@@ -1,3 +1,5 @@
+/// <reference path="../Reactive.Box3D/index.d.ts" />
+/// <reference path="../Reactive.Vec3/index.d.ts" />
 
 /**
 The static utility class to help with the calculation of dimensions
@@ -6,29 +8,37 @@ declare interface UIDimensionUtils {
 
 /**
 ```
-boxOffsetToMeters(offset: BoxOffset<UIDimension>, usableWidth: number, usableHeight: number, usableDepth: number, stageWidth: number, stageHeight: number, stageDepth: number): DetailedBoxOffset<number>
+applyOffset(box: Box3D, offset: DetailedBoxOffset<number>): Box3D
 ```
 
-Converts the input BoxOffset in UIDimensions into meters
 */
-boxOffsetToMeters(offset: BoxOffset<UIDimension>, usableWidth: number, usableHeight: number, usableDepth: number, stageWidth: number, stageHeight: number, stageDepth: number): DetailedBoxOffset<number>
+applyOffset(box: Box3D, offset: DetailedBoxOffset<number>): Box3D
 
 /**
 ```
-cornerValue2DToMeters(cornerValue: CornerValue2D<UIDimension>, usableWidth: number, usableHeight: number, usableDepth: number, stageWidth: number, stageHeight: number, stageDepth: number): DetailedCornerValue2D<number>
+boxOffsetToStageUnits(offset: BoxOffset<UIDimension>, usableSize: Vec3, stageSize: Vec3, stageScale: Vec3): DetailedBoxOffset<number>
 ```
 
-Converts any CornerValue2D value into detailed per-corner values in meters
+Converts the input BoxOffset in UIDimensions into canvas pixels
 */
-cornerValue2DToMeters(cornerValue: CornerValue2D<UIDimension>, usableWidth: number, usableHeight: number, usableDepth: number, stageWidth: number, stageHeight: number, stageDepth: number): DetailedCornerValue2D<number>
+boxOffsetToStageUnits(offset: BoxOffset<UIDimension>, usableSize: Vec3, stageSize: Vec3, stageScale: Vec3): DetailedBoxOffset<number>
 
 /**
 ```
-toMeters(value: UIDimension, usableSize: number, stageWidth: number, stageHeight: number, stageDepth: number): number
+cornerValue2DToStageUnits(cornerValue: CornerValue2D<UIDimension>, usableSize: Vec3, stageSize: Vec3, stageScale: Vec3): DetailedCornerValue2D<number>
 ```
 
-Converts the input UIDimension into meters
+Converts any CornerValue2D value into detailed per-corner values in canvas pixels
 */
-toMeters(value: UIDimension, usableSize: number, stageWidth: number, stageHeight: number, stageDepth: number): number
+cornerValue2DToStageUnits(cornerValue: CornerValue2D<UIDimension>, usableSize: Vec3, stageSize: Vec3, stageScale: Vec3): DetailedCornerValue2D<number>
+
+/**
+```
+toStageUnits(value: UIDimension, usableSize: number, stageSize: Vec3, stageScale: number): number
+```
+
+Converts the input UIDimension into canvas pixels
+*/
+toStageUnits(value: UIDimension, usableSize: number, stageSize: Vec3, stageScale: number): number
 
 }

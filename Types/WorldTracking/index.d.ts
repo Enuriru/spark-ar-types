@@ -123,28 +123,12 @@ addPointTrackable(config: {trackable?: ARTrackable, worldPosition: Point3D}): Pr
 
 /**
 ```
-addReferencePoint(config: {trackable?: ARTrackable, worldPosition: Point3D}): Promise<ARPointTrackable>
-```
-
-*/
-addReferencePoint(config: {trackable?: ARTrackable, worldPosition: Point3D}): Promise<ARPointTrackable>
-
-/**
-```
 deletePointTrackable(referencePoint: ARPointTrackable): void
 ```
 
 Deletes a point trackable that was added using the `addPointTrackable()` method.
 */
 deletePointTrackable(referencePoint: ARPointTrackable): void
-
-/**
-```
-deleteReferencePoint(referencePoint: ARPointTrackable): void
-```
-
-*/
-deleteReferencePoint(referencePoint: ARPointTrackable): void
 
 /**
 ```

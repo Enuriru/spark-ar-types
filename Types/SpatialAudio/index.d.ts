@@ -1,4 +1,4 @@
-/// <reference path="../AudioGraphApi.AudioSpeakerNode/index.d.ts" />
+/// <reference path="../AudioGraphApi.AudioSpatialEmitterNode/index.d.ts" />
 
 
 /**
@@ -10,10 +10,18 @@ declare interface SpatialAudio extends Module {
 
 /**
 ```
-createEmitter(): Promise<AudioSpeakerNode>
+(get) DefaultRange: undefined
+(set) DefaultRange: undefined
+```
+*/
+DefaultRange: undefined
+
+/**
+```
+createEmitter(optionalParams?: {range?: number}): AudioSpatialEmitterNode
 ```
 
 */
-createEmitter(): Promise<AudioSpeakerNode>
+createEmitter(optionalParams?: {range?: number}): AudioSpatialEmitterNode
 
 }

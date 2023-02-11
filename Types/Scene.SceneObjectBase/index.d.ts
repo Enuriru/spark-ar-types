@@ -194,6 +194,9 @@ worldTransform: WorldTransform
 (get) worldTransformValue: WorldTransformSync
 (set) (Not Available)
 ```
+
+Specifies a `WorldTransformSync` object describing the object's transformation relative to world coordinate system.
+World transform in not yet supported for Canvas and ScreenPlane. Accessing this property from such objects or any of their children is not allowed.
 */
 worldTransformValue: WorldTransformSync
 

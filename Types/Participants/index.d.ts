@@ -5,7 +5,7 @@
 
 
 /**
-[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"introducedBy","version":2226057873},{"kind":"capability","capability":"participant","orCapability":""}]
+[{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]},{"kind":"capability","capability":"participant","orCapability":""}]
 */
 
 
@@ -17,7 +17,7 @@ When a new user joins the call a new `Participant` object is added to the array 
 Participants are not removed from the array if they leave while the call is still active. This allows individual participants to retain the same unique ID that can be referenced for the duration of the video call, even after a dropout. Similarly, `otherParticipantCount` is not decreased when a participant leaves. However, if the the video call ends then the participant array and count are both reset.
 
 
-Importing this module automatically enables the <b>Participants</b> capability within the project's <b>Properties</b>.
+Importing this module automatically enables the **Participants** capability within the project's **Properties**.
 */
 declare interface Participants extends Module {
 

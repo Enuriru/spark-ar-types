@@ -7,15 +7,6 @@ declare interface CodeBasedTheme extends StringIndexable {
 
 /**
 ```
-append(themes: undefined): Theme
-```
-
-This method takes an array of themes as parameter and returns a new calculated Theme by the cascading logic.
-*/
-append(themes: undefined): Theme
-
-/**
-```
 getStyle(elementType: string, styleClasses: undefined): object
 ```
 

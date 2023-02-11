@@ -5,6 +5,7 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Reactive.TransformSignal/index.d.ts" />
+/// <reference path="../Reactive.Vec4/index.d.ts" />
 
 declare interface ModelRef {
 
@@ -114,6 +115,14 @@ getChildrenSync(): Array<ModelRef>
 
 /**
 ```
+getColorRGBASync(prop: string): Vec4 | null
+```
+
+*/
+getColorRGBASync(prop: string): Vec4 | null
+
+/**
+```
 getDimenSignal(prop: string): ScalarSignal
 ```
 
@@ -215,6 +224,14 @@ setColorProp(prop: string, v: ColorSignal): void
 
 */
 setColorProp(prop: string, v: ColorSignal): void
+
+/**
+```
+setColorRGBAProp(prop: string, v: Vec4): void
+```
+
+*/
+setColorRGBAProp(prop: string, v: Vec4): void
 
 /**
 ```

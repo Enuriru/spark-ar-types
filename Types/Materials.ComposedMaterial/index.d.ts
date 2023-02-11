@@ -1,5 +1,8 @@
+/// <reference path="../Assets.ShaderCode/index.d.ts" />
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Reactive.ISignal/index.d.ts" />
+/// <reference path="../Scene.Transform/index.d.ts" />
+/// <reference path="../Scene.WorldTransform/index.d.ts" />
 
 /**
 The `ComposedMaterial` class encapsulates patch asset materials.
@@ -8,20 +11,20 @@ declare interface ComposedMaterial extends MaterialBase {
 
 /**
 ```
-setParameter(parameterName: string, signal: ISignal): void
+setParameter(parameterName: string, signal: ISignal | Transform | WorldTransform): void
 ```
 
 Assigns a signal to the specified patch asset parameter.
 */
-setParameter(parameterName: string, signal: ISignal): void
+setParameter(parameterName: string, signal: ISignal | Transform | WorldTransform): void
 
 /**
 ```
-setShaderCode(shaderCodeAsset: string, interfaceName?: string): void
+setShaderCode(shaderCodeAsset: ShaderCode, interfaceName?: string): void
 ```
 
 */
-setShaderCode(shaderCodeAsset: string, interfaceName?: string): void
+setShaderCode(shaderCodeAsset: ShaderCode, interfaceName?: string): void
 
 }
 

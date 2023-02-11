@@ -231,4 +231,12 @@ setTPose(pose: TPose): Promise<void>
 */
 setTPose(pose: TPose): Promise<void>
 
+/**
+```
+useDefaultTrackerMapping(detectorObjectId: number, trackerType: RuntimeRigMapperTrackerType): Promise<void>
+```
+
+*/
+useDefaultTrackerMapping(detectorObjectId: number, trackerType: RuntimeRigMapperTrackerType): Promise<void>
+
 }

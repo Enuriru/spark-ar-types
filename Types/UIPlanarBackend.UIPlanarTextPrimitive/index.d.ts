@@ -1,6 +1,5 @@
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Scene.PlanarText/index.d.ts" />
-/// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 
 /**
 The PlanarText based text primitive
@@ -41,10 +40,10 @@ applyStyle(style: Partial<Readonly<UIPlanarTextPrimitiveStyle>>): void
 
 /**
 ```
-init(parentSceneObject: SceneObjectBase, style: UIPlanarTextPrimitiveStyle): void
+init(config: UIPrimitiveConfig<UIPlanarTextPrimitiveStyle>): void
 ```
 
 */
-init(parentSceneObject: SceneObjectBase, style: UIPlanarTextPrimitiveStyle): void
+init(config: UIPrimitiveConfig<UIPlanarTextPrimitiveStyle>): void
 
 }

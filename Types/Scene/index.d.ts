@@ -1,6 +1,7 @@
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.Vec2Signal/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
+/// <reference path="../Scene.WorldTransformSync/index.d.ts" />
 
 
 /**
@@ -32,6 +33,17 @@ hiddenValue: boolean
 Returns an object that is the root of the scene tree. Other objects are accessed by walking down the scene tree from the root using the `SceneObjectBase.child` and `SceneObjectBase.find` methods.
 */
 root: Scene
+
+/**
+```
+(get) worldTransformValue: WorldTransformSync
+(set) (Not Available)
+```
+
+Specifies a `WorldTransformSync` object describing the scene roots transformation relative to world coordinate system.
+This property is available only within the context of a block.
+*/
+worldTransformValue: WorldTransformSync
 
 /**
 ```

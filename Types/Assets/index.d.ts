@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"textAssets","orCapability":"imageAssets"},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
+[{"kind":"capability","capability":"textAssets","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 
@@ -30,21 +30,43 @@ AssetType: {[key: string]: string}
 
 /**
 ```
-findFirst(name: string): Promise<AssetBase | null>
+findFirst(name: string, assetType: string): Promise<AssetBase | null>
 ```
 
-Finds the first asset of any type that matches a given name pattern.
+Finds the first asset of any type that matches a given name pattern.  The optional
+assetType parameter can be used to scope the search to a specific asset type as returned
+by the assetType property.
 */
-findFirst(name: string): Promise<AssetBase | null>
+findFirst(name: string, assetType: string): Promise<AssetBase | null>
 
 /**
 ```
-findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<AssetBase>>
+findFirstSync(name: string, assetType: string): AssetBase | null
+```
+
+Finds the first asset of any type that matches a given name pattern.  The optional
+assetType parameter can be used to scope the search to a specific asset type as returned
+by the assetType property.
+*/
+findFirstSync(name: string, assetType: string): AssetBase | null
+
+/**
+```
+findUsingPattern(namePattern: string, config?: {assetType: string, limit: number}): Promise<Array<AssetBase>>
 ```
 
 Find assets of any type with names that match a given pattern.
 */
-findUsingPattern(namePattern: string, config?: {limit: number}): Promise<Array<AssetBase>>
+findUsingPattern(namePattern: string, config?: {assetType: string, limit: number}): Promise<Array<AssetBase>>
+
+/**
+```
+findUsingPatternSync(namePattern: string, config?: {assetType: string, limit: number}): Array<AssetBase>
+```
+
+Find assets of any type with names that match a given pattern.
+*/
+findUsingPatternSync(namePattern: string, config?: {assetType: string, limit: number}): Array<AssetBase>
 
 /**
 ```
@@ -54,5 +76,14 @@ getAll(): Promise<Array<AssetBase>>
 Get all assets of any type that are bundled in this effect.
 */
 getAll(): Promise<Array<AssetBase>>
+
+/**
+```
+getAllSync(): Array<AssetBase>
+```
+
+Get all assets of any type that are bundled in this effect.
+*/
+getAllSync(): Array<AssetBase>
 
 }

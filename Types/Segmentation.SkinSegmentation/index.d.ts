@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"skinSegmentation","orCapability":"multiclassSegmentation"}]
+[{"kind":"capability","capability":"skinSegmentation","orCapability":""}]
 */
 
 

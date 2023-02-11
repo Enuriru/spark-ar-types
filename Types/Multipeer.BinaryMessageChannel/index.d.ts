@@ -1,11 +1,5 @@
 /// <reference path="../Reactive.EventSource/index.d.ts" />
 
-
-/**
-[{"kind":"introducedBy","version":849960096}]
-*/
-
-
 declare interface BinaryMessageChannel {
 
 /**

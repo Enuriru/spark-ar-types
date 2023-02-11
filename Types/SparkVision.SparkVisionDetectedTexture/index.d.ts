@@ -1,4 +1,5 @@
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
+/// <reference path="../Reactive.Box2DSignal/index.d.ts" />
 /// <reference path="../Reactive.RgbaSignal/index.d.ts" />
 /// <reference path="../Textures.OpenMLTexture/index.d.ts" />
 
@@ -33,7 +34,7 @@ detector.textures.onDetected(texture => {
 			texture.setOutput(tex1);
 		} else if (texture.name == gloves) {
 			texture.setOutput(tex4);
-}
+   }
 	}
 	else if (texture.instanceId == 1) { // second person
 		if (texture.name == hat) {
@@ -63,6 +64,16 @@ active: BoolSignal
 The average rgba value of the detected texture.
 */
 averageColor: RgbaSignal
+
+/**
+```
+(get) boundingBox: Box2DSignal
+(set) (Not Available)
+```
+
+The bounding box of the detected texture.
+*/
+boundingBox: Box2DSignal
 
 /**
 ```

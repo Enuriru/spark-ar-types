@@ -1,11 +1,5 @@
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 
-
-/**
-[{"kind":"introducedBy","version":4200001050}]
-*/
-
-
 /**
 The `Box3DSignal` class describes the bounds in 3D space.
 */

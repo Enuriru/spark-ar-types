@@ -2,6 +2,7 @@
 /// <reference path="../Reactive.Box3DSignal/index.d.ts" />
 /// <reference path="../Scene.CameraVisibility/index.d.ts" />
 /// <reference path="../Scene.OutputVisibility/index.d.ts" />
+/// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Scene.Transform/index.d.ts" />
 /// <reference path="../Reactive.TransformSignal/index.d.ts" />
 /// <reference path="../Scene.WorldTransform/index.d.ts" />
@@ -83,6 +84,18 @@ outputVisibility: OutputVisibility;
 Specifies a `TransformSignal` object describing the parent's transformation relative to world coordinate system.
 */
 parentWorldTransform: TransformSignal;
+/**
+* ```
+(get) renderingOrder: ScalarSignal
+(set) renderingOrder: ScalarSignal
+```
+
+Represents an explicit render order that only applies when layers are not used.
+This is usually the case when scene object are dynamically instantiated.
+Note that the incoming scalar signal will get truncated, ie. an 1.6 will become
+an render ordering of 1.
+*/
+renderingOrder: ScalarSignal;
 /**
 * ```
 (get) transform: Transform

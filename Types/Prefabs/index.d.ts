@@ -3,7 +3,7 @@
 
 
 /**
-[{"kind":"capability","capability":"externalMeshes","orCapability":"objectCapture"},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
+[{"kind":"capability","capability":"externalMeshes","orCapability":""},{"kind":"availableIn","availableIn":["DocumentType.Effect","DocumentType.SubEffect"]}]
 */
 
 

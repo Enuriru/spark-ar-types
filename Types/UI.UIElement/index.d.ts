@@ -3,6 +3,7 @@
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
 /// <reference path="../Reactive.StringSignal/index.d.ts" />
 /// <reference path="../Scene.PlanarObject/index.d.ts" />
+/// <reference path="../Scene.SceneObjectBase/index.d.ts" />
 /// <reference path="../UI.UIRoot/index.d.ts" />
 
 
@@ -15,6 +16,14 @@
 The base UIElement class
 */
 declare interface UIElement<TStyle> extends PlanarObject {
+
+/**
+```
+(get) _zIndexValue: number
+(set) _zIndexValue: number
+```
+*/
+_zIndexValue: number
 
 /**
 ```
@@ -67,6 +76,14 @@ This property guarantees to return the parent UIElement even if the direct paren
 This property will recursively look for the parent of parents to find a UIElement.
 */
 parentElement: UIElement | null
+
+/**
+```
+(get) selfSubscriptions: undefined
+(set) selfSubscriptions: undefined
+```
+*/
+selfSubscriptions: undefined
 
 /**
 ```
@@ -171,19 +188,34 @@ yValue: number
 
 /**
 ```
-_initialize(): void
+(get) zIndexValue: number
+(set) zIndexValue: number
 ```
 
+The z-index value of the UIElement. This value is an integer ranging between interval [-1000, 1000].
+Any value out of that interval will be clamped.The decimal values will automatically be rounded to the closest integer value.
+If z-index is not explicitly set for an element, it effectively means "inherit the value from the parent".
+The default z-index value of UIRoot is 0.
 */
-_initialize(): void
+zIndexValue: number
 
 /**
 ```
-_onAddedToScene(): void
+applyCurrentStyle(recursive: boolean): void
 ```
 
+Applies type calculated currentStyle to the UIElement
 */
-_onAddedToScene(): void
+applyCurrentStyle(recursive: boolean): void
+
+/**
+```
+applyStyle(style: Partial<TStyle>): void
+```
+
+This method applies the given style
+*/
+applyStyle(style: Partial<TStyle>): void
 
 /**
 ```
@@ -193,6 +225,53 @@ createChild<T>(elementClass: IUIElementConstructor<T> | string, config?: undefin
 Creates a new instance of the UI element with the given config and adds it as a child to this instance
 */
 createChild
+
+/**
+```
+executeForAllChildUIElements(func: {}, includeSelf: boolean): void
+```
+
+Calls the given function for each deep children that's of type UIElement.
+The traversal is breadth first.
+*/
+executeForAllChildUIElements(func: {}, includeSelf: boolean): void
+
+/**
+```
+forceUpdateLayout(recursive: boolean): void
+```
+
+Forces a recalculation of the layout for this element
+*/
+forceUpdateLayout(recursive: boolean): void
+
+/**
+```
+forceUpdateStyle(recursive: boolean): void
+```
+
+Forces a recalculation of style for this UIElement and applies the style
+*/
+forceUpdateStyle(recursive: boolean): void
+
+/**
+```
+getContentRoot(): SceneObjectBase
+```
+
+The SceneObject that's used as the root of this element for child creation.
+The content root is the UIElement itself, by default. But users are free to provide a custom contentRoot.
+*/
+getContentRoot(): SceneObjectBase
+
+/**
+```
+onDestroy(): void
+```
+
+This callback is called before the UIElement is destroyed
+*/
+onDestroy(): void
 
 /**
 ```
@@ -207,39 +286,30 @@ onInit(): void
 
 /**
 ```
-onLoad(): void
+onLayout(usableVolume: Box3D): void
 ```
 
-This callback is called when the UIElement is added into the scene as a child of a UIElement.
+This callback is called when the UIElement requires recalulation of its layout.
 */
-onLoad(): void
+onLayout(usableVolume: Box3D): void
 
 /**
 ```
-recalculateStyle(): void
+onParentChanged(): void
+```
+
+This callback is called when the UIElement's parent is changed.
+*/
+onParentChanged(): void
+
+/**
+```
+recalculateStyle(recursive: boolean): void
 ```
 
 Recalculates the style for the UIElement.
 The style is calculated in a css-like cascading fashion.
 */
-recalculateStyle(): void
-
-/**
-```
-updateLayout(): void
-```
-
-This callback is called when the UIElement requires recalulation of its layout.
-*/
-updateLayout(): void
-
-/**
-```
-updateStyle(): void
-```
-
-This callback is called when UIElement requires update of its style parameters.
-*/
-updateStyle(): void
+recalculateStyle(recursive: boolean): void
 
 }
