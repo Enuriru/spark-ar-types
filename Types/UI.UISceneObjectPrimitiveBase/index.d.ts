@@ -47,6 +47,14 @@ onHover(): EventSource<UIHoverEvent>
 
 /**
 ```
+onMove(): EventSource<UIMoveEvent>
+```
+
+*/
+onMove(): EventSource<UIMoveEvent>
+
+/**
+```
 onPress(): EventSource<UIPressEvent>
 ```
 

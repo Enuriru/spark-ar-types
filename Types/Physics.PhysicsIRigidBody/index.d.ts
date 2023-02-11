@@ -1,4 +1,5 @@
 /// <reference path="../Physics.PhysicsBody/index.d.ts" />
+/// <reference path="../Physics.PhysicsITransform/index.d.ts" />
 /// <reference path="../Reactive.Vec3/index.d.ts" />
 
 
@@ -81,6 +82,15 @@ clearForces(): Promise<void>
 
 /**
 ```
+inertialTransform(): PhysicsITransform
+```
+
+The transform representing center of mass of rigid body (intertial reference frame)
+*/
+inertialTransform(): PhysicsITransform
+
+/**
+```
 linearVelocity(space?: PhysicsSpace): Promise<Vec3>
 ```
 
@@ -126,5 +136,14 @@ Represents the sum of all continuous torques that will be applied to this
  constraint resolution/collision.
 */
 totalTorque(space?: PhysicsSpace): Promise<Vec3>
+
+/**
+```
+transform(): PhysicsITransform
+```
+
+The render transform of the rigid body
+*/
+transform(): PhysicsITransform
 
 }

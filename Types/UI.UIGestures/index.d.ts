@@ -14,6 +14,15 @@ onHover(sceneObject: SceneObjectBase): EventSource<UIHoverEvent>
 
 /**
 ```
+onMove(sceneObject: SceneObjectBase): EventSource<UIMoveEvent>
+```
+
+Move UI event for the SceneObject
+*/
+onMove(sceneObject: SceneObjectBase): EventSource<UIMoveEvent>
+
+/**
+```
 onPress(sceneObject: SceneObjectBase): EventSource<UIPressEvent>
 ```
 

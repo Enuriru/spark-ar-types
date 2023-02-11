@@ -4,9 +4,10 @@
 /// <reference path="../Materials.MaterialBase/index.d.ts" />
 /// <reference path="../Reactive.BoolSignal/index.d.ts" />
 /// <reference path="../Reactive.HsvaSignal/index.d.ts" />
-/// <reference path="../Reactive.Point3D/index.d.ts" />
 /// <reference path="../Reactive.PointSignal/index.d.ts" />
 /// <reference path="../Reactive.ScalarSignal/index.d.ts" />
+/// <reference path="../Reactive.Vec3/index.d.ts" />
+/// <reference path="../Reactive.Vec4/index.d.ts" />
 /// <reference path="../Reactive.VectorSignal/index.d.ts" />
 /// <reference path="../Scene.ParticleTypeDescription/index.d.ts" />
 /// <reference path="../Scene.SceneObjectBase/index.d.ts" />
@@ -25,6 +26,16 @@ declare interface ParticleSystem extends SceneObjectBase {
 Specifies the acceleration vector for particles of this emitter.
 */
 acceleration: VectorSignal
+
+/**
+```
+(get) accelerationValue: Vec3
+(set) accelerationValue: Vec3
+```
+
+Specifies the acceleration vector for particles of this emitter.
+*/
+accelerationValue: Vec3
 
 /**
 ```
@@ -48,23 +59,23 @@ angularVelocityDelta: PointSignal
 
 /**
 ```
-(get) angularVelocityDeltaValue: Point3D
-(set) angularVelocityDeltaValue: Point3D
+(get) angularVelocityDeltaValue: Vec3
+(set) angularVelocityDeltaValue: Vec3
 ```
 
 Specifies the absolute delta value for the `angularVelocity` property. The angular velocity is randomized uniformly in the range `[angularVelocity - angularVelocityDelta; angularVelocity + angularVelocityDelta]` for each particle.
 */
-angularVelocityDeltaValue: Point3D
+angularVelocityDeltaValue: Vec3
 
 /**
 ```
-(get) angularVelocityValue: Point3D
-(set) angularVelocityValue: Point3D
+(get) angularVelocityValue: Vec3
+(set) angularVelocityValue: Vec3
 ```
 
 Specifies the mean angular velocity of each particle, in radians-per-second.
 */
-angularVelocityValue: Point3D
+angularVelocityValue: Vec3
 
 /**
 ```
@@ -140,6 +151,34 @@ colorModulationHSVADelta: HsvaSignal
 
 /**
 ```
+(get) colorModulationHSVADeltaValue: Vec4
+(set) colorModulationHSVADeltaValue: Vec4
+```
+
+Specifies the absolute delta value for the `colorModulationHSVA` property. The modulation color will be randomized uniformly in the axis-aligned bounding box in the HSVA space with corners `colorModulationHSVA - d` and `colorModulationHSVA + d` for each particle.
+**Note**: `colorModulationHSVA` can only be a HSVA color, it cannot be specified in other color space like RGBA.
+
+**Note**: if the hue component of the randomized modulation color is outside of the [0, 1] interval, it is taken modulo 1.0. If any of the saturation, value or alpha components is outside of the [0, 1] interval, its value is clamped.
+
+**Note**: the modulation itself happens in RGBA space. Each of the RGBA components specified by the modulation is multiplied to the corresponding component specified by the particle material.
+*/
+colorModulationHSVADeltaValue: Vec4
+
+/**
+```
+(get) colorModulationHSVAValue: Vec4
+(set) colorModulationHSVAValue: Vec4
+```
+
+Specifies the mean color for modulating the particle material.
+**Note**: `colorModulationHSVAValue` can only be an instance of `Vec4` in HSVA color space, it cannot be specified in other color space like RGBA.
+
+**Note**: the modulation itself happens in RGBA space. Each of the RGBA components specified by the modulation is multiplied to the corresponding component specified by the particle material.
+*/
+colorModulationHSVAValue: Vec4
+
+/**
+```
 (get) (Not Available)
 (set) hsvaColorModulationModifier: ColorSampler
 ```
@@ -201,6 +240,17 @@ Specifies the radius of the inner circle when using the ring emitter for the par
 **Note**: `outerRadius` must be greater-than or equal to `innerRadius`.
 */
 innerRadius: ScalarSignal
+
+/**
+```
+(get) innerRadiusValue: number
+(set) innerRadiusValue: number
+```
+
+Specifies the radius of the inner circle when using the ring emitter for the particle system. The particles spawn between `innerRadius` and `outerRadius`.
+**Note**: `outerRadius` must be greater-than or equal to `innerRadius`.
+*/
+innerRadiusValue: number
 
 /**
 ```
@@ -329,6 +379,17 @@ outerRadius: ScalarSignal
 
 /**
 ```
+(get) outerRadiusValue: number
+(set) outerRadiusValue: number
+```
+
+Specifies the radius of the outer circle when using the ring emitter for the particle system. The particles spawn between `innerRadius` and `outerRadius`.
+**Note**: `outerRadius` must be greater-than or equal to `innerRadius`.
+*/
+outerRadiusValue: number
+
+/**
+```
 (get) particleRotation: PointSignal
 (set) particleRotation: PointSignal
 ```
@@ -349,23 +410,23 @@ particleRotationDelta: PointSignal
 
 /**
 ```
-(get) particleRotationDeltaValue: Point3D
-(set) particleRotationDeltaValue: Point3D
+(get) particleRotationDeltaValue: Vec3
+(set) particleRotationDeltaValue: Vec3
 ```
 
 Specifies the absolute delta value for the `particleRotation` property. The particle rotation is randomized uniformly in the range `[particleRotation - particleRotationDelta; particleRotation + particleRotationDelta]` for each particle.
 */
-particleRotationDeltaValue: Point3D
+particleRotationDeltaValue: Vec3
 
 /**
 ```
-(get) particleRotationValue: Point3D
-(set) particleRotationValue: Point3D
+(get) particleRotationValue: Vec3
+(set) particleRotationValue: Vec3
 ```
 
 Specifies the mean rotation of each particle, in radians.
 */
-particleRotationValue: Point3D
+particleRotationValue: Vec3
 
 /**
 ```
@@ -390,6 +451,17 @@ positionDelta: VectorSignal
 
 /**
 ```
+(get) positionDeltaValue: Vec3
+(set) positionDeltaValue: Vec3
+```
+
+Specifies the absolute delta value for the `position` property. The position is randomized uniformly in the axis-aligned bounding box with corners `position - d` and `position + d` for each particle.
+**Note**: all the coordinates must be non-negative. For negative values, the absolute value is used.
+*/
+positionDeltaValue: Vec3
+
+/**
+```
 (get) (Not Available)
 (set) positionModifier: ArrayOfScalarSamplers
 ```
@@ -398,6 +470,16 @@ Specifies the modifier that will be added to the particle position according to 
 **Note**: the specified array of samplers must contain exactly 3 elements, interpreted as X,Y,Z values.
 */
 positionModifier: ArrayOfScalarSamplers
+
+/**
+```
+(get) positionValue: Vec3
+(set) positionValue: Vec3
+```
+
+Specifies the mean spawn position of each particle.
+*/
+positionValue: Vec3
 
 /**
 ```
@@ -515,23 +597,23 @@ sprayAngleDelta: PointSignal
 
 /**
 ```
-(get) sprayAngleDeltaValue: Point3D
-(set) sprayAngleDeltaValue: Point3D
+(get) sprayAngleDeltaValue: Vec3
+(set) sprayAngleDeltaValue: Vec3
 ```
 
 Specifies the absolute delta value for the `sprayAngle` property. The initial velocity angle is randomized uniformly in the range `[sprayAngle - sprayAngleDelta; sprayAngle + sprayAngleDelta]` for each particle.
 */
-sprayAngleDeltaValue: Point3D
+sprayAngleDeltaValue: Vec3
 
 /**
 ```
-(get) sprayAngleValue: Point3D
-(set) sprayAngleValue: Point3D
+(get) sprayAngleValue: Vec3
+(set) sprayAngleValue: Vec3
 ```
 
 Specifies the mean spray angle of the emitter, in radians.
 */
-sprayAngleValue: Point3D
+sprayAngleValue: Vec3
 
 /**
 ```
@@ -556,6 +638,16 @@ worldSpace: BoolSignal
 
 /**
 ```
+(get) worldSpaceValue: boolean
+(set) worldSpaceValue: boolean
+```
+
+Specifies whether the particles will move with the emitter or will have their own position after being emitted.
+*/
+worldSpaceValue: boolean
+
+/**
+```
 getMaterial(): Promise<MaterialBase | null>
 ```
 
@@ -571,6 +663,15 @@ getTypes(): Promise<Array<ParticleTypeDescription>>
 Retrieves the array of ParticleTypeDescription objects.
 */
 getTypes(): Promise<Array<ParticleTypeDescription>>
+
+/**
+```
+getTypesSync(): Array<ParticleTypeDescription>
+```
+
+Retrieves the array of ParticleTypeDescription objects.
+*/
+getTypesSync(): Array<ParticleTypeDescription>
 
 }
 

@@ -25,11 +25,19 @@ declare interface Avatar extends SceneObjectBase {
 
 /**
 ```
-getMaterial(matName: string): string
+getJointTransform(jointType: JointType): TransformSignal
 ```
 
 */
-getMaterial(matName: string): string
+getJointTransform(jointType: JointType): TransformSignal
+
+/**
+```
+getMaterial(matName: string): Promise<MaterialBase>
+```
+
+*/
+getMaterial(matName: string): Promise<MaterialBase>
 
 /**
 ```

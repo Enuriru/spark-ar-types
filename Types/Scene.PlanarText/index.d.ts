@@ -112,6 +112,16 @@ text: StringSignal
 
 /**
 ```
+(get) textValue: string
+(set) textValue: string
+```
+
+Specifies the text displayed.
+*/
+textValue: string
+
+/**
+```
 (get) (Not Available)
 (set) tracking: number
 ```

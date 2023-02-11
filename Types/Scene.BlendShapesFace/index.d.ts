@@ -2,7 +2,7 @@
 
 
 /**
-[{"kind":"capability","capability":"experimentalFaceDistortionApi","orCapability":""}]
+[{"kind":"capability","capability":"experimentalFaceDistortionApi","orCapability":""},{"kind":"deprecatedBy","version":3118246501},{"kind":"removedBy","version":1008970167}]
 */
 
 

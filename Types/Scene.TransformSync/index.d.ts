@@ -54,7 +54,7 @@ right: Vec3
 (set) rotation: Rotation
 ```
 
-Specifies the object rotation along the X, Y and Z axis of the object's local coordinate system.
+Specifies the object rotation as a unit quaternion.
 */
 rotation: Rotation
 

@@ -171,29 +171,6 @@ import float safeAtan(float y, float x);
 import vec3 normFragNorm(vec3 v);
 
 //
-import struct Texture2d {
-  function<vec4(vec2)> sample;
-  vec2 size;
-  function<vec4(vec2,float)> sampleLod;
-};
-
-//
-import struct TextureDepth2dCompare {
-  function<float(vec2,float)> sampleDref;
-};
-
-//
-import struct TextureEnv {
-  function<vec4(vec3)> sample;
-  function<vec4(vec3,float)> sampleNormalizedLod;
-};
-
-//
-import struct TextureShadowMap {
-  function<float(vec4)> sample;
-};
-
-//
 // ApiAttributes
 import vec4 getVertexBasePosition();
 import vec4 getVertexPosition();
@@ -224,4 +201,27 @@ import struct Texture2d {
   function<vec4(vec2)> sample;
   vec2 size;
   function<vec4(vec2, float)> sampleLod;
+};
+
+//
+import struct Texture2d {
+  function<vec4(vec2)> sample;
+  vec2 size;
+  function<vec4(vec2,float)> sampleLod;
+};
+
+//
+import struct TextureDepth2dCompare {
+  function<float(vec2,float)> sampleDref;
+};
+
+//
+import struct TextureEnv {
+  function<vec4(vec3)> sample;
+  function<vec4(vec3,float)> sampleNormalizedLod;
+};
+
+//
+import struct TextureShadowMap {
+  function<float(vec4)> sample;
 };

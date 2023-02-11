@@ -147,6 +147,14 @@ getHsvaVecSignal(prop: string): HsvaSignal
 
 /**
 ```
+getHsvaVecSync(prop: string): Vec4 | null
+```
+
+*/
+getHsvaVecSync(prop: string): Vec4 | null
+
+/**
+```
 getScalar(prop: string): Promise<number>
 ```
 
@@ -252,11 +260,11 @@ setDimenPropModernUnit(prop: string, v: ScalarSignal | number): void
 
 /**
 ```
-setHsvaVecProp(prop: string, v: HsvaSignal): void
+setHsvaVecProp(prop: string, v: HsvaSignal | Vec4): void
 ```
 
 */
-setHsvaVecProp(prop: string, v: HsvaSignal): void
+setHsvaVecProp(prop: string, v: HsvaSignal | Vec4): void
 
 /**
 ```

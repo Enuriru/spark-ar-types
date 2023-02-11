@@ -20,6 +20,16 @@ childAlign: StringSignal<SceneModule.StackAlign>
 
 /**
 ```
+(get) childAlignValue: SceneModule.StackAlign
+(set) childAlignValue: SceneModule.StackAlign
+```
+
+Specifies the alignment of the stack children
+*/
+childAlignValue: SceneModule.StackAlign
+
+/**
+```
 (get) childDistribute: StringSignal<SceneModule.StackDistribute>
 (set) childDistribute: StringSignal<SceneModule.StackDistribute>
 ```
@@ -27,6 +37,16 @@ childAlign: StringSignal<SceneModule.StackAlign>
 Specifies the distribution of the stack children
 */
 childDistribute: StringSignal<SceneModule.StackDistribute>
+
+/**
+```
+(get) childDistributeValue: SceneModule.StackDistribute
+(set) childDistributeValue: SceneModule.StackDistribute
+```
+
+Specifies the distribution of the stack children
+*/
+childDistributeValue: SceneModule.StackDistribute
 
 /**
 ```
@@ -79,12 +99,30 @@ getMaterial(): Promise<MaterialBase | null>
 
 /**
 ```
+getMaterialSync(): MaterialBase
+```
+
+Returns the material associated with a given scene object, throws if no material was assigned.
+*/
+getMaterialSync(): MaterialBase
+
+/**
+```
 setMaterial(m: MaterialBase): Promise<null>
 ```
 
 Returns a promise that is resolved when given material is associated with a given scene object.
 */
 setMaterial(m: MaterialBase): Promise<null>
+
+/**
+```
+setMaterialSync(m: MaterialBase): void
+```
+
+Associate a given material with a given scene object.
+*/
+setMaterialSync(m: MaterialBase): void
 
 }
 

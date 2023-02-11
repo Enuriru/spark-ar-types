@@ -1,6 +1,7 @@
 /// <reference path="../Controllers.Axis/index.d.ts" />
 /// <reference path="../Controllers.Button/index.d.ts" />
 /// <reference path="../Controllers.Pose/index.d.ts" />
+/// <reference path="../Reactive.Mat4/index.d.ts" />
 
 
 /**
@@ -40,5 +41,13 @@ getPose(name: string): Promise<Pose>
 
 */
 getPose(name: string): Promise<Pose>
+
+/**
+```
+getPoseValue(name: string): Mat4
+```
+
+*/
+getPoseValue(name: string): Mat4
 
 }
